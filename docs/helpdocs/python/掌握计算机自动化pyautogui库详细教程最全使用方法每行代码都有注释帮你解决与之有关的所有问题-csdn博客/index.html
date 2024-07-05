@@ -1,0 +1,1075 @@
+<!doctype html>
+<html class="position-relative" itemscope itemtype="https://schema.org/WebPage" lang="en"
+  data-bs-theme="auto" data-palette="blue-gray">
+  <head><script src="/assets/init/bundle.min.1610e02413f48727a0d0040032941c7f011dd891d544c81dc65bb2249e92a429.js" integrity="sha256-FhDgJBP0hyeg0AQAMpQcfwEd2JHVRMgdxluyJJ6SpCk=" crossorigin="anonymous"></script>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>掌握计算机自动化：PyAutoGUI库详细教程（最全使用方法，每行代码都有注释，帮你解决与之有关的所有问题）-CSDN博客 - Falling_Studio_Terminal3</title>
+    <link rel="icon" href="/favicon_hucccd9e706a19cc8586335b155a80c266_43860_16x16_resize_q75_h2_box_2.webp" sizes="16x16" type="image/webp">
+    <link rel="icon" href="/favicon_hucccd9e706a19cc8586335b155a80c266_43860_32x32_resize_q75_h2_box_2.webp" sizes="32x32" type="image/webp">
+    <link rel="icon" href="/favicon_hucccd9e706a19cc8586335b155a80c266_43860_150x150_resize_q75_h2_box_2.webp" sizes="150x150" type="image/webp">
+    <link rel="apple-touch-icon" href="/favicon_hucccd9e706a19cc8586335b155a80c266_43860_180x180_resize_q75_h2_box_2.webp" sizes="180x180" type="image/webp">
+    <link rel="icon" href="/favicon_hucccd9e706a19cc8586335b155a80c266_43860_192x192_resize_q75_h2_box_2.webp" sizes="192x192" type="image/webp">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6f42c1">
+<meta name="keywords" content="Hugo, Bootstrap, Blog Theme" />
+  <meta name="description" content="文章目录一、pyAutoGUI 概括 二、pyAutoGUI 库安装 三、pyAutoGUI 操作前置知识 1.屏幕分辨率与尺寸 2.暂停操作 3.故障保护功能 四、鼠标操作 1.鼠标移动操作 2.获取鼠标位置的坐标值 3.鼠标拖拽操作 4.鼠标点击操作 5.鼠标单击分布操作 五、键盘操作 1.输入字符 2.按键操作 3.热键操作（组合键） 六，消息框 1.可以设置一个button 2.可以设置多个button 3.自带文本输入框的消息框 4.自带密码的文本输入框的消息框 七、屏幕截图 1.截全屏 2.指定区域内截屏 3.图片定位 这篇博客主要介绍了如何使用Python库pyAutoGUI进行计算机自动化行为操作。文章首先介绍了pyAutoGUI库的概括和安装方法。接下来，详细讲解了操作前需要了解的屏幕分辨率与尺寸，暂停操作，以及故障保护功能的使用方法。在鼠标操作部分，详细解析了鼠标的移动、获取位置、拖拽、点击以及单击分布操作。键盘操作部分，讨论了如何进行输入字符、按键以及热键操作。此外，文章还提到了使用消息框显示信息，可设置一个或多个按钮，及带有文本输入框和密码输入框的消息框使用方法。最后，文章详述了如何进行屏幕截图并在指定区域内截屏，以及图片定位的方法。整篇文章旨在帮助读者理解和掌握使用pyAutoGUI库进行计算机自动化操作的方法。
+一、pyAutoGUI 概括pyAutoGUI是一个用于自动化计算机行为的Python库。它可以用来操作鼠标和键盘，模拟人类的输入方式，比如移动鼠标、点击按钮、输入文本等。pyAutoGUI还可以用来开发自动化工具，比如自动回复聊天机器人、自动游戏挂机等。
+二、pyAutoGUI 库安装pyAutoGUI的下载代码如下：
+打开命令行窗口输入以下代码即可
+pip install pyautogui 或者，你可以直接从PyCharm上下载，教程如下：Python基础第八篇（Python异常处理，模块与包）
+三、pyAutoGUI 操作前置知识1.屏幕分辨率与尺寸为方便编写代码，pyautogui 接口用起了别名“pg”
+import pyautogui as pg import time # 获取屏幕尺寸 # 元组类型的返回值 screen_width, screen_height = pg.size() # 获取屏幕宽高 print(&#34;屏幕宽度:&#34;, screen_width) print(&#34;屏幕高度:&#34;, screen_height) 2.暂停操作#暂停操作，全局暂停，局部暂停 #全局暂停是指在程序中暂停所有操作（进行一行改代码，停一次，一般写在接口下面先执行），局部暂停是指在程序中暂停某个操作 #--------全局暂停-------- #默认是0." />
+    <meta name="robots" content="index, follow" />
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="掌握计算机自动化：PyAutoGUI库详细教程（最全使用方法，每行代码都有注释，帮你解决与之有关的所有问题）-CSDN博客">
+  <meta name="twitter:description" content="文章目录一、pyAutoGUI 概括 二、pyAutoGUI 库安装 三、pyAutoGUI 操作前置知识 1.屏幕分辨率与尺寸 2.暂停操作 3.故障保护功能 四、鼠标操作 1.鼠标移动操作 2.获取鼠标位置的坐标值 3.鼠标拖拽操作 4.鼠标点击操作 5.鼠标单击分布操作 五、键盘操作 1.输入字符 2.按键操作 3.热键操作（组合键） 六，消息框 1.可以设置一个button 2.可以设置多个button 3.自带文本输入框的消息框 4.自带密码的文本输入框的消息框 七、屏幕截图 1.截全屏 2.指定区域内截屏 3.图片定位 这篇博客主要介绍了如何使用Python库pyAutoGUI进行计算机自动化行为操作。文章首先介绍了pyAutoGUI库的概括和安装方法。接下来，详细讲解了操作前需要了解的屏幕分辨率与尺寸，暂停操作，以及故障保护功能的使用方法。在鼠标操作部分，详细解析了鼠标的移动、获取位置、拖拽、点击以及单击分布操作。键盘操作部分，讨论了如何进行输入字符、按键以及热键操作。此外，文章还提到了使用消息框显示信息，可设置一个或多个按钮，及带有文本输入框和密码输入框的消息框使用方法。最后，文章详述了如何进行屏幕截图并在指定区域内截屏，以及图片定位的方法。整篇文章旨在帮助读者理解和掌握使用pyAutoGUI库进行计算机自动化操作的方法。
+一、pyAutoGUI 概括pyAutoGUI是一个用于自动化计算机行为的Python库。它可以用来操作鼠标和键盘，模拟人类的输入方式，比如移动鼠标、点击按钮、输入文本等。pyAutoGUI还可以用来开发自动化工具，比如自动回复聊天机器人、自动游戏挂机等。
+二、pyAutoGUI 库安装pyAutoGUI的下载代码如下：
+打开命令行窗口输入以下代码即可
+pip install pyautogui 或者，你可以直接从PyCharm上下载，教程如下：Python基础第八篇（Python异常处理，模块与包）
+三、pyAutoGUI 操作前置知识1.屏幕分辨率与尺寸为方便编写代码，pyautogui 接口用起了别名“pg”
+import pyautogui as pg import time # 获取屏幕尺寸 # 元组类型的返回值 screen_width, screen_height = pg.size() # 获取屏幕宽高 print(&#34;屏幕宽度:&#34;, screen_width) print(&#34;屏幕高度:&#34;, screen_height) 2.暂停操作#暂停操作，全局暂停，局部暂停 #全局暂停是指在程序中暂停所有操作（进行一行改代码，停一次，一般写在接口下面先执行），局部暂停是指在程序中暂停某个操作 #--------全局暂停-------- #默认是0.">
+      <meta name="twitter:site" content="@FallingMY3">
+<meta property="og:url" content="https://hbs-skeleton.netlify.app/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/">
+  <meta property="og:site_name" content="Falling_Studio_Terminal3">
+  <meta property="og:title" content="掌握计算机自动化：PyAutoGUI库详细教程（最全使用方法，每行代码都有注释，帮你解决与之有关的所有问题）-CSDN博客">
+  <meta property="og:description" content="文章目录一、pyAutoGUI 概括 二、pyAutoGUI 库安装 三、pyAutoGUI 操作前置知识 1.屏幕分辨率与尺寸 2.暂停操作 3.故障保护功能 四、鼠标操作 1.鼠标移动操作 2.获取鼠标位置的坐标值 3.鼠标拖拽操作 4.鼠标点击操作 5.鼠标单击分布操作 五、键盘操作 1.输入字符 2.按键操作 3.热键操作（组合键） 六，消息框 1.可以设置一个button 2.可以设置多个button 3.自带文本输入框的消息框 4.自带密码的文本输入框的消息框 七、屏幕截图 1.截全屏 2.指定区域内截屏 3.图片定位 这篇博客主要介绍了如何使用Python库pyAutoGUI进行计算机自动化行为操作。文章首先介绍了pyAutoGUI库的概括和安装方法。接下来，详细讲解了操作前需要了解的屏幕分辨率与尺寸，暂停操作，以及故障保护功能的使用方法。在鼠标操作部分，详细解析了鼠标的移动、获取位置、拖拽、点击以及单击分布操作。键盘操作部分，讨论了如何进行输入字符、按键以及热键操作。此外，文章还提到了使用消息框显示信息，可设置一个或多个按钮，及带有文本输入框和密码输入框的消息框使用方法。最后，文章详述了如何进行屏幕截图并在指定区域内截屏，以及图片定位的方法。整篇文章旨在帮助读者理解和掌握使用pyAutoGUI库进行计算机自动化操作的方法。
+一、pyAutoGUI 概括pyAutoGUI是一个用于自动化计算机行为的Python库。它可以用来操作鼠标和键盘，模拟人类的输入方式，比如移动鼠标、点击按钮、输入文本等。pyAutoGUI还可以用来开发自动化工具，比如自动回复聊天机器人、自动游戏挂机等。
+二、pyAutoGUI 库安装pyAutoGUI的下载代码如下：
+打开命令行窗口输入以下代码即可
+pip install pyautogui 或者，你可以直接从PyCharm上下载，教程如下：Python基础第八篇（Python异常处理，模块与包）
+三、pyAutoGUI 操作前置知识1.屏幕分辨率与尺寸为方便编写代码，pyautogui 接口用起了别名“pg”
+import pyautogui as pg import time # 获取屏幕尺寸 # 元组类型的返回值 screen_width, screen_height = pg.size() # 获取屏幕宽高 print(&#34;屏幕宽度:&#34;, screen_width) print(&#34;屏幕高度:&#34;, screen_height) 2.暂停操作#暂停操作，全局暂停，局部暂停 #全局暂停是指在程序中暂停所有操作（进行一行改代码，停一次，一般写在接口下面先执行），局部暂停是指在程序中暂停某个操作 #--------全局暂停-------- #默认是0.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:published_time" content="2024-07-05T11:34:47+08:00">
+    <meta property="article:modified_time" content="2024-07-05T11:34:47+08:00">
+    <meta property="article:tag" content="HelpDocs">
+    <meta property="article:tag" content="Python">
+      <meta property="og:see_also" content="https://hbs-skeleton.netlify.app/docs/helpdocs/python/anaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E7%AE%A1%E7%90%86python%E7%8E%AF%E5%A2%83%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/">
+      <meta property="og:see_also" content="https://hbs-skeleton.netlify.app/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%B8%80%E5%85%A5%E9%97%A8%E5%8F%8A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%9F%BA%E6%9C%AC%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C/">
+      <meta property="og:see_also" content="https://hbs-skeleton.netlify.app/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%BA%8C%E8%8E%B7%E5%8F%96%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9B%B4%E6%96%B0/">
+      <meta property="og:see_also" content="https://hbs-skeleton.netlify.app/docs/helpdocs/git/git%E7%9A%84%E4%BD%BF%E7%94%A8%E6%98%93%E6%87%82&#43;%E5%B7%A8%E6%97%A0%E6%AF%94%E8%AF%A6%E7%BB%86&#43;%E6%96%B0%E6%89%8B%E5%BF%85%E7%9C%8B/">
+      <meta property="og:see_also" content="https://hbs-skeleton.netlify.app/docs/helpdocs/java/javase%E5%9F%BA%E7%A1%80%E7%AF%87%E8%B6%85%E8%AF%A6%E7%BB%86java%E5%85%A5%E9%97%A8%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/">
+      <meta property="og:see_also" content="https://hbs-skeleton.netlify.app/docs/helpdocs/java/java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%85%AB%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-&#43;-%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+      <meta property="og:see_also" content="https://hbs-skeleton.netlify.app/docs/helpdocs/markdown/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/">
+
+  <meta itemprop="name" content="掌握计算机自动化：PyAutoGUI库详细教程（最全使用方法，每行代码都有注释，帮你解决与之有关的所有问题）-CSDN博客">
+  <meta itemprop="description" content="文章目录一、pyAutoGUI 概括 二、pyAutoGUI 库安装 三、pyAutoGUI 操作前置知识 1.屏幕分辨率与尺寸 2.暂停操作 3.故障保护功能 四、鼠标操作 1.鼠标移动操作 2.获取鼠标位置的坐标值 3.鼠标拖拽操作 4.鼠标点击操作 5.鼠标单击分布操作 五、键盘操作 1.输入字符 2.按键操作 3.热键操作（组合键） 六，消息框 1.可以设置一个button 2.可以设置多个button 3.自带文本输入框的消息框 4.自带密码的文本输入框的消息框 七、屏幕截图 1.截全屏 2.指定区域内截屏 3.图片定位 这篇博客主要介绍了如何使用Python库pyAutoGUI进行计算机自动化行为操作。文章首先介绍了pyAutoGUI库的概括和安装方法。接下来，详细讲解了操作前需要了解的屏幕分辨率与尺寸，暂停操作，以及故障保护功能的使用方法。在鼠标操作部分，详细解析了鼠标的移动、获取位置、拖拽、点击以及单击分布操作。键盘操作部分，讨论了如何进行输入字符、按键以及热键操作。此外，文章还提到了使用消息框显示信息，可设置一个或多个按钮，及带有文本输入框和密码输入框的消息框使用方法。最后，文章详述了如何进行屏幕截图并在指定区域内截屏，以及图片定位的方法。整篇文章旨在帮助读者理解和掌握使用pyAutoGUI库进行计算机自动化操作的方法。
+一、pyAutoGUI 概括pyAutoGUI是一个用于自动化计算机行为的Python库。它可以用来操作鼠标和键盘，模拟人类的输入方式，比如移动鼠标、点击按钮、输入文本等。pyAutoGUI还可以用来开发自动化工具，比如自动回复聊天机器人、自动游戏挂机等。
+二、pyAutoGUI 库安装pyAutoGUI的下载代码如下：
+打开命令行窗口输入以下代码即可
+pip install pyautogui 或者，你可以直接从PyCharm上下载，教程如下：Python基础第八篇（Python异常处理，模块与包）
+三、pyAutoGUI 操作前置知识1.屏幕分辨率与尺寸为方便编写代码，pyautogui 接口用起了别名“pg”
+import pyautogui as pg import time # 获取屏幕尺寸 # 元组类型的返回值 screen_width, screen_height = pg.size() # 获取屏幕宽高 print(&#34;屏幕宽度:&#34;, screen_width) print(&#34;屏幕高度:&#34;, screen_height) 2.暂停操作#暂停操作，全局暂停，局部暂停 #全局暂停是指在程序中暂停所有操作（进行一行改代码，停一次，一般写在接口下面先执行），局部暂停是指在程序中暂停某个操作 #--------全局暂停-------- #默认是0.">
+  <meta itemprop="datePublished" content="2024-07-05T11:34:47+08:00">
+  <meta itemprop="dateModified" content="2024-07-05T11:34:47+08:00">
+  <meta itemprop="wordCount" content="623">
+  <meta itemprop="keywords" content="HelpDocs,Python">
+  <meta property="og:image" content="https://hbs-skeleton.netlify.app/images/icon.png"/>
+  <meta name="twitter:image" content="https://hbs-skeleton.netlify.app/images/icon.png"/>
+  <meta property="og:image:alt" content="掌握计算机自动化：PyAutoGUI库详细教程（最全使用方法，每行代码都有注释，帮你解决与之有关的所有问题）-CSDN博客" />
+  <meta name="twitter:image:alt" content="掌握计算机自动化：PyAutoGUI库详细教程（最全使用方法，每行代码都有注释，帮你解决与之有关的所有问题）-CSDN博客" />
+  <link rel="manifest" href="/manifest.json">
+
+  
+
+
+<link data-precache rel="stylesheet" href="/assets/main/bundle.min.4cee0ba5f0b72225b9e26680bcf6d5f0eb3bc16612894ba3ead8da0be96d96b9.css" integrity="sha256-TO4LpfC3IiW54maAvPbV8Os7wWYSiUuj6tjaC+ltlrk=" crossorigin="anonymous">
+
+    <link data-precache rel="stylesheet" href="/assets/viewer/bundle.min.8c1002839fa22c1350d6ae1eef6593120e108f973c41348be9b5065430566aaf.css" integrity="sha256-jBACg5&#43;iLBNQ1q4e72WTEg4Qj5c8QTSL6bUGVDBWaq8=" crossorigin="anonymous">
+
+
+</head>
+  <body><header class="mb-4 sticky-top">
+  
+<nav class="top-app-bar shadow navbar navbar-expand-xxl">
+  <div class="container">
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDocsNav"
+      aria-expanded="false" aria-label="Toggle docs navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+<a class="navbar-brand d-flex align-items-center flex-grow-1 flex-xxl-grow-0 justify-content-xxl-start justify-content-center ms-2 ms-xxl-0 mx-auto me-xxl-2"
+    href="https://hbs-skeleton.netlify.app/">
+    <picture><img class="logo " alt="Logo" src="https://hbs-skeleton.netlify.app/images/icon.png?v=1f41693bbcf319c2f188adfb373971c6" loading="lazy" width="891" height="891" />
+</picture>
+Falling_MY
+</a>
+
+    <div class="offcanvas-xxl offcanvas-end flex-grow-1" data-bs-scroll="true" tabindex="-1" id="navbarMenus" aria-labelledby="navbarMenusLabel">
+      <div class="offcanvas-header px-4 pb-0">
+        <div class="offcanvas-title h5" id="navbarMenusLabel">Falling_MY</div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#navbarMenus" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body p-4 pt-0 p-xxl-0">
+        <hr class="d-xxl-none">
+        <ul class="navbar-nav flex-row flex-wrap align-items-center me-auto"><li class="nav-item col-6 col-xxl-auto">
+            <a class="nav-link py-2 px-0 px-xxl-2" href="https://hbs-skeleton.netlify.app/docs/">
+<span class="menu-icon me-1"><i class="fas fa-fw fa-file"></i></span>Docs
+            </a>
+          </li><li class="nav-item col-6 col-xxl-auto">
+            <a class="nav-link py-2 px-0 px-xxl-2" href="https://hbs-skeleton.netlify.app/news/">
+<span class="menu-icon me-1"><i class="fas fa-fw fa-newspaper"></i></span>News
+            </a>
+          </li>
+          <li class="nav-item col-12 col-xxl-auto dropdown px-0">
+            <a href="#"
+              class="nav-link dropdown-toggle"
+              id="navbarDropdownBlog" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+<span class="menu-icon me-1"><i class="fas fa-fw fa-blog"></i></span>Blog
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog" data-bs-popper="none">
+                <li><h6 class="dropdown-header">Blog Menu Description</h6></li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="https://hbs-skeleton.netlify.app/archives/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-file-archive text-primary"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-0">Archives</p>
+                  </div></a>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="https://hbs-skeleton.netlify.app/series/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-columns"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-1">Series</p>
+                      <p class="dropdown-item-description mb-0 text-secondary">List of series.</p>
+                  </div></a>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="https://hbs-skeleton.netlify.app/categories/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-folder text-success"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-1">Categories</p>
+                      <p class="dropdown-item-description mb-0 text-secondary">List of categories.</p>
+                  </div></a>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="https://hbs-skeleton.netlify.app/tags/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-tags"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-1">Tags</p>
+                      <p class="dropdown-item-description mb-0 text-secondary">List of tags.</p>
+                  </div></a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        
+    <hr class="d-xxl-none">
+    <form class="search-bar ms-auto my-auto" action="/search/" novalidate>
+      <div class="input-group align-items-center">
+        <span class="btn btn-search disabled position-absolute left-0 border-0 px-1">
+          <i class="fas fa-fw fa-search fa-lg"></i>
+        </span>
+        <input
+          class="my-1 form-control border-white rounded-5 search-input bg-body"
+          name="q"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          required>
+          <span class="search-shortcut position-absolute end-0 top-0 me-2">
+            <kbd class="text-dark bg-white opacity-75 rounded-3 shadow border border-primary py-1 fw-bold">/</kbd>
+          </span>
+      </div>
+    </form><hr class="d-xxl-none">
+        <ul class="navbar-nav flex-row flex-wrap align-items-center ms-md-auto">
+<li class="nav-item py-2 py-xxl-1 col-12 col-xxl-auto">
+
+
+<nav class="social-links nav justify-content-center flex-row">
+      <a class="nav-link social-link col-6 col-xxl-auto p-1" target="_blank" href="https://github.com/FallingMY/FallingMY.github.io" title="GitHub" rel="me">
+        <i class="fa-fw fab fa-github"
+          ></i>
+        <span class="ms-1 d-xxl-none">Github</span>
+      </a>
+  <a class="nav-link social-link col-6 col-xxl-auto p-1" target="_blank" href="/index.xml" title="RSS" rel="me">
+    <i class="fas fa-fw fa-rss"></i>
+    <span class="ms-1 d-xxl-none">RSS</span>
+  </a>
+</nav>
+
+</li>
+<li class="nav-item py-2 py-xxl-1 col-12 col-xxl-auto">
+  <div class="vr d-none d-xxl-flex h-100 mx-xxl-2 text-white"></div>
+  <hr class="d-xxl-none my-2">
+</li>
+<li class="nav-item dropdown col-6 col-xxl-auto">
+    <a class="nav-link px-0 py-2 px-xxl-1" href="#" id="fontSizeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-fw fa-font"></i>
+        <span class="d-xxl-none">Font Size</span>
+    </a>
+    <ul class="font-size-dropdown-menu dropdown-menu dropdown-menu-end" aria-labelledby="fontSizeDropdown">
+        <li>
+            <button class="font-size-item dropdown-item" data-size="xs">
+                Extra Small
+            </button>
+        </li>
+        <li>
+            <button class="font-size-item dropdown-item" data-size="sm">
+                Small
+            </button>
+        </li>
+        <li>
+            <button class="font-size-item dropdown-item active" data-size="md">
+                Medium
+            </button>
+        </li>
+        <li>
+            <button class="font-size-item dropdown-item" data-size="lg">
+                Large
+            </button>
+        </li>
+        <li>
+            <button class="font-size-item dropdown-item" data-size="xl">
+                Extra Large
+            </button>
+        </li>
+    </ul>
+</li>
+<li class="nav-item dropdown col-6 col-xxl-auto">
+    <a class="nav-link px-0 py-2 px-xxl-1" href="#" id="paletteDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-fw fa-palette"></i>
+        <span class="d-xxl-none">Palette</span>
+    </a>
+    <ul class="palette-dropdown-menu dropdown-menu dropdown-menu-end px-2 row g-2" aria-labelledby="paletteDropdown">
+            <li class="col-4 my-1">
+                <a role="button" id="palette-blue" aria-label="Blue"
+                    class="btn btn-sm w-100 palette text-bg-blue" data-palette="blue">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-blue-gray" aria-label="Blue Gray"
+                    class="btn btn-sm w-100 palette text-bg-blue-gray" data-palette="blue-gray">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-brown" aria-label="Brown"
+                    class="btn btn-sm w-100 palette text-bg-brown" data-palette="brown">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-cyan" aria-label="Cyan"
+                    class="btn btn-sm w-100 palette text-bg-cyan" data-palette="cyan">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-green" aria-label="Green"
+                    class="btn btn-sm w-100 palette text-bg-green" data-palette="green">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-indigo" aria-label="Indigo"
+                    class="btn btn-sm w-100 palette text-bg-indigo" data-palette="indigo">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-orange" aria-label="Orange"
+                    class="btn btn-sm w-100 palette text-bg-orange" data-palette="orange">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-pink" aria-label="Pink"
+                    class="btn btn-sm w-100 palette text-bg-pink" data-palette="pink">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-purple" aria-label="Purple"
+                    class="btn btn-sm w-100 palette text-bg-purple" data-palette="purple">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-red" aria-label="Red"
+                    class="btn btn-sm w-100 palette text-bg-red" data-palette="red">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-teal" aria-label="Teal"
+                    class="btn btn-sm w-100 palette text-bg-teal" data-palette="teal">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-yellow" aria-label="Yellow"
+                    class="btn btn-sm w-100 palette text-bg-yellow" data-palette="yellow">
+                </a>
+            </li>
+    </ul>
+</li>
+<li class="nav-item dropdown col-6 col-xxl-auto">
+    <a class="nav-link px-0 py-2 px-xxl-1" href="#" id="modeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="mode-icon fas fa-fw fa-adjust" id="modeIcon"></i>
+        <span class="d-xxl-none">Mode</span>
+    </a>
+    <ul class="mode-dropdown-menu dropdown-menu dropdown-menu-end" aria-labelledby="modeDropdown">
+        <li class="mode-item" data-color-mode="light" data-icon="sun">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-sun"></i> Light
+            </button>
+        </li>
+        <li class="mode-item" data-color-mode="dark" data-icon="moon">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-moon"></i> Dark
+            </button>
+        </li>
+        <li class="mode-item active" data-color-mode="auto" data-icon="adjust">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-adjust"></i> Auto
+            </button>
+        </li>
+    </ul>
+</li>
+        </ul>
+      </div>
+    </div>
+    <div class="d-flex">
+      <button class="navbar-toggler order-5 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarMenus"
+        aria-controls="navbarMenus" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-ellipsis-h"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+</header>
+
+    <main class="container">
+      <div class="row content"><noscript>
+    <div class="alert alert-danger" role="alert">Your browser does not support JavaScript.</div>
+</noscript>
+<aside class="docs-nav col-xxl-2" tabindex="-1" data-bs-hide="focusout">
+  <div class="offcanvas-xxl offcanvas-start" id="offcanvasDocsNav" aria-labelledby="offcanvasDocsNavLabel">
+    <div class="offcanvas-header border-bottom">
+      <div class="offcanvas-title h5" id="offcanvasDocsNavLabel">Browse docs</div>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#offcanvasDocsNav"></button>
+    </div>
+    <div class="offcanvas-body pt-2 flex-column"><ul class="list-unstyled mb-2 w-100"><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3 text-primary">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/"><span class="docs-nav-title">HelpDocs</span></a>
+            <a class="btn-toggle ms-1" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-ebe568325b3994b345762d8c5739485e" aria-expanded="true" aria-controls="nav-ebe568325b3994b345762d8c5739485e">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse  show border-primary" id="nav-ebe568325b3994b345762d8c5739485e">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/c/c&#43;&#43;/"><span class="docs-nav-title">C/C&#43;&#43;</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-4c352665280bb902c3cd1f57edc236a4" aria-expanded="false" aria-controls="nav-4c352665280bb902c3cd1f57edc236a4">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-4c352665280bb902c3cd1f57edc236a4">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"></ul>
+            </div>
+          </div>
+        </li><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/"><span class="docs-nav-title">Git</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-31299be8729f19977a763ab46f2da124" aria-expanded="false" aria-controls="nav-31299be8729f19977a763ab46f2da124">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-31299be8729f19977a763ab46f2da124">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%B8%80%E5%85%A5%E9%97%A8%E5%8F%8A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%9F%BA%E6%9C%AC%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C/"><span class="docs-nav-title">Git基本使用教程（一）：入门及第一次基本完整操作</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%BA%8C%E8%8E%B7%E5%8F%96%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9B%B4%E6%96%B0/"><span class="docs-nav-title">Git基本使用教程（二）：获取更新与推送更新</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/git%E7%9A%84%E4%BD%BF%E7%94%A8%E6%98%93%E6%87%82&#43;%E5%B7%A8%E6%97%A0%E6%AF%94%E8%AF%A6%E7%BB%86&#43;%E6%96%B0%E6%89%8B%E5%BF%85%E7%9C%8B/"><span class="docs-nav-title">Git的使用（易懂&#43;巨无比详细&#43;新手必看）</span></a>
+        </li></ul>
+            </div>
+          </div>
+        </li><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/"><span class="docs-nav-title">Java</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-987b22e609e9d70bb1861e492b4fd185" aria-expanded="false" aria-controls="nav-987b22e609e9d70bb1861e492b4fd185">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-987b22e609e9d70bb1861e492b4fd185">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/javase%E5%9F%BA%E7%A1%80%E7%AF%87%E8%B6%85%E8%AF%A6%E7%BB%86java%E5%85%A5%E9%97%A8%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">JavaSE基础篇——超详细，Java入门，这一篇就够了-CSDN博客</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%85%AB%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-&#43;-%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"><span class="docs-nav-title">Java数据类型（八种基本数据类型 &#43; 四种引用数据类型）</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/%E4%B8%89%E7%A7%8D%E7%BC%96%E7%A8%8B%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99%E9%A9%BC%E5%B3%B0%E5%91%BD%E5%90%8D%E6%B3%95%E5%B8%95%E6%96%AF%E5%8D%A1%E5%91%BD%E5%90%8D%E6%B3%95%E5%8C%88%E7%89%99%E5%88%A9%E5%91%BD%E5%90%8D%E6%B3%95/"><span class="docs-nav-title">三种编程命名规则：驼峰命名法，帕斯卡命名法，匈牙利命名法</span></a>
+        </li></ul>
+            </div>
+          </div>
+        </li><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/markdown/"><span class="docs-nav-title">Markdown</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-2d8c19f8492a0d4510acf00e408e5b58" aria-expanded="false" aria-controls="nav-2d8c19f8492a0d4510acf00e408e5b58">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-2d8c19f8492a0d4510acf00e408e5b58">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/markdown/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/"><span class="docs-nav-title">Markdown语法大全(超级版)</span></a>
+        </li></ul>
+            </div>
+          </div>
+        </li><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3 text-primary">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/"><span class="docs-nav-title">Python</span></a>
+            <a class="btn-toggle ms-1" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-b7433288507247eb51c5fc0011005e07" aria-expanded="true" aria-controls="nav-b7433288507247eb51c5fc0011005e07">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse  show border-primary" id="nav-b7433288507247eb51c5fc0011005e07">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/anaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E7%AE%A1%E7%90%86python%E7%8E%AF%E5%A2%83%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">anaconda的安装和使用（管理python环境看这一篇就够了）-CSDN博客</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python-%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E6%BA%90/"><span class="docs-nav-title">Python 国内镜像源</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python-%E5%B0%8F%E7%94%B2%E9%B1%BC%E6%95%99%E7%A8%8B-easygui-%E7%AF%87/"><span class="docs-nav-title">Python 小甲鱼教程 Easygui 篇</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python-%E5%BC%B9%E5%87%BA%E6%8F%90%E7%A4%BA%E6%A1%86%E7%BB%83%E4%B9%A0tkinter.messagebox%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"><span class="docs-nav-title">Python 弹出提示框练习：tkinter.messagebox使用方法</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8Fre%E6%A8%A1%E5%9D%97%E8%AF%A6%E8%A7%A3/"><span class="docs-nav-title">python——正则表达式(re模块)详解</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python%E7%88%AC%E8%99%AB%E5%8F%B2%E4%B8%8A%E8%B6%85%E8%AF%A6%E7%BB%86%E8%AE%B2%E8%A7%A3%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E8%80%81%E5%B9%B4%E4%BA%BA%E9%83%BD%E7%9C%8B%E7%9A%84%E6%87%82-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">Python爬虫史上超详细讲解（零基础入门，老年人都看的懂）-CSDN博客</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AF%AD%E6%B3%95%E6%96%87%E6%9C%AB%E9%99%84%E5%B8%B8%E7%94%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F/"><span class="docs-nav-title">史上最全正则表达式语法，文末附常用表达式！</span></a>
+        </li><li class="mb-2 py-1 ms-3 text-primary" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">掌握计算机自动化：PyAutoGUI库详细教程（最全使用方法，每行代码都有注释，帮你解决与之有关的所有问题）-CSDN博客</span></a>
+        </li></ul>
+            </div>
+          </div>
+        </li></ul>
+            </div>
+          </div>
+        </li></ul></div>
+  </div>
+</aside><div class="col-xxl-7 ms-auto">
+  <div class="container-fluid"><nav class="row card component" aria-label="breadcrumb">
+  <div class="card-body pb-0">
+    <ol class="hbs-breadcrumb breadcrumb flex-nowrap"><li class="breadcrumb-item text-surface"><a href="/">Home</a></li><li class="breadcrumb-item text-surface"><a href="/docs/">Docs</a></li><li class="breadcrumb-item text-surface"><a href="/docs/helpdocs/">HelpDocs</a></li><li class="breadcrumb-item text-surface"><a href="/docs/helpdocs/python/">Python</a></li><li class="breadcrumb-item active">掌握计算机自动化：PyAutoGUI库详细教程（最全使用方法，每行代码都有注释，帮你解决与之有关的所有问题）-CSDN博客</li></ol>
+  </div>
+</nav><div class="post-panel-wrapper position-relative d-flex justify-content-center">
+  <div class="d-flex flex-row justify-content-center rounded-5 border post-panel position-fixed px-3 py-1 surface shadow-1">
+    
+    
+
+    <a class="action btn-reward" role="button" data-bs-toggle="modal" data-bs-target="#rewardModal" title="Buy me a coffee">
+  <i class="fas fa-fw fa-coffee"></i>
+</a>
+    
+    
+<a class="action action-toc d-block d-xxl-none" href="#post-toc-container" role="button" title="Contents">
+  <i class="fas fa-fw fa-list-alt"></i>
+</a>
+    <a class="action action-copyright" href="#post-copyright" role="button" aria-label="Copyright" title="Copyright">
+  <i class="fas fa-fw fa-copyright"></i>
+</a>
+    <a class="action action-post-comments" href="#post-comments" role="button" aria-label="Comments" title="Comments">
+  <i class="fas fa-fw fa-comments"></i>
+</a>
+    
+<a id="sidebarToggler" class="action action-sidebar-toggler d-none d-xxl-block" role="button" title="Toggle sidebar">
+  <i class="fas fa-fw fa-expand-alt" data-fa-transform="rotate-45"></i>
+</a>
+
+    
+  </div>
+</div><article class="row card component mb-4 post">
+<div class="card-header ">
+    <h1 class="card-title post-title my-2">掌握计算机自动化：PyAutoGUI库详细教程（最全使用方法，每行代码都有注释，帮你解决与之有关的所有问题）-CSDN博客</h1>
+</div>
+<div class="card-body"><div class="post-meta mb-3">
+  <span class="post-date me-1 mb-1" title="created on 2024-07-05 11:34:47 &#43;0800 CST.">July 5, 2024</span><span class="post-reading-time me-1 mb-1">3 min read</span><a href="/authors/csdn_user/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-author">
+      <i class="fas fa-fw fa-user me-1"></i>CSDN_user</a><a href="/series/helpdocs/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
+      <i class="fas fa-fw fa-columns me-1"></i>HelpDocs</a><a href="/tags/helpdocs/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">HelpDocs</a><a href="/tags/python/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Python</a>
+</div>
+
+<div class="mt-2 mb-3 d-block d-xxl-none">
+    <h2 class="text-surface mb-3">Contents</h2>
+    <div id="post-toc-container">
+        </div>
+    <hr class="text-secondary">
+</div><div class="post-content mb-3" data-bs-spy="scroll" data-bs-target="#TableOfContents" tabindex="0">
+        <div id="post-content-body">
+<h4 id="文章目录" data-numberify>文章目录<a class="anchor ms-1" href="#文章目录"></a></h4>
+<ul>
+<li><a href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/#%e4%b8%80pyautogui-%e6%a6%82%e6%8b%ac">一、pyAutoGUI 概括</a></li>
+<li><a href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/#%e4%ba%8cpyautogui-%e5%ba%93%e5%ae%89%e8%a3%85">二、pyAutoGUI 库安装</a></li>
+<li><a href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/#%e4%b8%89pyautogui-%e6%93%8d%e4%bd%9c%e5%89%8d%e7%bd%ae%e7%9f%a5%e8%af%86">三、pyAutoGUI 操作前置知识</a>
+<ul>
+<li><a href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/#1%e5%b1%8f%e5%b9%95%e5%88%86%e8%be%a8%e7%8e%87%e4%b8%8e%e5%b0%ba%e5%af%b8">1.屏幕分辨率与尺寸</a></li>
+<li><a href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/#2%e6%9a%82%e5%81%9c%e6%93%8d%e4%bd%9c">2.暂停操作</a></li>
+<li><a href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/#3%e6%95%85%e9%9a%9c%e4%bf%9d%e6%8a%a4%e5%8a%9f%e8%83%bd">3.故障保护功能</a></li>
+</ul>
+</li>
+<li><a href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/#%e5%9b%9b%e9%bc%a0%e6%a0%87%e6%93%8d%e4%bd%9c">四、鼠标操作</a>
+<ul>
+<li><a href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/#1%e9%bc%a0%e6%a0%87%e7%a7%bb%e5%8a%a8%e6%93%8d%e4%bd%9c">1.鼠标移动操作</a></li>
+<li><a href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/#2%e8%8e%b7%e5%8f%96%e9%bc%a0%e6%a0%87%e4%bd%8d%e7%bd%ae%e7%9a%84%e5%9d%90%e6%a0%87%e5%80%bc">2.获取鼠标位置的坐标值</a></li>
+<li><a href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/#3%e9%bc%a0%e6%a0%87%e6%8b%96%e6%8b%bd%e6%93%8d%e4%bd%9c">3.鼠标拖拽操作</a></li>
+<li><a href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/#4%e9%bc%a0%e6%a0%87%e7%82%b9%e5%87%bb%e6%93%8d%e4%bd%9c">4.鼠标点击操作</a></li>
+<li><a href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/#5%e9%bc%a0%e6%a0%87%e5%8d%95%e5%87%bb%e5%88%86%e5%b8%83%e6%93%8d%e4%bd%9c">5.鼠标单击分布操作</a></li>
+</ul>
+</li>
+<li><a href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/#%e4%ba%94%e9%94%ae%e7%9b%98%e6%93%8d%e4%bd%9c">五、键盘操作</a>
+<ul>
+<li><a href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/#1%e8%be%93%e5%85%a5%e5%ad%97%e7%ac%a6">1.输入字符</a></li>
+<li><a href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/#2%e6%8c%89%e9%94%ae%e6%93%8d%e4%bd%9c">2.按键操作</a></li>
+<li><a href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/#3%e7%83%ad%e9%94%ae%e6%93%8d%e4%bd%9c%e7%bb%84%e5%90%88%e9%94%ae">3.热键操作（组合键）</a></li>
+</ul>
+</li>
+<li><a href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/#%e5%85%ad%e6%b6%88%e6%81%af%e6%a1%86">六，消息框</a>
+<ul>
+<li><a href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/#1%e5%8f%af%e4%bb%a5%e8%ae%be%e7%bd%ae%e4%b8%80%e4%b8%aabutton">1.可以设置一个button</a></li>
+<li><a href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/#2%e5%8f%af%e4%bb%a5%e8%ae%be%e7%bd%ae%e5%a4%9a%e4%b8%aabutton">2.可以设置多个button</a></li>
+<li><a href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/#3%e8%87%aa%e5%b8%a6%e6%96%87%e6%9c%ac%e8%be%93%e5%85%a5%e6%a1%86%e7%9a%84%e6%b6%88%e6%81%af%e6%a1%86">3.自带文本输入框的消息框</a></li>
+<li><a href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/#4%e8%87%aa%e5%b8%a6%e5%af%86%e7%a0%81%e7%9a%84%e6%96%87%e6%9c%ac%e8%be%93%e5%85%a5%e6%a1%86%e7%9a%84%e6%b6%88%e6%81%af%e6%a1%86">4.自带密码的文本输入框的消息框</a></li>
+</ul>
+</li>
+<li><a href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/#%e4%b8%83%e5%b1%8f%e5%b9%95%e6%88%aa%e5%9b%be">七、屏幕截图</a>
+<ul>
+<li><a href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/#1%e6%88%aa%e5%85%a8%e5%b1%8f">1.截全屏</a></li>
+<li><a href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/#2%e6%8c%87%e5%ae%9a%e5%8c%ba%e5%9f%9f%e5%86%85%e6%88%aa%e5%b1%8f">2.指定区域内截屏</a></li>
+<li><a href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/#3%e5%9b%be%e7%89%87%e5%ae%9a%e4%bd%8d">3.图片定位</a></li>
+</ul>
+</li>
+</ul>
+<p>这篇博客主要介绍了如何使用Python库pyAutoGUI进行计算机自动化行为操作。文章首先介绍了pyAutoGUI库的概括和安装方法。接下来，详细讲解了操作前需要了解的屏幕分辨率与尺寸，暂停操作，以及故障保护功能的使用方法。在鼠标操作部分，详细解析了鼠标的移动、获取位置、拖拽、点击以及单击分布操作。键盘操作部分，讨论了如何进行输入字符、按键以及热键操作。此外，文章还提到了使用消息框显示信息，可设置一个或多个按钮，及带有文本输入框和密码输入框的消息框使用方法。最后，文章详述了如何进行屏幕截图并在指定区域内截屏，以及图片定位的方法。整篇文章旨在帮助读者理解和掌握使用pyAutoGUI库进行计算机自动化操作的方法。</p>
+
+<h2 id="一pyautogui-概括" data-numberify>一、pyAutoGUI 概括<a class="anchor ms-1" href="#一pyautogui-概括"></a></h2>
+<p>pyAutoGUI是一个用于自动化计算机行为的Python库。它可以用来操作鼠标和键盘，模拟人类的输入方式，比如移动鼠标、点击按钮、输入文本等。pyAutoGUI还可以用来开发自动化工具，比如自动回复聊天机器人、自动游戏挂机等。<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/direct/27a228ed1d424a2caa13eca135ae1329.png" loading="lazy" />
+</picture>
+
+</p>
+
+<h2 id="二pyautogui-库安装" data-numberify>二、pyAutoGUI 库安装<a class="anchor ms-1" href="#二pyautogui-库安装"></a></h2>
+<p>pyAutoGUI的下载代码如下：<br>
+打开命令行窗口输入以下代码即可</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">pip</span> <span class="n">install</span> <span class="n">pyautogui</span>
+</span></span></code></pre></div><p>或者，你可以直接从PyCharm上下载，教程如下：<a href="https://blog.csdn.net/Du_XiaoNan/article/details/135757080" target="_blank" rel="noopener noreferrer">Python基础第八篇（Python异常处理，模块与包）<i class="fas fa-external-link-square-alt ms-1"></i></a></p>
+
+<h2 id="三pyautogui-操作前置知识" data-numberify>三、pyAutoGUI 操作前置知识<a class="anchor ms-1" href="#三pyautogui-操作前置知识"></a></h2>
+
+<h3 id="1屏幕分辨率与尺寸" data-numberify>1.屏幕分辨率与尺寸<a class="anchor ms-1" href="#1屏幕分辨率与尺寸"></a></h3>
+<p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/direct/e0e5ef8df6a04d1d8fd43dde39753b74.png#pic_center" loading="lazy" />
+</picture>
+
+<br>
+为方便编写代码，pyautogui 接口用起了别名“pg”</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">import</span> <span class="n">pyautogui</span> <span class="n">as</span> <span class="n">pg</span>
+</span></span><span class="line"><span class="cl"><span class="n">import</span> <span class="n">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp"># 获取屏幕尺寸
+</span></span></span><span class="line"><span class="cl"><span class="cp"># 元组类型的返回值
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">screen_width</span><span class="p">,</span> <span class="n">screen_height</span> <span class="o">=</span> <span class="n">pg</span><span class="p">.</span><span class="nf">size</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="cp"># 获取屏幕宽高
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nf">print</span><span class="p">(</span><span class="s">&#34;屏幕宽度:&#34;</span><span class="p">,</span> <span class="n">screen_width</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">print</span><span class="p">(</span><span class="s">&#34;屏幕高度:&#34;</span><span class="p">,</span> <span class="n">screen_height</span><span class="p">)</span>
+</span></span></code></pre></div>
+<h3 id="2暂停操作" data-numberify>2.暂停操作<a class="anchor ms-1" href="#2暂停操作"></a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#暂停操作，全局暂停，局部暂停
+</span></span></span><span class="line"><span class="cl"><span class="cp">#全局暂停是指在程序中暂停所有操作（进行一行改代码，停一次，一般写在接口下面先执行），局部暂停是指在程序中暂停某个操作
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#--------全局暂停--------
+</span></span></span><span class="line"><span class="cl"><span class="cp">#默认是0.1  浮点型  单位是秒
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">pg</span><span class="p">.</span><span class="n">PAUSE</span> <span class="o">=</span> <span class="mf">1.0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#--------局部暂停--------
+</span></span></span><span class="line"><span class="cl"><span class="cp">#默认是0  浮点型  单位是秒
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">time</span><span class="p">.</span><span class="nf">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span></span></code></pre></div>
+<h3 id="3故障保护功能" data-numberify>3.故障保护功能<a class="anchor ms-1" href="#3故障保护功能"></a></h3>
+<p>pyAutoGUI 有一个名为“故障保护”的功能，当鼠标或键盘操作失败时，这个功能可以防止程序崩溃。要启用故障保护功能，可以在使用pyAutoGUI之前导入pyautogui.PAUSE：<br>
+插入</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">import</span> <span class="n">pyautogui</span> <span class="n">as</span> <span class="n">pg</span>
+</span></span><span class="line"><span class="cl"><span class="n">pg</span><span class="p">.</span><span class="n">PAUSE</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span></code></pre></div><p>这样，当pyAutoGUI遇到错误时，它会等待1秒后再尝试执行操作。你可以根据需要调整PAUSE的值。</p>
+<p>或者在pyAutoGUI程序执行过程中想要停止，可以快速将鼠标移动到屏幕的四个角以中止程序，默认存在的。不想用可在pyAutoGUI代码执行之前插入</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">pg</span><span class="p">.</span><span class="n">failsafe</span><span class="o">=</span><span class="nb">false</span>
+</span></span></code></pre></div>
+<h2 id="四鼠标操作" data-numberify>四、鼠标操作<a class="anchor ms-1" href="#四鼠标操作"></a></h2>
+
+<h3 id="1鼠标移动操作" data-numberify>1.鼠标移动操作<a class="anchor ms-1" href="#1鼠标移动操作"></a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#移动鼠标到指定位置
+</span></span></span><span class="line"><span class="cl"><span class="cp">#duration是指所用时间，默认是0.25  浮点型  单位是秒
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">pg</span><span class="p">.</span><span class="nf">moveTo</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#移动鼠标到相对位置
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">pg</span><span class="p">.</span><span class="nf">move</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span></code></pre></div>
+<h3 id="2获取鼠标位置的坐标值" data-numberify>2.获取鼠标位置的坐标值<a class="anchor ms-1" href="#2获取鼠标位置的坐标值"></a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp"># 获取鼠标位置的坐标值
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">mouse_x</span><span class="p">,</span> <span class="n">mouse_y</span> <span class="o">=</span> <span class="n">pg</span><span class="p">.</span><span class="nf">position</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nf">print</span><span class="p">(</span><span class="s">&#34;鼠标位置的坐标值:&#34;</span><span class="p">,</span> <span class="n">mouse_x</span><span class="p">,</span> <span class="n">mouse_y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#检测指定坐标是否在屏幕上
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nf">print</span><span class="p">(</span><span class="s">&#34;(100, 100)坐标是否在屏幕上:&#34;</span><span class="p">,</span> <span class="n">pg</span><span class="p">.</span><span class="nf">onScreen</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+</span></span></code></pre></div>
+<h3 id="3鼠标拖拽操作" data-numberify>3.鼠标拖拽操作<a class="anchor ms-1" href="#3鼠标拖拽操作"></a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#鼠标拖拽操作
+</span></span></span><span class="line"><span class="cl"><span class="cp">#默认左键，左键 left，右键 right,中键 middle
+</span></span></span><span class="line"><span class="cl"><span class="cp">#绝对拖拽，指拖拽到那个位置
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">pg</span><span class="p">.</span><span class="nf">dragTo</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">y</span><span class="o">=-</span><span class="mi">100</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">button</span><span class="o">=</span><span class="err">&#39;</span><span class="n">left</span><span class="err">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#相对拖拽，相对于当前位置拖拽
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">pg</span><span class="p">.</span><span class="nf">drag</span><span class="p">(</span><span class="n">xOffset</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">yOffset</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">button</span><span class="o">=</span><span class="err">&#39;</span><span class="n">right</span><span class="err">&#39;</span><span class="p">)</span>
+</span></span></code></pre></div>
+<h3 id="4鼠标点击操作" data-numberify>4.鼠标点击操作<a class="anchor ms-1" href="#4鼠标点击操作"></a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#鼠标点击操作
+</span></span></span><span class="line"><span class="cl"><span class="cp">#单击
+</span></span></span><span class="line"><span class="cl"><span class="cp">#button:默认左键，左键 left，右键 right,中键 middle
+</span></span></span><span class="line"><span class="cl"><span class="cp">#clicks:点击次数，默认是1次
+</span></span></span><span class="line"><span class="cl"><span class="cp">#interval:每次点击间隔时间，默认是0
+</span></span></span><span class="line"><span class="cl"><span class="cp">#duration:持续时间，默认是0
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">pg</span><span class="p">.</span><span class="nf">click</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">clicks</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">interval</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">duration</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">button</span><span class="o">=</span><span class="err">&#39;</span><span class="n">left</span><span class="err">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="cp"># 双击
+</span></span></span><span class="line"><span class="cl"><span class="cp">#button:默认左键，左键 left，右键 right,中键 middle
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">pg</span><span class="p">.</span><span class="nf">doubleClick</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">button</span><span class="o">=</span><span class="err">&#39;</span><span class="n">left</span><span class="err">&#39;</span><span class="p">)</span>
+</span></span></code></pre></div>
+<h3 id="5鼠标单击分布操作" data-numberify>5.鼠标单击分布操作<a class="anchor ms-1" href="#5鼠标单击分布操作"></a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#单击分布操作
+</span></span></span><span class="line"><span class="cl"><span class="cp">#按下鼠标键位
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">pg</span><span class="p">.</span><span class="nf">mouseDown</span><span class="p">(</span><span class="n">button</span><span class="o">=</span><span class="err">&#39;</span><span class="n">left</span><span class="err">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#释放鼠标键位
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">pg</span><span class="p">.</span><span class="nf">mouseUp</span><span class="p">(</span><span class="n">button</span><span class="o">=</span><span class="err">&#39;</span><span class="n">left</span><span class="err">&#39;</span><span class="p">)</span>
+</span></span></code></pre></div>
+<h2 id="五键盘操作" data-numberify>五、键盘操作<a class="anchor ms-1" href="#五键盘操作"></a></h2>
+
+<h3 id="1输入字符" data-numberify>1.输入字符<a class="anchor ms-1" href="#1输入字符"></a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp"># 键盘操作
+</span></span></span><span class="line"><span class="cl"><span class="cp">#输入字符
+</span></span></span><span class="line"><span class="cl"><span class="cp">#messge:想要输入的字符
+</span></span></span><span class="line"><span class="cl"><span class="cp">#interval:每次输入间隔时间，默认是0
+</span></span></span><span class="line"><span class="cl"><span class="cp">#不能直接输入中文，需要使用unicode编码
+</span></span></span><span class="line"><span class="cl"><span class="cp">#输入时应先使输入框获取焦点，否则无法输入（可以先单击一下）
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">pg</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="s">&#34;Hello, World!&#34;</span><span class="p">,</span><span class="n">interval</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+</span></span></code></pre></div>
+<h3 id="2按键操作" data-numberify>2.按键操作<a class="anchor ms-1" href="#2按键操作"></a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#按键操作
+</span></span></span><span class="line"><span class="cl"><span class="cp">#presses:按键的次数，默认是1次
+</span></span></span><span class="line"><span class="cl"><span class="cp">#interval:每次按键间隔时间，默认是0
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">pg</span><span class="p">.</span><span class="nf">press</span><span class="p">(</span><span class="err">&#39;</span><span class="n">enter</span><span class="err">&#39;</span><span class="p">,</span><span class="n">presses</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">interval</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+</span></span></code></pre></div>
+<h3 id="3热键操作组合键" data-numberify>3.热键操作（组合键）<a class="anchor ms-1" href="#3热键操作组合键"></a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#热键操作
+</span></span></span><span class="line"><span class="cl"><span class="cp">#interval:每次按键间隔时间，默认是0
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">pg</span><span class="p">.</span><span class="nf">hotkey</span><span class="p">(</span><span class="err">&#39;</span><span class="n">ctrl</span><span class="sc">&#39;,&#39;</span><span class="n">a</span><span class="err">&#39;</span><span class="p">,</span><span class="n">interval</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+</span></span></code></pre></div><p><strong>常用按键</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp"># 所有按键的字符串标识如下
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nf">print</span><span class="p">(</span><span class="n">pyautogui</span><span class="p">.</span><span class="n">KEYBOARD_KEYS</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="cp"># 输出:
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="p">[</span>
+</span></span><span class="line"><span class="cl"><span class="sc">&#39;\t&#39;</span><span class="p">,</span> <span class="sc">&#39;\n&#39;</span><span class="p">,</span> <span class="sc">&#39;\r&#39;</span><span class="p">,</span> <span class="sc">&#39; &#39;</span><span class="p">,</span> <span class="sc">&#39;!&#39;</span><span class="p">,</span> <span class="sc">&#39;&#34;&#39;</span><span class="p">,</span> <span class="sc">&#39;#&#39;</span><span class="p">,</span> <span class="sc">&#39;$&#39;</span><span class="p">,</span> <span class="sc">&#39;%&#39;</span><span class="p">,</span> <span class="sc">&#39;&amp;&#39;</span><span class="p">,</span> <span class="s">&#34;&#39;&#34;</span><span class="p">,</span> <span class="sc">&#39;(&#39;</span><span class="p">,</span> <span class="sc">&#39;)&#39;</span><span class="p">,</span> <span class="sc">&#39;*&#39;</span><span class="p">,</span> <span class="sc">&#39;+&#39;</span><span class="p">,</span> <span class="sc">&#39;,&#39;</span><span class="p">,</span> <span class="sc">&#39;-&#39;</span><span class="p">,</span> <span class="sc">&#39;.&#39;</span><span class="p">,</span> <span class="sc">&#39;/&#39;</span><span class="p">,</span> <span class="sc">&#39;0&#39;</span><span class="p">,</span> <span class="sc">&#39;1&#39;</span><span class="p">,</span> <span class="sc">&#39;2&#39;</span><span class="p">,</span> <span class="sc">&#39;3&#39;</span><span class="p">,</span> <span class="sc">&#39;4&#39;</span><span class="p">,</span> <span class="sc">&#39;5&#39;</span><span class="p">,</span> <span class="sc">&#39;6&#39;</span><span class="p">,</span> <span class="sc">&#39;7&#39;</span><span class="p">,</span> <span class="sc">&#39;8&#39;</span><span class="p">,</span> <span class="sc">&#39;9&#39;</span><span class="p">,</span> <span class="sc">&#39;:&#39;</span><span class="p">,</span> <span class="sc">&#39;;&#39;</span><span class="p">,</span> <span class="sc">&#39;&lt;&#39;</span><span class="p">,</span> <span class="sc">&#39;=&#39;</span><span class="p">,</span> <span class="sc">&#39;&gt;&#39;</span><span class="p">,</span> <span class="sc">&#39;?&#39;</span><span class="p">,</span> <span class="sc">&#39;@&#39;</span><span class="p">,</span> <span class="sc">&#39;[&#39;</span><span class="p">,</span> <span class="sc">&#39;\\&#39;</span><span class="p">,</span> <span class="sc">&#39;]&#39;</span><span class="p">,</span> <span class="sc">&#39;^&#39;</span><span class="p">,</span> <span class="sc">&#39;_&#39;</span><span class="p">,</span> <span class="sc">&#39;`&#39;</span><span class="p">,</span> <span class="sc">&#39;a&#39;</span><span class="p">,</span> <span class="sc">&#39;b&#39;</span><span class="p">,</span> <span class="sc">&#39;c&#39;</span><span class="p">,</span> <span class="sc">&#39;d&#39;</span><span class="p">,</span> <span class="sc">&#39;e&#39;</span><span class="p">,</span> <span class="sc">&#39;f&#39;</span><span class="p">,</span> <span class="sc">&#39;g&#39;</span><span class="p">,</span> <span class="sc">&#39;h&#39;</span><span class="p">,</span> <span class="sc">&#39;i&#39;</span><span class="p">,</span> <span class="sc">&#39;j&#39;</span><span class="p">,</span> <span class="sc">&#39;k&#39;</span><span class="p">,</span> <span class="sc">&#39;l&#39;</span><span class="p">,</span> <span class="sc">&#39;m&#39;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl"><span class="sc">&#39;n&#39;</span><span class="p">,</span> <span class="sc">&#39;o&#39;</span><span class="p">,</span> <span class="sc">&#39;p&#39;</span><span class="p">,</span> <span class="sc">&#39;q&#39;</span><span class="p">,</span> <span class="sc">&#39;r&#39;</span><span class="p">,</span> <span class="sc">&#39;s&#39;</span><span class="p">,</span> <span class="sc">&#39;t&#39;</span><span class="p">,</span> <span class="sc">&#39;u&#39;</span><span class="p">,</span> <span class="sc">&#39;v&#39;</span><span class="p">,</span> <span class="sc">&#39;w&#39;</span><span class="p">,</span> <span class="sc">&#39;x&#39;</span><span class="p">,</span> <span class="sc">&#39;y&#39;</span><span class="p">,</span> <span class="sc">&#39;z&#39;</span><span class="p">,</span> <span class="sc">&#39;{&#39;</span><span class="p">,</span> <span class="sc">&#39;|&#39;</span><span class="p">,</span> <span class="sc">&#39;}&#39;</span><span class="p">,</span> <span class="sc">&#39;~&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">accept</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">add</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">alt</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">altleft</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">altright</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">apps</span><span class="err">&#39;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl"><span class="err">&#39;</span><span class="n">backspace</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">browserback</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">browserfavorites</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">browserforward</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">browserhome</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">browserrefresh</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">browsersearch</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">browserstop</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">capslock</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">clear</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">convert</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">ctrl</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">ctrlleft</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">ctrlright</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">decimal</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">del</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">delete</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">divide</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">down</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">end</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">enter</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">esc</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">escape</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">execute</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">f1</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">f10</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">f11</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">f12</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">f13</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">f14</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">f15</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">f16</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">f17</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">f18</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">f19</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">f2</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">f20</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">f21</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">f22</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">f23</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">f24</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">f3</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">f4</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">f5</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">f6</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">f7</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">f8</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">f9</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">final</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">fn</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">hanguel</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">hangul</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">hanja</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">help</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">home</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">insert</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">junja</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">kana</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">kanji</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">launchapp1</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">launchapp2</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">launchmail</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">launchmediaselect</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">left</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">modechange</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">multiply</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">nexttrack</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">nonconvert</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">num0</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">num1</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">num2</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">num3</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">num4</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">num5</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">num6</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">num7</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">num8</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">num9</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">numlock</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">pagedown</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">pageup</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">pause</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">pgdn</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">pgup</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">playpause</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">prevtrack</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">print</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">printscreen</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">prntscrn</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">prtsc</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">prtscr</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="k">return</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">right</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">scrolllock</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">select</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">separator</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">shift</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">shiftleft</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">shiftright</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">sleep</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">space</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">stop</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">subtract</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">tab</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">up</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">volumedown</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">volumemute</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">volumeup</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">win</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">winleft</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">winright</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">yen</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">command</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">option</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">optionleft</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">optionright</span><span class="err">&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="err">&#39;</span><span class="n">Add</span><span class="err">&#39;</span> <span class="o">-</span> <span class="err">加号键（</span><span class="s">&#34;+&#34;</span><span class="err">）通常用于添加或增加操作。</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="err">&#39;</span><span class="n">Alt</span><span class="err">&#39;</span> <span class="o">-</span> <span class="err">通常与键盘上的</span> <span class="s">&#34;Alt&#34;</span> <span class="err">键相对应，它是一种常用的快捷键，可以用于访问特殊功能或菜单。</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="err">&#39;</span><span class="n">Altleft</span><span class="err">&#39;</span> <span class="o">-</span> <span class="err">这个单词通常与键盘上的</span> <span class="s">&#34;Alt&#34;</span> <span class="err">键左边的部分相对应，也是用于访问特殊功能或菜单。</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="err">&#39;</span><span class="n">Altright</span><span class="err">&#39;</span> <span class="o">-</span> <span class="err">这个单词通常与键盘上的</span> <span class="s">&#34;Alt&#34;</span> <span class="err">键右边的部分相对应，也是用于访问特殊功能或菜单。</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="err">&#39;</span><span class="n">Apps</span><span class="err">&#39;</span> <span class="o">-</span> <span class="err">右键菜单</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="err">&#39;</span><span class="n">Backspace</span><span class="err">&#39;</span> <span class="o">-</span> <span class="err">这个单词通常与键盘上的</span> <span class="s">&#34;Backspace&#34;</span> <span class="err">键相对应，用于删除前一个字符或命令。</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="err">&#39;</span><span class="n">Browserback</span><span class="err">&#39;</span> <span class="o">-</span> <span class="err">这个单词通常与浏览器相关的快捷键相对应，用于返回浏览器的上一个页面。</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="err">&#39;</span><span class="n">Browserfavorites</span><span class="err">&#39;</span> <span class="o">-</span> <span class="err">这个单词通常与浏览器相关的快捷键相对应，用于访问浏览器的收藏夹。</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="err">&#39;</span><span class="n">Browserforward</span><span class="err">&#39;</span> <span class="o">-</span> <span class="err">这个单词通常与浏览器相关的快捷键相对应，用于前进到浏览器的一个页面。</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="err">&#39;</span><span class="n">Browserhome</span><span class="err">&#39;</span> <span class="o">-</span> <span class="err">这个单词通常与浏览器相关的快捷键相对应，用于导航到浏览器的首页。</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="err">&#39;</span><span class="n">Browserrefresh</span><span class="err">&#39;</span> <span class="o">-</span> <span class="err">这个单词通常与浏览器相关的快捷键相对应，用于刷新当前页面。</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="err">&#39;</span><span class="n">Browsersearch</span><span class="err">&#39;</span> <span class="o">-</span> <span class="err">这个单词通常与浏览器相关的快捷键相对应，用于在浏览器中执行搜索操作。</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="err">&#39;</span><span class="n">Browserstop</span><span class="err">&#39;</span> <span class="o">-</span> <span class="err">这个单词通常与浏览器相关的快捷键相对应，用于停止加载当前页面。</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="err">&#39;</span><span class="n">Capslock</span><span class="err">&#39;</span> <span class="o">-</span> <span class="err">这个单词通常与键盘上的</span> <span class="s">&#34;Capslock&#34;</span> <span class="err">键相对应，用于锁定或解锁大写字母输入。</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="err">&#39;</span><span class="n">Ctrl</span><span class="err">&#39;</span> <span class="o">-</span> <span class="err">这个单词通常与键盘上的</span> <span class="s">&#34;Ctrl&#34;</span> <span class="err">键相对应，用于执行各种控制命令或组合键操作。</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="err">&#39;</span><span class="n">Ctrlleft</span><span class="err">&#39;</span> <span class="o">-</span> <span class="err">这个单词通常与键盘上的</span> <span class="s">&#34;Ctrl&#34;</span> <span class="err">键左边的部分相对应，也是用于执行各种控制命令或组合键操作。</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="err">&#39;</span><span class="n">Ctrlright</span><span class="err">&#39;</span> <span class="o">-</span> <span class="err">这个单词通常与键盘上的</span> <span class="s">&#34;Ctrl&#34;</span> <span class="err">键右边的部分相对应，也是用于执行各种控制命令或组合键操作。</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="err">&#39;</span><span class="n">Decimal</span><span class="err">&#39;</span> <span class="o">-</span> <span class="err">这个单词通常与键盘上的</span> <span class="s">&#34;Decimal&#34;</span> <span class="err">或</span> <span class="s">&#34;.&#34;</span> <span class="err">键相对应，用于输入小数点或十进制数字。</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="err">&#39;</span><span class="n">fn</span><span class="err">&#39;</span> <span class="o">-</span> <span class="s">&#34;fn&#34;</span> <span class="err">是一个特殊的键盘功能键，通常在笔记本电脑和一些特定的键盘布局中找到。它用于配合其他按键使用，以实现一些特定的功能，如调节亮度、音量等。</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="err">&#39;</span><span class="n">home</span><span class="err">&#39;</span> <span class="o">-</span> <span class="s">&#34;home&#34;</span> <span class="err">对应的按键是键盘上的</span> <span class="s">&#34;Home&#34;</span> <span class="err">键，通常用于快速导航到页面的顶部或文本的开头。</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="err">&#39;</span><span class="n">insert</span><span class="err">&#39;</span> <span class="o">-</span> <span class="s">&#34;insert&#34;</span> <span class="err">对应的按键是键盘上的</span> <span class="s">&#34;Insert&#34;</span> <span class="err">键，用于插入文本或数据。</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="err">&#39;</span><span class="n">left</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">right</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">up</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">down</span><span class="err">&#39;</span> <span class="o">-</span> <span class="err">这些方向键对应的按键分别是</span> <span class="s">&#34;Left Arrow&#34;</span><span class="err">、</span><span class="s">&#34;Right Arrow&#34;</span><span class="err">、</span><span class="s">&#34;Up Arrow&#34;</span> <span class="err">和</span> <span class="s">&#34;Down Arrow&#34;</span><span class="err">。它们通常用于控制光标的位置。</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="err">&#39;</span><span class="n">num0</span><span class="err">&#39;</span> <span class="err">到</span> <span class="err">&#39;</span><span class="n">num9</span><span class="err">&#39;</span> <span class="o">-</span> <span class="err">这些数字键对应的按键是从</span> <span class="s">&#34;0&#34;</span> <span class="err">到</span> <span class="s">&#34;9&#34;</span><span class="err">。它们用于输入数字和进行数学运算。</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="err">&#39;</span><span class="n">numlock</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">scrolllock</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">select</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">separator</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">tab</span><span class="err">&#39;</span> <span class="o">-</span> <span class="err">这些都是特殊的锁定键或其他功能键，通常用于控制光标移动、滚动页面、选择文本等操作。</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="err">&#39;</span><span class="n">space</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="k">return</span><span class="err">&#39;</span> <span class="o">-</span> <span class="s">&#34;Space&#34;</span> <span class="err">键对应的按键是空格键，用于在文本中插入空格。</span><span class="s">&#34;Return&#34;</span> <span class="err">键对应的按键是回车键，用于换行或确认输入。</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="err">&#39;</span><span class="n">win</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">winleft</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">winright</span><span class="err">&#39;</span> <span class="o">-</span> <span class="err">这些是特定的功能键，通常用于操作系统中的窗口控制和菜单操作。</span><span class="s">&#34;Win&#34;</span> <span class="err">键对应的按键通常是</span> <span class="n">Windows</span> <span class="err">徽标键（通常是带有</span> <span class="n">Windows</span> <span class="err">标志的按键）。</span><span class="s">&#34;Winleft&#34;</span> <span class="err">和</span> <span class="s">&#34;Winright&#34;</span> <span class="err">是左右</span> <span class="n">Windows</span> <span class="err">功能键的称呼，但它们并不对应键盘上的标准按键</span>
+</span></span></code></pre></div>
+<h2 id="六消息框" data-numberify>六，消息框<a class="anchor ms-1" href="#六消息框"></a></h2>
+
+<h3 id="1可以设置一个button" data-numberify>1.可以设置一个button<a class="anchor ms-1" href="#1可以设置一个button"></a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#消息框
+</span></span></span><span class="line"><span class="cl"><span class="cp">#title:标题
+</span></span></span><span class="line"><span class="cl"><span class="cp">#text:文本
+</span></span></span><span class="line"><span class="cl"><span class="cp"># button:按钮，默认是OK
+</span></span></span><span class="line"><span class="cl"><span class="cp">#返回值：默认是OK
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">arr1</span> <span class="o">=</span> <span class="n">pg</span><span class="p">.</span><span class="nf">alert</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="err">&#39;</span><span class="n">Hello</span><span class="p">,</span> <span class="n">World</span><span class="o">!</span><span class="err">&#39;</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="err">&#39;没钱只能当牛马&#39;</span><span class="p">,</span><span class="n">button</span><span class="o">=</span><span class="err">&#39;</span><span class="n">ok</span><span class="err">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">print</span><span class="p">(</span><span class="n">arr1</span><span class="p">)</span>
+</span></span></code></pre></div>
+<h3 id="2可以设置多个button" data-numberify>2.可以设置多个button<a class="anchor ms-1" href="#2可以设置多个button"></a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#可以设置多个button
+</span></span></span><span class="line"><span class="cl"><span class="cp">#返回值：返回用户点击的按钮
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">arr2</span> <span class="o">=</span> <span class="n">pg</span><span class="p">.</span><span class="nf">confirm</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="err">&#39;</span><span class="n">Hello</span><span class="p">,</span> <span class="n">World</span><span class="o">!</span><span class="err">&#39;</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="err">&#39;没钱只能当牛马&#39;</span><span class="p">,</span><span class="n">buttons</span><span class="o">=</span><span class="p">[</span><span class="err">&#39;</span><span class="n">ok</span><span class="sc">&#39;,&#39;</span><span class="n">cancel</span><span class="err">&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nf">print</span><span class="p">(</span><span class="n">arr2</span><span class="p">)</span>
+</span></span></code></pre></div>
+<h3 id="3自带文本输入框的消息框" data-numberify>3.自带文本输入框的消息框<a class="anchor ms-1" href="#3自带文本输入框的消息框"></a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#自带文本输入框的消息框
+</span></span></span><span class="line"><span class="cl"><span class="cp">#返回值：返回用户输入的内容
+</span></span></span><span class="line"><span class="cl"><span class="cp">#文本输入框没字返回：None
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">arr3</span><span class="o">=</span><span class="n">pg</span><span class="p">.</span><span class="nf">prompt</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="err">&#39;</span><span class="n">Hello</span><span class="p">,</span> <span class="n">World</span><span class="o">!</span><span class="err">&#39;</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="err">&#39;没钱只能当牛马&#39;</span><span class="p">,</span><span class="k">default</span><span class="o">=</span><span class="err">&#39;请您输入：&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">print</span><span class="p">(</span><span class="s">&#34;您输入的内容是：&#34;</span><span class="o">+</span><span class="n">arr3</span><span class="p">)</span>
+</span></span></code></pre></div>
+<h3 id="4自带密码的文本输入框的消息框" data-numberify>4.自带密码的文本输入框的消息框<a class="anchor ms-1" href="#4自带密码的文本输入框的消息框"></a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#自带密码的文本输入框的消息框
+</span></span></span><span class="line"><span class="cl"><span class="cp">#返回值：返回用户输入的密码
+</span></span></span><span class="line"><span class="cl"><span class="cp">#密码没字返回：None
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">arr4</span><span class="o">=</span><span class="n">pg</span><span class="p">.</span><span class="nf">password</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="err">&#39;</span><span class="n">Hello</span><span class="p">,</span> <span class="n">World</span><span class="o">!</span><span class="err">&#39;</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="err">&#39;没钱只能当牛马&#39;</span><span class="p">,</span><span class="k">default</span><span class="o">=</span><span class="err">&#39;请您输入：&#39;</span><span class="p">,</span><span class="n">mask</span><span class="o">=</span><span class="sc">&#39;*&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">print</span><span class="p">(</span><span class="s">&#34;您输入的密码是：&#34;</span><span class="o">+</span><span class="n">arr4</span><span class="p">)</span>
+</span></span></code></pre></div>
+<h2 id="七屏幕截图" data-numberify>七、屏幕截图<a class="anchor ms-1" href="#七屏幕截图"></a></h2>
+
+<h3 id="1截全屏" data-numberify>1.截全屏<a class="anchor ms-1" href="#1截全屏"></a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#屏幕截图
+</span></span></span><span class="line"><span class="cl"><span class="cp">#imageformat:截图保存的格式，默认是png
+</span></span></span><span class="line"><span class="cl"><span class="cp">#region:截图的范围，默认是整个屏幕
+</span></span></span><span class="line"><span class="cl"><span class="cp"># 截取全屏 在1920 x 1080屏幕上，screenshot（）函数大约需要100毫秒-不快但不慢。
+</span></span></span><span class="line"><span class="cl"><span class="cp"># 截取全屏，并以图片保存
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">pg</span><span class="p">.</span><span class="nf">screenshot</span><span class="p">(</span><span class="s">&#34;E:</span><span class="se">\\</span><span class="s">pythonDemo</span><span class="se">\\</span><span class="s">python_2024</span><span class="se">\\</span><span class="s">all.png&#34;</span><span class="p">)</span>
+</span></span></code></pre></div>
+<h3 id="2指定区域内截屏" data-numberify>2.指定区域内截屏<a class="anchor ms-1" href="#2指定区域内截屏"></a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#指定区域内截屏
+</span></span></span><span class="line"><span class="cl"><span class="cp">#region:截图的范围，默认是整个屏幕 : [开始位置x,开始位置y,x扩展的分辨率,y扩展的分辨率]
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">pg</span><span class="p">.</span><span class="nf">screenshot</span><span class="p">(</span><span class="s">&#34;E:</span><span class="se">\\</span><span class="s">pythonDemo</span><span class="se">\\</span><span class="s">python_2024</span><span class="se">\\</span><span class="s">all2.png&#34;</span><span class="p">,</span><span class="n">region</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">500</span><span class="p">])</span>
+</span></span></code></pre></div>
+<h3 id="3图片定位" data-numberify>3.图片定位<a class="anchor ms-1" href="#3图片定位"></a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#图片定位
+</span></span></span><span class="line"><span class="cl"><span class="cp">#定位到的图片的坐标（从左到右，从上到下）
+</span></span></span><span class="line"><span class="cl"><span class="cp">#image:图片路径
+</span></span></span><span class="line"><span class="cl"><span class="cp">#confidence:定位精度，默认是0.8
+</span></span></span><span class="line"><span class="cl"><span class="cp">#count:定位到的图片数量，默认是1
+</span></span></span><span class="line"><span class="cl"><span class="cp">#返回图片中心点
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="n">pg</span><span class="p">.</span><span class="nf">locateCenterOnScreen</span><span class="p">(</span><span class="s">&#34;E:</span><span class="se">\\</span><span class="s">pythonDemo</span><span class="se">\\</span><span class="s">python_2024</span><span class="se">\\</span><span class="s">Google_tubiao.png&#34;</span><span class="p">,</span><span class="n">confidence</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</span></span></code></pre></div><p>文章知识点与官方知识档案匹配，可进一步学习相关知识</p>
+<p><a href="https://edu.csdn.net/skill/cloud_native/?utm_source=csdn_ai_skill_tree_blog" target="_blank" rel="noopener noreferrer">云原生入门技能树<i class="fas fa-external-link-square-alt ms-1"></i></a><a href="https://edu.csdn.net/skill/cloud_native/?utm_source=csdn_ai_skill_tree_blog" target="_blank" rel="noopener noreferrer">首页<i class="fas fa-external-link-square-alt ms-1"></i></a><a href="https://edu.csdn.net/skill/cloud_native/?utm_source=csdn_ai_skill_tree_blog" target="_blank" rel="noopener noreferrer">概览<i class="fas fa-external-link-square-alt ms-1"></i></a>18885 人正在系统学习中</p>
+<p>本文转自 <a href="https://blog.csdn.net/Du_XiaoNan/article/details/136197235" target="_blank" rel="noopener noreferrer">https://blog.csdn.net/Du_XiaoNan/article/details/136197235<i class="fas fa-external-link-square-alt ms-1"></i></a>，如有侵权，请联系删除。</p>
+</div>
+</div>
+<div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content surface">
+      <div class="modal-header">
+        <h5 class="modal-title text-surface" id="rewardModalLabel"><i class="fas fa-fw fa-coffee me-1"></i>Buy me a coffee</h5>
+        <a href="#" data-bs-dismiss="modal" class="btn-close" aria-label="Close"></a>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs mb-3" role="tablist"><li class="nav-item text-nowrap" role="presentation">
+            <a class="nav-link active" id="reward-alipay-tab" data-bs-toggle="tab" href="#reward-alipay" role="tab" aria-controls="reward-alipay" aria-selected="true">
+              <i class="fab fa-fw fa-alipay me-1"></i>Alipay
+            </a>
+          </li></ul>
+        <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content text-center show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
+            <img class="img-fluid post-reward-img" src="https://hbs-skeleton.netlify.app/images/reward/alipay.png" loading="lazy" data-viewer-invisible />
+          </div></div>
+      </div>
+    </div>
+  </div>
+</div></div><div class="card-footer">
+  <div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-next">
+      <a href="/docs/helpdocs/python/%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AF%AD%E6%B3%95%E6%96%87%E6%9C%AB%E9%99%84%E5%B8%B8%E7%94%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F/">史上最全正则表达式语法，文末附常用表达式！</a>
+      <i class="fas fa-fw fa-chevron-down post-next-icon ms-1" data-fa-transform="rotate-270"></i>
+    </div></div>
+</div></article><div class="post-copyright mb-3 row card component" id="post-copyright">
+    <div class="card-header">
+        <h2 class="card-title fs-4 my-2 text-surface">Copyright</h2>
+    </div>
+    <div class="card-body"><a class="d-flex align-items-center flex-column" target="_blank" rel="license noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en">
+  <span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-nc"></i><i class="fab fa-fw fa-2x fa-creative-commons-nd"></i></span>
+  CC BY-NC-ND 4.0 
+</a>
+
+
+    </div>
+</div><section class="related-posts row card component">
+      <div class="card-header">
+        <h2 class="card-title fs-4 my-2 text-surface">
+          Related Posts
+        </h2>
+      </div>
+      <div class="card-body slide px-1">
+        <div class="slide-inner row gx-0"><div class="col-12 col-md-6 col-lg-4 me-2">
+            <div class="post-card card card-body p-0 border-0 surface">
+  
+  <picture>
+      <source srcset="/news/2022/07/more-image-processing-methods/featured-sample_huc6bcc14d597e300fd9ab4aae536c68a5_498412_500x0_resize_q75_h2_box_2.webp" media="(max-width: 576px)" height="333" width="500">
+      <img class="img-fluid" height="120" width="180" alt="featured-sample.webp" src="/news/2022/07/more-image-processing-methods/featured-sample_huc6bcc14d597e300fd9ab4aae536c68a5_498412_180x0_resize_q75_h2_box_2.webp" data-src="/news/2022/07/more-image-processing-methods/featured-sample.webp" loading="lazy"/>
+    </picture>
+
+  <a class="post-title" href="/news/2022/07/more-image-processing-methods/">
+    More Image Processing Methods
+  </a>
+  <div class="post-meta mb-0">
+    July 8, 2022
+
+  </div>
+</div>
+
+          </div><div class="col-12 col-md-6 col-lg-4 me-2">
+            <div class="post-card card card-body p-0 border-0 surface">
+  
+  <div
+    class="post-card-default-img card-img-top d-flex align-items-center justify-content-center bg-body-secondary mb-1">
+    NO IMAGE
+  </div>
+
+  <a class="post-title" href="/blog/2022/04/readme/">
+    README
+  </a>
+  <div class="post-meta mb-0">
+    April 17, 2022
+
+  </div>
+</div>
+
+          </div><div class="col-12 col-md-6 col-lg-4 me-2">
+            <div class="post-card card card-body p-0 border-0 surface">
+  
+  <picture>
+      <source srcset="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample_hu1e269adb755e54f6dcb322d69e53c5ae_40960_500x0_resize_q75_h2_box_2.webp" media="(max-width: 576px)" height="375" width="500">
+      <img class="img-fluid" height="135" width="180" alt="featured-sample.webp" src="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample_hu1e269adb755e54f6dcb322d69e53c5ae_40960_180x0_resize_q75_h2_box_2.webp" data-src="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample.webp" loading="lazy"/>
+    </picture>
+
+  <a class="post-title" href="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/">
+    落茜聚
+  </a>
+  <div class="post-meta mb-0">
+    January 1, 1
+
+  </div>
+</div>
+
+          </div></div>
+        <button class="slide-control-left">
+          <i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-90"></i>
+          <span class="visually-hidden">Left</span>
+        </button>
+        <button class="slide-control-right">
+          <i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-270"></i>
+          <span class="visually-hidden">Right</span>
+        </button>
+      </div>
+    </section><div class="card component row post-comments" id="post-comments">
+  <div class="card-header">
+    <h2 class="card-title my-2 fs-4 text-surface">Comments</h2>
+  </div>
+  <div class="card-body">
+<div class="giscus"></div>
+
+
+
+</div>
+</div></div>
+</div>
+<aside class="sidebar d-flex docs-sidebar col-xxl-3 position-sticky order-xxl-5">
+  <div class="container">
+    
+    <div class="accordion post-toc d-none d-lg-block">
+  <div class="accordion-item row mb-4 card component" id="postTOC">
+    <div class="card-header accordion-header">
+      <h2 class="card-title fs-4 my-2 text-surface d-none d-lg-block">Contents</h2>
+      <a class="accordion-button d-lg-none mb-1 collapsed shadow-none p-0 bg-transparent" role="button" data-bs-toggle="collapse" href="#post-toc" aria-expanded="false" aria-controls="post-toc">
+        Contents
+      </a>
+    </div>
+    <div class="card-body collapse accordion-collapse accordion-body d-lg-block" id="post-toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#一pyautogui-概括">一、pyAutoGUI 概括</a></li>
+    <li><a href="#二pyautogui-库安装">二、pyAutoGUI 库安装</a></li>
+    <li><a href="#三pyautogui-操作前置知识">三、pyAutoGUI 操作前置知识</a>
+      <ul>
+        <li><a href="#1屏幕分辨率与尺寸">1.屏幕分辨率与尺寸</a></li>
+        <li><a href="#2暂停操作">2.暂停操作</a></li>
+        <li><a href="#3故障保护功能">3.故障保护功能</a></li>
+      </ul>
+    </li>
+    <li><a href="#四鼠标操作">四、鼠标操作</a>
+      <ul>
+        <li><a href="#1鼠标移动操作">1.鼠标移动操作</a></li>
+        <li><a href="#2获取鼠标位置的坐标值">2.获取鼠标位置的坐标值</a></li>
+        <li><a href="#3鼠标拖拽操作">3.鼠标拖拽操作</a></li>
+        <li><a href="#4鼠标点击操作">4.鼠标点击操作</a></li>
+        <li><a href="#5鼠标单击分布操作">5.鼠标单击分布操作</a></li>
+      </ul>
+    </li>
+    <li><a href="#五键盘操作">五、键盘操作</a>
+      <ul>
+        <li><a href="#1输入字符">1.输入字符</a></li>
+        <li><a href="#2按键操作">2.按键操作</a></li>
+        <li><a href="#3热键操作组合键">3.热键操作（组合键）</a></li>
+      </ul>
+    </li>
+    <li><a href="#六消息框">六，消息框</a>
+      <ul>
+        <li><a href="#1可以设置一个button">1.可以设置一个button</a></li>
+        <li><a href="#2可以设置多个button">2.可以设置多个button</a></li>
+        <li><a href="#3自带文本输入框的消息框">3.自带文本输入框的消息框</a></li>
+        <li><a href="#4自带密码的文本输入框的消息框">4.自带密码的文本输入框的消息框</a></li>
+      </ul>
+    </li>
+    <li><a href="#七屏幕截图">七、屏幕截图</a>
+      <ul>
+        <li><a href="#1截全屏">1.截全屏</a></li>
+        <li><a href="#2指定区域内截屏">2.指定区域内截屏</a></li>
+        <li><a href="#3图片定位">3.图片定位</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </div>
+</div>
+    <div class="accordion">
+    <div class="accordion-item docs-repo row card component">
+        <div class="card-header accordion-header" id="repo-header">
+            <h2 class="card-title fs-4 my-2 text-surface d-none d-lg-block">Repository</h2>
+            <a
+                class="accordion-button d-lg-none mb-1 shadow-none p-0 bg-transparent"
+                role="button" data-bs-toggle="collapse" href="#repo" aria-expanded="true" aria-controls="repo">
+                Repository
+            </a>
+        </div>
+        <div class="card-body collapse accordion-collapse accordion-body text-secondary-on-surface d-lg-block show" id="repo" aria-labelledby="repo-header">
+            <ul class="list-unstyled"><li class="mb-1">
+                    <a href="https://github.com/FallingMY/FallingMY.github.io/blob/main//content/docs/HelpDocs/Python/%e6%8e%8c%e6%8f%a1%e8%ae%a1%e7%ae%97%e6%9c%ba%e8%87%aa%e5%8a%a8%e5%8c%96%ef%bc%9aPyAutoGUI%e5%ba%93%e8%af%a6%e7%bb%86%e6%95%99%e7%a8%8b%ef%bc%88%e6%9c%80%e5%85%a8%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95%ef%bc%8c%e6%af%8f%e8%a1%8c%e4%bb%a3%e7%a0%81%e9%83%bd%e6%9c%89%e6%b3%a8%e9%87%8a%ef%bc%8c%e5%b8%ae%e4%bd%a0%e8%a7%a3%e5%86%b3%e4%b8%8e%e4%b9%8b%e6%9c%89%e5%85%b3%e7%9a%84%e6%89%80%e6%9c%89%e9%97%ae%e9%a2%98%ef%bc%89-CSDN%e5%8d%9a%e5%ae%a2.md" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-fw fa-file-archive text-success"></i> View page source
+                    </a>
+                </li>
+                <li class="mb-1">
+                    <a href="https://github.com/FallingMY/FallingMY.github.io/edit/main//content/docs/HelpDocs/Python/%e6%8e%8c%e6%8f%a1%e8%ae%a1%e7%ae%97%e6%9c%ba%e8%87%aa%e5%8a%a8%e5%8c%96%ef%bc%9aPyAutoGUI%e5%ba%93%e8%af%a6%e7%bb%86%e6%95%99%e7%a8%8b%ef%bc%88%e6%9c%80%e5%85%a8%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95%ef%bc%8c%e6%af%8f%e8%a1%8c%e4%bb%a3%e7%a0%81%e9%83%bd%e6%9c%89%e6%b3%a8%e9%87%8a%ef%bc%8c%e5%b8%ae%e4%bd%a0%e8%a7%a3%e5%86%b3%e4%b8%8e%e4%b9%8b%e6%9c%89%e5%85%b3%e7%9a%84%e6%89%80%e6%9c%89%e9%97%ae%e9%a2%98%ef%bc%89-CSDN%e5%8d%9a%e5%ae%a2.md" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-fw fa-edit text-primary"></i> Edit this page
+                    </a>
+                </li></ul>
+        </div>
+    </div>
+</div>
+
+  </div>
+</aside>
+
+      </div>
+    </main><footer class="footer mt-auto py-3 text-center container"><div class="offcanvas offcanvas-bottom h-auto" tabindex="-1" id="offcanvasActionsPanel"
+  aria-labelledby="offcanvasActionsPanelLabel">
+  <div class="offcanvas-header">
+    <div class="offcanvas-title h5" id="offcanvasActionsPanelLabel">
+      <i class="fas fa-fw fa-th-large me-1"></i>
+      Actions
+    </div>
+    <button type="button" class="btn-close ms-auto" data-bs-dismiss="offcanvas" data-bs-target="offcanvasActionsPanel" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body mt-2"><div class="social-share mb-4 d-flex overflow-auto">
+      <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Twitter Share Button"
+      target="_blank" href="https://twitter.com/intent/tweet?title=404%20Page%20not%20found&url=https%3a%2f%2fhbs-skeleton.netlify.app%2f404.html">
+        <i class="fab fa-2x fa-fw fa-twitter mb-2"></i> Twitter
+      </a>
+      <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Facebook Share Button"
+        target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fhbs-skeleton.netlify.app%2f404.html">
+        <i class="fab fa-2x fa-fw fa-facebook-f mb-2"></i> Facebook
+      </a>
+    </div>
+    <hr class="mb-4"><div class="actions d-flex overflow-auto align-items-center">
+      <a role="button" class="action action-go-back d-flex flex-column align-items-center me-3" href="javascript: window.history.back();">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-90"></i></span> Go back
+      </a>
+      <a role="button" class="action action-reload-page d-flex flex-column align-items-center me-3">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-redo-alt"></i></span> Reload
+      </a>
+      <a role="button" class="action action-copy-url d-flex flex-column align-items-center me-3">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-link"></i></span> Copy URL
+      </a>
+    </div>
+  </div>
+</div><div class="row text-center">
+  <div class="col-12 mt-2">
+    <p class="mb-2">Falling_Studio_Terminal3</p>
+    <p class="text-secondary mb-2"><small>An extreme fast, responsive and feature-rich blog theme for Hugo</small></p><div class="copyright mb-2 text-secondary">
+  <small>Copyright © 2016-2024 Razon Yang. All Rights Reserved.
+</small>
+</div>
+<div class="powered-by mb-2 text-secondary">
+  <small>
+    Build with ❤️ from the <a class="text-primary" href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a> and the <a class="text-primary" href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank" rel="noopener noreferrer">HBS</a> theme.
+  </small>
+</div>
+
+
+<nav class="social-links nav justify-content-center mb-2 mt-3">
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://space.bilibili.com/327274480" title="Bilibili" rel="me">
+        <i class="fa-fw fa-2x fab fa-bilibili"
+           style="color: #fb7299;"></i>
+      </a>
+    <a class="nav-link social-link p-0 me-1 mb-2" href="mailto:falling_my@outlook.com" title="Email">
+      <i class="fas fa-fw fa-2x fa-envelope" style="color: #0963ac;"></i>
+    </a>
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://github.com/FallingMY/FallingMY.github.io" title="GitHub" rel="me">
+        <i class="fa-fw fa-2x fab fa-github"
+          ></i>
+      </a>
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://wpa.qq.com/msgrd?v=3&amp;uin=%25!s%28int=1317096804%29&amp;site=qq&amp;menu=yes" title="QQ" rel="me">
+        <i class="fa-fw fa-2x fab fa-qq"
+          ></i>
+      </a>
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://twitter.com/FallingMY3" title="Twitter" rel="me">
+        <i class="fa-fw fa-2x fab fa-twitter"
+           style="color: #1d9bf0;"></i>
+      </a>
+  <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="/index.xml" title="RSS" rel="me">
+    <i class="fas fa-fw fa-2x fa-rss" style="color: #ea6221;"></i>
+  </a>
+</nav>
+</div>
+  <div class="col-12 col-lg-8 offset-0 offset-lg-1"></div>
+</div>
+</footer>
+<script data-precache src="/assets/main/bundle.min.7b0534bc30be251af76480141b2ff77fb890082e9e473063bbb6142f12215296.js" integrity="sha256-ewU0vDC&#43;JRr3ZIAUGy/3f7iQCC6eRzBju7YULxIhUpY=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.4f30d5267a9f2f9d45ed93969d45ec626100a969a8b91f71f753315a261e9034.js" integrity="sha256-TzDVJnqfL51F7ZOWnUXsYmEAqWmouR9x91MxWiYekDQ=" crossorigin="anonymous" defer></script>
+<script data-precache src="/assets/viewer/bundle.min.06371891cfe6d10d36cba465c61c4d7cb17591a3be2fd9af4a38444d2074e709.js" integrity="sha256-BjcYkc/m0Q02y6RlxhxNfLF1kaO&#43;L9mvSjhETSB05wk=" crossorigin="anonymous" defer></script>
+<script src="/js/sw-register.js" defer></script>
+<script src="https://giscus.app/client.js"
+    data-repo="FallingMY/FallingMY.github.io"
+    data-repo-id="R_kgDOMR9LTw"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOMR9LT84CglZS"
+    data-mapping="pathname"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="preferred_color_scheme"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    defer>
+</script>
+
+
+  </body>
+</html>

@@ -1,0 +1,1004 @@
+<!doctype html>
+<html class="position-relative" itemscope itemtype="https://schema.org/WebPage" lang="en"
+  data-bs-theme="auto" data-palette="blue-gray">
+  <head><script src="/assets/init/bundle.min.1610e02413f48727a0d0040032941c7f011dd891d544c81dc65bb2249e92a429.js" integrity="sha256-FhDgJBP0hyeg0AQAMpQcfwEd2JHVRMgdxluyJJ6SpCk=" crossorigin="anonymous"></script>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>python——正则表达式(re模块)详解 - Falling_Studio_Terminal3</title>
+    <link rel="icon" href="/favicon_hucccd9e706a19cc8586335b155a80c266_43860_16x16_resize_q75_h2_box_2.webp" sizes="16x16" type="image/webp">
+    <link rel="icon" href="/favicon_hucccd9e706a19cc8586335b155a80c266_43860_32x32_resize_q75_h2_box_2.webp" sizes="32x32" type="image/webp">
+    <link rel="icon" href="/favicon_hucccd9e706a19cc8586335b155a80c266_43860_150x150_resize_q75_h2_box_2.webp" sizes="150x150" type="image/webp">
+    <link rel="apple-touch-icon" href="/favicon_hucccd9e706a19cc8586335b155a80c266_43860_180x180_resize_q75_h2_box_2.webp" sizes="180x180" type="image/webp">
+    <link rel="icon" href="/favicon_hucccd9e706a19cc8586335b155a80c266_43860_192x192_resize_q75_h2_box_2.webp" sizes="192x192" type="image/webp">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6f42c1">
+<meta name="keywords" content="Hugo, Bootstrap, Blog Theme" />
+  <meta name="description" content="在Python中需要通过正则表达式对字符串进⾏匹配的时候，可以使⽤⼀个python自带的模块，名字为re。
+正则表达式的大致匹配过程是：
+1.依次拿出表达式和文本中的字符比较，
+2.如果每一个字符都能匹配，则匹配成功；一旦有匹配不成功的字符则匹配失败。
+3.如果表达式中有量词或边界，这个过程会稍微有一些不同。
+r：Python 中字符串的前导 r 代表原始字符串标识符，该字符串中的特殊符号不会被转义，适用于正则表达式中繁杂的特殊符号表示。 因此 r&quot;\n&quot; 表示包含 &#39;\&#39; 和 &#39;n&#39; 两个字符的字符串，而 &quot;\n&quot; 则表示只包含一个换行符的字符串。
+print(&#34;\\n&#34;) # 输出 \nprint(r&#34;\n&#34;) #输出 \n re模块的使用：import re
+re.match函数语法：re.match(pattern, string, flags=0)
+尝试从字符串的起始位置匹配一个模式，如果不是起始位置匹配成功的话，match()就返回none。匹配成功re.match方法返回一个匹配的对象。
+如果上⼀步匹配到数据的话，可以使⽤group⽅法来提取数据。以使用group(num) 或 groups() 匹配对象函数来获取匹配表达式。
+group()用来提出分组截获的字符串**，**（）用来分组，group() 同group（0）就是匹配正则表达式整体结果，group(1) 列出第一个括号匹配部分，group(2) 列出第二个括号匹配部分，group(3) 列出第三个括号匹配部分。没有匹配成功的，re.search()返回None。
+举例：
+&gt;&gt;&gt; import re&gt;&gt;&gt; result = re.match(&#34;itcast&#34;,&#34;itcast.cn&#34;)&gt;&gt;&gt; result.group()&#39;itcast&#39; 从string头开始匹配pattern完全可以匹配，pattern匹配结束，同时匹配终止，后面的.cn不再匹配，返回匹配成功的信息。
+匹配单个字符[&hellip;]字符集，对应的位置可以是字符集中任意字符。字符集中的字符可以逐个列出，也可以给出范围，比如[abc]和[a-c]，第一个字符如果是^表示取反。所有特殊字符（比如&quot;]&quot;&quot;-&quot;&quot;^&quot;）在字符集中都失去原来的含义，如要使用可把&quot;]&quot;&quot;-&ldquo;放在第一个字符，&quot;^&ldquo;放在非第一个字符。
+举例：
+import reret = re.match(&#34;.&#34;,&#34;M&#34;)print(ret.group())ret = re.match(&#34;t.o&#34;,&#34;too&#34;)print(ret.group())ret = re.match(&#34;t.o&#34;,&#34;two&#34;)print(ret.group())# 如果hello的⾸字符⼩写，那么正则表达式需要⼩写的hret = re.match(&#34;h&#34;,&#34;hello Python&#34;)print(ret.group())# 如果hello的⾸字符⼤写，那么正则表达式需要⼤写的Hret = re.match(&#34;H&#34;,&#34;Hello Python&#34;)print(ret.group())# ⼤⼩写h都可以的情况ret = re." />
+    <meta name="robots" content="index, follow" />
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="python——正则表达式(re模块)详解">
+  <meta name="twitter:description" content="在Python中需要通过正则表达式对字符串进⾏匹配的时候，可以使⽤⼀个python自带的模块，名字为re。
+正则表达式的大致匹配过程是：
+1.依次拿出表达式和文本中的字符比较，
+2.如果每一个字符都能匹配，则匹配成功；一旦有匹配不成功的字符则匹配失败。
+3.如果表达式中有量词或边界，这个过程会稍微有一些不同。
+r：Python 中字符串的前导 r 代表原始字符串标识符，该字符串中的特殊符号不会被转义，适用于正则表达式中繁杂的特殊符号表示。 因此 r&#34;\n&#34; 表示包含 &#39;\&#39; 和 &#39;n&#39; 两个字符的字符串，而 &#34;\n&#34; 则表示只包含一个换行符的字符串。
+print(&#34;\\n&#34;) # 输出 \nprint(r&#34;\n&#34;) #输出 \n re模块的使用：import re
+re.match函数语法：re.match(pattern, string, flags=0)
+尝试从字符串的起始位置匹配一个模式，如果不是起始位置匹配成功的话，match()就返回none。匹配成功re.match方法返回一个匹配的对象。
+如果上⼀步匹配到数据的话，可以使⽤group⽅法来提取数据。以使用group(num) 或 groups() 匹配对象函数来获取匹配表达式。
+group()用来提出分组截获的字符串**，**（）用来分组，group() 同group（0）就是匹配正则表达式整体结果，group(1) 列出第一个括号匹配部分，group(2) 列出第二个括号匹配部分，group(3) 列出第三个括号匹配部分。没有匹配成功的，re.search()返回None。
+举例：
+&gt;&gt;&gt; import re&gt;&gt;&gt; result = re.match(&#34;itcast&#34;,&#34;itcast.cn&#34;)&gt;&gt;&gt; result.group()&#39;itcast&#39; 从string头开始匹配pattern完全可以匹配，pattern匹配结束，同时匹配终止，后面的.cn不再匹配，返回匹配成功的信息。
+匹配单个字符[…]字符集，对应的位置可以是字符集中任意字符。字符集中的字符可以逐个列出，也可以给出范围，比如[abc]和[a-c]，第一个字符如果是^表示取反。所有特殊字符（比如&#34;]&#34;&#34;-&#34;&#34;^&#34;）在字符集中都失去原来的含义，如要使用可把&#34;]&#34;&#34;-“放在第一个字符，&#34;^“放在非第一个字符。
+举例：
+import reret = re.match(&#34;.&#34;,&#34;M&#34;)print(ret.group())ret = re.match(&#34;t.o&#34;,&#34;too&#34;)print(ret.group())ret = re.match(&#34;t.o&#34;,&#34;two&#34;)print(ret.group())# 如果hello的⾸字符⼩写，那么正则表达式需要⼩写的hret = re.match(&#34;h&#34;,&#34;hello Python&#34;)print(ret.group())# 如果hello的⾸字符⼤写，那么正则表达式需要⼤写的Hret = re.match(&#34;H&#34;,&#34;Hello Python&#34;)print(ret.group())# ⼤⼩写h都可以的情况ret = re.">
+      <meta name="twitter:site" content="@FallingMY3">
+<meta property="og:url" content="https://hbs-skeleton.netlify.app/docs/helpdocs/python/python%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8Fre%E6%A8%A1%E5%9D%97%E8%AF%A6%E8%A7%A3/">
+  <meta property="og:site_name" content="Falling_Studio_Terminal3">
+  <meta property="og:title" content="python——正则表达式(re模块)详解">
+  <meta property="og:description" content="在Python中需要通过正则表达式对字符串进⾏匹配的时候，可以使⽤⼀个python自带的模块，名字为re。
+正则表达式的大致匹配过程是：
+1.依次拿出表达式和文本中的字符比较，
+2.如果每一个字符都能匹配，则匹配成功；一旦有匹配不成功的字符则匹配失败。
+3.如果表达式中有量词或边界，这个过程会稍微有一些不同。
+r：Python 中字符串的前导 r 代表原始字符串标识符，该字符串中的特殊符号不会被转义，适用于正则表达式中繁杂的特殊符号表示。 因此 r&#34;\n&#34; 表示包含 &#39;\&#39; 和 &#39;n&#39; 两个字符的字符串，而 &#34;\n&#34; 则表示只包含一个换行符的字符串。
+print(&#34;\\n&#34;) # 输出 \nprint(r&#34;\n&#34;) #输出 \n re模块的使用：import re
+re.match函数语法：re.match(pattern, string, flags=0)
+尝试从字符串的起始位置匹配一个模式，如果不是起始位置匹配成功的话，match()就返回none。匹配成功re.match方法返回一个匹配的对象。
+如果上⼀步匹配到数据的话，可以使⽤group⽅法来提取数据。以使用group(num) 或 groups() 匹配对象函数来获取匹配表达式。
+group()用来提出分组截获的字符串**，**（）用来分组，group() 同group（0）就是匹配正则表达式整体结果，group(1) 列出第一个括号匹配部分，group(2) 列出第二个括号匹配部分，group(3) 列出第三个括号匹配部分。没有匹配成功的，re.search()返回None。
+举例：
+&gt;&gt;&gt; import re&gt;&gt;&gt; result = re.match(&#34;itcast&#34;,&#34;itcast.cn&#34;)&gt;&gt;&gt; result.group()&#39;itcast&#39; 从string头开始匹配pattern完全可以匹配，pattern匹配结束，同时匹配终止，后面的.cn不再匹配，返回匹配成功的信息。
+匹配单个字符[…]字符集，对应的位置可以是字符集中任意字符。字符集中的字符可以逐个列出，也可以给出范围，比如[abc]和[a-c]，第一个字符如果是^表示取反。所有特殊字符（比如&#34;]&#34;&#34;-&#34;&#34;^&#34;）在字符集中都失去原来的含义，如要使用可把&#34;]&#34;&#34;-“放在第一个字符，&#34;^“放在非第一个字符。
+举例：
+import reret = re.match(&#34;.&#34;,&#34;M&#34;)print(ret.group())ret = re.match(&#34;t.o&#34;,&#34;too&#34;)print(ret.group())ret = re.match(&#34;t.o&#34;,&#34;two&#34;)print(ret.group())# 如果hello的⾸字符⼩写，那么正则表达式需要⼩写的hret = re.match(&#34;h&#34;,&#34;hello Python&#34;)print(ret.group())# 如果hello的⾸字符⼤写，那么正则表达式需要⼤写的Hret = re.match(&#34;H&#34;,&#34;Hello Python&#34;)print(ret.group())# ⼤⼩写h都可以的情况ret = re.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:published_time" content="2024-07-05T11:34:47+08:00">
+    <meta property="article:modified_time" content="2024-07-05T11:34:47+08:00">
+    <meta property="article:tag" content="HelpDocs">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="正则表达式">
+      <meta property="og:see_also" content="https://hbs-skeleton.netlify.app/docs/helpdocs/python/anaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E7%AE%A1%E7%90%86python%E7%8E%AF%E5%A2%83%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/">
+      <meta property="og:see_also" content="https://hbs-skeleton.netlify.app/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%B8%80%E5%85%A5%E9%97%A8%E5%8F%8A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%9F%BA%E6%9C%AC%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C/">
+      <meta property="og:see_also" content="https://hbs-skeleton.netlify.app/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%BA%8C%E8%8E%B7%E5%8F%96%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9B%B4%E6%96%B0/">
+      <meta property="og:see_also" content="https://hbs-skeleton.netlify.app/docs/helpdocs/git/git%E7%9A%84%E4%BD%BF%E7%94%A8%E6%98%93%E6%87%82&#43;%E5%B7%A8%E6%97%A0%E6%AF%94%E8%AF%A6%E7%BB%86&#43;%E6%96%B0%E6%89%8B%E5%BF%85%E7%9C%8B/">
+      <meta property="og:see_also" content="https://hbs-skeleton.netlify.app/docs/helpdocs/java/javase%E5%9F%BA%E7%A1%80%E7%AF%87%E8%B6%85%E8%AF%A6%E7%BB%86java%E5%85%A5%E9%97%A8%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/">
+      <meta property="og:see_also" content="https://hbs-skeleton.netlify.app/docs/helpdocs/java/java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%85%AB%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-&#43;-%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+      <meta property="og:see_also" content="https://hbs-skeleton.netlify.app/docs/helpdocs/markdown/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/">
+
+  <meta itemprop="name" content="python——正则表达式(re模块)详解">
+  <meta itemprop="description" content="在Python中需要通过正则表达式对字符串进⾏匹配的时候，可以使⽤⼀个python自带的模块，名字为re。
+正则表达式的大致匹配过程是：
+1.依次拿出表达式和文本中的字符比较，
+2.如果每一个字符都能匹配，则匹配成功；一旦有匹配不成功的字符则匹配失败。
+3.如果表达式中有量词或边界，这个过程会稍微有一些不同。
+r：Python 中字符串的前导 r 代表原始字符串标识符，该字符串中的特殊符号不会被转义，适用于正则表达式中繁杂的特殊符号表示。 因此 r&#34;\n&#34; 表示包含 &#39;\&#39; 和 &#39;n&#39; 两个字符的字符串，而 &#34;\n&#34; 则表示只包含一个换行符的字符串。
+print(&#34;\\n&#34;) # 输出 \nprint(r&#34;\n&#34;) #输出 \n re模块的使用：import re
+re.match函数语法：re.match(pattern, string, flags=0)
+尝试从字符串的起始位置匹配一个模式，如果不是起始位置匹配成功的话，match()就返回none。匹配成功re.match方法返回一个匹配的对象。
+如果上⼀步匹配到数据的话，可以使⽤group⽅法来提取数据。以使用group(num) 或 groups() 匹配对象函数来获取匹配表达式。
+group()用来提出分组截获的字符串**，**（）用来分组，group() 同group（0）就是匹配正则表达式整体结果，group(1) 列出第一个括号匹配部分，group(2) 列出第二个括号匹配部分，group(3) 列出第三个括号匹配部分。没有匹配成功的，re.search()返回None。
+举例：
+&gt;&gt;&gt; import re&gt;&gt;&gt; result = re.match(&#34;itcast&#34;,&#34;itcast.cn&#34;)&gt;&gt;&gt; result.group()&#39;itcast&#39; 从string头开始匹配pattern完全可以匹配，pattern匹配结束，同时匹配终止，后面的.cn不再匹配，返回匹配成功的信息。
+匹配单个字符[…]字符集，对应的位置可以是字符集中任意字符。字符集中的字符可以逐个列出，也可以给出范围，比如[abc]和[a-c]，第一个字符如果是^表示取反。所有特殊字符（比如&#34;]&#34;&#34;-&#34;&#34;^&#34;）在字符集中都失去原来的含义，如要使用可把&#34;]&#34;&#34;-“放在第一个字符，&#34;^“放在非第一个字符。
+举例：
+import reret = re.match(&#34;.&#34;,&#34;M&#34;)print(ret.group())ret = re.match(&#34;t.o&#34;,&#34;too&#34;)print(ret.group())ret = re.match(&#34;t.o&#34;,&#34;two&#34;)print(ret.group())# 如果hello的⾸字符⼩写，那么正则表达式需要⼩写的hret = re.match(&#34;h&#34;,&#34;hello Python&#34;)print(ret.group())# 如果hello的⾸字符⼤写，那么正则表达式需要⼤写的Hret = re.match(&#34;H&#34;,&#34;Hello Python&#34;)print(ret.group())# ⼤⼩写h都可以的情况ret = re.">
+  <meta itemprop="datePublished" content="2024-07-05T11:34:47+08:00">
+  <meta itemprop="dateModified" content="2024-07-05T11:34:47+08:00">
+  <meta itemprop="wordCount" content="686">
+  <meta itemprop="keywords" content="HelpDocs,Python,正则表达式">
+  <meta property="og:image" content="https://hbs-skeleton.netlify.app/images/icon.png"/>
+  <meta name="twitter:image" content="https://hbs-skeleton.netlify.app/images/icon.png"/>
+  <meta property="og:image:alt" content="python——正则表达式(re模块)详解" />
+  <meta name="twitter:image:alt" content="python——正则表达式(re模块)详解" />
+  <link rel="manifest" href="/manifest.json">
+
+  
+
+
+<link data-precache rel="stylesheet" href="/assets/main/bundle.min.4cee0ba5f0b72225b9e26680bcf6d5f0eb3bc16612894ba3ead8da0be96d96b9.css" integrity="sha256-TO4LpfC3IiW54maAvPbV8Os7wWYSiUuj6tjaC+ltlrk=" crossorigin="anonymous">
+
+    <link data-precache rel="stylesheet" href="/assets/viewer/bundle.min.8c1002839fa22c1350d6ae1eef6593120e108f973c41348be9b5065430566aaf.css" integrity="sha256-jBACg5&#43;iLBNQ1q4e72WTEg4Qj5c8QTSL6bUGVDBWaq8=" crossorigin="anonymous">
+
+
+</head>
+  <body><header class="mb-4 sticky-top">
+  
+<nav class="top-app-bar shadow navbar navbar-expand-xxl">
+  <div class="container">
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDocsNav"
+      aria-expanded="false" aria-label="Toggle docs navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+<a class="navbar-brand d-flex align-items-center flex-grow-1 flex-xxl-grow-0 justify-content-xxl-start justify-content-center ms-2 ms-xxl-0 mx-auto me-xxl-2"
+    href="https://hbs-skeleton.netlify.app/">
+    <picture><img class="logo " alt="Logo" src="https://hbs-skeleton.netlify.app/images/icon.png?v=1f41693bbcf319c2f188adfb373971c6" loading="lazy" width="891" height="891" />
+</picture>
+Falling_MY
+</a>
+
+    <div class="offcanvas-xxl offcanvas-end flex-grow-1" data-bs-scroll="true" tabindex="-1" id="navbarMenus" aria-labelledby="navbarMenusLabel">
+      <div class="offcanvas-header px-4 pb-0">
+        <div class="offcanvas-title h5" id="navbarMenusLabel">Falling_MY</div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#navbarMenus" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body p-4 pt-0 p-xxl-0">
+        <hr class="d-xxl-none">
+        <ul class="navbar-nav flex-row flex-wrap align-items-center me-auto"><li class="nav-item col-6 col-xxl-auto">
+            <a class="nav-link py-2 px-0 px-xxl-2" href="https://hbs-skeleton.netlify.app/docs/">
+<span class="menu-icon me-1"><i class="fas fa-fw fa-file"></i></span>Docs
+            </a>
+          </li><li class="nav-item col-6 col-xxl-auto">
+            <a class="nav-link py-2 px-0 px-xxl-2" href="https://hbs-skeleton.netlify.app/news/">
+<span class="menu-icon me-1"><i class="fas fa-fw fa-newspaper"></i></span>News
+            </a>
+          </li>
+          <li class="nav-item col-12 col-xxl-auto dropdown px-0">
+            <a href="#"
+              class="nav-link dropdown-toggle"
+              id="navbarDropdownBlog" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+<span class="menu-icon me-1"><i class="fas fa-fw fa-blog"></i></span>Blog
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog" data-bs-popper="none">
+                <li><h6 class="dropdown-header">Blog Menu Description</h6></li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="https://hbs-skeleton.netlify.app/archives/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-file-archive text-primary"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-0">Archives</p>
+                  </div></a>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="https://hbs-skeleton.netlify.app/series/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-columns"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-1">Series</p>
+                      <p class="dropdown-item-description mb-0 text-secondary">List of series.</p>
+                  </div></a>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="https://hbs-skeleton.netlify.app/categories/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-folder text-success"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-1">Categories</p>
+                      <p class="dropdown-item-description mb-0 text-secondary">List of categories.</p>
+                  </div></a>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="https://hbs-skeleton.netlify.app/tags/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-tags"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-1">Tags</p>
+                      <p class="dropdown-item-description mb-0 text-secondary">List of tags.</p>
+                  </div></a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        
+    <hr class="d-xxl-none">
+    <form class="search-bar ms-auto my-auto" action="/search/" novalidate>
+      <div class="input-group align-items-center">
+        <span class="btn btn-search disabled position-absolute left-0 border-0 px-1">
+          <i class="fas fa-fw fa-search fa-lg"></i>
+        </span>
+        <input
+          class="my-1 form-control border-white rounded-5 search-input bg-body"
+          name="q"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          required>
+          <span class="search-shortcut position-absolute end-0 top-0 me-2">
+            <kbd class="text-dark bg-white opacity-75 rounded-3 shadow border border-primary py-1 fw-bold">/</kbd>
+          </span>
+      </div>
+    </form><hr class="d-xxl-none">
+        <ul class="navbar-nav flex-row flex-wrap align-items-center ms-md-auto">
+<li class="nav-item py-2 py-xxl-1 col-12 col-xxl-auto">
+
+
+<nav class="social-links nav justify-content-center flex-row">
+      <a class="nav-link social-link col-6 col-xxl-auto p-1" target="_blank" href="https://github.com/FallingMY/FallingMY.github.io" title="GitHub" rel="me">
+        <i class="fa-fw fab fa-github"
+          ></i>
+        <span class="ms-1 d-xxl-none">Github</span>
+      </a>
+  <a class="nav-link social-link col-6 col-xxl-auto p-1" target="_blank" href="/index.xml" title="RSS" rel="me">
+    <i class="fas fa-fw fa-rss"></i>
+    <span class="ms-1 d-xxl-none">RSS</span>
+  </a>
+</nav>
+
+</li>
+<li class="nav-item py-2 py-xxl-1 col-12 col-xxl-auto">
+  <div class="vr d-none d-xxl-flex h-100 mx-xxl-2 text-white"></div>
+  <hr class="d-xxl-none my-2">
+</li>
+<li class="nav-item dropdown col-6 col-xxl-auto">
+    <a class="nav-link px-0 py-2 px-xxl-1" href="#" id="fontSizeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-fw fa-font"></i>
+        <span class="d-xxl-none">Font Size</span>
+    </a>
+    <ul class="font-size-dropdown-menu dropdown-menu dropdown-menu-end" aria-labelledby="fontSizeDropdown">
+        <li>
+            <button class="font-size-item dropdown-item" data-size="xs">
+                Extra Small
+            </button>
+        </li>
+        <li>
+            <button class="font-size-item dropdown-item" data-size="sm">
+                Small
+            </button>
+        </li>
+        <li>
+            <button class="font-size-item dropdown-item active" data-size="md">
+                Medium
+            </button>
+        </li>
+        <li>
+            <button class="font-size-item dropdown-item" data-size="lg">
+                Large
+            </button>
+        </li>
+        <li>
+            <button class="font-size-item dropdown-item" data-size="xl">
+                Extra Large
+            </button>
+        </li>
+    </ul>
+</li>
+<li class="nav-item dropdown col-6 col-xxl-auto">
+    <a class="nav-link px-0 py-2 px-xxl-1" href="#" id="paletteDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-fw fa-palette"></i>
+        <span class="d-xxl-none">Palette</span>
+    </a>
+    <ul class="palette-dropdown-menu dropdown-menu dropdown-menu-end px-2 row g-2" aria-labelledby="paletteDropdown">
+            <li class="col-4 my-1">
+                <a role="button" id="palette-blue" aria-label="Blue"
+                    class="btn btn-sm w-100 palette text-bg-blue" data-palette="blue">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-blue-gray" aria-label="Blue Gray"
+                    class="btn btn-sm w-100 palette text-bg-blue-gray" data-palette="blue-gray">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-brown" aria-label="Brown"
+                    class="btn btn-sm w-100 palette text-bg-brown" data-palette="brown">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-cyan" aria-label="Cyan"
+                    class="btn btn-sm w-100 palette text-bg-cyan" data-palette="cyan">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-green" aria-label="Green"
+                    class="btn btn-sm w-100 palette text-bg-green" data-palette="green">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-indigo" aria-label="Indigo"
+                    class="btn btn-sm w-100 palette text-bg-indigo" data-palette="indigo">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-orange" aria-label="Orange"
+                    class="btn btn-sm w-100 palette text-bg-orange" data-palette="orange">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-pink" aria-label="Pink"
+                    class="btn btn-sm w-100 palette text-bg-pink" data-palette="pink">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-purple" aria-label="Purple"
+                    class="btn btn-sm w-100 palette text-bg-purple" data-palette="purple">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-red" aria-label="Red"
+                    class="btn btn-sm w-100 palette text-bg-red" data-palette="red">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-teal" aria-label="Teal"
+                    class="btn btn-sm w-100 palette text-bg-teal" data-palette="teal">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-yellow" aria-label="Yellow"
+                    class="btn btn-sm w-100 palette text-bg-yellow" data-palette="yellow">
+                </a>
+            </li>
+    </ul>
+</li>
+<li class="nav-item dropdown col-6 col-xxl-auto">
+    <a class="nav-link px-0 py-2 px-xxl-1" href="#" id="modeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="mode-icon fas fa-fw fa-adjust" id="modeIcon"></i>
+        <span class="d-xxl-none">Mode</span>
+    </a>
+    <ul class="mode-dropdown-menu dropdown-menu dropdown-menu-end" aria-labelledby="modeDropdown">
+        <li class="mode-item" data-color-mode="light" data-icon="sun">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-sun"></i> Light
+            </button>
+        </li>
+        <li class="mode-item" data-color-mode="dark" data-icon="moon">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-moon"></i> Dark
+            </button>
+        </li>
+        <li class="mode-item active" data-color-mode="auto" data-icon="adjust">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-adjust"></i> Auto
+            </button>
+        </li>
+    </ul>
+</li>
+        </ul>
+      </div>
+    </div>
+    <div class="d-flex">
+      <button class="navbar-toggler order-5 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarMenus"
+        aria-controls="navbarMenus" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-ellipsis-h"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+</header>
+
+    <main class="container">
+      <div class="row content"><noscript>
+    <div class="alert alert-danger" role="alert">Your browser does not support JavaScript.</div>
+</noscript>
+<aside class="docs-nav col-xxl-2" tabindex="-1" data-bs-hide="focusout">
+  <div class="offcanvas-xxl offcanvas-start" id="offcanvasDocsNav" aria-labelledby="offcanvasDocsNavLabel">
+    <div class="offcanvas-header border-bottom">
+      <div class="offcanvas-title h5" id="offcanvasDocsNavLabel">Browse docs</div>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#offcanvasDocsNav"></button>
+    </div>
+    <div class="offcanvas-body pt-2 flex-column"><ul class="list-unstyled mb-2 w-100"><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3 text-primary">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/"><span class="docs-nav-title">HelpDocs</span></a>
+            <a class="btn-toggle ms-1" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-ebe568325b3994b345762d8c5739485e" aria-expanded="true" aria-controls="nav-ebe568325b3994b345762d8c5739485e">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse  show border-primary" id="nav-ebe568325b3994b345762d8c5739485e">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/c/c&#43;&#43;/"><span class="docs-nav-title">C/C&#43;&#43;</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-4c352665280bb902c3cd1f57edc236a4" aria-expanded="false" aria-controls="nav-4c352665280bb902c3cd1f57edc236a4">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-4c352665280bb902c3cd1f57edc236a4">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"></ul>
+            </div>
+          </div>
+        </li><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/"><span class="docs-nav-title">Git</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-31299be8729f19977a763ab46f2da124" aria-expanded="false" aria-controls="nav-31299be8729f19977a763ab46f2da124">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-31299be8729f19977a763ab46f2da124">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%B8%80%E5%85%A5%E9%97%A8%E5%8F%8A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%9F%BA%E6%9C%AC%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C/"><span class="docs-nav-title">Git基本使用教程（一）：入门及第一次基本完整操作</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%BA%8C%E8%8E%B7%E5%8F%96%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9B%B4%E6%96%B0/"><span class="docs-nav-title">Git基本使用教程（二）：获取更新与推送更新</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/git%E7%9A%84%E4%BD%BF%E7%94%A8%E6%98%93%E6%87%82&#43;%E5%B7%A8%E6%97%A0%E6%AF%94%E8%AF%A6%E7%BB%86&#43;%E6%96%B0%E6%89%8B%E5%BF%85%E7%9C%8B/"><span class="docs-nav-title">Git的使用（易懂&#43;巨无比详细&#43;新手必看）</span></a>
+        </li></ul>
+            </div>
+          </div>
+        </li><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/"><span class="docs-nav-title">Java</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-987b22e609e9d70bb1861e492b4fd185" aria-expanded="false" aria-controls="nav-987b22e609e9d70bb1861e492b4fd185">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-987b22e609e9d70bb1861e492b4fd185">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/javase%E5%9F%BA%E7%A1%80%E7%AF%87%E8%B6%85%E8%AF%A6%E7%BB%86java%E5%85%A5%E9%97%A8%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">JavaSE基础篇——超详细，Java入门，这一篇就够了-CSDN博客</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%85%AB%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-&#43;-%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"><span class="docs-nav-title">Java数据类型（八种基本数据类型 &#43; 四种引用数据类型）</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/%E4%B8%89%E7%A7%8D%E7%BC%96%E7%A8%8B%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99%E9%A9%BC%E5%B3%B0%E5%91%BD%E5%90%8D%E6%B3%95%E5%B8%95%E6%96%AF%E5%8D%A1%E5%91%BD%E5%90%8D%E6%B3%95%E5%8C%88%E7%89%99%E5%88%A9%E5%91%BD%E5%90%8D%E6%B3%95/"><span class="docs-nav-title">三种编程命名规则：驼峰命名法，帕斯卡命名法，匈牙利命名法</span></a>
+        </li></ul>
+            </div>
+          </div>
+        </li><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/markdown/"><span class="docs-nav-title">Markdown</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-2d8c19f8492a0d4510acf00e408e5b58" aria-expanded="false" aria-controls="nav-2d8c19f8492a0d4510acf00e408e5b58">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-2d8c19f8492a0d4510acf00e408e5b58">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/markdown/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/"><span class="docs-nav-title">Markdown语法大全(超级版)</span></a>
+        </li></ul>
+            </div>
+          </div>
+        </li><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3 text-primary">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/"><span class="docs-nav-title">Python</span></a>
+            <a class="btn-toggle ms-1" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-b7433288507247eb51c5fc0011005e07" aria-expanded="true" aria-controls="nav-b7433288507247eb51c5fc0011005e07">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse  show border-primary" id="nav-b7433288507247eb51c5fc0011005e07">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/anaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E7%AE%A1%E7%90%86python%E7%8E%AF%E5%A2%83%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">anaconda的安装和使用（管理python环境看这一篇就够了）-CSDN博客</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python-%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E6%BA%90/"><span class="docs-nav-title">Python 国内镜像源</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python-%E5%B0%8F%E7%94%B2%E9%B1%BC%E6%95%99%E7%A8%8B-easygui-%E7%AF%87/"><span class="docs-nav-title">Python 小甲鱼教程 Easygui 篇</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python-%E5%BC%B9%E5%87%BA%E6%8F%90%E7%A4%BA%E6%A1%86%E7%BB%83%E4%B9%A0tkinter.messagebox%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"><span class="docs-nav-title">Python 弹出提示框练习：tkinter.messagebox使用方法</span></a>
+        </li><li class="mb-2 py-1 ms-3 text-primary" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8Fre%E6%A8%A1%E5%9D%97%E8%AF%A6%E8%A7%A3/"><span class="docs-nav-title">python——正则表达式(re模块)详解</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python%E7%88%AC%E8%99%AB%E5%8F%B2%E4%B8%8A%E8%B6%85%E8%AF%A6%E7%BB%86%E8%AE%B2%E8%A7%A3%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E8%80%81%E5%B9%B4%E4%BA%BA%E9%83%BD%E7%9C%8B%E7%9A%84%E6%87%82-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">Python爬虫史上超详细讲解（零基础入门，老年人都看的懂）-CSDN博客</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AF%AD%E6%B3%95%E6%96%87%E6%9C%AB%E9%99%84%E5%B8%B8%E7%94%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F/"><span class="docs-nav-title">史上最全正则表达式语法，文末附常用表达式！</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">掌握计算机自动化：PyAutoGUI库详细教程（最全使用方法，每行代码都有注释，帮你解决与之有关的所有问题）-CSDN博客</span></a>
+        </li></ul>
+            </div>
+          </div>
+        </li></ul>
+            </div>
+          </div>
+        </li></ul></div>
+  </div>
+</aside><div class="col-xxl-7 ms-auto">
+  <div class="container-fluid"><nav class="row card component" aria-label="breadcrumb">
+  <div class="card-body pb-0">
+    <ol class="hbs-breadcrumb breadcrumb flex-nowrap"><li class="breadcrumb-item text-surface"><a href="/">Home</a></li><li class="breadcrumb-item text-surface"><a href="/docs/">Docs</a></li><li class="breadcrumb-item text-surface"><a href="/docs/helpdocs/">HelpDocs</a></li><li class="breadcrumb-item text-surface"><a href="/docs/helpdocs/python/">Python</a></li><li class="breadcrumb-item active">Python——正则表达式(re模块)详解</li></ol>
+  </div>
+</nav><div class="post-panel-wrapper position-relative d-flex justify-content-center">
+  <div class="d-flex flex-row justify-content-center rounded-5 border post-panel position-fixed px-3 py-1 surface shadow-1">
+    
+    
+
+    <a class="action btn-reward" role="button" data-bs-toggle="modal" data-bs-target="#rewardModal" title="Buy me a coffee">
+  <i class="fas fa-fw fa-coffee"></i>
+</a>
+    
+    
+<a class="action action-toc d-block d-xxl-none" href="#post-toc-container" role="button" title="Contents">
+  <i class="fas fa-fw fa-list-alt"></i>
+</a>
+    <a class="action action-copyright" href="#post-copyright" role="button" aria-label="Copyright" title="Copyright">
+  <i class="fas fa-fw fa-copyright"></i>
+</a>
+    <a class="action action-post-comments" href="#post-comments" role="button" aria-label="Comments" title="Comments">
+  <i class="fas fa-fw fa-comments"></i>
+</a>
+    
+<a id="sidebarToggler" class="action action-sidebar-toggler d-none d-xxl-block" role="button" title="Toggle sidebar">
+  <i class="fas fa-fw fa-expand-alt" data-fa-transform="rotate-45"></i>
+</a>
+
+    
+  </div>
+</div><article class="row card component mb-4 post">
+<div class="card-header ">
+    <h1 class="card-title post-title my-2">Python——正则表达式(re模块)详解</h1>
+</div>
+<div class="card-body"><div class="post-meta mb-3">
+  <span class="post-date me-1 mb-1" title="created on 2024-07-05 11:34:47 &#43;0800 CST.">July 5, 2024</span><span class="post-reading-time me-1 mb-1">4 min read</span><a href="/authors/csdn_user/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-author">
+      <i class="fas fa-fw fa-user me-1"></i>CSDN_user</a><a href="/series/helpdocs/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
+      <i class="fas fa-fw fa-columns me-1"></i>HelpDocs</a><a href="/tags/helpdocs/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">HelpDocs</a><a href="/tags/python/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Python</a><a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">正则表达式</a>
+</div>
+
+<div class="mt-2 mb-3 d-block d-xxl-none">
+    <h2 class="text-surface mb-3">Contents</h2>
+    <div id="post-toc-container">
+        </div>
+    <hr class="text-secondary">
+</div><div class="post-content mb-3" data-bs-spy="scroll" data-bs-target="#TableOfContents" tabindex="0">
+        <div id="post-content-body"><p>在Python中需要通过<a href="https://so.csdn.net/so/search?q=%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F&amp;spm=1001.2101.3001.7020" target="_blank" rel="noopener noreferrer">正则表达式<i class="fas fa-external-link-square-alt ms-1"></i></a>对字符串进⾏匹配的时候，可以使⽤⼀个python自带的模块，名字为re。</p>
+<p>正则表达式的大致匹配过程是：<br>
+1.依次拿出表达式和文本中的字符比较，<br>
+2.如果每一个字符都能匹配，则匹配成功；一旦有匹配不成功的字符则匹配失败。<br>
+3.如果表达式中有量词或边界，这个过程会稍微有一些不同。</p>
+<p>r：Python 中字符串的前导 <strong><code>r</code></strong> 代表<strong>原始字符串标识符</strong>，该字符串中的特殊符号不会被转义，适用于正则表达式中繁杂的特殊符号表示。 因此 <code>r&quot;\n&quot;</code> 表示包含 <code>'\'</code> 和 <code>'n'</code> 两个字符的字符串，而 <code>&quot;\n&quot;</code> 则表示只包含一个换行符的字符串。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\\</span><span class="s2">n&#34;</span><span class="p">)</span> <span class="c1"># 输出 \nprint(r&#34;\n&#34;) #输出 \n</span>
+</span></span></code></pre></div><p>re模块的使用：import re</p>
+
+<h3 id="rematch函数" data-numberify>re.match函数<a class="anchor ms-1" href="#rematch函数"></a></h3>
+<p>语法：re.match(pattern, string, flags=0)</p>
+<!-- raw HTML omitted -->
+<p>尝试从字符串的起始位置匹配一个模式，如果不是起始位置匹配成功的话，match()就返回none。匹配成功re.match方法返回一个匹配的对象。</p>
+<p>如果上⼀步匹配到数据的话，可以使⽤group⽅法来提取数据。以使用group(num) 或 groups() 匹配对象函数来获取匹配表达式。</p>
+<p>group()用来提出分组截获的字符串**，**（）用来分组，group() 同group（0）就是匹配正则表达式整体结果，group(1) 列出第一个括号匹配部分，group(2) 列出第二个括号匹配部分，group(3) 列出第三个括号匹配部分。没有匹配成功的，re.search()返回None。</p>
+<p>举例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">re</span><span class="o">&gt;&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="k">match</span><span class="p">(</span><span class="s2">&#34;itcast&#34;</span><span class="p">,</span><span class="s2">&#34;itcast.cn&#34;</span><span class="p">)</span><span class="o">&gt;&gt;&gt;</span> <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">()</span><span class="s1">&#39;itcast&#39;</span>
+</span></span></code></pre></div><p>从string头开始匹配pattern完全可以匹配，pattern匹配结束，同时匹配终止，后面的.cn不再匹配，返回匹配成功的信息。</p>
+
+<h4 id="匹配单个字符" data-numberify>匹配单个字符<a class="anchor ms-1" href="#匹配单个字符"></a></h4>
+<!-- raw HTML omitted -->
+<p>[&hellip;]字符集，对应的位置可以是字符集中任意字符。字符集中的字符可以逐个列出，也可以给出范围，比如[abc]和[a-c]，第一个字符如果是^表示取反。所有特殊字符（比如&quot;]&quot;&quot;-&quot;&quot;^&quot;）在字符集中都失去原来的含义，如要使用可把&quot;]&quot;&quot;-&ldquo;放在第一个字符，&quot;^&ldquo;放在非第一个字符。</p>
+<p>举例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cobol" data-lang="cobol"><span class="line"><span class="cl"><span class="c">import</span> <span class="nv">reret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">,</span><span class="s2">&#34;M&#34;</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span><span class="nv">ret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;t.o&#34;</span><span class="p">,</span><span class="s2">&#34;too&#34;</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span><span class="nv">ret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;t.o&#34;</span><span class="p">,</span><span class="s2">&#34;two&#34;</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span><span class="err">#</span> <span class="err">如果</span><span class="nv">hello</span><span class="err">的⾸字符⼩写，那么正则表达式需要⼩写的</span><span class="nv">hret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;h&#34;</span><span class="p">,</span><span class="s2">&#34;hello Python&#34;</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span><span class="err">#</span> <span class="err">如果</span><span class="nv">hello</span><span class="err">的⾸字符⼤写，那么正则表达式需要⼤写的</span><span class="nv">Hret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;H&#34;</span><span class="p">,</span><span class="s2">&#34;Hello Python&#34;</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span><span class="err">#</span> <span class="err">⼤⼩写</span><span class="nv">h都可以的情况ret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;[hH]&#34;</span><span class="p">,</span><span class="s2">&#34;hello Python&#34;</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span><span class="nv">ret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;[hH]&#34;</span><span class="p">,</span><span class="s2">&#34;Hello Python&#34;</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span><span class="nv">ret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;[hH]ello Python&#34;</span><span class="p">,</span><span class="s2">&#34;Hello Python&#34;</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span><span class="err">#</span> <span class="err">匹配</span><span class="mi">0</span><span class="err">到</span><span class="mi">9</span><span class="err">的多种写法</span><span class="nv">ret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;[0123456789]Hello Python&#34;</span><span class="p">,</span><span class="s2">&#34;7Hello Python&#34;</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span><span class="nv">ret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;[0-9]Hello Python&#34;</span><span class="p">,</span><span class="s2">&#34;7Hello Python&#34;</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span><span class="err">#</span> <span class="err">匹配</span><span class="mi">0</span><span class="err">到</span><span class="mi">3</span><span class="err">和</span><span class="mi">5</span><span class="o">-</span><span class="mi">9</span><span class="nv">ret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;[0-35-9]Hello Python&#34;</span><span class="p">,</span><span class="s2">&#34;7Hello Python&#34;</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span><span class="nv">ret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;[0-35-9]Hello Python&#34;</span><span class="p">,</span><span class="s2">&#34;4Hello Python&#34;</span><span class="p">)</span><span class="err">#</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span><span class="nv">ret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;嫦娥\d号&#34;</span><span class="p">,</span><span class="s2">&#34;嫦娥1号发射成功&#34;</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span><span class="nv">ret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;嫦娥\d号&#34;</span><span class="p">,</span><span class="s2">&#34;嫦娥2号发射成功&#34;</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span><span class="err">
+</span></span></span></code></pre></div><p>结果：</p>
+<p>M<br>
+too<br>
+two<br>
+h<br>
+H<br>
+h<br>
+H<br>
+Hello Python<br>
+7Hello Python<br>
+7Hello Python<br>
+7Hello Python<br>
+嫦娥1号<br>
+嫦娥2号</p>
+
+<h4 id="匹配多个字符" data-numberify>匹配多个字符<a class="anchor ms-1" href="#匹配多个字符"></a></h4>
+<!-- raw HTML omitted -->
+<p>举例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cobol" data-lang="cobol"><span class="line"><span class="cl"><span class="c">import</span> <span class="nv">re</span><span class="err">#：匹配出，⼀个字符串第⼀个字⺟为⼤写字符，后⾯都是⼩写字⺟并且这些⼩写字⺟可有可⽆</span><span class="nv">ret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;[A-Z][a-z]*&#34;</span><span class="p">,</span><span class="s2">&#34;M&#34;</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span><span class="nv">ret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;[A-Z][a-z]*&#34;</span><span class="p">,</span><span class="s2">&#34;MnnM&#34;</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span><span class="nv">ret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;[A-Z][a-z]*&#34;</span><span class="p">,</span><span class="s2">&#34;Aabcdef&#34;</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span><span class="err">#匹配出，变量名是否有效</span><span class="nv">names</span> <span class="o">=</span> <span class="err">[</span><span class="s2">&#34;name1&#34;</span><span class="p">,</span> <span class="s2">&#34;_name&#34;</span><span class="p">,</span> <span class="s2">&#34;2_name&#34;</span><span class="p">,</span> <span class="s2">&#34;__name__&#34;</span><span class="err">]</span><span class="kp">for</span> <span class="nv">name</span> <span class="kp">in</span> <span class="nv">names</span><span class="p">:</span>    <span class="nv">ret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;[a-zA-Z_]+[\w]*&#34;</span><span class="p">,</span><span class="nv">name</span><span class="p">)</span>    <span class="kr">if</span> <span class="nv">ret</span><span class="p">:</span>        <span class="nv">print</span><span class="p">(</span><span class="s2">&#34;变量名 %s 符合要求&#34;</span> <span class="p">%</span> <span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span>    <span class="kr">else</span><span class="p">:</span>        <span class="nv">print</span><span class="p">(</span><span class="s2">&#34;变量名 %s ⾮法&#34;</span> <span class="p">%</span> <span class="nv">name</span><span class="p">)</span><span class="err">#匹配出，</span><span class="mi">0</span><span class="err">到</span><span class="mi">99</span><span class="err">之间的数字</span><span class="nv">ret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;[1-9]?[0-9]&#34;</span><span class="p">,</span><span class="s2">&#34;7&#34;</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span><span class="nv">ret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;[1-9]?\d&#34;</span><span class="p">,</span><span class="s2">&#34;33&#34;</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span><span class="err">#</span> <span class="err">这个结果并不是想要的，利⽤$才能解决</span><span class="nv">ret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;[1-9]?\d&#34;</span><span class="p">,</span><span class="s2">&#34;09&#34;</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span><span class="nv">ret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;[a-zA-Z0-9_]{6}&#34;</span><span class="p">,</span><span class="s2">&#34;12a3g45678&#34;</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span><span class="err">#匹配出，</span><span class="mi">8</span><span class="err">到</span><span class="mi">20</span><span class="err">位的密码，可以是⼤⼩写英⽂字⺟、数字、下划线</span><span class="nv">ret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;[a-zA-Z0-9_]{8,20}&#34;</span><span class="p">,</span><span class="s2">&#34;1ad12f23s34455ff66&#34;</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span><span class="err">
+</span></span></span></code></pre></div><p>结果：<br>
+M<br>
+Mnn<br>
+Aabcdef<br>
+变量名 name1 符合要求<br>
+变量名 _name 符合要求<br>
+变量名 2_name ⾮法<br>
+变量名 __name__ 符合要求<br>
+7<br>
+33<br>
+0<br>
+12a3g4<br>
+1ad12f23s34455ff66</p>
+
+<h4 id="匹配开头结尾" data-numberify>匹配开头结尾<a class="anchor ms-1" href="#匹配开头结尾"></a></h4>
+<!-- raw HTML omitted -->
+<p>举例：匹配163.com的邮箱地址</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-perl" data-lang="perl"><span class="line"><span class="cl"><span class="nb">import</span> <span class="n">reemail_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#34;xiaoWang@163.com&#34;</span><span class="p">,</span> <span class="s">&#34;xiaoWang@163.comheihei&#34;</span><span class="p">,</span> <span class="s">&#34;.com.xiaowang@qq.com&#34;</span><span class="p">]</span><span class="k">for</span> <span class="n">email</span> <span class="n">in</span> <span class="n">email_list:</span>    <span class="n">ret</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s">&#34;[\w]{4,20}@163\.com$&#34;</span><span class="p">,</span> <span class="n">email</span><span class="p">)</span>    <span class="k">if</span> <span class="n">ret:</span>        <span class="k">print</span><span class="p">(</span><span class="s">&#34;%s 是符合规定的邮件地址,匹配后的结果是:%s&#34;</span> <span class="nv">%</span> <span class="err">(</span><span class="nv">email</span><span class="p">,</span> <span class="n">ret</span><span class="o">.</span><span class="n">group</span><span class="p">()))</span>    <span class="k">else</span><span class="p">:</span>        <span class="k">print</span><span class="p">(</span><span class="s">&#34;%s 不符合要求&#34;</span> <span class="nv">%</span> <span class="nv">email</span><span class="p">)</span>
+</span></span></code></pre></div><p>结果：</p>
+<p><a href="mailto:xiaoWang@163.com">xiaoWang@163.com</a> 是符合规定的邮件地址,匹配后的结果是:xiaoWang@163.com<br>
+<a href="mailto:xiaoWang@163.comheihei">xiaoWang@163.comheihei</a> 不符合要求<br>
+.com.xiaowang@qq.com 不符合要求</p>
+
+<h4 id="匹配分组" data-numberify>匹配分组<a class="anchor ms-1" href="#匹配分组"></a></h4>
+<!-- raw HTML omitted -->
+<p>举例：|</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cobol" data-lang="cobol"><span class="line"><span class="cl"><span class="c">#匹配出0-</span><span class="mi">100</span><span class="err">之间的数字</span><span class="nv">import</span> <span class="nv">reret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;[1-9]?\d$|100&#34;</span><span class="p">,</span><span class="s2">&#34;8&#34;</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span> <span class="err">#</span> <span class="mi">8</span><span class="nv">ret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;[1-9]?\d$|100&#34;</span><span class="p">,</span><span class="s2">&#34;78&#34;</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span> <span class="err">#</span> <span class="mi">78</span><span class="nv">ret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;[1-9]?\d$|100&#34;</span><span class="p">,</span><span class="s2">&#34;08&#34;</span><span class="p">)</span><span class="err">#</span> <span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span> <span class="err">#</span> <span class="err">不是</span><span class="mi">0</span><span class="o">-</span><span class="mi">100</span><span class="err">之间</span><span class="nv">ret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;[1-9]?\d$|100&#34;</span><span class="p">,</span><span class="s2">&#34;100&#34;</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span> <span class="err">#</span> <span class="mi">100
+</span></span></span></code></pre></div><p>举例：()</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cobol" data-lang="cobol"><span class="line"><span class="cl"><span class="c">#需求：匹配</span><span class="err">出</span><span class="mi">163</span><span class="err">、</span><span class="mi">126</span><span class="err">、</span><span class="nv">qq邮箱ret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;\w{4,20}@163\.com&#34;</span><span class="p">,</span> <span class="s2">&#34;test@163.com&#34;</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span> <span class="err">#</span> <span class="kp">test</span><span class="err">@</span><span class="mi">163</span><span class="p">.</span><span class="nv">comret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;\w{4,20}@(163|126|qq)\.com&#34;</span><span class="p">,</span> <span class="s2">&#34;test@126.com&#34;</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span> <span class="err">#</span> <span class="kp">test</span><span class="err">@</span><span class="mi">126</span><span class="p">.</span><span class="nv">comret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;\w{4,20}@(163|126|qq)\.com&#34;</span><span class="p">,</span> <span class="s2">&#34;test@qq.com&#34;</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span> <span class="err">#</span> <span class="kp">test</span><span class="err">@</span><span class="nv">qq</span><span class="p">.</span><span class="nv">comret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;\w{4,20}@(163|126|qq)\.com&#34;</span><span class="p">,</span> <span class="s2">&#34;test@gmail.com&#34;</span><span class="p">)</span><span class="kr">if</span> <span class="nv">ret</span><span class="p">:</span>    <span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span><span class="kr">else</span><span class="p">:</span>    <span class="nv">print</span><span class="p">(</span><span class="s2">&#34;不是163、126、qq邮箱&#34;</span><span class="p">)</span> <span class="err">#</span> <span class="err">不是</span><span class="mi">163</span><span class="err">、</span><span class="mi">126</span><span class="err">、</span><span class="nv">qq</span><span class="err">邮箱#不是以</span><span class="mi">4</span><span class="err">、</span><span class="mi">7</span><span class="err">结尾的⼿机号码</span><span class="p">(</span><span class="mi">11</span><span class="err">位</span><span class="p">)</span><span class="nv">tels</span> <span class="o">=</span> <span class="err">[</span><span class="s2">&#34;13100001234&#34;</span><span class="p">,</span> <span class="s2">&#34;18912344321&#34;</span><span class="p">,</span> <span class="s2">&#34;10086&#34;</span><span class="p">,</span> <span class="s2">&#34;18800007777&#34;</span><span class="err">]</span><span class="kp">for</span> <span class="nv">tel</span> <span class="kp">in</span> <span class="nv">tels</span><span class="p">:</span>    <span class="nv">ret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;1\d{9}[0-35-68-9]&#34;</span><span class="p">,</span> <span class="nv">tel</span><span class="p">)</span>    <span class="kr">if</span> <span class="nv">ret</span><span class="p">:</span>        <span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span>    <span class="kr">else</span><span class="p">:</span>        <span class="nv">print</span><span class="p">(</span><span class="s2">&#34;%s 不是想要的⼿机号&#34;</span> <span class="p">%</span> <span class="nv">tel</span><span class="p">)</span><span class="err">#提取区号和电话号码</span><span class="nv">ret</span> <span class="o">=</span> <span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;([^-]*)-(\d+)&#34;</span><span class="p">,</span><span class="s2">&#34;010-12345678&#34;</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">())</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="nv">print</span><span class="p">(</span><span class="nv">ret</span><span class="p">.</span><span class="kp">group</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="err">
+</span></span></span></code></pre></div><p>举例：\number</p>
+<p>匹配数字代表的组合。每个括号是一个组合，组合从1开始编号。比如 <code>(.+) \1</code> 匹配 <code>'the the'</code> 或者 <code>'55 55'</code>, 但不会匹配 <code>'thethe'</code> (注意组合后面的空格)。这个特殊序列只能用于匹配前面99个组合。如果 <em>number</em> 的第一个数位是0， 或者 <em>number</em> 是三个八进制数，它将不会被看作是一个组合，而是八进制的数字值。在 <code>'['</code> 和 <code>']'</code> 字符集合内，任何数字转义都被看作是字符。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">例子1：匹配出 <span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>hh<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>\1,&hellip;,\9，匹配第n个分组的内容。如例子所示，指匹配第一个分组的内容。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span><span class="c1"># 正确的理解思路：如果在第⼀对&lt;&gt;中是什么，按理说在后⾯的那对&lt;&gt;中就应该是什么。通过引⽤分组中匹配到的数据即可，但是要注意是元字符串，即类似 r&#34;&#34;这种格式。ret = re.match(r&#34;&lt;([a-zA-Z]*)&gt;\w*&lt;/\1&gt;&#34;, &#34;&lt;html&gt;hh&lt;/html&gt;&#34;)# 因为2对&lt;&gt;中的数据不⼀致，所以没有匹配出来test_label = [&#34;&lt;html&gt;hh&lt;/html&gt;&#34;,&#34;&lt;html&gt;hh&lt;/htmlbalabala&gt;&#34;]for label in test_label:    ret = re.match(r&#34;&lt;([a-zA-Z]*)&gt;\w*&lt;/\1&gt;&#34;, label)    if ret:        print(&#34;%s 这是一对正确的标签&#34; % ret.group())    else:        print(&#34;%s 这是⼀对不正确的标签&#34; % label)</span>
+</span></span></code></pre></div><p>    结果：</p>
+<!-- raw HTML omitted -->
+<p>    例子2：匹配出 <!-- raw HTML omitted --><!-- raw HTML omitted --><a href="https://www.itcast.cn" target="_blank" rel="noopener noreferrer">www.itcast.cn<i class="fas fa-external-link-square-alt ms-1"></i></a><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">relabels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;&lt;html&gt;&lt;h1&gt;www.itcast.cn&lt;/h1&gt;&lt;/html&gt;&#34;</span><span class="p">,</span> <span class="s2">&#34;&lt;html&gt;&lt;h1&gt;www.itcast.cn&lt;/h2&gt;&lt;/html&gt;&#34;</span><span class="p">]</span><span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">:</span>    <span class="n">ret</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="k">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;&lt;(\w*)&gt;&lt;(\w*)&gt;.*&lt;/\2&gt;&lt;/\1&gt;&#34;</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>    <span class="k">if</span> <span class="n">ret</span><span class="p">:</span>        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">%s</span><span class="s2"> 是符合要求的标签&#34;</span> <span class="o">%</span> <span class="n">ret</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>    <span class="k">else</span><span class="p">:</span>        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">%s</span><span class="s2"> 不符合要求&#34;</span> <span class="o">%</span> <span class="n">label</span><span class="p">)</span>
+</span></span></code></pre></div><p>    结果：</p>
+<!-- raw HTML omitted -->
+<p>举例：(?P<!-- raw HTML omitted -->) (?P=name)</p>
+<p>一个用于标记，一个用于在同一个正则表达式中复用</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">reret</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="k">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;&lt;(?P&lt;name1&gt;\w*)&gt;&lt;(?P&lt;name2&gt;\w*)&gt;.*&lt;/(?P=name2)&gt;&lt;/(?P=name1)&gt;&#34;</span><span class="p">,</span><span class="s2">&#34;&lt;html&gt;&lt;h1&gt;www.itcast.cn&lt;/h1&gt;&lt;/html&gt;&#34;</span><span class="p">)</span><span class="n">ret</span><span class="o">.</span><span class="n">group</span><span class="p">()</span><span class="n">ret</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="k">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;&lt;(?P&lt;name1&gt;\w*)&gt;&lt;(?P&lt;name2&gt;\w*)&gt;.*&lt;/(?P=name2)&gt;&lt;/(?P=name1)&gt;&#34;</span><span class="p">,</span><span class="s2">&#34;&lt;html&gt;&lt;h1&gt;www.itcast.cn&lt;/h2&gt;&lt;/html&gt;&#34;</span><span class="p">)</span><span class="c1">#ret.group()</span>
+</span></span></code></pre></div>
+<h3 id="recompile-函数" data-numberify>re.compile 函数<a class="anchor ms-1" href="#recompile-函数"></a></h3>
+<p>compile 函数用于编译正则表达式，生成一个正则表达式（ Pattern ）对象，供 match() 和 search() 这两个函数使用。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">prog = re.compile(pattern)result = prog.match(string)
+</span></span></code></pre></div><p>等价于</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">result = re.match(pattern, string)
+</span></span></code></pre></div><p>举例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span><span class="kn">import</span> <span class="nn">re</span><span class="o">&gt;&gt;&gt;</span> <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d+&#39;</span><span class="p">)</span>   <span class="n">m</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="k">match</span><span class="p">(</span><span class="s1">&#39;one12twothree34four&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="c1"># 从&#39;1&#39;的位置开始匹配，正好匹配&gt;&gt;&gt; print m                                         # 返回一个 Match 对象&lt;_sre.SRE_Match object at 0x10a42aac0&gt;&gt;&gt;&gt; m.group(0)   # 可省略 0&#39;12&#39;&gt;&gt;&gt; m.start(0)   # 可省略 03&gt;&gt;&gt; m.end(0)     # 可省略 05&gt;&gt;&gt; m.span(0)    # 可省略 0(3, 5)</span>
+</span></span></code></pre></div><p>在上面，当匹配成功时返回一个 Match 对象，其中：</p>
+<ul>
+<li><code>group([group1, …])</code> 方法用于获得一个或多个分组匹配的字符串，当要获得整个匹配的子串时，可直接使用 <code>group()</code> 或 <code>group(0)</code>；</li>
+<li><code>start([group])</code> 方法用于获取分组匹配的子串在整个字符串中的起始位置（子串第一个字符的索引），参数默认值为 0；</li>
+<li><code>end([group])</code> 方法用于获取分组匹配的子串在整个字符串中的结束位置（子串最后一个字符的索引+1），参数默认值为 0；</li>
+<li><code>span([group])</code> 方法返回 <code>(start(group), end(group))</code></li>
+</ul>
+
+<h3 id="research函数" data-numberify>re.search函数<a class="anchor ms-1" href="#research函数"></a></h3>
+<p>re.search 扫描整个字符串并返回第一个成功的匹配，如果没有匹配，就返回一个 <code>None</code>。</p>
+<p>re.match与re.search的区别：re.match只匹配字符串的开始，如果字符串开始不符合正则表达式，则匹配失败，函数返回None；而re.search匹配整个字符串，直到找到一个匹配</p>
+<p>举例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">reret</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;\d+&#34;</span><span class="p">,</span> <span class="s2">&#34;阅读次数为9999&#34;</span><span class="p">)</span><span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</span></span></code></pre></div><p>结果：</p>
+<p>9999</p>
+
+<h3 id="refindall函数" data-numberify>re.findall函数<a class="anchor ms-1" href="#refindall函数"></a></h3>
+<p>在字符串中找到正则表达式所匹配的所有子串，并返回一个列表，如果没有找到匹配的，则返回空列表。注意**：** match 和 search 是匹配一次 findall 匹配所有。</p>
+<p>举例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">reret</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;\d+&#34;</span><span class="p">,</span> <span class="s2">&#34;python = 9999, c = 7890, c++ = 12345&#34;</span><span class="p">)</span><span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</span></span></code></pre></div><p>结果：</p>
+<p>[&lsquo;9999&rsquo;, &lsquo;7890&rsquo;, &lsquo;12345&rsquo;]</p>
+
+<h3 id="refinditer函数" data-numberify>re.finditer函数<a class="anchor ms-1" href="#refinditer函数"></a></h3>
+<p>和 findall 类似，在字符串中找到正则表达式所匹配的所有子串，并把它们作为一个迭代器返回。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">reit</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;\d+&#34;</span><span class="p">,</span> <span class="s2">&#34;12a32bc43jf3&#34;</span><span class="p">)</span><span class="k">for</span> <span class="k">match</span> <span class="ow">in</span> <span class="n">it</span><span class="p">:</span>    <span class="nb">print</span><span class="p">(</span><span class="k">match</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</span></span></code></pre></div><p>结果：</p>
+<p>12<br>
+32<br>
+43<br>
+3</p>
+
+<h3 id="resub函数" data-numberify>re.sub函数<a class="anchor ms-1" href="#resub函数"></a></h3>
+<p>sub是substitute的所写，表示替换，将匹配到的数据进⾏替换。</p>
+<p>语法：re.sub(pattern, repl, string, count=0, flags=0)</p>
+<!-- raw HTML omitted -->
+<p>举例：将匹配到的阅读次数加1</p>
+<p>方法一：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">reret</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;\d+&#34;</span><span class="p">,</span> <span class="s1">&#39;998&#39;</span><span class="p">,</span> <span class="s2">&#34;python = 997&#34;</span><span class="p">)</span><span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</span></span></code></pre></div><p>结果：python = 998</p>
+<p>方法二：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">redef</span> <span class="n">add</span><span class="p">(</span><span class="n">temp</span><span class="p">):</span>    <span class="c1">#int（）参数必须是字符串，类似字节的对象或数字，而不是“re.Match”    strNum = temp.group()    num = int(strNum) + 1    return str(num)ret = re.sub(r&#34;\d+&#34;, add, &#34;python = 997&#34;)print(ret)ret = re.sub(r&#34;\d+&#34;, add, &#34;python = 99&#34;)print(ret)</span>
+</span></span></code></pre></div><p>结果;</p>
+<p>python = 998<br>
+python = 100</p>
+
+<h3 id="resubn函数" data-numberify>re.subn函数<a class="anchor ms-1" href="#resubn函数"></a></h3>
+<p>行为与<code>sub()</code>相同，但是返回一个元组 <code>(字符串, 替换次数)</code>。</p>
+<p>re.subn(pattern, repl, string[, count])</p>
+<p>返回：(sub(repl, string[, count]), 替换次数)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">repattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\w+) (\w+)&#39;</span><span class="p">)</span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;i say, hello world!&#39;</span><span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\2 \1&#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">))</span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>    <span class="k">return</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">s</span><span class="p">))</span><span class="c1">### output #### (&#39;say i, world hello!&#39;, 2)# (&#39;I Say, Hello World!&#39;, 2)</span>
+</span></span></code></pre></div>
+<h3 id="resplit函数" data-numberify>re.split函数<a class="anchor ms-1" href="#resplit函数"></a></h3>
+<p>根据匹配进⾏切割字符串，并返回⼀个列表。</p>
+<p><code>re.``split</code>(<em>pattern</em>, <em>string</em>, <em>maxsplit=0</em>, <em>flags=0</em>)</p>
+<!-- raw HTML omitted -->
+<p>举例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">reret</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;:| &#34;</span><span class="p">,</span><span class="s2">&#34;info:xiaoZhang 33 shandong&#34;</span><span class="p">)</span><span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</span></span></code></pre></div><p>结果：[&lsquo;info&rsquo;, &lsquo;xiaoZhang&rsquo;, &lsquo;33&rsquo;, &lsquo;shandong&rsquo;]</p>
+
+<h3 id="python贪婪和贪婪" data-numberify>python贪婪和⾮贪婪<a class="anchor ms-1" href="#python贪婪和贪婪"></a></h3>
+<p>Python⾥数量词默认是贪婪的（在少数语⾔⾥也可能是默认⾮贪婪），总是尝试匹配尽可能多的字符；⾮贪婪则相反，总是尝试匹配尽可能少的字符。</p>
+<p>例如：正则表达式”ab*”如果用于查找”abbbc”，将找到”abbb”。而如果使用非贪婪的数量词”ab*?”，将找到”a”。</p>
+<p>注：我们一般使用非贪婪模式来提取。</p>
+<p>在&rdquo;*&rdquo;,&quot;?&quot;,&quot;+&quot;,&quot;{m,n}&ldquo;后⾯加上？，使贪婪变成⾮贪婪。</p>
+<p>举例1：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cobol" data-lang="cobol"><span class="line"><span class="cl"><span class="c">import</span> <span class="nv">res</span><span class="o">=</span><span class="s2">&#34;This is a number 234-235-22-423&#34;</span><span class="err">#正则表达式模式中使⽤到通配字，那它在从左到右的顺序求值时，会尽量“抓取”满⾜匹配最⻓字符串，在我们上⾯的例⼦⾥⾯，“</span><span class="p">.</span><span class="o">+</span><span class="err">”会从字符串的启始处抓取满⾜模式的最⻓字符，其中包括我们想得到的第⼀个整型字段的中的⼤部分，“\</span><span class="nv">d</span><span class="o">+</span><span class="err">”只需⼀位字符就可以匹配，所以它匹配了数字“</span><span class="mi">4</span><span class="err">”，⽽“</span><span class="p">.</span><span class="o">+</span><span class="err">”则匹配了从字符串起始到这个第⼀位数字</span><span class="mi">4</span><span class="err">之前的所有字符</span><span class="nv">r</span><span class="o">=</span><span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;.+(\d+-\d+-\d+-\d+)&#34;</span><span class="p">,</span><span class="nv">s</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">r</span><span class="p">.</span><span class="kp">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="err">#⾮贪婪操作符“？”，这个操作符可以⽤在</span><span class="s2">&#34;*&#34;</span><span class="p">,</span><span class="s2">&#34;+&#34;</span><span class="p">,</span><span class="s2">&#34;?&#34;</span><span class="err">的后⾯，要求正则匹配的越少越好</span><span class="nv">r</span><span class="o">=</span><span class="nv">re</span><span class="p">.</span><span class="nv">match</span><span class="p">(</span><span class="s2">&#34;.+?(\d+-\d+-\d+-\d+)&#34;</span><span class="p">,</span><span class="nv">s</span><span class="p">)</span><span class="nv">print</span><span class="p">(</span><span class="nv">r</span><span class="p">.</span><span class="kp">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="err">
+</span></span></span></code></pre></div><p>结果：</p>
+<p>4-235-22-423<br>
+234-235-22-423</p>
+<p>举例2：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">re</span><span class="o">.</span><span class="k">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;aa(\d+)&#34;</span><span class="p">,</span><span class="s2">&#34;aa2343ddd&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="s1">&#39;2343&#39;</span><span class="o">&gt;&gt;&gt;</span> <span class="n">re</span><span class="o">.</span><span class="k">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;aa(\d+?)&#34;</span><span class="p">,</span><span class="s2">&#34;aa2343ddd&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="s1">&#39;2&#39;</span><span class="o">&gt;&gt;&gt;</span> <span class="n">re</span><span class="o">.</span><span class="k">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;aa(\d+)ddd&#34;</span><span class="p">,</span><span class="s2">&#34;aa2343ddd&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="s1">&#39;2343&#39;</span><span class="o">&gt;&gt;&gt;</span> <span class="n">re</span><span class="o">.</span><span class="k">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;aa(\d+?)ddd&#34;</span><span class="p">,</span><span class="s2">&#34;aa2343ddd&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="s1">&#39;2343&#39;</span>
+</span></span></code></pre></div><p>举例3：提取图片地址</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">retest_str</span><span class="o">=</span><span class="s2">&#34;&lt;img data-original=https://rpic.douyucdn.cn/appCovers/2016/11/13/1213973.jpg&gt;&#34;</span><span class="n">ret</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;https://.*?.jpg&#34;</span><span class="p">,</span> <span class="n">test_str</span><span class="p">)</span><span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</span></span></code></pre></div><p>结果：<a href="https://rpic.douyucdn.cn/appCovers/2016/11/13/1213973.jpg" title="https://rpic.douyucdn.cn/appCovers/2016/11/13/1213973.jpg" target="_blank" rel="noopener noreferrer">https://rpic.douyucdn.cn/appCovers/2016/11/13/1213973.jpg<i class="fas fa-external-link-square-alt ms-1"></i></a></p>
+
+<h3 id="r的作" data-numberify>r的作⽤<a class="anchor ms-1" href="#r的作"></a></h3>
+<p>与大多数编程语言相同，正则表达式里使用”\”作为转义字符，这就可能造成反斜杠困扰。假如你需要匹配文本中的字符”\”，那么使用编程语言表示的正则表达式里将需要4个反斜杠”\\\\”：前两个和后两个分别用于在编程语言里转义成反斜杠，转换成两个反斜杠后再在正则表达式里转义成一个反斜杠。Python里的原生字符串很好地解决了这个问题，Python中字符串前⾯加上 r 表示原⽣字符串。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">remm</span> <span class="o">=</span> <span class="s2">&#34;c:</span><span class="se">\\</span><span class="s2">a</span><span class="se">\\</span><span class="s2">b</span><span class="se">\\</span><span class="s2">c&#34;</span><span class="nb">print</span><span class="p">(</span><span class="n">mm</span><span class="p">)</span><span class="c1">#c:\a\b\cret = re.match(&#34;c:\\\\&#34;,mm).group()print(ret)#c:\ret = re.match(&#34;c:\\\\a&#34;,mm).group()print(ret)#c:\aret = re.match(r&#34;c:\\a&#34;,mm).group()print(ret)#c:\aret = re.match(r&#34;c:\a&#34;,mm).group()print(ret)#AttributeError: &#39;NoneType&#39; object has no attribute &#39;group&#39;</span>
+</span></span></code></pre></div><p>文章知识点与官方知识档案匹配，可进一步学习相关知识</p>
+<p><a href="https://edu.csdn.net/skill/python/python-3-148?utm_source=csdn_ai_skill_tree_blog" target="_blank" rel="noopener noreferrer">Python入门技能树<i class="fas fa-external-link-square-alt ms-1"></i></a><a href="https://edu.csdn.net/skill/python/python-3-148?utm_source=csdn_ai_skill_tree_blog" target="_blank" rel="noopener noreferrer">网络爬虫<i class="fas fa-external-link-square-alt ms-1"></i></a><a href="https://edu.csdn.net/skill/python/python-3-148?utm_source=csdn_ai_skill_tree_blog" target="_blank" rel="noopener noreferrer">正则表达式<i class="fas fa-external-link-square-alt ms-1"></i></a>426640 人正在系统学习中</p>
+<p>本文转自 <a href="https://blog.csdn.net/guo_qingxia/article/details/113979135" target="_blank" rel="noopener noreferrer">https://blog.csdn.net/guo_qingxia/article/details/113979135<i class="fas fa-external-link-square-alt ms-1"></i></a>，如有侵权，请联系删除。</p>
+</div>
+</div>
+<div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content surface">
+      <div class="modal-header">
+        <h5 class="modal-title text-surface" id="rewardModalLabel"><i class="fas fa-fw fa-coffee me-1"></i>Buy me a coffee</h5>
+        <a href="#" data-bs-dismiss="modal" class="btn-close" aria-label="Close"></a>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs mb-3" role="tablist"><li class="nav-item text-nowrap" role="presentation">
+            <a class="nav-link active" id="reward-alipay-tab" data-bs-toggle="tab" href="#reward-alipay" role="tab" aria-controls="reward-alipay" aria-selected="true">
+              <i class="fab fa-fw fa-alipay me-1"></i>Alipay
+            </a>
+          </li></ul>
+        <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content text-center show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
+            <img class="img-fluid post-reward-img" src="https://hbs-skeleton.netlify.app/images/reward/alipay.png" loading="lazy" data-viewer-invisible />
+          </div></div>
+      </div>
+    </div>
+  </div>
+</div></div><div class="card-footer">
+  <div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-prev">
+      <i class="fas fa-fw fa-chevron-down post-prev-icon me-1" data-fa-transform="rotate-90"></i>
+      <a href="/docs/helpdocs/python/python%E7%88%AC%E8%99%AB%E5%8F%B2%E4%B8%8A%E8%B6%85%E8%AF%A6%E7%BB%86%E8%AE%B2%E8%A7%A3%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E8%80%81%E5%B9%B4%E4%BA%BA%E9%83%BD%E7%9C%8B%E7%9A%84%E6%87%82-csdn%E5%8D%9A%E5%AE%A2/">Python爬虫史上超详细讲解（零基础入门，老年人都看的懂）-CSDN博客</a>
+    </div><div class="post-nav post-next">
+      <a href="/docs/helpdocs/python/python-%E5%BC%B9%E5%87%BA%E6%8F%90%E7%A4%BA%E6%A1%86%E7%BB%83%E4%B9%A0tkinter.messagebox%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">Python 弹出提示框练习：tkinter.messagebox使用方法</a>
+      <i class="fas fa-fw fa-chevron-down post-next-icon ms-1" data-fa-transform="rotate-270"></i>
+    </div></div>
+</div></article><div class="post-copyright mb-3 row card component" id="post-copyright">
+    <div class="card-header">
+        <h2 class="card-title fs-4 my-2 text-surface">Copyright</h2>
+    </div>
+    <div class="card-body"><a class="d-flex align-items-center flex-column" target="_blank" rel="license noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en">
+  <span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-nc"></i><i class="fab fa-fw fa-2x fa-creative-commons-nd"></i></span>
+  CC BY-NC-ND 4.0 
+</a>
+
+
+    </div>
+</div><section class="related-posts row card component">
+      <div class="card-header">
+        <h2 class="card-title fs-4 my-2 text-surface">
+          Related Posts
+        </h2>
+      </div>
+      <div class="card-body slide px-1">
+        <div class="slide-inner row gx-0"><div class="col-12 col-md-6 col-lg-4 me-2">
+            <div class="post-card card card-body p-0 border-0 surface">
+  
+  <picture>
+      <source srcset="/news/2022/07/more-image-processing-methods/featured-sample_huc6bcc14d597e300fd9ab4aae536c68a5_498412_500x0_resize_q75_h2_box_2.webp" media="(max-width: 576px)" height="333" width="500">
+      <img class="img-fluid" height="120" width="180" alt="featured-sample.webp" src="/news/2022/07/more-image-processing-methods/featured-sample_huc6bcc14d597e300fd9ab4aae536c68a5_498412_180x0_resize_q75_h2_box_2.webp" data-src="/news/2022/07/more-image-processing-methods/featured-sample.webp" loading="lazy"/>
+    </picture>
+
+  <a class="post-title" href="/news/2022/07/more-image-processing-methods/">
+    More Image Processing Methods
+  </a>
+  <div class="post-meta mb-0">
+    July 8, 2022
+
+  </div>
+</div>
+
+          </div><div class="col-12 col-md-6 col-lg-4 me-2">
+            <div class="post-card card card-body p-0 border-0 surface">
+  
+  <div
+    class="post-card-default-img card-img-top d-flex align-items-center justify-content-center bg-body-secondary mb-1">
+    NO IMAGE
+  </div>
+
+  <a class="post-title" href="/blog/2022/04/readme/">
+    README
+  </a>
+  <div class="post-meta mb-0">
+    April 17, 2022
+
+  </div>
+</div>
+
+          </div><div class="col-12 col-md-6 col-lg-4 me-2">
+            <div class="post-card card card-body p-0 border-0 surface">
+  
+  <picture>
+      <source srcset="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample_hu1e269adb755e54f6dcb322d69e53c5ae_40960_500x0_resize_q75_h2_box_2.webp" media="(max-width: 576px)" height="375" width="500">
+      <img class="img-fluid" height="135" width="180" alt="featured-sample.webp" src="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample_hu1e269adb755e54f6dcb322d69e53c5ae_40960_180x0_resize_q75_h2_box_2.webp" data-src="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample.webp" loading="lazy"/>
+    </picture>
+
+  <a class="post-title" href="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/">
+    落茜聚
+  </a>
+  <div class="post-meta mb-0">
+    January 1, 1
+
+  </div>
+</div>
+
+          </div></div>
+        <button class="slide-control-left">
+          <i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-90"></i>
+          <span class="visually-hidden">Left</span>
+        </button>
+        <button class="slide-control-right">
+          <i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-270"></i>
+          <span class="visually-hidden">Right</span>
+        </button>
+      </div>
+    </section><div class="card component row post-comments" id="post-comments">
+  <div class="card-header">
+    <h2 class="card-title my-2 fs-4 text-surface">Comments</h2>
+  </div>
+  <div class="card-body">
+<div class="giscus"></div>
+
+
+
+</div>
+</div></div>
+</div>
+<aside class="sidebar d-flex docs-sidebar col-xxl-3 position-sticky order-xxl-5">
+  <div class="container">
+    
+    <div class="accordion post-toc d-none d-lg-block">
+  <div class="accordion-item row mb-4 card component" id="postTOC">
+    <div class="card-header accordion-header">
+      <h2 class="card-title fs-4 my-2 text-surface d-none d-lg-block">Contents</h2>
+      <a class="accordion-button d-lg-none mb-1 collapsed shadow-none p-0 bg-transparent" role="button" data-bs-toggle="collapse" href="#post-toc" aria-expanded="false" aria-controls="post-toc">
+        Contents
+      </a>
+    </div>
+    <div class="card-body collapse accordion-collapse accordion-body d-lg-block" id="post-toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#rematch函数"><strong>re.match函数</strong></a></li>
+        <li><a href="#recompile-函数">re.compile 函数</a></li>
+        <li><a href="#research函数">re.search函数</a></li>
+        <li><a href="#refindall函数">re.findall函数</a></li>
+        <li><a href="#refinditer函数">re.finditer函数</a></li>
+        <li><a href="#resub函数">re.sub函数</a></li>
+        <li><a href="#resubn函数">re.subn函数</a></li>
+        <li><a href="#resplit函数">re.split函数</a></li>
+        <li><a href="#python贪婪和贪婪">python贪婪和⾮贪婪</a></li>
+        <li><a href="#r的作">r的作⽤</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </div>
+</div>
+    <div class="accordion">
+    <div class="accordion-item docs-repo row card component">
+        <div class="card-header accordion-header" id="repo-header">
+            <h2 class="card-title fs-4 my-2 text-surface d-none d-lg-block">Repository</h2>
+            <a
+                class="accordion-button d-lg-none mb-1 shadow-none p-0 bg-transparent"
+                role="button" data-bs-toggle="collapse" href="#repo" aria-expanded="true" aria-controls="repo">
+                Repository
+            </a>
+        </div>
+        <div class="card-body collapse accordion-collapse accordion-body text-secondary-on-surface d-lg-block show" id="repo" aria-labelledby="repo-header">
+            <ul class="list-unstyled"><li class="mb-1">
+                    <a href="https://github.com/FallingMY/FallingMY.github.io/blob/main//content/docs/HelpDocs/Python/python%e2%80%94%e2%80%94%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%28re%e6%a8%a1%e5%9d%97%29%e8%af%a6%e8%a7%a3.md" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-fw fa-file-archive text-success"></i> View page source
+                    </a>
+                </li>
+                <li class="mb-1">
+                    <a href="https://github.com/FallingMY/FallingMY.github.io/edit/main//content/docs/HelpDocs/Python/python%e2%80%94%e2%80%94%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%28re%e6%a8%a1%e5%9d%97%29%e8%af%a6%e8%a7%a3.md" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-fw fa-edit text-primary"></i> Edit this page
+                    </a>
+                </li></ul>
+        </div>
+    </div>
+</div>
+
+  </div>
+</aside>
+
+      </div>
+    </main><footer class="footer mt-auto py-3 text-center container"><div class="offcanvas offcanvas-bottom h-auto" tabindex="-1" id="offcanvasActionsPanel"
+  aria-labelledby="offcanvasActionsPanelLabel">
+  <div class="offcanvas-header">
+    <div class="offcanvas-title h5" id="offcanvasActionsPanelLabel">
+      <i class="fas fa-fw fa-th-large me-1"></i>
+      Actions
+    </div>
+    <button type="button" class="btn-close ms-auto" data-bs-dismiss="offcanvas" data-bs-target="offcanvasActionsPanel" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body mt-2"><div class="social-share mb-4 d-flex overflow-auto">
+      <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Twitter Share Button"
+      target="_blank" href="https://twitter.com/intent/tweet?title=404%20Page%20not%20found&url=https%3a%2f%2fhbs-skeleton.netlify.app%2f404.html">
+        <i class="fab fa-2x fa-fw fa-twitter mb-2"></i> Twitter
+      </a>
+      <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Facebook Share Button"
+        target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fhbs-skeleton.netlify.app%2f404.html">
+        <i class="fab fa-2x fa-fw fa-facebook-f mb-2"></i> Facebook
+      </a>
+    </div>
+    <hr class="mb-4"><div class="actions d-flex overflow-auto align-items-center">
+      <a role="button" class="action action-go-back d-flex flex-column align-items-center me-3" href="javascript: window.history.back();">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-90"></i></span> Go back
+      </a>
+      <a role="button" class="action action-reload-page d-flex flex-column align-items-center me-3">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-redo-alt"></i></span> Reload
+      </a>
+      <a role="button" class="action action-copy-url d-flex flex-column align-items-center me-3">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-link"></i></span> Copy URL
+      </a>
+    </div>
+  </div>
+</div><div class="row text-center">
+  <div class="col-12 mt-2">
+    <p class="mb-2">Falling_Studio_Terminal3</p>
+    <p class="text-secondary mb-2"><small>An extreme fast, responsive and feature-rich blog theme for Hugo</small></p><div class="copyright mb-2 text-secondary">
+  <small>Copyright © 2016-2024 Razon Yang. All Rights Reserved.
+</small>
+</div>
+<div class="powered-by mb-2 text-secondary">
+  <small>
+    Build with ❤️ from the <a class="text-primary" href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a> and the <a class="text-primary" href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank" rel="noopener noreferrer">HBS</a> theme.
+  </small>
+</div>
+
+
+<nav class="social-links nav justify-content-center mb-2 mt-3">
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://space.bilibili.com/327274480" title="Bilibili" rel="me">
+        <i class="fa-fw fa-2x fab fa-bilibili"
+           style="color: #fb7299;"></i>
+      </a>
+    <a class="nav-link social-link p-0 me-1 mb-2" href="mailto:falling_my@outlook.com" title="Email">
+      <i class="fas fa-fw fa-2x fa-envelope" style="color: #0963ac;"></i>
+    </a>
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://github.com/FallingMY/FallingMY.github.io" title="GitHub" rel="me">
+        <i class="fa-fw fa-2x fab fa-github"
+          ></i>
+      </a>
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://wpa.qq.com/msgrd?v=3&amp;uin=%25!s%28int=1317096804%29&amp;site=qq&amp;menu=yes" title="QQ" rel="me">
+        <i class="fa-fw fa-2x fab fa-qq"
+          ></i>
+      </a>
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://twitter.com/FallingMY3" title="Twitter" rel="me">
+        <i class="fa-fw fa-2x fab fa-twitter"
+           style="color: #1d9bf0;"></i>
+      </a>
+  <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="/index.xml" title="RSS" rel="me">
+    <i class="fas fa-fw fa-2x fa-rss" style="color: #ea6221;"></i>
+  </a>
+</nav>
+</div>
+  <div class="col-12 col-lg-8 offset-0 offset-lg-1"></div>
+</div>
+</footer>
+<script data-precache src="/assets/main/bundle.min.7b0534bc30be251af76480141b2ff77fb890082e9e473063bbb6142f12215296.js" integrity="sha256-ewU0vDC&#43;JRr3ZIAUGy/3f7iQCC6eRzBju7YULxIhUpY=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.4f30d5267a9f2f9d45ed93969d45ec626100a969a8b91f71f753315a261e9034.js" integrity="sha256-TzDVJnqfL51F7ZOWnUXsYmEAqWmouR9x91MxWiYekDQ=" crossorigin="anonymous" defer></script>
+<script data-precache src="/assets/viewer/bundle.min.06371891cfe6d10d36cba465c61c4d7cb17591a3be2fd9af4a38444d2074e709.js" integrity="sha256-BjcYkc/m0Q02y6RlxhxNfLF1kaO&#43;L9mvSjhETSB05wk=" crossorigin="anonymous" defer></script>
+<script src="/js/sw-register.js" defer></script>
+<script src="https://giscus.app/client.js"
+    data-repo="FallingMY/FallingMY.github.io"
+    data-repo-id="R_kgDOMR9LTw"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOMR9LT84CglZS"
+    data-mapping="pathname"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="preferred_color_scheme"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    defer>
+</script>
+
+
+  </body>
+</html>

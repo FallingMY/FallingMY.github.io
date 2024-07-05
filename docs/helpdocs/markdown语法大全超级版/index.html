@@ -1,0 +1,1304 @@
+<!doctype html>
+<html class="position-relative" itemscope itemtype="https://schema.org/WebPage" lang="en"
+  data-bs-theme="auto" data-palette="blue-gray">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><script src="/assets/init/bundle.min.1c87bc702f66bf16a6fd26c337929b9800a3bff150ec7e8266ec27752d02bbf8.js" integrity="sha256-HIe8cC9mvxam/SbDN5KbmACjv/FQ7H6CZuwndS0Cu/g=" crossorigin="anonymous"></script>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Markdown语法大全(超级版) - Falling_Studio_Terminal3</title>
+    <link rel="icon" href="/favicon_hucccd9e706a19cc8586335b155a80c266_43860_16x16_resize_q75_h2_box_2.webp" sizes="16x16" type="image/webp">
+    <link rel="icon" href="/favicon_hucccd9e706a19cc8586335b155a80c266_43860_32x32_resize_q75_h2_box_2.webp" sizes="32x32" type="image/webp">
+    <link rel="icon" href="/favicon_hucccd9e706a19cc8586335b155a80c266_43860_150x150_resize_q75_h2_box_2.webp" sizes="150x150" type="image/webp">
+    <link rel="apple-touch-icon" href="/favicon_hucccd9e706a19cc8586335b155a80c266_43860_180x180_resize_q75_h2_box_2.webp" sizes="180x180" type="image/webp">
+    <link rel="icon" href="/favicon_hucccd9e706a19cc8586335b155a80c266_43860_192x192_resize_q75_h2_box_2.webp" sizes="192x192" type="image/webp">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6f42c1">
+<meta name="keywords" content="Hugo, Bootstrap, Blog Theme" />
+  <meta name="description" content="Markdown语法大全(超级版)CSDN的参考文档并不全……
+文章目录Markdown语法大全(超级版) 文章目录 概述 设计理念 内联 HTML 语法 特殊字符自动转义 行内语法讲解 注释的表述 代码法 html注释 hack方法 分级标题、任务列表 分级标题 任务列表 缩进、换行、空行、对齐方式 首行缩进 换行 空行 斜体、粗体、删除线、下划线、背景高亮 超链接、页内链接、自动链接、注脚 行内式 参考式 脚注 锚点（页内超链接） 自动链接 无序列表、有序列表、定义型列表 无序列表 有序列表 定义型列表 插入图像 多级引用 转义字符、字体、字号、颜色 转义字符 块语法讲解 内容目录 代码块 行内式 缩进式多行代码 流程图 表格 LaTeX 公式 分隔线 HTML 原始码 特殊字 说明：现在markDown编译器和各平台先支持情况都不太统一，为了达到一些效果会使用语法超集，但有些平台支持不好，请自行裁剪。
+概述设计理念Markdown 易于阅读，方便创作web文档，利于各平台无缝分发。
+Markdown 语法灵感最大的来源还是纯文本 email 的格式，完全由标点符号标签组成的纯文本。
+Markdown 文件应该以纯文本形式原样发布，不应该包含标记标签和格式化指令。
+内联 HTML 语法HTML 是一种发布格式，Markdown 是一种创作格式。
+Markdown语法集合比较小，只是HTML标签的一小部分。" />
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Markdown语法大全(超级版)">
+  <meta name="twitter:description" content="Markdown语法大全(超级版)CSDN的参考文档并不全……
+文章目录Markdown语法大全(超级版) 文章目录 概述 设计理念 内联 HTML 语法 特殊字符自动转义 行内语法讲解 注释的表述 代码法 html注释 hack方法 分级标题、任务列表 分级标题 任务列表 缩进、换行、空行、对齐方式 首行缩进 换行 空行 斜体、粗体、删除线、下划线、背景高亮 超链接、页内链接、自动链接、注脚 行内式 参考式 脚注 锚点（页内超链接） 自动链接 无序列表、有序列表、定义型列表 无序列表 有序列表 定义型列表 插入图像 多级引用 转义字符、字体、字号、颜色 转义字符 块语法讲解 内容目录 代码块 行内式 缩进式多行代码 流程图 表格 LaTeX 公式 分隔线 HTML 原始码 特殊字 说明：现在markDown编译器和各平台先支持情况都不太统一，为了达到一些效果会使用语法超集，但有些平台支持不好，请自行裁剪。
+概述设计理念Markdown 易于阅读，方便创作web文档，利于各平台无缝分发。
+Markdown 语法灵感最大的来源还是纯文本 email 的格式，完全由标点符号标签组成的纯文本。
+Markdown 文件应该以纯文本形式原样发布，不应该包含标记标签和格式化指令。
+内联 HTML 语法HTML 是一种发布格式，Markdown 是一种创作格式。
+Markdown语法集合比较小，只是HTML标签的一小部分。">
+      <meta name="twitter:site" content="@FallingMY#">
+<meta property="og:url" content="http://localhost:1313/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/">
+  <meta property="og:site_name" content="Falling_Studio_Terminal3">
+  <meta property="og:title" content="Markdown语法大全(超级版)">
+  <meta property="og:description" content="Markdown语法大全(超级版)CSDN的参考文档并不全……
+文章目录Markdown语法大全(超级版) 文章目录 概述 设计理念 内联 HTML 语法 特殊字符自动转义 行内语法讲解 注释的表述 代码法 html注释 hack方法 分级标题、任务列表 分级标题 任务列表 缩进、换行、空行、对齐方式 首行缩进 换行 空行 斜体、粗体、删除线、下划线、背景高亮 超链接、页内链接、自动链接、注脚 行内式 参考式 脚注 锚点（页内超链接） 自动链接 无序列表、有序列表、定义型列表 无序列表 有序列表 定义型列表 插入图像 多级引用 转义字符、字体、字号、颜色 转义字符 块语法讲解 内容目录 代码块 行内式 缩进式多行代码 流程图 表格 LaTeX 公式 分隔线 HTML 原始码 特殊字 说明：现在markDown编译器和各平台先支持情况都不太统一，为了达到一些效果会使用语法超集，但有些平台支持不好，请自行裁剪。
+概述设计理念Markdown 易于阅读，方便创作web文档，利于各平台无缝分发。
+Markdown 语法灵感最大的来源还是纯文本 email 的格式，完全由标点符号标签组成的纯文本。
+Markdown 文件应该以纯文本形式原样发布，不应该包含标记标签和格式化指令。
+内联 HTML 语法HTML 是一种发布格式，Markdown 是一种创作格式。
+Markdown语法集合比较小，只是HTML标签的一小部分。">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:published_time" content="2024-07-05T11:34:47+08:00">
+    <meta property="article:modified_time" content="2024-07-05T11:34:47+08:00">
+    <meta property="article:tag" content="HelpDocs">
+    <meta property="article:tag" content="Markdown">
+      <meta property="og:see_also" content="http://localhost:1313/docs/helpdocs/python/anaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E7%AE%A1%E7%90%86python%E7%8E%AF%E5%A2%83%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%B8%80%E5%85%A5%E9%97%A8%E5%8F%8A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%9F%BA%E6%9C%AC%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%BA%8C%E8%8E%B7%E5%8F%96%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9B%B4%E6%96%B0/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/helpdocs/git/git%E7%9A%84%E4%BD%BF%E7%94%A8%E6%98%93%E6%87%82&#43;%E5%B7%A8%E6%97%A0%E6%AF%94%E8%AF%A6%E7%BB%86&#43;%E6%96%B0%E6%89%8B%E5%BF%85%E7%9C%8B/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/helpdocs/java/javase%E5%9F%BA%E7%A1%80%E7%AF%87%E8%B6%85%E8%AF%A6%E7%BB%86java%E5%85%A5%E9%97%A8%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/helpdocs/java/java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%85%AB%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-&#43;-%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+
+  <meta itemprop="name" content="Markdown语法大全(超级版)">
+  <meta itemprop="description" content="Markdown语法大全(超级版)CSDN的参考文档并不全……
+文章目录Markdown语法大全(超级版) 文章目录 概述 设计理念 内联 HTML 语法 特殊字符自动转义 行内语法讲解 注释的表述 代码法 html注释 hack方法 分级标题、任务列表 分级标题 任务列表 缩进、换行、空行、对齐方式 首行缩进 换行 空行 斜体、粗体、删除线、下划线、背景高亮 超链接、页内链接、自动链接、注脚 行内式 参考式 脚注 锚点（页内超链接） 自动链接 无序列表、有序列表、定义型列表 无序列表 有序列表 定义型列表 插入图像 多级引用 转义字符、字体、字号、颜色 转义字符 块语法讲解 内容目录 代码块 行内式 缩进式多行代码 流程图 表格 LaTeX 公式 分隔线 HTML 原始码 特殊字 说明：现在markDown编译器和各平台先支持情况都不太统一，为了达到一些效果会使用语法超集，但有些平台支持不好，请自行裁剪。
+概述设计理念Markdown 易于阅读，方便创作web文档，利于各平台无缝分发。
+Markdown 语法灵感最大的来源还是纯文本 email 的格式，完全由标点符号标签组成的纯文本。
+Markdown 文件应该以纯文本形式原样发布，不应该包含标记标签和格式化指令。
+内联 HTML 语法HTML 是一种发布格式，Markdown 是一种创作格式。
+Markdown语法集合比较小，只是HTML标签的一小部分。">
+  <meta itemprop="datePublished" content="2024-07-05T11:34:47+08:00">
+  <meta itemprop="dateModified" content="2024-07-05T11:34:47+08:00">
+  <meta itemprop="wordCount" content="728">
+  <meta itemprop="keywords" content="HelpDocs,Markdown">
+  <meta property="og:image" content="http://localhost:1313/images/icon.png"/>
+  <meta name="twitter:image" content="http://localhost:1313/images/icon.png"/>
+  <meta property="og:image:alt" content="Markdown语法大全(超级版)" />
+  <meta name="twitter:image:alt" content="Markdown语法大全(超级版)" />
+  <link rel="manifest" href="/manifest.json">
+
+  
+
+
+<link data-precache rel="stylesheet" href="/assets/main/bundle.min.d7957cb2a47e7f7df198f20d4c3154293ff99e769d2b123a108ffc753c03832f.css" integrity="sha256-15V8sqR&#43;f33xmPINTDFUKT/5nnadKxI6EI/8dTwDgy8=" crossorigin="anonymous">
+
+    <link data-precache rel="stylesheet" href="/assets/viewer/bundle.min.81fc6ea2b654c63ccf8e3c859d12072f72f8cbe3f759361479f8b0c00f754e95.css" integrity="sha256-gfxuorZUxjzPjjyFnRIHL3L4y&#43;P3WTYUefiwwA91TpU=" crossorigin="anonymous">
+
+
+</head>
+  <body><header class="mb-4 sticky-top">
+  
+<nav class="top-app-bar shadow navbar navbar-expand-xxl">
+  <div class="container">
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDocsNav"
+      aria-expanded="false" aria-label="Toggle docs navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+<a class="navbar-brand d-flex align-items-center flex-grow-1 flex-xxl-grow-0 justify-content-xxl-start justify-content-center ms-2 ms-xxl-0 mx-auto me-xxl-2"
+    href="http://localhost:1313/">
+    <picture><img class="logo " alt="Logo" src="http://localhost:1313/images/icon.png?v=1f41693bbcf319c2f188adfb373971c6" loading="lazy" width="891" height="891" />
+</picture>
+Falling_MY
+</a>
+
+    <div class="offcanvas-xxl offcanvas-end flex-grow-1" data-bs-scroll="true" tabindex="-1" id="navbarMenus" aria-labelledby="navbarMenusLabel">
+      <div class="offcanvas-header px-4 pb-0">
+        <div class="offcanvas-title h5" id="navbarMenusLabel">Falling_MY</div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#navbarMenus" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body p-4 pt-0 p-xxl-0">
+        <hr class="d-xxl-none">
+        <ul class="navbar-nav flex-row flex-wrap align-items-center me-auto"><li class="nav-item col-6 col-xxl-auto">
+            <a class="nav-link py-2 px-0 px-xxl-2" href="http://localhost:1313/docs/">
+<span class="menu-icon me-1"><i class="fas fa-fw fa-file"></i></span>Docs
+            </a>
+          </li><li class="nav-item col-6 col-xxl-auto">
+            <a class="nav-link py-2 px-0 px-xxl-2" href="http://localhost:1313/news/">
+<span class="menu-icon me-1"><i class="fas fa-fw fa-newspaper"></i></span>News
+            </a>
+          </li>
+          <li class="nav-item col-12 col-xxl-auto dropdown px-0">
+            <a href="#"
+              class="nav-link dropdown-toggle"
+              id="navbarDropdownBlog" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+<span class="menu-icon me-1"><i class="fas fa-fw fa-blog"></i></span>Blog
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog" data-bs-popper="none">
+                <li><h6 class="dropdown-header">Blog Menu Description</h6></li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="http://localhost:1313/archives/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-file-archive text-primary"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-0">Archives</p>
+                  </div></a>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="http://localhost:1313/series/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-columns"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-1">Series</p>
+                      <p class="dropdown-item-description mb-0 text-secondary">List of series.</p>
+                  </div></a>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="http://localhost:1313/categories/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-folder text-success"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-1">Categories</p>
+                      <p class="dropdown-item-description mb-0 text-secondary">List of categories.</p>
+                  </div></a>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="http://localhost:1313/tags/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-tags"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-1">Tags</p>
+                      <p class="dropdown-item-description mb-0 text-secondary">List of tags.</p>
+                  </div></a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        
+    <hr class="d-xxl-none">
+    <form class="search-bar ms-auto my-auto" action="/search/" novalidate>
+      <div class="input-group align-items-center">
+        <span class="btn btn-search disabled position-absolute left-0 border-0 px-1">
+          <i class="fas fa-fw fa-search fa-lg"></i>
+        </span>
+        <input
+          class="my-1 form-control border-white rounded-5 search-input bg-body"
+          name="q"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          required>
+          <span class="search-shortcut position-absolute end-0 top-0 me-2">
+            <kbd class="text-dark bg-white opacity-75 rounded-3 shadow border border-primary py-1 fw-bold">/</kbd>
+          </span>
+      </div>
+    </form><hr class="d-xxl-none">
+        <ul class="navbar-nav flex-row flex-wrap align-items-center ms-md-auto">
+<li class="nav-item py-2 py-xxl-1 col-12 col-xxl-auto">
+
+
+<nav class="social-links nav justify-content-center flex-row">
+      <a class="nav-link social-link col-6 col-xxl-auto p-1" target="_blank" href="https://github.com/FallingMY/FallingMY.github.io" title="GitHub" rel="me">
+        <i class="fa-fw fab fa-github"
+          ></i>
+        <span class="ms-1 d-xxl-none">Github</span>
+      </a>
+  <a class="nav-link social-link col-6 col-xxl-auto p-1" target="_blank" href="/index.xml" title="RSS" rel="me">
+    <i class="fas fa-fw fa-rss"></i>
+    <span class="ms-1 d-xxl-none">RSS</span>
+  </a>
+</nav>
+
+</li>
+<li class="nav-item py-2 py-xxl-1 col-12 col-xxl-auto">
+  <div class="vr d-none d-xxl-flex h-100 mx-xxl-2 text-white"></div>
+  <hr class="d-xxl-none my-2">
+</li>
+<li class="nav-item dropdown col-6 col-xxl-auto">
+    <a class="nav-link px-0 py-2 px-xxl-1" href="#" id="fontSizeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-fw fa-font"></i>
+        <span class="d-xxl-none">Font Size</span>
+    </a>
+    <ul class="font-size-dropdown-menu dropdown-menu dropdown-menu-end" aria-labelledby="fontSizeDropdown">
+        <li>
+            <button class="font-size-item dropdown-item" data-size="xs">
+                Extra Small
+            </button>
+        </li>
+        <li>
+            <button class="font-size-item dropdown-item" data-size="sm">
+                Small
+            </button>
+        </li>
+        <li>
+            <button class="font-size-item dropdown-item active" data-size="md">
+                Medium
+            </button>
+        </li>
+        <li>
+            <button class="font-size-item dropdown-item" data-size="lg">
+                Large
+            </button>
+        </li>
+        <li>
+            <button class="font-size-item dropdown-item" data-size="xl">
+                Extra Large
+            </button>
+        </li>
+    </ul>
+</li>
+<li class="nav-item dropdown col-6 col-xxl-auto">
+    <a class="nav-link px-0 py-2 px-xxl-1" href="#" id="paletteDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-fw fa-palette"></i>
+        <span class="d-xxl-none">Palette</span>
+    </a>
+    <ul class="palette-dropdown-menu dropdown-menu dropdown-menu-end px-2 row g-2" aria-labelledby="paletteDropdown">
+            <li class="col-4 my-1">
+                <a role="button" id="palette-blue" aria-label="Blue"
+                    class="btn btn-sm w-100 palette text-bg-blue" data-palette="blue">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-blue-gray" aria-label="Blue Gray"
+                    class="btn btn-sm w-100 palette text-bg-blue-gray" data-palette="blue-gray">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-brown" aria-label="Brown"
+                    class="btn btn-sm w-100 palette text-bg-brown" data-palette="brown">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-cyan" aria-label="Cyan"
+                    class="btn btn-sm w-100 palette text-bg-cyan" data-palette="cyan">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-green" aria-label="Green"
+                    class="btn btn-sm w-100 palette text-bg-green" data-palette="green">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-indigo" aria-label="Indigo"
+                    class="btn btn-sm w-100 palette text-bg-indigo" data-palette="indigo">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-orange" aria-label="Orange"
+                    class="btn btn-sm w-100 palette text-bg-orange" data-palette="orange">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-pink" aria-label="Pink"
+                    class="btn btn-sm w-100 palette text-bg-pink" data-palette="pink">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-purple" aria-label="Purple"
+                    class="btn btn-sm w-100 palette text-bg-purple" data-palette="purple">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-red" aria-label="Red"
+                    class="btn btn-sm w-100 palette text-bg-red" data-palette="red">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-teal" aria-label="Teal"
+                    class="btn btn-sm w-100 palette text-bg-teal" data-palette="teal">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-yellow" aria-label="Yellow"
+                    class="btn btn-sm w-100 palette text-bg-yellow" data-palette="yellow">
+                </a>
+            </li>
+    </ul>
+</li>
+<li class="nav-item dropdown col-6 col-xxl-auto">
+    <a class="nav-link px-0 py-2 px-xxl-1" href="#" id="modeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="mode-icon fas fa-fw fa-adjust" id="modeIcon"></i>
+        <span class="d-xxl-none">Mode</span>
+    </a>
+    <ul class="mode-dropdown-menu dropdown-menu dropdown-menu-end" aria-labelledby="modeDropdown">
+        <li class="mode-item" data-color-mode="light" data-icon="sun">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-sun"></i> Light
+            </button>
+        </li>
+        <li class="mode-item" data-color-mode="dark" data-icon="moon">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-moon"></i> Dark
+            </button>
+        </li>
+        <li class="mode-item active" data-color-mode="auto" data-icon="adjust">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-adjust"></i> Auto
+            </button>
+        </li>
+    </ul>
+</li>
+        </ul>
+      </div>
+    </div>
+    <div class="d-flex">
+      <button class="navbar-toggler order-5 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarMenus"
+        aria-controls="navbarMenus" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-ellipsis-h"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+</header>
+
+    <main class="container">
+      <div class="row content"><noscript>
+    <div class="alert alert-danger" role="alert">Your browser does not support JavaScript.</div>
+</noscript>
+<aside class="docs-nav col-xxl-2" tabindex="-1" data-bs-hide="focusout">
+  <div class="offcanvas-xxl offcanvas-start" id="offcanvasDocsNav" aria-labelledby="offcanvasDocsNavLabel">
+    <div class="offcanvas-header border-bottom">
+      <div class="offcanvas-title h5" id="offcanvasDocsNavLabel">Browse docs</div>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#offcanvasDocsNav"></button>
+    </div>
+    <div class="offcanvas-body pt-2 flex-column"><ul class="list-unstyled mb-2 w-100"><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3 text-primary">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/"><span class="docs-nav-title">HelpDocs</span></a>
+            <a class="btn-toggle ms-1" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-ebe568325b3994b345762d8c5739485e" aria-expanded="true" aria-controls="nav-ebe568325b3994b345762d8c5739485e">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse  show border-primary" id="nav-ebe568325b3994b345762d8c5739485e">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/c/c&#43;&#43;/"><span class="docs-nav-title">C/C&#43;&#43;</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-4c352665280bb902c3cd1f57edc236a4" aria-expanded="false" aria-controls="nav-4c352665280bb902c3cd1f57edc236a4">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-4c352665280bb902c3cd1f57edc236a4">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"></ul>
+            </div>
+          </div>
+        </li><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/"><span class="docs-nav-title">Git</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-31299be8729f19977a763ab46f2da124" aria-expanded="false" aria-controls="nav-31299be8729f19977a763ab46f2da124">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-31299be8729f19977a763ab46f2da124">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%B8%80%E5%85%A5%E9%97%A8%E5%8F%8A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%9F%BA%E6%9C%AC%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C/"><span class="docs-nav-title">Git基本使用教程（一）：入门及第一次基本完整操作</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%BA%8C%E8%8E%B7%E5%8F%96%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9B%B4%E6%96%B0/"><span class="docs-nav-title">Git基本使用教程（二）：获取更新与推送更新</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/git%E7%9A%84%E4%BD%BF%E7%94%A8%E6%98%93%E6%87%82&#43;%E5%B7%A8%E6%97%A0%E6%AF%94%E8%AF%A6%E7%BB%86&#43;%E6%96%B0%E6%89%8B%E5%BF%85%E7%9C%8B/"><span class="docs-nav-title">Git的使用（易懂&#43;巨无比详细&#43;新手必看）</span></a>
+        </li></ul>
+            </div>
+          </div>
+        </li><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/"><span class="docs-nav-title">Java</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-987b22e609e9d70bb1861e492b4fd185" aria-expanded="false" aria-controls="nav-987b22e609e9d70bb1861e492b4fd185">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-987b22e609e9d70bb1861e492b4fd185">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/javase%E5%9F%BA%E7%A1%80%E7%AF%87%E8%B6%85%E8%AF%A6%E7%BB%86java%E5%85%A5%E9%97%A8%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">JavaSE基础篇——超详细，Java入门，这一篇就够了-CSDN博客</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%85%AB%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-&#43;-%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"><span class="docs-nav-title">Java数据类型（八种基本数据类型 &#43; 四种引用数据类型）</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/%E4%B8%89%E7%A7%8D%E7%BC%96%E7%A8%8B%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99%E9%A9%BC%E5%B3%B0%E5%91%BD%E5%90%8D%E6%B3%95%E5%B8%95%E6%96%AF%E5%8D%A1%E5%91%BD%E5%90%8D%E6%B3%95%E5%8C%88%E7%89%99%E5%88%A9%E5%91%BD%E5%90%8D%E6%B3%95/"><span class="docs-nav-title">三种编程命名规则：驼峰命名法，帕斯卡命名法，匈牙利命名法</span></a>
+        </li></ul>
+            </div>
+          </div>
+        </li><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/markdown/"><span class="docs-nav-title">Markdown</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-2d8c19f8492a0d4510acf00e408e5b58" aria-expanded="false" aria-controls="nav-2d8c19f8492a0d4510acf00e408e5b58">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-2d8c19f8492a0d4510acf00e408e5b58">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"></ul>
+            </div>
+          </div>
+        </li><li class="mb-2 py-1 ms-3 text-primary" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/"><span class="docs-nav-title">Markdown语法大全(超级版)</span></a>
+        </li><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/"><span class="docs-nav-title">Python</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-b7433288507247eb51c5fc0011005e07" aria-expanded="false" aria-controls="nav-b7433288507247eb51c5fc0011005e07">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-b7433288507247eb51c5fc0011005e07">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/anaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E7%AE%A1%E7%90%86python%E7%8E%AF%E5%A2%83%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">anaconda的安装和使用（管理python环境看这一篇就够了）-CSDN博客</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python-%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E6%BA%90/"><span class="docs-nav-title">Python 国内镜像源</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python-%E5%B0%8F%E7%94%B2%E9%B1%BC%E6%95%99%E7%A8%8B-easygui-%E7%AF%87/"><span class="docs-nav-title">Python 小甲鱼教程 Easygui 篇</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python-%E5%BC%B9%E5%87%BA%E6%8F%90%E7%A4%BA%E6%A1%86%E7%BB%83%E4%B9%A0tkinter.messagebox%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"><span class="docs-nav-title">Python 弹出提示框练习：tkinter.messagebox使用方法</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8Fre%E6%A8%A1%E5%9D%97%E8%AF%A6%E8%A7%A3/"><span class="docs-nav-title">python——正则表达式(re模块)详解</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python%E7%88%AC%E8%99%AB%E5%8F%B2%E4%B8%8A%E8%B6%85%E8%AF%A6%E7%BB%86%E8%AE%B2%E8%A7%A3%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E8%80%81%E5%B9%B4%E4%BA%BA%E9%83%BD%E7%9C%8B%E7%9A%84%E6%87%82-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">Python爬虫史上超详细讲解（零基础入门，老年人都看的懂）-CSDN博客</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AF%AD%E6%B3%95%E6%96%87%E6%9C%AB%E9%99%84%E5%B8%B8%E7%94%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F/"><span class="docs-nav-title">史上最全正则表达式语法，文末附常用表达式！</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">掌握计算机自动化：PyAutoGUI库详细教程（最全使用方法，每行代码都有注释，帮你解决与之有关的所有问题）-CSDN博客</span></a>
+        </li></ul>
+            </div>
+          </div>
+        </li></ul>
+            </div>
+          </div>
+        </li></ul></div>
+  </div>
+</aside><div class="col-xxl-7 ms-auto">
+  <div class="container-fluid"><nav class="row card component" aria-label="breadcrumb">
+  <div class="card-body pb-0">
+    <ol class="hbs-breadcrumb breadcrumb flex-nowrap"><li class="breadcrumb-item text-surface"><a href="/">Home</a></li><li class="breadcrumb-item text-surface"><a href="/docs/">Docs</a></li><li class="breadcrumb-item text-surface"><a href="/docs/helpdocs/">HelpDocs</a></li><li class="breadcrumb-item active">Markdown语法大全(超级版)</li></ol>
+  </div>
+</nav><div class="post-panel-wrapper position-relative d-flex justify-content-center">
+  <div class="d-flex flex-row justify-content-center rounded-5 border post-panel position-fixed px-3 py-1 surface shadow-1">
+    
+    
+
+    <a class="action btn-reward" role="button" data-bs-toggle="modal" data-bs-target="#rewardModal" title="Buy me a coffee">
+  <i class="fas fa-fw fa-coffee"></i>
+</a>
+    
+    
+<a class="action action-toc d-block d-xxl-none" href="#post-toc-container" role="button" title="Contents">
+  <i class="fas fa-fw fa-list-alt"></i>
+</a>
+    <a class="action action-copyright" href="#post-copyright" role="button" aria-label="Copyright" title="Copyright">
+  <i class="fas fa-fw fa-copyright"></i>
+</a>
+    <a class="action action-post-comments" href="#post-comments" role="button" aria-label="Comments" title="Comments">
+  <i class="fas fa-fw fa-comments"></i>
+</a>
+    
+<a id="sidebarToggler" class="action action-sidebar-toggler d-none d-xxl-block" role="button" title="Toggle sidebar">
+  <i class="fas fa-fw fa-expand-alt" data-fa-transform="rotate-45"></i>
+</a>
+
+    
+  </div>
+</div><article class="row card component mb-4 post">
+<div class="card-header ">
+    <h1 class="card-title post-title my-2">Markdown语法大全(超级版)</h1>
+</div>
+<div class="card-body"><div class="post-meta mb-3">
+  <span class="post-date me-1 mb-1" title="created on 2024-07-05 11:34:47 &#43;0800 CST.">July 5, 2024</span><span class="post-reading-time me-1 mb-1">4 min read</span><a href="/authors/csdn_user/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-author">
+      <i class="fas fa-fw fa-user me-1"></i>CSDN_user</a><a href="/series/helpdocs/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
+      <i class="fas fa-fw fa-columns me-1"></i>HelpDocs</a><a href="/tags/helpdocs/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">HelpDocs</a><a href="/tags/markdown/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Markdown</a>
+</div>
+
+<div class="mt-2 mb-3 d-block d-xxl-none">
+    <h2 class="text-surface mb-3">Contents</h2>
+    <div id="post-toc-container">
+        </div>
+    <hr class="text-secondary">
+</div><div class="post-content mb-3" data-bs-spy="scroll" data-bs-target="#TableOfContents" tabindex="0">
+        <div id="post-content-body">
+<h2 id="markdown语法大全超级版" data-numberify>Markdown语法大全(超级版)<a class="anchor ms-1" href="#markdown语法大全超级版"></a></h2>
+<p>CSDN的参考文档并不全……<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/2020021409475641.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTQ5NDgxMQ==,size_16,color_FFFFFF,t_70" loading="lazy" />
+</picture>
+
+</p>
+
+<h4 id="文章目录" data-numberify>文章目录<a class="anchor ms-1" href="#文章目录"></a></h4>
+<ul>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#markdown%e8%af%ad%e6%b3%95%e5%a4%a7%e5%85%a8%e8%b6%85%e7%ba%a7%e7%89%88">Markdown语法大全(超级版)</a>
+<ul>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e6%96%87%e7%ab%a0%e7%9b%ae%e5%bd%95">文章目录</a></li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e6%a6%82%e8%bf%b0">概述</a>
+<ul>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e8%ae%be%e8%ae%a1%e7%90%86%e5%bf%b5">设计理念</a></li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e5%86%85%e8%81%94-html-%e8%af%ad%e6%b3%95">内联 HTML 语法</a></li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e7%89%b9%e6%ae%8a%e5%ad%97%e7%ac%a6%e8%87%aa%e5%8a%a8%e8%bd%ac%e4%b9%89">特殊字符自动转义</a></li>
+</ul>
+</li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e8%a1%8c%e5%86%85%e8%af%ad%e6%b3%95%e8%ae%b2%e8%a7%a3">行内语法讲解</a>
+<ul>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e6%b3%a8%e9%87%8a%e7%9a%84%e8%a1%a8%e8%bf%b0">注释的表述</a>
+<ul>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e4%bb%a3%e7%a0%81%e6%b3%95">代码法</a></li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#html%e6%b3%a8%e9%87%8a">html注释</a></li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#hack%e6%96%b9%e6%b3%95">hack方法</a></li>
+</ul>
+</li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e5%88%86%e7%ba%a7%e6%a0%87%e9%a2%98%e4%bb%bb%e5%8a%a1%e5%88%97%e8%a1%a8">分级标题、任务列表</a>
+<ul>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e5%88%86%e7%ba%a7%e6%a0%87%e9%a2%98">分级标题</a></li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e4%bb%bb%e5%8a%a1%e5%88%97%e8%a1%a8">任务列表</a></li>
+</ul>
+</li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e7%bc%a9%e8%bf%9b%e6%8d%a2%e8%a1%8c%e7%a9%ba%e8%a1%8c%e5%af%b9%e9%bd%90%e6%96%b9%e5%bc%8f">缩进、换行、空行、对齐方式</a>
+<ul>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e9%a6%96%e8%a1%8c%e7%bc%a9%e8%bf%9b">首行缩进</a></li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e6%8d%a2%e8%a1%8c">换行</a></li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e7%a9%ba%e8%a1%8c">空行</a></li>
+</ul>
+</li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e6%96%9c%e4%bd%93%e7%b2%97%e4%bd%93%e5%88%a0%e9%99%a4%e7%ba%bf%e4%b8%8b%e5%88%92%e7%ba%bf%e8%83%8c%e6%99%af%e9%ab%98%e4%ba%ae">斜体、粗体、删除线、下划线、背景高亮</a></li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e8%b6%85%e9%93%be%e6%8e%a5%e9%a1%b5%e5%86%85%e9%93%be%e6%8e%a5%e8%87%aa%e5%8a%a8%e9%93%be%e6%8e%a5%e6%b3%a8%e8%84%9a">超链接、页内链接、自动链接、注脚</a>
+<ul>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e8%a1%8c%e5%86%85%e5%bc%8f">行内式</a></li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e5%8f%82%e8%80%83%e5%bc%8f">参考式</a></li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e8%84%9a%e6%b3%a8">脚注</a></li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e9%94%9a%e7%82%b9%e9%a1%b5%e5%86%85%e8%b6%85%e9%93%be%e6%8e%a5">锚点（页内超链接）</a></li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e8%87%aa%e5%8a%a8%e9%93%be%e6%8e%a5">自动链接</a></li>
+</ul>
+</li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e6%97%a0%e5%ba%8f%e5%88%97%e8%a1%a8%e6%9c%89%e5%ba%8f%e5%88%97%e8%a1%a8%e5%ae%9a%e4%b9%89%e5%9e%8b%e5%88%97%e8%a1%a8">无序列表、有序列表、定义型列表</a>
+<ul>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e6%97%a0%e5%ba%8f%e5%88%97%e8%a1%a8">无序列表</a></li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e6%9c%89%e5%ba%8f%e5%88%97%e8%a1%a8">有序列表</a></li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e5%ae%9a%e4%b9%89%e5%9e%8b%e5%88%97%e8%a1%a8">定义型列表</a></li>
+</ul>
+</li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e6%8f%92%e5%85%a5%e5%9b%be%e5%83%8f">插入图像</a></li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e5%a4%9a%e7%ba%a7%e5%bc%95%e7%94%a8">多级引用</a></li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e8%bd%ac%e4%b9%89%e5%ad%97%e7%ac%a6%e5%ad%97%e4%bd%93%e5%ad%97%e5%8f%b7%e9%a2%9c%e8%89%b2">转义字符、字体、字号、颜色</a></li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e8%bd%ac%e4%b9%89%e5%ad%97%e7%ac%a6">转义字符</a></li>
+</ul>
+</li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e5%9d%97%e8%af%ad%e6%b3%95%e8%ae%b2%e8%a7%a3">块语法讲解</a>
+<ul>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e5%86%85%e5%ae%b9%e7%9b%ae%e5%bd%95">内容目录</a></li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e4%bb%a3%e7%a0%81%e5%9d%97">代码块</a>
+<ul>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e8%a1%8c%e5%86%85%e5%bc%8f-1">行内式</a></li>
+</ul>
+</li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e7%bc%a9%e8%bf%9b%e5%bc%8f%e5%a4%9a%e8%a1%8c%e4%bb%a3%e7%a0%81">缩进式多行代码</a></li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e6%b5%81%e7%a8%8b%e5%9b%be">流程图</a></li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e8%a1%a8%e6%a0%bc">表格</a></li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#latex-%e5%85%ac%e5%bc%8f">LaTeX 公式</a></li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e5%88%86%e9%9a%94%e7%ba%bf">分隔线</a></li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#html-%e5%8e%9f%e5%a7%8b%e7%a0%81">HTML 原始码</a></li>
+<li><a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#%e7%89%b9%e6%ae%8a%e5%ad%97">特殊字</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>说明：现在markDown编译器和各平台先支持情况都不太统一，为了达到一些效果会使用语法超集，但有些平台支持不好，请自行裁剪。</p>
+
+<h3 id="概述" data-numberify>概述<a class="anchor ms-1" href="#概述"></a></h3>
+
+<h4 id="设计理念" data-numberify>设计理念<a class="anchor ms-1" href="#设计理念"></a></h4>
+<p>Markdown 易于阅读，方便创作web文档，利于各平台无缝分发。<br>
+Markdown 语法灵感最大的来源还是纯文本 email 的格式，完全由标点符号标签组成的纯文本。<br>
+Markdown 文件应该以纯文本形式原样发布，不应该包含标记标签和格式化指令。</p>
+
+<h4 id="内联-html-语法" data-numberify>内联 HTML 语法<a class="anchor ms-1" href="#内联-html-语法"></a></h4>
+<p>HTML 是一种发布格式，Markdown 是一种创作格式。<br>
+Markdown语法集合比较小，只是HTML标签的一小部分。<br>
+对于 Markdown 中未包含的标签, 可以直接使用 HTML标签，例如用 HTML <code>&lt;a&gt;</code>标签替代 Markdown 的链接语法。</p>
+
+<h4 id="特殊字符自动转义" data-numberify>特殊字符自动转义<a class="anchor ms-1" href="#特殊字符自动转义"></a></h4>
+<p>在 HTML 中, 有两个字符需要特殊对待: &lt; 和 &amp;，左尖括号用于起始标签。果你想将它们用作字面量, 你必须将它们转义为字符实体, 例如(<code>&amp;lt;</code>)&lt; 和 (<code>&amp;amp;</code>)&amp;。</p>
+
+<h3 id="行内语法讲解" data-numberify>行内语法讲解<a class="anchor ms-1" href="#行内语法讲解"></a></h3>
+
+<h4 id="注释的表述" data-numberify>注释的表述<a class="anchor ms-1" href="#注释的表述"></a></h4>
+
+<h5 id="代码法" data-numberify>代码法<a class="anchor ms-1" href="#代码法"></a></h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&#39;display: none&#39;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">哈哈我是注释，不会在浏览器中显示。
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>这种方法CSDN不支持，但是直接转成html是可行的</p>
+
+<h5 id="html注释" data-numberify>html注释<a class="anchor ms-1" href="#html注释"></a></h5>
+<p>既然支持html语法，那也支持html注释，快捷键 command + /。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!--哈哈我是注释，不会在浏览器中显示。--&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!--
+</span></span></span><span class="line"><span class="cl"><span class="c">哈哈我是多段注释，
+</span></span></span><span class="line"><span class="cl"><span class="c">不会在浏览器中显示。
+</span></span></span><span class="line"><span class="cl"><span class="c">    --&gt;</span>
+</span></span></code></pre></div><p><em>这里真的有注释···</em></p>
+
+<h5 id="hack方法" data-numberify>hack方法<a class="anchor ms-1" href="#hack方法"></a></h5>
+<p>hack方法就是利用markdown的解析原理来实现注释的。<br>
+一般有的markdown解析器不支持上面的注释方法，这个时候就可以用hack方法。<br>
+hack方法比上面2种方法稳定得多，但是语义化太差。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="p">[</span><span class="c1">//]: # (哈哈我是最强注释，不会在浏览器中显示。)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">[</span><span class="o">^</span><span class="nx">_</span><span class="o">^</span><span class="p">]</span><span class="o">:</span> <span class="c1"># (哈哈我是最萌注释，不会在浏览器中显示。)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">[</span><span class="c1">//]: &lt;&gt; (哈哈我是注释，不会在浏览器中显示。)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">[</span><span class="nx">comment</span><span class="p">]</span><span class="o">:</span> <span class="o">&lt;&gt;</span> <span class="p">(</span><span class="nx">哈哈我是注释，不会在浏览器中显示。</span><span class="p">)</span>
+</span></span></code></pre></div>
+<h4 id="分级标题任务列表" data-numberify>分级标题、任务列表<a class="anchor ms-1" href="#分级标题任务列表"></a></h4>
+
+<h5 id="分级标题" data-numberify>分级标题<a class="anchor ms-1" href="#分级标题"></a></h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"># 一级标题
+</span></span><span class="line"><span class="cl">## 二级标题
+</span></span><span class="line"><span class="cl">### 三级标题
+</span></span><span class="line"><span class="cl">#### 四级标题
+</span></span><span class="line"><span class="cl">##### 五级标题
+</span></span><span class="line"><span class="cl">###### 六级标题  <span class="c">&lt;!--最多6级标题--&gt;</span>
+</span></span></code></pre></div>
+<h5 id="任务列表" data-numberify>任务列表<a class="anchor ms-1" href="#任务列表"></a></h5>
+<p>Markdown 语法：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">- [ ] 任务一 未做任务 `- + 空格 + [ ]`
+</span></span><span class="line"><span class="cl">- [x] 任务二 已做任务 `- + 空格 + [x]`
+</span></span></code></pre></div><p>效果如下：</p>
+<ul>
+<li><input disabled="" type="checkbox"> 任务一 未做任务 <code>- + 空格 + [ ]</code></li>
+<li><input checked="" disabled="" type="checkbox"> 任务二 已做任务<code>- + 空格 + [x]</code></li>
+</ul>
+
+<h4 id="缩进换行空行对齐方式" data-numberify>缩进、换行、空行、对齐方式<a class="anchor ms-1" href="#缩进换行空行对齐方式"></a></h4>
+
+<h5 id="首行缩进" data-numberify>首行缩进<a class="anchor ms-1" href="#首行缩进"></a></h5>
+<p>不同特殊占位符所占空白是不一样大的。</p>
+<ol>
+<li><code>&amp;emsp;</code> 或<code>&amp;#8195;</code>  //全角</li>
+<li><code>&amp;ensp;</code> 或<code>&amp;#8194;</code> //半角</li>
+<li><code>&amp;nbsp;</code> 或<code>&amp;#160;</code>  //半角之半角（你还真的能看出来吗）</li>
+<li>或//啥也没有</li>
+</ol>
+
+<h5 id="换行" data-numberify>换行<a class="anchor ms-1" href="#换行"></a></h5>
+<p>由于markdown编辑器的不同,可能在一行字后面，直接换行回车，也能实现换行，但是在有的地方，想要换行必须得在一行字后面空两个格子才行。</p>
+
+<h5 id="空行" data-numberify>空行<a class="anchor ms-1" href="#空行"></a></h5>
+<p>在编辑的时候有多少个空行(只要这一行只有回车或者space没有其他的字符就算空行)，在渲染之后，只隔着一行。</p>
+<p>对齐方式<br>
+代码：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">center</span><span class="p">&gt;</span>行中心对齐<span class="p">&lt;/</span><span class="nt">center</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">p</span> <span class="na">align</span><span class="o">=</span><span class="s">&#34;left&#34;</span><span class="p">&gt;</span>行左对齐<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">p</span> <span class="na">align</span><span class="o">=</span><span class="s">&#34;right&#34;</span><span class="p">&gt;</span>行右对齐<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>显示效果：</p>
+<p>行中心对齐</p>
+<p>行左对齐</p>
+<p>行右对齐</p>
+
+<h4 id="斜体粗体删除线下划线背景高亮" data-numberify>斜体、粗体、删除线、下划线、背景高亮<a class="anchor ms-1" href="#斜体粗体删除线下划线背景高亮"></a></h4>
+<p>代码：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">*斜体* 或 _斜体_
+</span></span><span class="line"><span class="cl">**粗体** 或 __粗体__
+</span></span><span class="line"><span class="cl">***加粗斜体***
+</span></span><span class="line"><span class="cl">~~删除线~~
+</span></span><span class="line"><span class="cl">++下划线++（又是CSDN不支持···）
+</span></span><span class="line"><span class="cl">==背景高亮==
+</span></span></code></pre></div><p>显示效果：<br>
+<em>斜体</em> 或 <em>斜体</em><br>
+<strong>粗体</strong> 或 <strong>粗体</strong><br>
+<em><strong>加粗斜体</strong></em><br>
+<del>删除线</del><br>
+++下划线++<br>
+背景高亮</p>
+
+<h4 id="超链接页内链接自动链接注脚" data-numberify>超链接、页内链接、自动链接、注脚<a class="anchor ms-1" href="#超链接页内链接自动链接注脚"></a></h4>
+
+<h5 id="行内式" data-numberify>行内式<a class="anchor ms-1" href="#行内式"></a></h5>
+<blockquote>
+<p>语法说明：<br>
+[]里写链接文字，()里写链接地址, ()中的&quot;&ldquo;中可以为链接指定title属性，title属性可加可不加。title属性的效果是鼠标悬停在链接上会出现指定的 title文字，链接地址与title前有一个空格。</p>
+</blockquote>
+<p>代码：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">欢迎阅读 [Lapland Stark](https://blog.csdn.net/weixin_45494811)
+</span></span></code></pre></div><p>显示效果：</p>
+<p>欢迎阅读 <a href="https://blog.csdn.net/weixin_45494811" target="_blank" rel="noopener noreferrer">Lapland Stark<i class="fas fa-external-link-square-alt ms-1"></i></a></p>
+
+<h5 id="参考式" data-numberify>参考式<a class="anchor ms-1" href="#参考式"></a></h5>
+<p>参考式超链接一般用在学术论文上面，或者另一种情况，如果某一个链接在文章中多处使用，那么使用_引用_ 的方式创建链接将非常好，它可以让你对链接进行统一的管理。</p>
+<blockquote>
+<p>语法说明：<br>
+参考式链接分为两部分，文中的写法 [链接文字][链接标记]，在文本的任意位置添加[链接标记]:链接地址。</p>
+</blockquote>
+<p>如果链接文字本身可以做为链接标记，你也可以写成</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">[链接文字][Num]
+</span></span><span class="line"><span class="cl">[链接文字]：链接地址的形式，见代码的最后一行。
+</span></span></code></pre></div><p>代码：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">我经常去的几个网站[Google][1]、[Leanote][2]。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[1]:http://www.google.com
+</span></span><span class="line"><span class="cl">[2]:http://www.leanote.com
+</span></span></code></pre></div><p>显示效果：</p>
+<p>我经常去的几个网站<a href="http://www.google.com" target="_blank" rel="noopener noreferrer">Google<i class="fas fa-external-link-square-alt ms-1"></i></a>、<a href="http://www.leanote.com" target="_blank" rel="noopener noreferrer">Leanote<i class="fas fa-external-link-square-alt ms-1"></i></a>。</p>
+
+<h5 id="脚注" data-numberify>脚注<a class="anchor ms-1" href="#脚注"></a></h5>
+<p>在需要添加注脚的文字后加上脚注名字 [^注脚名字] ,称为加注。 然后在文本的任意位置(一般在最后)添加脚注，脚注前必须有对应的脚注名字。</p>
+<p>注意：经测试注脚与注脚之间必须空一行，不然会失效。成功后会发现，即使你没有把注脚写在文末，经Markdown转换后，也会自动归类到文章的最后。</p>
+<p>代码：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">使用 Markdown[^1]可以效率的书写文档, 直接转换成 HTML[^2]。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[^1]:Markdown是一种纯文本标记语言
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[^2]:HyperText Markup Language 超文本标记语言
+</span></span></code></pre></div><p>显示效果：</p>
+<p>使用 Markdown<a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#fn1">1</a>可以效率的书写文档, 直接转换成 HTML<a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#fn2">2</a>。</p>
+<p>注：脚注自动被搬运到最后面，请到文章末尾查看，脚注后方的链接可以直接跳转回到加注的地方。</p>
+
+<h5 id="锚点页内超链接" data-numberify>锚点（页内超链接）<a class="anchor ms-1" href="#锚点页内超链接"></a></h5>
+<p>网页中，锚点其实就是页内超链接，也就是链接本文档内部的某些元素，实现当前页面中的跳转。比如我这里写下一个锚点，点击回到目录，就能跳转到目录。 在目录中点击这一节，就能跳过来。还有下一节的注脚。这些根本上都是用锚点来实现的，只支持在标题后插入锚点，其它地方无效。</p>
+
+<h5 id="自动链接" data-numberify>自动链接<a class="anchor ms-1" href="#自动链接"></a></h5>
+<p>语法说明：<br>
+Markdown 支持以比较简短的自动链接形式来处理网址和电子邮件信箱，只要是用&lt;&gt;包起来， Markdown 就会自动把它转成链接。一般网址的链接文字就和链接地址一样，例如：</p>
+<p>代码：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="ni">&amp;lt;</span>http://example.com/<span class="ni">&amp;gt;</span> <span class="ni">&amp;emsp;&amp;emsp;</span>
+</span></span><span class="line"><span class="cl"><span class="ni">&amp;lt;</span>address@example.com<span class="ni">&amp;gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">http:</span><span class="err">//</span><span class="na">example</span><span class="err">.</span><span class="na">com</span><span class="p">/&gt;</span>   
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">address</span><span class="err">@</span><span class="na">example</span><span class="err">.</span><span class="na">com</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>显示效果：<br>
+<a href="http://example.com/" target="_blank" rel="noopener noreferrer">http://example.com/<i class="fas fa-external-link-square-alt ms-1"></i></a>   <br>
+<a href="mailto:address@example.com">address@example.com</a><br>
+<a href="http://example.com/" target="_blank" rel="noopener noreferrer">http://example.com/<i class="fas fa-external-link-square-alt ms-1"></i></a>   <br>
+<a href="mailto:address@example.com">address@example.com</a></p>
+
+<h4 id="无序列表有序列表定义型列表" data-numberify>无序列表、有序列表、定义型列表<a class="anchor ms-1" href="#无序列表有序列表定义型列表"></a></h4>
+
+<h5 id="无序列表" data-numberify>无序列表<a class="anchor ms-1" href="#无序列表"></a></h5>
+<p>使用 *，+，- 表示无序列表。<br>
+代码：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">* 无序列表项 一
+</span></span><span class="line"><span class="cl">+ 无序列表项 二
+</span></span><span class="line"><span class="cl">- 无序列表项 三
+</span></span></code></pre></div><p>显示效果：</p>
+<ul>
+<li>
+<p>无序列表项 一</p>
+</li>
+<li>
+<p>无序列表项 二</p>
+</li>
+<li>
+<p>无序列表项 三</p>
+</li>
+</ul>
+
+<h5 id="有序列表" data-numberify>有序列表<a class="anchor ms-1" href="#有序列表"></a></h5>
+<p>有序列表则使用数字接着一个英文句点。<br>
+代码：</p>
+<pre tabindex="0"><code>1. 有序列表项 一
+2. 有序列表项 二
+3. 有序列表项 三
+</code></pre><p>显示效果：</p>
+<ol>
+<li>有序列表项 一</li>
+<li>有序列表项 二</li>
+<li>有序列表项 三</li>
+</ol>
+
+<h5 id="定义型列表" data-numberify>定义型列表<a class="anchor ms-1" href="#定义型列表"></a></h5>
+<blockquote>
+<p>语法说明：<br>
+定义型列表由名词和解释组成。空一行，然后一行写上定义，紧跟一行写上解释。解释的写法:紧跟一个缩进(Tab)</p>
+</blockquote>
+<p>代码</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">Markdown
+</span></span><span class="line"><span class="cl">:   轻量级文本标记语言（左侧有一个可见的冒号和四个不可见的空格）
+</span></span></code></pre></div><p>显示效果：</p>
+<p>Markdown</p>
+<p>轻量级文本标记语言（左侧有一个可见的冒号和四个不可见的空格）</p>
+
+<h4 id="插入图像" data-numberify>插入图像<a class="anchor ms-1" href="#插入图像"></a></h4>
+<p>语法中图片Alt的意思是如果图片因为某些原因不能显示，就用定义的图片Alt文字来代替图片。 图片Title则和链接中的Title一样，表示鼠标悬停y于图片上时出现的文字。 Alt 和 Title 都不是必须的，可以省略，但建议写上。</p>
+<blockquote>
+<p>语法：</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">center</span><span class="p">&gt;</span>  <span class="c">&lt;!--开始居中对齐--&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">![Lapland](https://img-blog.csdnimg.cn/20200214111424248.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTQ5NDgxMQ==,size_16,color_FFFFFF,t_70 &#34;Lapland&#34;)
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">center</span><span class="p">&gt;</span> <span class="c">&lt;!--结束居中对齐--&gt;</span>
+</span></span></code></pre></div><p>效果如下：</p>
+<p><picture><img class="img-fluid " alt="Lapland" src="https://img-blog.csdnimg.cn/20200214111424248.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTQ5NDgxMQ==,size_16,color_FFFFFF,t_70" loading="lazy" title="Lapland" />
+</picture>
+
+</p>
+
+<h4 id="多级引用" data-numberify>多级引用<a class="anchor ms-1" href="#多级引用"></a></h4>
+<blockquote>
+<p>语法说明：</p>
+</blockquote>
+<p>引用需要在被引用的文本前加上&gt;符号和空格，允许多层嵌套，也允许你偷懒只在整个段落的第一行最前面加上 &gt; 。</p>
+<p>代码：</p>
+<pre tabindex="0"><code>&gt;&gt;&gt; 请问 Markdwon 怎么用？ - 小白
+&gt;&gt; 自己看教程！ - 愤青
+&gt; 教程在哪？ - 小白
+</code></pre><p>显示效果：</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>请问 Markdwon 怎么用？ - 小白<br>
+自己看教程！ - 愤青<br>
+教程在哪？ - 小白</p>
+</blockquote>
+</blockquote>
+</blockquote>
+
+<h4 id="转义字符字体字号颜色" data-numberify>转义字符、字体、字号、颜色<a class="anchor ms-1" href="#转义字符字体字号颜色"></a></h4>
+
+<h4 id="转义字符" data-numberify>转义字符<a class="anchor ms-1" href="#转义字符"></a></h4>
+<p>Markdown中的转义字符为\，转义的有：</p>
+<p>\ 反斜杠 ` 反引号 * 星号 _ 下划线 {} 大括号 [] 中括号 () 小括号  # 井号 + 加号 - 减号 . 英文句号 ! 感叹号</p>
+<p>字体、字号、颜色<br>
+代码：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">font</span> <span class="na">face</span><span class="o">=</span><span class="s">&#34;黑体&#34;</span><span class="p">&gt;</span>我是黑体字<span class="p">&lt;/</span><span class="nt">font</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">font</span> <span class="na">face</span><span class="o">=</span><span class="s">&#34;微软雅黑&#34;</span><span class="p">&gt;</span>我是微软雅黑<span class="p">&lt;/</span><span class="nt">font</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">font</span> <span class="na">face</span><span class="o">=</span><span class="s">&#34;STCAIYUN&#34;</span><span class="p">&gt;</span>我是华文彩云<span class="p">&lt;/</span><span class="nt">font</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">font</span> <span class="na">color</span><span class="o">=</span><span class="s">#0099ff</span> <span class="na">size</span><span class="o">=</span><span class="s">12</span> <span class="na">face</span><span class="o">=</span><span class="s">&#34;黑体&#34;</span><span class="p">&gt;</span>黑体<span class="p">&lt;/</span><span class="nt">font</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">font</span> <span class="na">color</span><span class="o">=</span><span class="s">gray</span> <span class="na">size</span><span class="o">=</span><span class="s">5</span><span class="p">&gt;</span>gray<span class="p">&lt;/</span><span class="nt">font</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">font</span> <span class="na">color</span><span class="o">=</span><span class="s">#00ffff</span> <span class="na">size</span><span class="o">=</span><span class="s">3</span><span class="p">&gt;</span>null<span class="p">&lt;/</span><span class="nt">font</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>显示效果：<br>
+CSDN显示不了我也没办法呀(ｰ ｰ;)<br>
+我是黑体字<br>
+我是微软雅黑<br>
+我是华文彩云<br>
+黑体<br>
+gray<br>
+null</p>
+
+<h3 id="块语法讲解" data-numberify>块语法讲解<a class="anchor ms-1" href="#块语法讲解"></a></h3>
+
+<h4 id="内容目录" data-numberify>内容目录<a class="anchor ms-1" href="#内容目录"></a></h4>
+<p>在段落中填写 [TOC] 以显示全文内容的目录结构。</p>
+<p><code>@[toc]</code><br>
+效果参见最上方的目录。</p>
+
+<h4 id="代码块" data-numberify>代码块<a class="anchor ms-1" href="#代码块"></a></h4>
+<p>对于程序员来说这个功能是必不可少的，插入程序代码的方式有两种，一种是利用缩进(Tab), 另一种是利用”`”符号（一般在ESC键下方）包裹代码。</p>
+
+<h5 id="行内式-1" data-numberify>行内式<a class="anchor ms-1" href="#行内式-1"></a></h5>
+<p>代码：</p>
+<pre tabindex="0"><code>C语言里的函数 `scanf()` 怎么使用？
+</code></pre><p>显示效果：</p>
+<p>C语言里的函数 <code>scanf()</code>怎么使用？</p>
+
+<h4 id="缩进式多行代码" data-numberify>缩进式多行代码<a class="anchor ms-1" href="#缩进式多行代码"></a></h4>
+<p>缩进 4 个空格或是 1 个制表符</p>
+<p>一个代码区块会一直持续到没有缩进的那一行（或是文件结尾）。</p>
+<p>代码：</p>
+<pre tabindex="0"><code>	#include &amp;lt;stdio.h&amp;gt;
+	int main(void)
+	{
+	    printf(&amp;#34;Hello world\n&amp;#34;);
+	}
+</code></pre><p>显示效果：</p>
+<pre tabindex="0"><code>#include &amp;lt;stdio.h&amp;gt;
+int main(void)
+{
+    printf(&amp;#34;Hello world\n&amp;#34;);
+}
+</code></pre><p>用六个`包裹多行代码<br>
+代码：</p>
+<pre tabindex="0"><code>```
+include &lt;stdio.h&gt;
+int main(void)
+{
+printf(&#34;Hello world\n&#34;);
+}
+```
+</code></pre><p>显示效果：</p>
+<pre tabindex="0"><code>include &lt;stdio.h&gt;
+int main(void)
+{
+printf(&#34;Hello world\n&#34;);
+}
+</code></pre>
+<h4 id="流程图" data-numberify>流程图<a class="anchor ms-1" href="#流程图"></a></h4>
+<p>编辑自有道云笔记，代码：</p>
+<pre tabindex="0"><code>```mermaid
+graph LR
+A--&gt;B
+```
+
+```mermaid
+sequenceDiagram
+A-&gt;&gt;B: How are you?
+B-&gt;&gt;A: Great!
+```
+</code></pre><p>显示效果：</p>
+<p>A</p>
+<p>B</p>
+<p>A B How are you? Great! A B</p>
+
+<h4 id="表格" data-numberify>表格<a class="anchor ms-1" href="#表格"></a></h4>
+<blockquote>
+<p>语法说明：<br>
+不管是哪种方式，第一行为表头，第二行分隔表头和主体部分，第三行开始每一行为一个表格行。<br>
+列于列之间用管道符|隔开。原生方式的表格每一行的两边也要有管道符。<br>
+第二行还可以为不同的列指定对齐方向。默认为左对齐，在-右边加上:就右对齐。</p>
+</blockquote>
+<ul>
+<li>左对齐， :-: 中心对齐，-: 右对齐</li>
+</ul>
+<p>表格代码：</p>
+<table>
+<thead>
+<tr>
+<th>学号</th>
+<th>姓名</th>
+<th>序号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>小明明</td>
+<td>男</td>
+<td>5</td>
+</tr>
+<tr>
+<td>小红</td>
+<td>女</td>
+<td>79</td>
+</tr>
+<tr>
+<td>小陆</td>
+<td>男</td>
+<td>192</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="latex-公式" data-numberify>LaTeX 公式<a class="anchor ms-1" href="#latex-公式"></a></h4>
+<p>表示行内公式<br>
+代码：</p>
+<p>质能守恒方程可以用一个很简洁的方程式 <code>$E = m c^2$</code>来表达。</p>
+<p>显示效果：</p>
+<p>质能守恒方程可以用一个很简洁的方程式 E = m c 2 E = m c^2 E=mc2来表达。</p>
+<p>表示整行公式:</p>
+<p>大部分的浏览器支持的</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">$$
+</span></span><span class="line"><span class="cl">E = m c^2
+</span></span><span class="line"><span class="cl">$$
+</span></span></code></pre></div><p>E = m c 2 E = m c^2 E=mc2</p>
+
+<h4 id="分隔线" data-numberify>分隔线<a class="anchor ms-1" href="#分隔线"></a></h4>
+<p>你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。下面每种写法都可以建立分隔线：</p>
+<p>代码：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">* * *
+</span></span><span class="line"><span class="cl">***
+</span></span><span class="line"><span class="cl">*****
+</span></span><span class="line"><span class="cl">- - -
+</span></span><span class="line"><span class="cl">-----------
+</span></span></code></pre></div><hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<p>显示效果都一样：</p>
+
+<h4 id="html-原始码" data-numberify>HTML 原始码<a class="anchor ms-1" href="#html-原始码"></a></h4>
+<p>在代码区块里面， &amp; 、 &lt; 和 &gt; 会自动转成 HTML 实体，这样的方式让你非常容易使用 Markdown 插入范例用的 HTML 原始码，只需要复制贴上，剩下的 Markdown 都会帮你处理，例如：</p>
+<p>代码：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">第一个例子：
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;footer&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">© 2004 Foo Corporation
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">第二个例子：
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">center</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">th</span> <span class="na">rowspan</span><span class="o">=</span><span class="s">&#34;2&#34;</span><span class="p">&gt;</span>值班人员<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>星期一<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>星期二<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>星期三<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>李强<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>张明<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>王平<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">center</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>显示效果：</p>
+<p>第一个例子：</p>
+<p>© 2004 Foo Corporation</p>
+<p>第二个例子：</p>
+<table>
+<thead>
+<tr>
+<th>值班人员</th>
+<th>星期一</th>
+<th>星期二</th>
+<th>星期三</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>李强</td>
+<td>张明</td>
+<td>王平</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="特殊字" data-numberify>特殊字<a class="anchor ms-1" href="#特殊字"></a></h4>
+<p>特殊字符 描述 字符的代码<br>
+空格符  <br>
+&lt; 小于号 &lt;</p>
+<blockquote>
+<p>大于号 &gt;<br>
+&amp; 和号 &amp;<br>
+￥ 人民币 ¥<br>
+© 版权 ©<br>
+® 注册商标 ®<br>
+°C 摄氏度 °C<br>
+± 正负号 ±<br>
+× 乘号 ×<br>
+÷ 除号 ÷<br>
+² 平方（上标²） ²<br>
+³ 立方（上标³） ³</p>
+</blockquote>
+<p>注：本文根据<a href="https://www.jianshu.com/p/ebe52d2d468f" target="_blank" rel="noopener noreferrer">简书文章<i class="fas fa-external-link-square-alt ms-1"></i></a>修改完成</p>
+<hr>
+<ol>
+<li>
+<p>Markdown是一种纯文本标记语言 <a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#fnref1">↩︎</a></p>
+</li>
+<li>
+<p>HyperText Markup Language 超文本标记语言 <a href="/docs/helpdocs/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/#fnref2">↩︎</a></p>
+</li>
+</ol>
+<p>文章知识点与官方知识档案匹配，可进一步学习相关知识</p>
+<p><a href="https://edu.csdn.net/skill/gml/gml-b4a4f06aa5114c3fa6a590d659037370?utm_source=csdn_ai_skill_tree_blog" target="_blank" rel="noopener noreferrer">CS入门技能树<i class="fas fa-external-link-square-alt ms-1"></i></a><a href="https://edu.csdn.net/skill/gml/gml-b4a4f06aa5114c3fa6a590d659037370?utm_source=csdn_ai_skill_tree_blog" target="_blank" rel="noopener noreferrer">MarkDown入门<i class="fas fa-external-link-square-alt ms-1"></i></a><a href="https://edu.csdn.net/skill/gml/gml-b4a4f06aa5114c3fa6a590d659037370?utm_source=csdn_ai_skill_tree_blog" target="_blank" rel="noopener noreferrer">列表<i class="fas fa-external-link-square-alt ms-1"></i></a>40950 人正在系统学习中</p>
+<p>本文转自 <a href="https://blog.csdn.net/weixin_45494811/article/details/104307670" target="_blank" rel="noopener noreferrer">https://blog.csdn.net/weixin_45494811/article/details/104307670<i class="fas fa-external-link-square-alt ms-1"></i></a>，如有侵权，请联系删除。</p>
+</div>
+</div>
+<div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content surface">
+      <div class="modal-header">
+        <h5 class="modal-title text-surface" id="rewardModalLabel"><i class="fas fa-fw fa-coffee me-1"></i>Buy me a coffee</h5>
+        <a href="#" data-bs-dismiss="modal" class="btn-close" aria-label="Close"></a>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs mb-3" role="tablist"><li class="nav-item text-nowrap" role="presentation">
+            <a class="nav-link active" id="reward-alipay-tab" data-bs-toggle="tab" href="#reward-alipay" role="tab" aria-controls="reward-alipay" aria-selected="true">
+              <i class="fab fa-fw fa-alipay me-1"></i>Alipay
+            </a>
+          </li></ul>
+        <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content text-center show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
+            <img class="img-fluid post-reward-img" src="http://localhost:1313/images/reward/alipay.png" loading="lazy" data-viewer-invisible />
+          </div></div>
+      </div>
+    </div>
+  </div>
+</div></div></article><div class="post-copyright mb-3 row card component" id="post-copyright">
+    <div class="card-header">
+        <h2 class="card-title fs-4 my-2 text-surface">Copyright</h2>
+    </div>
+    <div class="card-body"><a class="d-flex align-items-center flex-column" target="_blank" rel="license noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en">
+  <span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-nc"></i><i class="fab fa-fw fa-2x fa-creative-commons-nd"></i></span>
+  CC BY-NC-ND 4.0 
+</a>
+
+
+    </div>
+</div><section class="related-posts row card component">
+      <div class="card-header">
+        <h2 class="card-title fs-4 my-2 text-surface">
+          Related Posts
+        </h2>
+      </div>
+      <div class="card-body slide px-1">
+        <div class="slide-inner row gx-0"><div class="col-12 col-md-6 col-lg-4 me-2">
+            <div class="post-card card card-body p-0 border-0 surface">
+  
+  <picture>
+      <source srcset="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample_hu1e269adb755e54f6dcb322d69e53c5ae_40960_500x0_resize_q75_h2_box_2.webp" media="(max-width: 576px)" height="375" width="500">
+      <img class="img-fluid" height="135" width="180" alt="featured-sample.webp" src="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample_hu1e269adb755e54f6dcb322d69e53c5ae_40960_180x0_resize_q75_h2_box_2.webp" data-src="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample.webp" loading="lazy"/>
+    </picture>
+
+  <a class="post-title" href="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/">
+    落茜聚
+  </a>
+  <div class="post-meta mb-0">
+    January 1, 1
+
+  </div>
+</div>
+
+          </div></div>
+        <button class="slide-control-left">
+          <i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-90"></i>
+          <span class="visually-hidden">Left</span>
+        </button>
+        <button class="slide-control-right">
+          <i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-270"></i>
+          <span class="visually-hidden">Right</span>
+        </button>
+      </div>
+    </section><div class="card component row post-comments" id="post-comments">
+  <div class="card-header">
+    <h2 class="card-title my-2 fs-4 text-surface">Comments</h2>
+  </div>
+  <div class="card-body">
+<div class="giscus"></div>
+
+
+
+</div>
+</div></div>
+</div>
+<aside class="sidebar d-flex docs-sidebar col-xxl-3 position-sticky order-xxl-5">
+  <div class="container">
+    
+    <div class="accordion post-toc d-none d-lg-block">
+  <div class="accordion-item row mb-4 card component" id="postTOC">
+    <div class="card-header accordion-header">
+      <h2 class="card-title fs-4 my-2 text-surface d-none d-lg-block">Contents</h2>
+      <a class="accordion-button d-lg-none mb-1 collapsed shadow-none p-0 bg-transparent" role="button" data-bs-toggle="collapse" href="#post-toc" aria-expanded="false" aria-controls="post-toc">
+        Contents
+      </a>
+    </div>
+    <div class="card-body collapse accordion-collapse accordion-body d-lg-block" id="post-toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#markdown语法大全超级版">Markdown语法大全(超级版)</a>
+      <ul>
+        <li></li>
+        <li><a href="#概述">概述</a></li>
+        <li><a href="#行内语法讲解">行内语法讲解</a></li>
+        <li><a href="#块语法讲解">块语法讲解</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </div>
+</div>
+    <div class="accordion">
+    <div class="accordion-item docs-repo row card component">
+        <div class="card-header accordion-header" id="repo-header">
+            <h2 class="card-title fs-4 my-2 text-surface d-none d-lg-block">Repository</h2>
+            <a
+                class="accordion-button d-lg-none mb-1 shadow-none p-0 bg-transparent"
+                role="button" data-bs-toggle="collapse" href="#repo" aria-expanded="true" aria-controls="repo">
+                Repository
+            </a>
+        </div>
+        <div class="card-body collapse accordion-collapse accordion-body text-secondary-on-surface d-lg-block show" id="repo" aria-labelledby="repo-header">
+            <ul class="list-unstyled"><li class="mb-1">
+                    <a href="https://github.com/FallingMY/FallingMY.github.io/blob/main//content/docs/HelpDocs/Markdown%e8%af%ad%e6%b3%95%e5%a4%a7%e5%85%a8%28%e8%b6%85%e7%ba%a7%e7%89%88%29.md" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-fw fa-file-archive text-success"></i> View page source
+                    </a>
+                </li>
+                <li class="mb-1">
+                    <a href="https://github.com/FallingMY/FallingMY.github.io/edit/main//content/docs/HelpDocs/Markdown%e8%af%ad%e6%b3%95%e5%a4%a7%e5%85%a8%28%e8%b6%85%e7%ba%a7%e7%89%88%29.md" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-fw fa-edit text-primary"></i> Edit this page
+                    </a>
+                </li></ul>
+        </div>
+    </div>
+</div>
+
+  </div>
+</aside>
+
+      </div>
+    </main><footer class="footer mt-auto py-3 text-center container"><div class="offcanvas offcanvas-bottom h-auto" tabindex="-1" id="offcanvasActionsPanel"
+  aria-labelledby="offcanvasActionsPanelLabel">
+  <div class="offcanvas-header">
+    <div class="offcanvas-title h5" id="offcanvasActionsPanelLabel">
+      <i class="fas fa-fw fa-th-large me-1"></i>
+      Actions
+    </div>
+    <button type="button" class="btn-close ms-auto" data-bs-dismiss="offcanvas" data-bs-target="offcanvasActionsPanel" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body mt-2"><div class="social-share mb-4 d-flex overflow-auto">
+      <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Twitter Share Button"
+      target="_blank" href="https://twitter.com/intent/tweet?title=C%2fC%2b%2b&url=http%3a%2f%2flocalhost%3a1313%2fdocs%2fhelpdocs%2fc%2fc%2b%2b%2f">
+        <i class="fab fa-2x fa-fw fa-twitter mb-2"></i> Twitter
+      </a>
+      <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Facebook Share Button"
+        target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fdocs%2fhelpdocs%2fc%2fc%2b%2b%2f">
+        <i class="fab fa-2x fa-fw fa-facebook-f mb-2"></i> Facebook
+      </a>
+    </div>
+    <hr class="mb-4"><div class="actions d-flex overflow-auto align-items-center">
+      <a role="button" class="action action-go-back d-flex flex-column align-items-center me-3" href="javascript: window.history.back();">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-90"></i></span> Go back
+      </a>
+      <a role="button" class="action action-reload-page d-flex flex-column align-items-center me-3">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-redo-alt"></i></span> Reload
+      </a>
+      <a role="button" class="action action-copy-url d-flex flex-column align-items-center me-3">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-link"></i></span> Copy URL
+      </a>
+    </div>
+  </div>
+</div><div class="row text-center">
+  <div class="col-12 mt-2">
+    <p class="mb-2">Falling_Studio_Terminal3</p>
+    <p class="text-secondary mb-2"><small>An extreme fast, responsive and feature-rich blog theme for Hugo</small></p><div class="copyright mb-2 text-secondary">
+  <small>Copyright © 2016-2024 Razon Yang. All Rights Reserved.
+</small>
+</div>
+<div class="powered-by mb-2 text-secondary">
+  <small>
+    Build with ❤️ from the <a class="text-primary" href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a> and the <a class="text-primary" href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank" rel="noopener noreferrer">HBS</a> theme.
+  </small>
+</div>
+
+
+<nav class="social-links nav justify-content-center mb-2 mt-3">
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://space.bilibili.com/%25!s%28int=327274480%29" title="Bilibili" rel="me">
+        <i class="fa-fw fa-2x fab fa-bilibili"
+           style="color: #fb7299;"></i>
+      </a>
+    <a class="nav-link social-link p-0 me-1 mb-2" href="mailto:falling_my@outlook.com" title="Email">
+      <i class="fas fa-fw fa-2x fa-envelope" style="color: #0963ac;"></i>
+    </a>
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://github.com/FallingMY/FallingMY.github.io" title="GitHub" rel="me">
+        <i class="fa-fw fa-2x fab fa-github"
+          ></i>
+      </a>
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://wpa.qq.com/msgrd?v=3&amp;uin=%25!s%28int=1317096804%29&amp;site=qq&amp;menu=yes" title="QQ" rel="me">
+        <i class="fa-fw fa-2x fab fa-qq"
+          ></i>
+      </a>
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://twitter.com/FallingMY#" title="Twitter" rel="me">
+        <i class="fa-fw fa-2x fab fa-twitter"
+           style="color: #1d9bf0;"></i>
+      </a>
+  <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="/index.xml" title="RSS" rel="me">
+    <i class="fas fa-fw fa-2x fa-rss" style="color: #ea6221;"></i>
+  </a>
+</nav>
+</div>
+  <div class="col-12 col-lg-8 offset-0 offset-lg-1"></div>
+</div>
+</footer>
+<script data-precache src="/assets/main/bundle.min.b3d69ac117dec85cd0493c4f35e8d54e7a6ec5b732a9b8db47f671550a70cacc.js" integrity="sha256-s9aawRfeyFzQSTxPNejVTnpuxbcyqbjbR/ZxVQpwysw=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.d7f78fd0252012422d321408b926764b23bc896c12f6f346f6954f62204aef10.js" integrity="sha256-1/eP0CUgEkItMhQIuSZ2SyO8iWwS9vNG9pVPYiBK7xA=" crossorigin="anonymous" defer></script>
+<script data-precache src="/assets/viewer/bundle.min.e95a7939ef34ceb195db7eef92c73825774e119b65c1ccd791b897f0dda05ff4.js" integrity="sha256-6Vp5Oe80zrGV237vksc4JXdOEZtlwczXkbiX8N2gX/Q=" crossorigin="anonymous" defer></script>
+<script src="/js/sw-register.js" defer></script>
+<script src="https://giscus.app/client.js"
+    data-repo="FallingMY/FallingMY.github.io"
+    data-repo-id="R_kgDOMR9LTw"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOMR9LT84CglZS"
+    data-mapping="pathname"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="preferred_color_scheme"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    defer>
+</script>
+
+
+  </body>
+</html>
