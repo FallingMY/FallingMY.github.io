@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://hbs-skeleton.netlify.app/sitemap.xml
+Sitemap: https://fallingmy.github.io/sitemap.xml

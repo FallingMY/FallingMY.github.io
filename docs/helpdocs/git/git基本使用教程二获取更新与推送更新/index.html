@@ -1,15 +1,15 @@
 <!doctype html>
 <html class="position-relative" itemscope itemtype="https://schema.org/WebPage" lang="en"
   data-bs-theme="auto" data-palette="blue-gray">
-  <head><script src="/assets/init/bundle.min.1610e02413f48727a0d0040032941c7f011dd891d544c81dc65bb2249e92a429.js" integrity="sha256-FhDgJBP0hyeg0AQAMpQcfwEd2JHVRMgdxluyJJ6SpCk=" crossorigin="anonymous"></script>
+  <head><script src="/assets/init/bundle.min.60a5effd0a083ea3601371c3b04cf6e82d273dd8c1e0ec015b7d58b80bb88822.js" integrity="sha256-YKXv/QoIPqNgE3HDsEz26C0nPdjB4OwBW31YuAu4iCI=" crossorigin="anonymous"></script>
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Git基本使用教程（二）：获取更新与推送更新 - Falling_Studio_Terminal3</title>
-    <link rel="icon" href="/favicon_hucccd9e706a19cc8586335b155a80c266_43860_16x16_resize_q75_h2_box_2.webp" sizes="16x16" type="image/webp">
-    <link rel="icon" href="/favicon_hucccd9e706a19cc8586335b155a80c266_43860_32x32_resize_q75_h2_box_2.webp" sizes="32x32" type="image/webp">
-    <link rel="icon" href="/favicon_hucccd9e706a19cc8586335b155a80c266_43860_150x150_resize_q75_h2_box_2.webp" sizes="150x150" type="image/webp">
-    <link rel="apple-touch-icon" href="/favicon_hucccd9e706a19cc8586335b155a80c266_43860_180x180_resize_q75_h2_box_2.webp" sizes="180x180" type="image/webp">
-    <link rel="icon" href="/favicon_hucccd9e706a19cc8586335b155a80c266_43860_192x192_resize_q75_h2_box_2.webp" sizes="192x192" type="image/webp">
+    <link rel="icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_16x16_resize_box_3.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_32x32_resize_box_3.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_150x150_resize_box_3.png" sizes="150x150" type="image/png">
+    <link rel="apple-touch-icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_180x180_resize_box_3.png" sizes="180x180" type="image/png">
+    <link rel="icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_192x192_resize_box_3.png" sizes="192x192" type="image/png">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6f42c1">
 <meta name="keywords" content="Hugo, Bootstrap, Blog Theme" />
   <meta name="description" content="传送门：Git基本使用教程（一）:入门及第一次基本完整操作
@@ -42,7 +42,7 @@ fetch只是从远程获取最新到本地，不会自动merge，需要手动合�
 3、确认后，合并：
 方法二： 1、git fetch origin master:tmp #从远程仓库master分支获取最新，并在本地建立tmp分支 2、git diff tmp #将当前分支和tmp对比 3、git merge tmp #合并tmp分支到当前分支 pull从远程获取最新版本并merge到本地 git pull origin master 文章知识点与官方知识档案匹配，可进一步学习相关知识">
       <meta name="twitter:site" content="@FallingMY3">
-<meta property="og:url" content="https://hbs-skeleton.netlify.app/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%BA%8C%E8%8E%B7%E5%8F%96%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9B%B4%E6%96%B0/">
+<meta property="og:url" content="https://fallingmy.github.io/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%BA%8C%E8%8E%B7%E5%8F%96%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9B%B4%E6%96%B0/">
   <meta property="og:site_name" content="Falling_Studio_Terminal3">
   <meta property="og:title" content="Git基本使用教程（二）：获取更新与推送更新">
   <meta property="og:description" content="传送门：Git基本使用教程（一）:入门及第一次基本完整操作
@@ -65,12 +65,12 @@ fetch只是从远程获取最新到本地，不会自动merge，需要手动合�
     <meta property="article:modified_time" content="2024-07-05T11:34:47+08:00">
     <meta property="article:tag" content="HelpDocs">
     <meta property="article:tag" content="Git">
-      <meta property="og:see_also" content="https://hbs-skeleton.netlify.app/docs/helpdocs/python/anaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E7%AE%A1%E7%90%86python%E7%8E%AF%E5%A2%83%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/">
-      <meta property="og:see_also" content="https://hbs-skeleton.netlify.app/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%B8%80%E5%85%A5%E9%97%A8%E5%8F%8A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%9F%BA%E6%9C%AC%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C/">
-      <meta property="og:see_also" content="https://hbs-skeleton.netlify.app/docs/helpdocs/git/git%E7%9A%84%E4%BD%BF%E7%94%A8%E6%98%93%E6%87%82&#43;%E5%B7%A8%E6%97%A0%E6%AF%94%E8%AF%A6%E7%BB%86&#43;%E6%96%B0%E6%89%8B%E5%BF%85%E7%9C%8B/">
-      <meta property="og:see_also" content="https://hbs-skeleton.netlify.app/docs/helpdocs/java/javase%E5%9F%BA%E7%A1%80%E7%AF%87%E8%B6%85%E8%AF%A6%E7%BB%86java%E5%85%A5%E9%97%A8%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/">
-      <meta property="og:see_also" content="https://hbs-skeleton.netlify.app/docs/helpdocs/java/java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%85%AB%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-&#43;-%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
-      <meta property="og:see_also" content="https://hbs-skeleton.netlify.app/docs/helpdocs/markdown/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/">
+      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/python/anaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E7%AE%A1%E7%90%86python%E7%8E%AF%E5%A2%83%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/">
+      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%B8%80%E5%85%A5%E9%97%A8%E5%8F%8A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%9F%BA%E6%9C%AC%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C/">
+      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/git/git%E7%9A%84%E4%BD%BF%E7%94%A8%E6%98%93%E6%87%82&#43;%E5%B7%A8%E6%97%A0%E6%AF%94%E8%AF%A6%E7%BB%86&#43;%E6%96%B0%E6%89%8B%E5%BF%85%E7%9C%8B/">
+      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/java/javase%E5%9F%BA%E7%A1%80%E7%AF%87%E8%B6%85%E8%AF%A6%E7%BB%86java%E5%85%A5%E9%97%A8%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/">
+      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/java/java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%85%AB%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-&#43;-%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/markdown/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/">
 
   <meta itemprop="name" content="Git基本使用教程（二）：获取更新与推送更新">
   <meta itemprop="description" content="传送门：Git基本使用教程（一）:入门及第一次基本完整操作
@@ -90,8 +90,8 @@ fetch只是从远程获取最新到本地，不会自动merge，需要手动合�
   <meta itemprop="dateModified" content="2024-07-05T11:34:47+08:00">
   <meta itemprop="wordCount" content="91">
   <meta itemprop="keywords" content="HelpDocs,Git">
-  <meta property="og:image" content="https://hbs-skeleton.netlify.app/images/icon.png"/>
-  <meta name="twitter:image" content="https://hbs-skeleton.netlify.app/images/icon.png"/>
+  <meta property="og:image" content="https://fallingmy.github.io/images/icon.png"/>
+  <meta name="twitter:image" content="https://fallingmy.github.io/images/icon.png"/>
   <meta property="og:image:alt" content="Git基本使用教程（二）：获取更新与推送更新" />
   <meta name="twitter:image:alt" content="Git基本使用教程（二）：获取更新与推送更新" />
   <link rel="manifest" href="/manifest.json">
@@ -99,7 +99,9 @@ fetch只是从远程获取最新到本地，不会自动merge，需要手动合�
   
 
 
-<link data-precache rel="stylesheet" href="/assets/main/bundle.min.4cee0ba5f0b72225b9e26680bcf6d5f0eb3bc16612894ba3ead8da0be96d96b9.css" integrity="sha256-TO4LpfC3IiW54maAvPbV8Os7wWYSiUuj6tjaC+ltlrk=" crossorigin="anonymous">
+<link data-precache rel="stylesheet" href="/assets/main/bundle.min.04b2a3705d0c7a8fbca98a9909f0297b5107ee78e64b85c6b5bb2eb1794343e3.css" integrity="sha256-BLKjcF0Meo+8qYqZCfApe1EH7njmS4XGtbsusXlDQ+M=" crossorigin="anonymous">
+
+<link data-precache rel="stylesheet" href="/assets/katex/bundle.min.506b6798499d2e8621e3d1f1db89099c3aa2639acd8b3b000b14cc6999c5b340.css" integrity="sha256-UGtnmEmdLoYh49Hx24kJnDqiY5rNizsACxTMaZnFs0A=" crossorigin="anonymous">
 
     <link data-precache rel="stylesheet" href="/assets/viewer/bundle.min.8c1002839fa22c1350d6ae1eef6593120e108f973c41348be9b5065430566aaf.css" integrity="sha256-jBACg5&#43;iLBNQ1q4e72WTEg4Qj5c8QTSL6bUGVDBWaq8=" crossorigin="anonymous">
 
@@ -114,8 +116,8 @@ fetch只是从远程获取最新到本地，不会自动merge，需要手动合�
       <i class="fas fa-bars"></i>
     </button>
 <a class="navbar-brand d-flex align-items-center flex-grow-1 flex-xxl-grow-0 justify-content-xxl-start justify-content-center ms-2 ms-xxl-0 mx-auto me-xxl-2"
-    href="https://hbs-skeleton.netlify.app/">
-    <picture><img class="logo " alt="Logo" src="https://hbs-skeleton.netlify.app/images/icon.png?v=1f41693bbcf319c2f188adfb373971c6" loading="lazy" width="891" height="891" />
+    href="https://fallingmy.github.io/">
+    <picture><img class="logo " alt="Logo" src="https://fallingmy.github.io/images/icon.png?v=1f41693bbcf319c2f188adfb373971c6" loading="lazy" width="891" height="891" />
 </picture>
 Falling_MY
 </a>
@@ -128,11 +130,11 @@ Falling_MY
       <div class="offcanvas-body p-4 pt-0 p-xxl-0">
         <hr class="d-xxl-none">
         <ul class="navbar-nav flex-row flex-wrap align-items-center me-auto"><li class="nav-item col-6 col-xxl-auto">
-            <a class="nav-link py-2 px-0 px-xxl-2" href="https://hbs-skeleton.netlify.app/docs/">
+            <a class="nav-link py-2 px-0 px-xxl-2" href="https://fallingmy.github.io/docs/">
 <span class="menu-icon me-1"><i class="fas fa-fw fa-file"></i></span>Docs
             </a>
           </li><li class="nav-item col-6 col-xxl-auto">
-            <a class="nav-link py-2 px-0 px-xxl-2" href="https://hbs-skeleton.netlify.app/news/">
+            <a class="nav-link py-2 px-0 px-xxl-2" href="https://fallingmy.github.io/news/">
 <span class="menu-icon me-1"><i class="fas fa-fw fa-newspaper"></i></span>News
             </a>
           </li>
@@ -146,7 +148,7 @@ Falling_MY
                 <li><h6 class="dropdown-header">Blog Menu Description</h6></li>
               <li>
                 <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
-                  href="https://hbs-skeleton.netlify.app/archives/">
+                  href="https://fallingmy.github.io/archives/">
                     <span class="dropdown-item-icon me-2 p-2 rounded">
                       <i class="fas fa-fw fa-file-archive text-primary"></i>
                     </span>
@@ -156,7 +158,7 @@ Falling_MY
               </li>
               <li>
                 <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
-                  href="https://hbs-skeleton.netlify.app/series/">
+                  href="https://fallingmy.github.io/series/">
                     <span class="dropdown-item-icon me-2 p-2 rounded">
                       <i class="fas fa-fw fa-columns"></i>
                     </span>
@@ -167,7 +169,7 @@ Falling_MY
               </li>
               <li>
                 <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
-                  href="https://hbs-skeleton.netlify.app/categories/">
+                  href="https://fallingmy.github.io/categories/">
                     <span class="dropdown-item-icon me-2 p-2 rounded">
                       <i class="fas fa-fw fa-folder text-success"></i>
                     </span>
@@ -178,7 +180,7 @@ Falling_MY
               </li>
               <li>
                 <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
-                  href="https://hbs-skeleton.netlify.app/tags/">
+                  href="https://fallingmy.github.io/tags/">
                     <span class="dropdown-item-icon me-2 p-2 rounded">
                       <i class="fas fa-fw fa-tags"></i>
                     </span>
@@ -486,6 +488,8 @@ Falling_MY
         </li></ul>
             </div>
           </div>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/%E5%B8%B8%E7%94%A8%E5%8F%82%E8%80%83%E7%BD%91%E7%AB%99%E5%90%88%E9%9B%86/"><span class="docs-nav-title">常用参考网站合集</span></a>
         </li></ul></div>
   </div>
 </aside><div class="col-xxl-7 ms-auto">
@@ -648,9 +652,15 @@ Falling_MY
             <a class="nav-link active" id="reward-alipay-tab" data-bs-toggle="tab" href="#reward-alipay" role="tab" aria-controls="reward-alipay" aria-selected="true">
               <i class="fab fa-fw fa-alipay me-1"></i>Alipay
             </a>
+          </li><li class="nav-item text-nowrap" role="presentation">
+            <a class="nav-link" id="reward-wechat-tab" data-bs-toggle="tab" href="#reward-wechat" role="tab" aria-controls="reward-wechat" aria-selected="true">
+              <i class="fab fa-fw fa-weixin me-1"></i>WeChat
+            </a>
           </li></ul>
         <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content text-center show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
-            <img class="img-fluid post-reward-img" src="https://hbs-skeleton.netlify.app/images/reward/alipay.png" loading="lazy" data-viewer-invisible />
+            <img class="img-fluid post-reward-img" src="https://fallingmy.github.io/images/reward/alipay.jpg" loading="lazy" data-viewer-invisible />
+          </div><div class="tab-pane fade post-reward-content text-center show" id="reward-wechat" role="tabpanel" aria-labelledby="reward-wechat-tab">
+            <img class="img-fluid post-reward-img" src="https://fallingmy.github.io/images/reward/wechat.jpg" loading="lazy" data-viewer-invisible />
           </div></div>
       </div>
     </div>
@@ -682,40 +692,6 @@ Falling_MY
       </div>
       <div class="card-body slide px-1">
         <div class="slide-inner row gx-0"><div class="col-12 col-md-6 col-lg-4 me-2">
-            <div class="post-card card card-body p-0 border-0 surface">
-  
-  <picture>
-      <source srcset="/news/2022/07/more-image-processing-methods/featured-sample_huc6bcc14d597e300fd9ab4aae536c68a5_498412_500x0_resize_q75_h2_box_2.webp" media="(max-width: 576px)" height="333" width="500">
-      <img class="img-fluid" height="120" width="180" alt="featured-sample.webp" src="/news/2022/07/more-image-processing-methods/featured-sample_huc6bcc14d597e300fd9ab4aae536c68a5_498412_180x0_resize_q75_h2_box_2.webp" data-src="/news/2022/07/more-image-processing-methods/featured-sample.webp" loading="lazy"/>
-    </picture>
-
-  <a class="post-title" href="/news/2022/07/more-image-processing-methods/">
-    More Image Processing Methods
-  </a>
-  <div class="post-meta mb-0">
-    July 8, 2022
-
-  </div>
-</div>
-
-          </div><div class="col-12 col-md-6 col-lg-4 me-2">
-            <div class="post-card card card-body p-0 border-0 surface">
-  
-  <div
-    class="post-card-default-img card-img-top d-flex align-items-center justify-content-center bg-body-secondary mb-1">
-    NO IMAGE
-  </div>
-
-  <a class="post-title" href="/blog/2022/04/readme/">
-    README
-  </a>
-  <div class="post-meta mb-0">
-    April 17, 2022
-
-  </div>
-</div>
-
-          </div><div class="col-12 col-md-6 col-lg-4 me-2">
             <div class="post-card card card-body p-0 border-0 surface">
   
   <picture>
@@ -818,11 +794,11 @@ Falling_MY
   </div>
   <div class="offcanvas-body mt-2"><div class="social-share mb-4 d-flex overflow-auto">
       <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Twitter Share Button"
-      target="_blank" href="https://twitter.com/intent/tweet?title=404%20Page%20not%20found&url=https%3a%2f%2fhbs-skeleton.netlify.app%2f404.html">
+      target="_blank" href="https://twitter.com/intent/tweet?title=404%20Page%20not%20found&url=https%3a%2f%2ffallingmy.github.io%2f404.html">
         <i class="fab fa-2x fa-fw fa-twitter mb-2"></i> Twitter
       </a>
       <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Facebook Share Button"
-        target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fhbs-skeleton.netlify.app%2f404.html">
+        target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ffallingmy.github.io%2f404.html">
         <i class="fab fa-2x fa-fw fa-facebook-f mb-2"></i> Facebook
       </a>
     </div>
@@ -880,14 +856,16 @@ Falling_MY
   <div class="col-12 col-lg-8 offset-0 offset-lg-1"></div>
 </div>
 </footer>
-<script data-precache src="/assets/main/bundle.min.7b0534bc30be251af76480141b2ff77fb890082e9e473063bbb6142f12215296.js" integrity="sha256-ewU0vDC&#43;JRr3ZIAUGy/3f7iQCC6eRzBju7YULxIhUpY=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.4f30d5267a9f2f9d45ed93969d45ec626100a969a8b91f71f753315a261e9034.js" integrity="sha256-TzDVJnqfL51F7ZOWnUXsYmEAqWmouR9x91MxWiYekDQ=" crossorigin="anonymous" defer></script>
+<script data-precache src="/assets/main/bundle.min.5ad3a40fc4e98f8fcdd019b0792ae3bbabebb3fc979db92bc7610e2fb6414529.js" integrity="sha256-WtOkD8Tpj4/N0BmweSrju6vrs/yXnbkrx2EOL7ZBRSk=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.4f30d5267a9f2f9d45ed93969d45ec626100a969a8b91f71f753315a261e9034.js" integrity="sha256-TzDVJnqfL51F7ZOWnUXsYmEAqWmouR9x91MxWiYekDQ=" crossorigin="anonymous" defer></script>
 <script data-precache src="/assets/viewer/bundle.min.06371891cfe6d10d36cba465c61c4d7cb17591a3be2fd9af4a38444d2074e709.js" integrity="sha256-BjcYkc/m0Q02y6RlxhxNfLF1kaO&#43;L9mvSjhETSB05wk=" crossorigin="anonymous" defer></script>
+  <script data-precache defer src="/assets/katex/bundle.min.ebacb71ff73d65512126000e4a076fdbd207a155f88a4e69b442c0407e576fe3.js" integrity="sha256-66y3H/c9ZVEhJgAOSgdv29IHoVX4ik5ptELAQH5Xb&#43;M=" crossorigin="anonymous"></script>
+
 <script src="/js/sw-register.js" defer></script>
 <script src="https://giscus.app/client.js"
     data-repo="FallingMY/FallingMY.github.io"
     data-repo-id="R_kgDOMR9LTw"
     data-category="Announcements"
-    data-category-id="DIC_kwDOMR9LT84CglZS"
+    data-category-id="DIC_kwDOMSZCT84Cgl_T"
     data-mapping="pathname"
     data-reactions-enabled="1"
     data-emit-metadata="0"
