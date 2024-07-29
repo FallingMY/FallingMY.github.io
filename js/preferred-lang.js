@@ -1,0 +1,1 @@
+(()=>{var o={fallback:"https://fallingmy.github.io/",homes:{en:"https://fallingmy.github.io/"}};(()=>{let a=navigator.language||navigator.userLanguage;if(a in o.homes){window.location.href=o.homes[a];return}let i=a.split("-");for(let n in o.homes)if(n.indexOf(i[0])===0){window.location.href=o.homes[n];return}window.location.href=o.fallback})();})();

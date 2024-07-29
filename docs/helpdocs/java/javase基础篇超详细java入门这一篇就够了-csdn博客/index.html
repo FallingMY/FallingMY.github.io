@@ -1,0 +1,2678 @@
+<!doctype html>
+<html class="position-relative" itemscope itemtype="https://schema.org/WebPage" lang="en"
+  data-bs-theme="auto" data-palette="blue-gray">
+  <head><script src="/assets/init/bundle.min.60a5effd0a083ea3601371c3b04cf6e82d273dd8c1e0ec015b7d58b80bb88822.js" integrity="sha256-YKXv/QoIPqNgE3HDsEz26C0nPdjB4OwBW31YuAu4iCI=" crossorigin="anonymous"></script>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JavaSE基础篇——超详细，Java入门，这一篇就够了-CSDN博客 - Falling_Studio_Terminal3</title>
+    <link rel="icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_16x16_resize_box_3.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_32x32_resize_box_3.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_150x150_resize_box_3.png" sizes="150x150" type="image/png">
+    <link rel="apple-touch-icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_180x180_resize_box_3.png" sizes="180x180" type="image/png">
+    <link rel="icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_192x192_resize_box_3.png" sizes="192x192" type="image/png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6f42c1">
+<meta name="keywords" content="Hugo, Bootstrap, Blog Theme" />
+  <meta name="description" content="第一节：Java语言概述一、java背景知识1、Java是美国sun公司（Stanford University Network）在1995年推出的一门计算机高级编程语言。
+2、Java早期被称为Oak（橡树），后期改名为Java。
+3、Java之父：詹姆斯·高斯林（James Gosling）
+4、2009年sun公司被Oracle（甲骨文）公司收购
+二、为什么用Java1、世界上最流行的编程语言之一，在国内使用最为广泛的编程语言
+2、可移植性、安全可靠、性能较好
+3、开发社区最完善，功能最丰富
+三、JAVA能干什么1、桌面应用开发
+2、企业级应用开发
+3、移动应用开发
+4、服务器系统
+5、大数据开发
+6、游戏开发
+四、JAVA技术体系技术体系 说明 Java SE：标准版 Java技术的核心和基础 Java EE：企业版 企业级应用开发的一套解决方案 Java ME：小型版 针对移动设备应用的解决方案 第二节：Java环境搭建一、如何使用Java1、Java语言的产品是JDK（Java Development Kit：Java开发者工具包）,必须安装JDK才能使用Java语言。JDK产品的发展使。
+2、JDK产品的发展史
+LTS(long-term support)：长期支持版 3、如何获取JDK
+去Oracle官网下载JDK 4、验证JDK安装成功的方式查询JDK的版本号
+在命令行中输入 java -version javac -version 查看版本，如果版本提示与自己安装的版本号一致，则代表安装成功。
+5、java和javac介绍
+java是执行工具
+javac是编译工具
+将来我们写好的java程序都是高级语言，计算机底层是不能识别这些语言的。
+必须先通过javac编译工具进行翻译，然后再通过java执行工具执行才可以驱动机器干活
+5、补充常用命令 说明 盘符： 切换到某个盘下 dir 查看当前路径下的文件信息 cd 进入单级目录：cd 目录名 进入多级目录：cd 路径 回退到上一级目录：cd … 回退到盘符根目录：cd \ cls 清屏 第三节：Java入门程序一、Java程序的开发的三个步骤1、编写代码：源代码文件（." />
+    <meta name="robots" content="index, follow" />
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="JavaSE基础篇——超详细，Java入门，这一篇就够了-CSDN博客">
+  <meta name="twitter:description" content="第一节：Java语言概述一、java背景知识1、Java是美国sun公司（Stanford University Network）在1995年推出的一门计算机高级编程语言。
+2、Java早期被称为Oak（橡树），后期改名为Java。
+3、Java之父：詹姆斯·高斯林（James Gosling）
+4、2009年sun公司被Oracle（甲骨文）公司收购
+二、为什么用Java1、世界上最流行的编程语言之一，在国内使用最为广泛的编程语言
+2、可移植性、安全可靠、性能较好
+3、开发社区最完善，功能最丰富
+三、JAVA能干什么1、桌面应用开发
+2、企业级应用开发
+3、移动应用开发
+4、服务器系统
+5、大数据开发
+6、游戏开发
+四、JAVA技术体系技术体系 说明 Java SE：标准版 Java技术的核心和基础 Java EE：企业版 企业级应用开发的一套解决方案 Java ME：小型版 针对移动设备应用的解决方案 第二节：Java环境搭建一、如何使用Java1、Java语言的产品是JDK（Java Development Kit：Java开发者工具包）,必须安装JDK才能使用Java语言。JDK产品的发展使。
+2、JDK产品的发展史
+LTS(long-term support)：长期支持版 3、如何获取JDK
+去Oracle官网下载JDK 4、验证JDK安装成功的方式查询JDK的版本号
+在命令行中输入 java -version javac -version 查看版本，如果版本提示与自己安装的版本号一致，则代表安装成功。
+5、java和javac介绍
+java是执行工具
+javac是编译工具
+将来我们写好的java程序都是高级语言，计算机底层是不能识别这些语言的。
+必须先通过javac编译工具进行翻译，然后再通过java执行工具执行才可以驱动机器干活
+5、补充常用命令 说明 盘符： 切换到某个盘下 dir 查看当前路径下的文件信息 cd 进入单级目录：cd 目录名 进入多级目录：cd 路径 回退到上一级目录：cd … 回退到盘符根目录：cd \ cls 清屏 第三节：Java入门程序一、Java程序的开发的三个步骤1、编写代码：源代码文件（.">
+      <meta name="twitter:site" content="@FallingMY3">
+<meta property="og:url" content="https://fallingmy.github.io/docs/helpdocs/java/javase%E5%9F%BA%E7%A1%80%E7%AF%87%E8%B6%85%E8%AF%A6%E7%BB%86java%E5%85%A5%E9%97%A8%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/">
+  <meta property="og:site_name" content="Falling_Studio_Terminal3">
+  <meta property="og:title" content="JavaSE基础篇——超详细，Java入门，这一篇就够了-CSDN博客">
+  <meta property="og:description" content="第一节：Java语言概述一、java背景知识1、Java是美国sun公司（Stanford University Network）在1995年推出的一门计算机高级编程语言。
+2、Java早期被称为Oak（橡树），后期改名为Java。
+3、Java之父：詹姆斯·高斯林（James Gosling）
+4、2009年sun公司被Oracle（甲骨文）公司收购
+二、为什么用Java1、世界上最流行的编程语言之一，在国内使用最为广泛的编程语言
+2、可移植性、安全可靠、性能较好
+3、开发社区最完善，功能最丰富
+三、JAVA能干什么1、桌面应用开发
+2、企业级应用开发
+3、移动应用开发
+4、服务器系统
+5、大数据开发
+6、游戏开发
+四、JAVA技术体系技术体系 说明 Java SE：标准版 Java技术的核心和基础 Java EE：企业版 企业级应用开发的一套解决方案 Java ME：小型版 针对移动设备应用的解决方案 第二节：Java环境搭建一、如何使用Java1、Java语言的产品是JDK（Java Development Kit：Java开发者工具包）,必须安装JDK才能使用Java语言。JDK产品的发展使。
+2、JDK产品的发展史
+LTS(long-term support)：长期支持版 3、如何获取JDK
+去Oracle官网下载JDK 4、验证JDK安装成功的方式查询JDK的版本号
+在命令行中输入 java -version javac -version 查看版本，如果版本提示与自己安装的版本号一致，则代表安装成功。
+5、java和javac介绍
+java是执行工具
+javac是编译工具
+将来我们写好的java程序都是高级语言，计算机底层是不能识别这些语言的。
+必须先通过javac编译工具进行翻译，然后再通过java执行工具执行才可以驱动机器干活
+5、补充常用命令 说明 盘符： 切换到某个盘下 dir 查看当前路径下的文件信息 cd 进入单级目录：cd 目录名 进入多级目录：cd 路径 回退到上一级目录：cd … 回退到盘符根目录：cd \ cls 清屏 第三节：Java入门程序一、Java程序的开发的三个步骤1、编写代码：源代码文件（.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:published_time" content="2024-07-05T11:34:47+08:00">
+    <meta property="article:modified_time" content="2024-07-05T11:34:47+08:00">
+    <meta property="article:tag" content="HelpDocs">
+    <meta property="article:tag" content="Java">
+      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/python/anaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E7%AE%A1%E7%90%86python%E7%8E%AF%E5%A2%83%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/">
+      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%B8%80%E5%85%A5%E9%97%A8%E5%8F%8A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%9F%BA%E6%9C%AC%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C/">
+      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%BA%8C%E8%8E%B7%E5%8F%96%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9B%B4%E6%96%B0/">
+      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/git/git%E7%9A%84%E4%BD%BF%E7%94%A8%E6%98%93%E6%87%82&#43;%E5%B7%A8%E6%97%A0%E6%AF%94%E8%AF%A6%E7%BB%86&#43;%E6%96%B0%E6%89%8B%E5%BF%85%E7%9C%8B/">
+      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/java/java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%85%AB%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-&#43;-%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/markdown/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/">
+
+  <meta itemprop="name" content="JavaSE基础篇——超详细，Java入门，这一篇就够了-CSDN博客">
+  <meta itemprop="description" content="第一节：Java语言概述一、java背景知识1、Java是美国sun公司（Stanford University Network）在1995年推出的一门计算机高级编程语言。
+2、Java早期被称为Oak（橡树），后期改名为Java。
+3、Java之父：詹姆斯·高斯林（James Gosling）
+4、2009年sun公司被Oracle（甲骨文）公司收购
+二、为什么用Java1、世界上最流行的编程语言之一，在国内使用最为广泛的编程语言
+2、可移植性、安全可靠、性能较好
+3、开发社区最完善，功能最丰富
+三、JAVA能干什么1、桌面应用开发
+2、企业级应用开发
+3、移动应用开发
+4、服务器系统
+5、大数据开发
+6、游戏开发
+四、JAVA技术体系技术体系 说明 Java SE：标准版 Java技术的核心和基础 Java EE：企业版 企业级应用开发的一套解决方案 Java ME：小型版 针对移动设备应用的解决方案 第二节：Java环境搭建一、如何使用Java1、Java语言的产品是JDK（Java Development Kit：Java开发者工具包）,必须安装JDK才能使用Java语言。JDK产品的发展使。
+2、JDK产品的发展史
+LTS(long-term support)：长期支持版 3、如何获取JDK
+去Oracle官网下载JDK 4、验证JDK安装成功的方式查询JDK的版本号
+在命令行中输入 java -version javac -version 查看版本，如果版本提示与自己安装的版本号一致，则代表安装成功。
+5、java和javac介绍
+java是执行工具
+javac是编译工具
+将来我们写好的java程序都是高级语言，计算机底层是不能识别这些语言的。
+必须先通过javac编译工具进行翻译，然后再通过java执行工具执行才可以驱动机器干活
+5、补充常用命令 说明 盘符： 切换到某个盘下 dir 查看当前路径下的文件信息 cd 进入单级目录：cd 目录名 进入多级目录：cd 路径 回退到上一级目录：cd … 回退到盘符根目录：cd \ cls 清屏 第三节：Java入门程序一、Java程序的开发的三个步骤1、编写代码：源代码文件（.">
+  <meta itemprop="datePublished" content="2024-07-05T11:34:47+08:00">
+  <meta itemprop="dateModified" content="2024-07-05T11:34:47+08:00">
+  <meta itemprop="wordCount" content="1116">
+  <meta itemprop="keywords" content="HelpDocs,Java">
+  <meta property="og:image" content="https://fallingmy.github.io/images/icon.png"/>
+  <meta name="twitter:image" content="https://fallingmy.github.io/images/icon.png"/>
+  <meta property="og:image:alt" content="JavaSE基础篇——超详细，Java入门，这一篇就够了-CSDN博客" />
+  <meta name="twitter:image:alt" content="JavaSE基础篇——超详细，Java入门，这一篇就够了-CSDN博客" />
+  <link rel="manifest" href="/manifest.json">
+
+  
+
+
+<link data-precache rel="stylesheet" href="/assets/main/bundle.min.04b2a3705d0c7a8fbca98a9909f0297b5107ee78e64b85c6b5bb2eb1794343e3.css" integrity="sha256-BLKjcF0Meo+8qYqZCfApe1EH7njmS4XGtbsusXlDQ+M=" crossorigin="anonymous">
+
+<link data-precache rel="stylesheet" href="/assets/katex/bundle.min.506b6798499d2e8621e3d1f1db89099c3aa2639acd8b3b000b14cc6999c5b340.css" integrity="sha256-UGtnmEmdLoYh49Hx24kJnDqiY5rNizsACxTMaZnFs0A=" crossorigin="anonymous">
+
+    <link data-precache rel="stylesheet" href="/assets/viewer/bundle.min.8c1002839fa22c1350d6ae1eef6593120e108f973c41348be9b5065430566aaf.css" integrity="sha256-jBACg5&#43;iLBNQ1q4e72WTEg4Qj5c8QTSL6bUGVDBWaq8=" crossorigin="anonymous">
+
+
+</head>
+  <body><header class="mb-4 sticky-top">
+  
+<nav class="top-app-bar shadow navbar navbar-expand-xxl">
+  <div class="container">
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDocsNav"
+      aria-expanded="false" aria-label="Toggle docs navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+<a class="navbar-brand d-flex align-items-center flex-grow-1 flex-xxl-grow-0 justify-content-xxl-start justify-content-center ms-2 ms-xxl-0 mx-auto me-xxl-2"
+    href="https://fallingmy.github.io/">
+    <picture><img class="logo " alt="Logo" src="https://fallingmy.github.io/images/icon.png?v=1f41693bbcf319c2f188adfb373971c6" loading="lazy" width="891" height="891" />
+</picture>
+Falling_MY
+</a>
+
+    <div class="offcanvas-xxl offcanvas-end flex-grow-1" data-bs-scroll="true" tabindex="-1" id="navbarMenus" aria-labelledby="navbarMenusLabel">
+      <div class="offcanvas-header px-4 pb-0">
+        <div class="offcanvas-title h5" id="navbarMenusLabel">Falling_MY</div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#navbarMenus" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body p-4 pt-0 p-xxl-0">
+        <hr class="d-xxl-none">
+        <ul class="navbar-nav flex-row flex-wrap align-items-center me-auto"><li class="nav-item col-6 col-xxl-auto">
+            <a class="nav-link py-2 px-0 px-xxl-2" href="https://fallingmy.github.io/docs/">
+<span class="menu-icon me-1"><i class="fas fa-fw fa-file"></i></span>Docs
+            </a>
+          </li><li class="nav-item col-6 col-xxl-auto">
+            <a class="nav-link py-2 px-0 px-xxl-2" href="https://fallingmy.github.io/news/">
+<span class="menu-icon me-1"><i class="fas fa-fw fa-newspaper"></i></span>News
+            </a>
+          </li>
+          <li class="nav-item col-12 col-xxl-auto dropdown px-0">
+            <a href="#"
+              class="nav-link dropdown-toggle"
+              id="navbarDropdownBlog" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+<span class="menu-icon me-1"><i class="fas fa-fw fa-blog"></i></span>Blog
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog" data-bs-popper="none">
+                <li><h6 class="dropdown-header">Blog Menu Description</h6></li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="https://fallingmy.github.io/archives/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-file-archive text-primary"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-0">Archives</p>
+                  </div></a>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="https://fallingmy.github.io/series/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-columns"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-1">Series</p>
+                      <p class="dropdown-item-description mb-0 text-secondary">List of series.</p>
+                  </div></a>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="https://fallingmy.github.io/categories/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-folder text-success"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-1">Categories</p>
+                      <p class="dropdown-item-description mb-0 text-secondary">List of categories.</p>
+                  </div></a>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="https://fallingmy.github.io/tags/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-tags"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-1">Tags</p>
+                      <p class="dropdown-item-description mb-0 text-secondary">List of tags.</p>
+                  </div></a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        
+    <hr class="d-xxl-none">
+    <form class="search-bar ms-auto my-auto" action="/search/" novalidate>
+      <div class="input-group align-items-center">
+        <span class="btn btn-search disabled position-absolute left-0 border-0 px-1">
+          <i class="fas fa-fw fa-search fa-lg"></i>
+        </span>
+        <input
+          class="my-1 form-control border-white rounded-5 search-input bg-body"
+          name="q"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          required>
+          <span class="search-shortcut position-absolute end-0 top-0 me-2">
+            <kbd class="text-dark bg-white opacity-75 rounded-3 shadow border border-primary py-1 fw-bold">/</kbd>
+          </span>
+      </div>
+    </form><hr class="d-xxl-none">
+        <ul class="navbar-nav flex-row flex-wrap align-items-center ms-md-auto">
+<li class="nav-item py-2 py-xxl-1 col-12 col-xxl-auto">
+
+
+<nav class="social-links nav justify-content-center flex-row">
+      <a class="nav-link social-link col-6 col-xxl-auto p-1" target="_blank" href="https://github.com/FallingMY/FallingMY.github.io" title="GitHub" rel="me">
+        <i class="fa-fw fab fa-github"
+          ></i>
+        <span class="ms-1 d-xxl-none">Github</span>
+      </a>
+  <a class="nav-link social-link col-6 col-xxl-auto p-1" target="_blank" href="/index.xml" title="RSS" rel="me">
+    <i class="fas fa-fw fa-rss"></i>
+    <span class="ms-1 d-xxl-none">RSS</span>
+  </a>
+</nav>
+
+</li>
+<li class="nav-item py-2 py-xxl-1 col-12 col-xxl-auto">
+  <div class="vr d-none d-xxl-flex h-100 mx-xxl-2 text-white"></div>
+  <hr class="d-xxl-none my-2">
+</li>
+<li class="nav-item dropdown col-6 col-xxl-auto">
+    <a class="nav-link px-0 py-2 px-xxl-1" href="#" id="fontSizeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-fw fa-font"></i>
+        <span class="d-xxl-none">Font Size</span>
+    </a>
+    <ul class="font-size-dropdown-menu dropdown-menu dropdown-menu-end" aria-labelledby="fontSizeDropdown">
+        <li>
+            <button class="font-size-item dropdown-item" data-size="xs">
+                Extra Small
+            </button>
+        </li>
+        <li>
+            <button class="font-size-item dropdown-item" data-size="sm">
+                Small
+            </button>
+        </li>
+        <li>
+            <button class="font-size-item dropdown-item active" data-size="md">
+                Medium
+            </button>
+        </li>
+        <li>
+            <button class="font-size-item dropdown-item" data-size="lg">
+                Large
+            </button>
+        </li>
+        <li>
+            <button class="font-size-item dropdown-item" data-size="xl">
+                Extra Large
+            </button>
+        </li>
+    </ul>
+</li>
+<li class="nav-item dropdown col-6 col-xxl-auto">
+    <a class="nav-link px-0 py-2 px-xxl-1" href="#" id="paletteDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-fw fa-palette"></i>
+        <span class="d-xxl-none">Palette</span>
+    </a>
+    <ul class="palette-dropdown-menu dropdown-menu dropdown-menu-end px-2 row g-2" aria-labelledby="paletteDropdown">
+            <li class="col-4 my-1">
+                <a role="button" id="palette-blue" aria-label="Blue"
+                    class="btn btn-sm w-100 palette text-bg-blue" data-palette="blue">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-blue-gray" aria-label="Blue Gray"
+                    class="btn btn-sm w-100 palette text-bg-blue-gray" data-palette="blue-gray">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-brown" aria-label="Brown"
+                    class="btn btn-sm w-100 palette text-bg-brown" data-palette="brown">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-cyan" aria-label="Cyan"
+                    class="btn btn-sm w-100 palette text-bg-cyan" data-palette="cyan">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-green" aria-label="Green"
+                    class="btn btn-sm w-100 palette text-bg-green" data-palette="green">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-indigo" aria-label="Indigo"
+                    class="btn btn-sm w-100 palette text-bg-indigo" data-palette="indigo">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-orange" aria-label="Orange"
+                    class="btn btn-sm w-100 palette text-bg-orange" data-palette="orange">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-pink" aria-label="Pink"
+                    class="btn btn-sm w-100 palette text-bg-pink" data-palette="pink">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-purple" aria-label="Purple"
+                    class="btn btn-sm w-100 palette text-bg-purple" data-palette="purple">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-red" aria-label="Red"
+                    class="btn btn-sm w-100 palette text-bg-red" data-palette="red">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-teal" aria-label="Teal"
+                    class="btn btn-sm w-100 palette text-bg-teal" data-palette="teal">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-yellow" aria-label="Yellow"
+                    class="btn btn-sm w-100 palette text-bg-yellow" data-palette="yellow">
+                </a>
+            </li>
+    </ul>
+</li>
+<li class="nav-item dropdown col-6 col-xxl-auto">
+    <a class="nav-link px-0 py-2 px-xxl-1" href="#" id="modeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="mode-icon fas fa-fw fa-adjust" id="modeIcon"></i>
+        <span class="d-xxl-none">Mode</span>
+    </a>
+    <ul class="mode-dropdown-menu dropdown-menu dropdown-menu-end" aria-labelledby="modeDropdown">
+        <li class="mode-item" data-color-mode="light" data-icon="sun">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-sun"></i> Light
+            </button>
+        </li>
+        <li class="mode-item" data-color-mode="dark" data-icon="moon">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-moon"></i> Dark
+            </button>
+        </li>
+        <li class="mode-item active" data-color-mode="auto" data-icon="adjust">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-adjust"></i> Auto
+            </button>
+        </li>
+    </ul>
+</li>
+        </ul>
+      </div>
+    </div>
+    <div class="d-flex">
+      <button class="navbar-toggler order-5 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarMenus"
+        aria-controls="navbarMenus" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-ellipsis-h"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+</header>
+
+    <main class="container">
+      <div class="row content"><noscript>
+    <div class="alert alert-danger" role="alert">Your browser does not support JavaScript.</div>
+</noscript>
+<aside class="docs-nav col-xxl-2" tabindex="-1" data-bs-hide="focusout">
+  <div class="offcanvas-xxl offcanvas-start" id="offcanvasDocsNav" aria-labelledby="offcanvasDocsNavLabel">
+    <div class="offcanvas-header border-bottom">
+      <div class="offcanvas-title h5" id="offcanvasDocsNavLabel">Browse docs</div>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#offcanvasDocsNav"></button>
+    </div>
+    <div class="offcanvas-body pt-2 flex-column"><ul class="list-unstyled mb-2 w-100"><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3 text-primary">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/"><span class="docs-nav-title">HelpDocs</span></a>
+            <a class="btn-toggle ms-1" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-ebe568325b3994b345762d8c5739485e" aria-expanded="true" aria-controls="nav-ebe568325b3994b345762d8c5739485e">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse  show border-primary" id="nav-ebe568325b3994b345762d8c5739485e">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/c/c&#43;&#43;/"><span class="docs-nav-title">C/C&#43;&#43;</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-4c352665280bb902c3cd1f57edc236a4" aria-expanded="false" aria-controls="nav-4c352665280bb902c3cd1f57edc236a4">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-4c352665280bb902c3cd1f57edc236a4">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"></ul>
+            </div>
+          </div>
+        </li><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/"><span class="docs-nav-title">Git</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-31299be8729f19977a763ab46f2da124" aria-expanded="false" aria-controls="nav-31299be8729f19977a763ab46f2da124">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-31299be8729f19977a763ab46f2da124">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%B8%80%E5%85%A5%E9%97%A8%E5%8F%8A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%9F%BA%E6%9C%AC%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C/"><span class="docs-nav-title">Git基本使用教程（一）：入门及第一次基本完整操作</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%BA%8C%E8%8E%B7%E5%8F%96%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9B%B4%E6%96%B0/"><span class="docs-nav-title">Git基本使用教程（二）：获取更新与推送更新</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/git%E7%9A%84%E4%BD%BF%E7%94%A8%E6%98%93%E6%87%82&#43;%E5%B7%A8%E6%97%A0%E6%AF%94%E8%AF%A6%E7%BB%86&#43;%E6%96%B0%E6%89%8B%E5%BF%85%E7%9C%8B/"><span class="docs-nav-title">Git的使用（易懂&#43;巨无比详细&#43;新手必看）</span></a>
+        </li></ul>
+            </div>
+          </div>
+        </li><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3 text-primary">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/"><span class="docs-nav-title">Java</span></a>
+            <a class="btn-toggle ms-1" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-987b22e609e9d70bb1861e492b4fd185" aria-expanded="true" aria-controls="nav-987b22e609e9d70bb1861e492b4fd185">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse  show border-primary" id="nav-987b22e609e9d70bb1861e492b4fd185">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3 text-primary" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/javase%E5%9F%BA%E7%A1%80%E7%AF%87%E8%B6%85%E8%AF%A6%E7%BB%86java%E5%85%A5%E9%97%A8%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">JavaSE基础篇——超详细，Java入门，这一篇就够了-CSDN博客</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%85%AB%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-&#43;-%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"><span class="docs-nav-title">Java数据类型（八种基本数据类型 &#43; 四种引用数据类型）</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/%E4%B8%89%E7%A7%8D%E7%BC%96%E7%A8%8B%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99%E9%A9%BC%E5%B3%B0%E5%91%BD%E5%90%8D%E6%B3%95%E5%B8%95%E6%96%AF%E5%8D%A1%E5%91%BD%E5%90%8D%E6%B3%95%E5%8C%88%E7%89%99%E5%88%A9%E5%91%BD%E5%90%8D%E6%B3%95/"><span class="docs-nav-title">三种编程命名规则：驼峰命名法，帕斯卡命名法，匈牙利命名法</span></a>
+        </li></ul>
+            </div>
+          </div>
+        </li><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/markdown/"><span class="docs-nav-title">Markdown</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-2d8c19f8492a0d4510acf00e408e5b58" aria-expanded="false" aria-controls="nav-2d8c19f8492a0d4510acf00e408e5b58">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-2d8c19f8492a0d4510acf00e408e5b58">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/markdown/vs-code-markdown%E6%8A%A5%E9%94%99%E8%87%AA%E6%9F%A5/"><span class="docs-nav-title"></span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/markdown/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/"><span class="docs-nav-title">Markdown语法大全(超级版)</span></a>
+        </li></ul>
+            </div>
+          </div>
+        </li><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/"><span class="docs-nav-title">Python</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-b7433288507247eb51c5fc0011005e07" aria-expanded="false" aria-controls="nav-b7433288507247eb51c5fc0011005e07">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-b7433288507247eb51c5fc0011005e07">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/anaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E7%AE%A1%E7%90%86python%E7%8E%AF%E5%A2%83%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">anaconda的安装和使用（管理python环境看这一篇就够了）-CSDN博客</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python-%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E6%BA%90/"><span class="docs-nav-title">Python 国内镜像源</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python-%E5%B0%8F%E7%94%B2%E9%B1%BC%E6%95%99%E7%A8%8B-easygui-%E7%AF%87/"><span class="docs-nav-title">Python 小甲鱼教程 Easygui 篇</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python-%E5%BC%B9%E5%87%BA%E6%8F%90%E7%A4%BA%E6%A1%86%E7%BB%83%E4%B9%A0tkinter.messagebox%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"><span class="docs-nav-title">Python 弹出提示框练习：tkinter.messagebox使用方法</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8Fre%E6%A8%A1%E5%9D%97%E8%AF%A6%E8%A7%A3/"><span class="docs-nav-title">python——正则表达式(re模块)详解</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python%E7%88%AC%E8%99%AB%E5%8F%B2%E4%B8%8A%E8%B6%85%E8%AF%A6%E7%BB%86%E8%AE%B2%E8%A7%A3%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E8%80%81%E5%B9%B4%E4%BA%BA%E9%83%BD%E7%9C%8B%E7%9A%84%E6%87%82-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">Python爬虫史上超详细讲解（零基础入门，老年人都看的懂）-CSDN博客</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AF%AD%E6%B3%95%E6%96%87%E6%9C%AB%E9%99%84%E5%B8%B8%E7%94%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F/"><span class="docs-nav-title">史上最全正则表达式语法，文末附常用表达式！</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">掌握计算机自动化：PyAutoGUI库详细教程（最全使用方法，每行代码都有注释，帮你解决与之有关的所有问题）-CSDN博客</span></a>
+        </li></ul>
+            </div>
+          </div>
+        </li></ul>
+            </div>
+          </div>
+        </li><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/luoxicon/"><span class="docs-nav-title">LuoxiCon</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-3270f174caefc52ef8340af35ea9b651" aria-expanded="false" aria-controls="nav-3270f174caefc52ef8340af35ea9b651">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-3270f174caefc52ef8340af35ea9b651">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/luoxicon/20240725_summary/"><span class="docs-nav-title"></span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/luoxicon/%E5%B0%8F%E6%B8%B8%E6%88%8F/"><span class="docs-nav-title"></span></a>
+        </li></ul>
+            </div>
+          </div>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/%E5%B8%B8%E7%94%A8%E5%8F%82%E8%80%83%E7%BD%91%E7%AB%99%E5%90%88%E9%9B%86/"><span class="docs-nav-title">常用参考网站合集</span></a>
+        </li></ul></div>
+  </div>
+</aside><div class="col-xxl-7 ms-auto">
+  <div class="container-fluid"><nav class="row card component" aria-label="breadcrumb">
+  <div class="card-body pb-0">
+    <ol class="hbs-breadcrumb breadcrumb flex-nowrap"><li class="breadcrumb-item text-surface"><a href="/">Home</a></li><li class="breadcrumb-item text-surface"><a href="/docs/">Docs</a></li><li class="breadcrumb-item text-surface"><a href="/docs/helpdocs/">HelpDocs</a></li><li class="breadcrumb-item text-surface"><a href="/docs/helpdocs/java/">Java</a></li><li class="breadcrumb-item active">JavaSE基础篇——超详细，Java入门，这一篇就够了-CSDN博客</li></ol>
+  </div>
+</nav><div class="post-panel-wrapper position-relative d-flex justify-content-center">
+  <div class="d-flex flex-row justify-content-center rounded-5 border post-panel position-fixed px-3 py-1 surface shadow-1">
+    
+    
+
+    <a class="action btn-reward" role="button" data-bs-toggle="modal" data-bs-target="#rewardModal" title="Buy me a coffee">
+  <i class="fas fa-fw fa-coffee"></i>
+</a>
+    
+    
+<a class="action action-toc d-block d-xxl-none" href="#post-toc-container" role="button" title="Contents">
+  <i class="fas fa-fw fa-list-alt"></i>
+</a>
+    <a class="action action-copyright" href="#post-copyright" role="button" aria-label="Copyright" title="Copyright">
+  <i class="fas fa-fw fa-copyright"></i>
+</a>
+    <a class="action action-post-comments" href="#post-comments" role="button" aria-label="Comments" title="Comments">
+  <i class="fas fa-fw fa-comments"></i>
+</a>
+    
+<a id="sidebarToggler" class="action action-sidebar-toggler d-none d-xxl-block" role="button" title="Toggle sidebar">
+  <i class="fas fa-fw fa-expand-alt" data-fa-transform="rotate-45"></i>
+</a>
+
+    
+  </div>
+</div><article class="row card component mb-4 post">
+<div class="card-header ">
+    <h1 class="card-title post-title my-2">JavaSE基础篇——超详细，Java入门，这一篇就够了-CSDN博客</h1>
+</div>
+<div class="card-body"><div class="post-meta mb-3">
+  <span class="post-date me-1 mb-1" title="created on 2024-07-05 11:34:47 &#43;0800 CST.">July 5, 2024</span><span class="post-reading-time me-1 mb-1">6 min read</span><a href="/authors/csdn_user/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-author">
+      <i class="fas fa-fw fa-user me-1"></i>CSDN_user</a><a href="/series/helpdocs/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
+      <i class="fas fa-fw fa-columns me-1"></i>HelpDocs</a><a href="/tags/helpdocs/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">HelpDocs</a><a href="/tags/java/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Java</a>
+</div>
+
+<div class="mt-2 mb-3 d-block d-xxl-none">
+    <h2 class="text-surface mb-3">Contents</h2>
+    <div id="post-toc-container">
+        </div>
+    <hr class="text-secondary">
+</div><div class="post-content mb-3" data-bs-spy="scroll" data-bs-target="#TableOfContents" tabindex="0">
+        <div id="post-content-body">
+<h3 id="第一节java语言概述" data-numberify>第一节：Java语言概述<a class="anchor ms-1" href="#第一节java语言概述"></a></h3>
+
+<h5 id="一java背景知识" data-numberify>一、java背景知识<a class="anchor ms-1" href="#一java背景知识"></a></h5>
+<p>1、Java是美国sun公司（Stanford University Network）在1995年推出的一门计算机高级编程语言。</p>
+<p>2、Java早期被称为Oak（橡树），后期改名为Java。</p>
+<p>3、Java之父：詹姆斯·高斯林（James Gosling）</p>
+<p>4、2009年sun公司被Oracle（<a href="https://so.csdn.net/so/search?q=%E7%94%B2%E9%AA%A8%E6%96%87&amp;spm=1001.2101.3001.7020" target="_blank" rel="noopener noreferrer">甲骨文<i class="fas fa-external-link-square-alt ms-1"></i></a>）公司收购</p>
+
+<h5 id="二为什么用java" data-numberify>二、为什么用Java<a class="anchor ms-1" href="#二为什么用java"></a></h5>
+<p>1、世界上最流行的编程语言之一，在国内使用最为广泛的编程语言</p>
+<p>2、可移植性、安全可靠、性能较好</p>
+<p>3、开发社区最完善，功能最丰富</p>
+
+<h5 id="三java能干什么" data-numberify>三、JAVA能干什么<a class="anchor ms-1" href="#三java能干什么"></a></h5>
+<p>1、桌面应用开发</p>
+<p>2、企业级应用开发</p>
+<p>3、<a href="https://so.csdn.net/so/search?q=%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91&amp;spm=1001.2101.3001.7020" target="_blank" rel="noopener noreferrer">移动应用开发<i class="fas fa-external-link-square-alt ms-1"></i></a></p>
+<p>4、服务器系统</p>
+<p>5、大数据开发</p>
+<p>6、游戏开发</p>
+
+<h5 id="四java技术体系" data-numberify>四、JAVA技术体系<a class="anchor ms-1" href="#四java技术体系"></a></h5>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">技术体系</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Java SE：标准版</td>
+<td style="text-align:center">Java技术的核心和基础</td>
+</tr>
+<tr>
+<td style="text-align:center">Java EE：企业版</td>
+<td style="text-align:center">企业级应用开发的一套解决方案</td>
+</tr>
+<tr>
+<td style="text-align:center">Java ME：小型版</td>
+<td style="text-align:center">针对移动设备应用的解决方案</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="第二节java环境搭建" data-numberify>第二节：Java环境搭建<a class="anchor ms-1" href="#第二节java环境搭建"></a></h3>
+
+<h5 id="一如何使用java" data-numberify>一、如何使用Java<a class="anchor ms-1" href="#一如何使用java"></a></h5>
+<p>1、Java语言的产品是JDK（Java Development Kit：Java开发者工具包）,必须安装JDK才能使用Java语言。JDK产品的发展使。</p>
+<p>2、JDK产品的发展史<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/48c81a23109043e79d55bafc404358da.png" loading="lazy" />
+</picture>
+
+</p>
+<ul>
+<li>LTS(long-term support)：长期支持版</li>
+</ul>
+<p>3、如何获取JDK</p>
+<ul>
+<li>去Oracle官网<a href="https://www.oracle.com/java/technologies/downloads/" target="_blank" rel="noopener noreferrer">下载JDK<i class="fas fa-external-link-square-alt ms-1"></i></a></li>
+</ul>
+
+<h6 id="4验证jdk安装成功的方式" data-numberify>4、验证JDK安装成功的方式<a class="anchor ms-1" href="#4验证jdk安装成功的方式"></a></h6>
+<p><strong>查询JDK的版本号</strong></p>
+<ul>
+<li>在命令行中输入</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">java</span><span class="w"> </span><span class="o">-</span><span class="n">version</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">javac</span><span class="w"> </span><span class="o">-</span><span class="n">version</span><span class="w">
+</span></span></span></code></pre></div><p>查看版本，如果版本提示与自己安装的版本号一致，则代表安装成功。</p>
+<p>5、java和javac介绍</p>
+<ul>
+<li>
+<p>java是执行工具</p>
+</li>
+<li>
+<p>javac是编译工具</p>
+</li>
+<li>
+<p>将来我们写好的java程序都是高级语言，计算机底层是不能识别这些语言的。</p>
+</li>
+<li>
+<p>必须先通过javac编译工具进行翻译，然后再通过java执行工具执行才可以驱动机器干活</p>
+</li>
+</ul>
+
+<h6 id="5补充" data-numberify>5、补充<a class="anchor ms-1" href="#5补充"></a></h6>
+<table>
+<thead>
+<tr>
+<th>常用命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>盘符：</td>
+<td>切换到某个盘下</td>
+</tr>
+<tr>
+<td>dir</td>
+<td>查看当前路径下的文件信息</td>
+</tr>
+<tr>
+<td>cd</td>
+<td>进入单级目录：cd 目录名</td>
+</tr>
+<tr>
+<td>进入多级目录：cd 路径</td>
+<td></td>
+</tr>
+<tr>
+<td>回退到上一级目录：cd …</td>
+<td></td>
+</tr>
+<tr>
+<td>回退到盘符根目录：cd \</td>
+<td></td>
+</tr>
+<tr>
+<td>cls</td>
+<td>清屏</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="第三节java入门程序" data-numberify>第三节：Java入门程序<a class="anchor ms-1" href="#第三节java入门程序"></a></h3>
+
+<h5 id="一java程序的开发的三个步骤" data-numberify>一、Java程序的开发的三个步骤<a class="anchor ms-1" href="#一java程序的开发的三个步骤"></a></h5>
+<p>1、编写代码：源代码文件（.java）</p>
+<p>2、编译代码：字节码文件（.class）</p>
+<p>3、运行代码</p>
+
+<h6 id="注意事项" data-numberify>注意事项：<a class="anchor ms-1" href="#注意事项"></a></h6>
+<ul>
+<li>第一个Java程序建议使用记事本写</li>
+<li>建议代码文件名全英文，首字母大写，满足驼峰模式，源文件后缀名必须是.java</li>
+</ul>
+
+<h5 id="二编写代码" data-numberify>二、编写代码：<a class="anchor ms-1" href="#二编写代码"></a></h5>
+<p>1、第一个程序的代码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HelloWord</span><span class="p">{</span><span class="c1">//HelloWord是类名</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;Hello Word&#34;</span><span class="p">);</span><span class="c1">//打印Hello Word</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p><strong>注意：</strong></p>
+<ul>
+<li>文件名称必须与代码中的类名称一致</li>
+<li>保存文件：ctrl+s</li>
+</ul>
+
+<h5 id="三编译代码运行代码" data-numberify>三、编译代码，运行代码<a class="anchor ms-1" href="#三编译代码运行代码"></a></h5>
+<p>1、编译：javac 文件名.java</p>
+<pre tabindex="0"><code>//编译上述文件
+javac HelloWord.java
+</code></pre><p>2、运行：java 类名</p>
+<pre tabindex="0"><code>//运行上述代码
+java HelloWord
+</code></pre><p>注意：在源代码根目录下执行dom命令</p>
+
+<h5 id="四helloword案例常见错误" data-numberify>四、HelloWord案例常见错误<a class="anchor ms-1" href="#四helloword案例常见错误"></a></h5>
+<p>1、Windows的文件扩展名没有勾选</p>
+<p>2、代码写了，但是忘记保存了</p>
+<p>3、文件名和类名不一致。</p>
+<p>4、大小写错误，单词拼写错误，存在中文符号，找不到main方法。</p>
+<p>5、括号不配对。</p>
+<p>6、编译或执行工具使用不当。</p>
+<p><strong>一个什么错都犯过的程序员，才是真正的程序员！</strong></p>
+
+<h3 id="第四节java程序的执行原理" data-numberify>第四节：Java程序的执行原理<a class="anchor ms-1" href="#第四节java程序的执行原理"></a></h3>
+
+<h5 id="一机器语言长什么样子" data-numberify>一、机器语言长什么样子？<a class="anchor ms-1" href="#一机器语言长什么样子"></a></h5>
+<p>1、机器语言就是01代码</p>
+<p>2、计算机底层都是硬件电路，可以通过不通电和通电，表示0、1。</p>
+<p>3、使用机器语言编程来实现呼吸灯效果（图）<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/cb367013185e4bce8510e85743e8a719.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+<p>4、最早期的程序员通过机器语言编程的形式</p>
+
+<h5 id="二编程语言发展历程" data-numberify>二、编程语言发展历程<a class="anchor ms-1" href="#二编程语言发展历程"></a></h5>
+<ul>
+<li>机器语言</li>
+<li>汇编语言</li>
+<li>高级语言</li>
+</ul>
+
+<h5 id="三为什么学习高级编程语言" data-numberify>三、为什么学习高级编程语言<a class="anchor ms-1" href="#三为什么学习高级编程语言"></a></h5>
+<p>1、更简单：使用接近人类自己的语言书写，翻译器再将其翻译成计算机能理解的机器指令</p>
+
+<h5 id="四bug" data-numberify>四、BUG<a class="anchor ms-1" href="#四bug"></a></h5>
+<p>1、原意是臭虫或者虫子，现在用来指代在电脑系统或者程序中隐藏的一些问题或者漏洞。</p>
+<p>2、修复漏洞就叫debug</p>
+<p>3、bug的创始人：格蕾丝.赫伯</p>
+
+<h3 id="第五节jdk的组成跨平台原理" data-numberify>第五节：JDK的组成、跨平台原理<a class="anchor ms-1" href="#第五节jdk的组成跨平台原理"></a></h3>
+
+<h5 id="一jdk的组成" data-numberify>一、JDK的组成<a class="anchor ms-1" href="#一jdk的组成"></a></h5>
+<ul>
+<li>JVM（Java Virtual Machine)：Java虚拟机，真正运行]ava程序的地方。</li>
+<li>核心类库：Java自己写好的程序，给程序员自己的程序调用的。</li>
+<li>JRE (Java Runtime Environment):Java的运行环境。</li>
+<li>JDK (Java Development Kit):Java开发工具包（包括上面所有）。</li>
+</ul>
+
+<h5 id="二java的跨平台工作原来图" data-numberify>二、Java的跨平台、工作原来（图）<a class="anchor ms-1" href="#二java的跨平台工作原来图"></a></h5>
+<p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/1ac63636c5234fd68441e259c7d170f0.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+<ul>
+<li>一次编译，处处可用</li>
+<li>我们的程序只需要开发一次，就可以在各种安装了JVM的系统平台上运行。</li>
+</ul>
+
+<h3 id="第六节jdk安装后环境变量的配置" data-numberify>第六节：JDK安装后环境变量的配置<a class="anchor ms-1" href="#第六节jdk安装后环境变量的配置"></a></h3>
+
+<h5 id="一path环境变量" data-numberify>一、Path环境变量<a class="anchor ms-1" href="#一path环境变量"></a></h5>
+<p>​ Path环境变量用于记住程序路径，方便在命令行窗口的任意目录启动程序。</p>
+
+<h5 id="二path环境变量的原理" data-numberify>二、Path环境变量的原理<a class="anchor ms-1" href="#二path环境变量的原理"></a></h5>
+<p>​ 当我们在Pth中配置某个程序路径后，启动命令行窗口启动程时，是如何去找该程序的。</p>
+
+<h5 id="三为javajavac配置path的注意事项" data-numberify>三、为java、javac配置Path的注意事项<a class="anchor ms-1" href="#三为javajavac配置path的注意事项"></a></h5>
+<p>1、命令行窗口的任意目录可以使用javac和java，是不是也需要为其配置Path环境变量呢？</p>
+
+<h5 id="四为javajavaci配置path的注意事项" data-numberify>四、为java、javaci配置Path的注意事项<a class="anchor ms-1" href="#四为javajavaci配置path的注意事项"></a></h5>
+<ul>
+<li>目前较新的DK安装时会自动配置javac、java程序的路径到Path环境变量中去，因此，javac、java可以直接使用。</li>
+<li>注意：以前的老版本的JDK在安装的是没有自动配置Path环境变量的，此时必需要自己配置Path环境变量。</li>
+</ul>
+
+<h5 id="五重新配置了环境变量后必须检测是否配置成功" data-numberify>五、重新配置了环境变量后，必须检测是否配置成功<a class="anchor ms-1" href="#五重新配置了环境变量后必须检测是否配置成功"></a></h5>
+<ul>
+<li>打开命令行窗口，输入javac -version及java -version分别看版本提示。</li>
+</ul>
+
+<h5 id="六配置java_home环境变量" data-numberify>六、配置Java\_home环境变量<a class="anchor ms-1" href="#六配置java_home环境变量"></a></h5>
+<ul>
+<li>JAVA_HOME:告诉操作系统JDK安装在了哪个位置（将来其他技术要通过这个环境变量找到JDK)</li>
+<li>注意：较新版本的DK只是自动配置了Path,没有自动配置JAVA_HOME。</li>
+</ul>
+
+<h3 id="第七节idea开发工具的使用" data-numberify>第七节：IDEA开发工具的使用<a class="anchor ms-1" href="#第七节idea开发工具的使用"></a></h3>
+
+<h5 id="一之前的开发工具" data-numberify>一、之前的开发工具<a class="anchor ms-1" href="#一之前的开发工具"></a></h5>
+
+<h6 id="1文本编辑工具" data-numberify>1、文本编辑工具<a class="anchor ms-1" href="#1文本编辑工具"></a></h6>
+<p>​ 记事本、UltraEdit、EditPlus、TextPad、NotePad++、sublime,</p>
+
+<h6 id="2存在的问题" data-numberify>2、存在的问题<a class="anchor ms-1" href="#2存在的问题"></a></h6>
+<p>​ 编写代码时没有错误提醒、没有智能提示、需要自己进行编译、执行。功能不够强大。</p>
+
+<h5 id="二集成开发环境ideintegrated-development-environment" data-numberify>二、集成开发环境（IDE，Integrated Development Environment）<a class="anchor ms-1" href="#二集成开发环境ideintegrated-development-environment"></a></h5>
+<p>1、把代码编写，编译，执行等多种功能综合到一起的开发工具，可以进行代码智能提示，错误提醒，项目管理等等。</p>
+<p>2、常见Java的IDE工具有：Eclipse、MyEclipse、IntelliJ IDEA、Jbuilder、NetBeans等。</p>
+
+<h5 id="三intellij-idea开发工具" data-numberify>三、IntelliJ IDEA开发工具<a class="anchor ms-1" href="#三intellij-idea开发工具"></a></h5>
+<p>1、IntelliJ IDEA一般简称IDEA，是Java编程语言开发的集成环境，在业界被公认为最好的java开发工具。</p>
+<p>2、IDEA在代码错误提醒，智能代码补全等多方面表现的都非常优秀，是]ava开发企业级首选工具。</p>
+
+<h5 id="四idea下载" data-numberify>四、IDEA下载<a class="anchor ms-1" href="#四idea下载"></a></h5>
+<p>下载：https://www.jetbrains.com/idea/</p>
+<p>安装：傻瓜式安装，建议修改安装路径（不要安装在有空格和中文的路径下）。</p>
+
+<h5 id="五idea项目结构介绍" data-numberify>五、IDEA项目结构介绍<a class="anchor ms-1" href="#五idea项目结构介绍"></a></h5>
+<p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/c42232f0f1e74ad08176e345eb016a18.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+<ul>
+<li>project(项目、工程)</li>
+<li>module（模块)</li>
+<li>package(包)</li>
+<li>class（类)</li>
+</ul>
+<p>结论：这些结构的划分，是为了方便管理项目技术和代码文件的</p>
+
+<h5 id="六使用步骤" data-numberify>六、使用步骤<a class="anchor ms-1" href="#六使用步骤"></a></h5>
+<ol>
+<li>创建Project空工程</li>
+<li>创建Module模块</li>
+<li>创建Package包</li>
+<li>创建class类</li>
+<li>在类中编写代码</li>
+<li>完成编译运行</li>
+</ol>
+
+<h5 id="七idea中设置主题字体" data-numberify>七、idea中设置主题、字体<a class="anchor ms-1" href="#七idea中设置主题字体"></a></h5>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-gKXS0nQK-1684550528638)(./\img\idea中设置主题、字体.png)]</p>
+
+<h5 id="八idea常用快捷键" data-numberify>八、idea常用快捷键<a class="anchor ms-1" href="#八idea常用快捷键"></a></h5>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-MXeKZq8Q-1684550528640)(.\img\idea常用快捷键.png)]</p>
+
+<h5 id="九idea中其他操作" data-numberify>九、IDEA中其他操作<a class="anchor ms-1" href="#九idea中其他操作"></a></h5>
+<ul>
+<li>删除类文件</li>
+<li>修改类名称</li>
+<li>修改模块</li>
+<li>导入模块</li>
+<li>删除模块</li>
+<li>打开工程</li>
+<li>关闭工程</li>
+</ul>
+
+<h3 id="第八节java基础语法" data-numberify>第八节、Java基础语法<a class="anchor ms-1" href="#第八节java基础语法"></a></h3>
+
+<h5 id="一注释" data-numberify>一、注释<a class="anchor ms-1" href="#一注释"></a></h5>
+
+<h6 id="1什么是注释" data-numberify>1、什么是注释<a class="anchor ms-1" href="#1什么是注释"></a></h6>
+<p>​ 注释是写在程序中对代码进行解释说明的文字，方便自己和其他人查看，以便解释程序。</p>
+
+<h6 id="2注释有哪些" data-numberify>2、注释有哪些<a class="anchor ms-1" href="#2注释有哪些"></a></h6>
+<ul>
+<li>
+<p>单行注释</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//注释内容</span><span class="w">
+</span></span></span></code></pre></div></li>
+<li>
+<p>多行注释</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">	注释内容1
+</span></span></span><span class="line"><span class="cl"><span class="cm">	注释内容2
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span><span class="w">
+</span></span></span></code></pre></div></li>
+<li>
+<p>文档注释</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">	注释内容
+</span></span></span><span class="line"><span class="cl"><span class="cm">	注释内容
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span><span class="w">
+</span></span></span></code></pre></div></li>
+</ul>
+
+<h6 id="3注释的特点" data-numberify>3、注释的特点<a class="anchor ms-1" href="#3注释的特点"></a></h6>
+<p>​ 注释不影响程序的执行，编译后的class文件已经没有注释了。</p>
+
+<h6 id="4注释的快捷键" data-numberify>4、注释的快捷键<a class="anchor ms-1" href="#4注释的快捷键"></a></h6>
+<p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/a3da77d8032a449aa318928e6b3ed91b.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+
+<h6 id="二字面量" data-numberify>二、字面量<a class="anchor ms-1" href="#二字面量"></a></h6>
+<p>​ 计算机是用来处理数据的，字面量就是告诉程序员：数据在程序中的书写格式。</p>
+
+<h6 id="1常用数据" data-numberify>1、常用数据<a class="anchor ms-1" href="#1常用数据"></a></h6>
+<p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/0f5ade6d0a1a4ac6918dc80615e663de.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+
+<h6 id="2常见的特殊值的书写格式" data-numberify>2、常见的特殊值的书写格式<a class="anchor ms-1" href="#2常见的特殊值的书写格式"></a></h6>
+<ul>
+<li>true</li>
+<li>false</li>
+<li>null</li>
+<li>\n</li>
+<li>\t</li>
+</ul>
+
+<h5 id="三变量" data-numberify>三、变量<a class="anchor ms-1" href="#三变量"></a></h5>
+
+<h6 id="1什么是变量" data-numberify>1、什么是变量<a class="anchor ms-1" href="#1什么是变量"></a></h6>
+<p>​ 变量就是用来存储一个数据的内存区域（可以理解为盒子），里面存储的数据可以变化。</p>
+
+<h6 id="2变量定义的格式" data-numberify>2、变量定义的格式<a class="anchor ms-1" href="#2变量定义的格式"></a></h6>
+<p>数据类型 变量名 = 初始值；</p>
+<p><strong>数据类型</strong>：强制限制盒子存储数据的形式。例如：int（整型）、double（小数类型）</p>
+<p><strong>变量名</strong>：取名字，首字母小写，有意义</p>
+<p>初始值：存储的初始数据</p>
+
+<h6 id="3修改变量中存储的值" data-numberify>3、修改变量中存储的值<a class="anchor ms-1" href="#3修改变量中存储的值"></a></h6>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">double</span><span class="w"> </span><span class="n">money</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">6</span><span class="p">.</span><span class="na">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">money</span><span class="p">);</span><span class="c1">//6</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">money</span><span class="o">=</span><span class="n">money</span><span class="o">+</span><span class="n">4</span><span class="p">;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">money</span><span class="p">);</span><span class="c1">//10</span><span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="o">=</span><span class="n">21</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">age</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">age</span><span class="o">=</span><span class="n">18</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">age</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div>
+<h6 id="4定义变量需要注意的几个问题" data-numberify>4、定义变量需要注意的几个问题<a class="anchor ms-1" href="#4定义变量需要注意的几个问题"></a></h6>
+<ul>
+<li>变量要先声明在使用</li>
+<li>变量声明后，不能存储其他类型的数据</li>
+<li>变量的有效范围是从定义到“｝”截止，且在同一个范围内不能定义2个同名的变量</li>
+<li>变量定义的时候可以没有初始值，但是使用的时候必须给初始值</li>
+</ul>
+
+<h6 id="5变量在计算机的底层原理" data-numberify>5、变量在计算机的底层原理<a class="anchor ms-1" href="#5变量在计算机的底层原理"></a></h6>
+
+<h6 id="1二进制" data-numberify>（1）二进制<a class="anchor ms-1" href="#1二进制"></a></h6>
+<p>只有0、1，按照逢2进1的方式表示数据</p>
+
+<h6 id="2十进制转二进制的算法" data-numberify>（2）十进制转二进制的算法<a class="anchor ms-1" href="#2十进制转二进制的算法"></a></h6>
+<p>除二取余法</p>
+
+<h6 id="3计算机中的数据的最小单位" data-numberify>（3）计算机中的数据的最小单位<a class="anchor ms-1" href="#3计算机中的数据的最小单位"></a></h6>
+<ul>
+<li>最小保存的单元是：使用8个二进制位为一组，来保存数据，我们称之为一个字节（Byte，简称B）</li>
+<li>其中每个二进制位称之为一位（bit，简称b），1Byte=8bit简写1B=8b</li>
+</ul>
+
+<h6 id="4其他数据形式是如何存储的" data-numberify>（4）其他数据形式是如何存储的<a class="anchor ms-1" href="#4其他数据形式是如何存储的"></a></h6>
+<ul>
+<li>
+<p>字符在计算机中是如何存储的</p>
+<p>​ ASCII编码表：即美国信息交换标准编码，规定了现代英语、数字字符、和其他西欧字符对应的数字编号。<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/5231a56557d94b74ab642acb871d36f5.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+<p>​ 字符存的是ASCII码表中对应的数字二进制形式。</p>
+<p>​ 字符’A’对应的数字是65</p>
+<p>​ 字符’a’对应的数字是97</p>
+<p>​ 字符’0’对应的数字是48</p>
+</li>
+<li>
+<p>图片数据-彩色图</p>
+<ul>
+<li>图片就是无数个像素点组成的</li>
+<li>每个像素点的数据：用0~255*255*255表示其颜色</li>
+</ul>
+</li>
+<li>
+<p>声音数据<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/5cdc24ab730d4a89844b075f2b7e20e1.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+</li>
+</ul>
+
+<h6 id="6多学几招" data-numberify>6、多学几招<a class="anchor ms-1" href="#6多学几招"></a></h6>
+
+<h6 id="1十进制转二进制的算法" data-numberify>（1）十进制转二进制的算法<a class="anchor ms-1" href="#1十进制转二进制的算法"></a></h6>
+<ul>
+<li>十进制数转二进制数：除二取余法</li>
+<li>二进制数转十进制数：按位展开分权相加</li>
+</ul>
+
+<h6 id="2八进制十六进制介绍" data-numberify>（2）八进制、十六进制介绍<a class="anchor ms-1" href="#2八进制十六进制介绍"></a></h6>
+<ul>
+<li>为了便于观察和表示二进制，退出了八进制和十六进制</li>
+<li>每3位二进制作为一个单元，最小数是0，最大数是7，共8个数字，这就是八进制</li>
+<li>每4位二进制作为一个单元，最小数是0，最大数是15，共16个数字，依次用：0~9 ABCDEF代表就是十六进制。</li>
+</ul>
+
+<h6 id="3注意" data-numberify>（3）注意：<a class="anchor ms-1" href="#3注意"></a></h6>
+<p>​ Java程序中支持书写二进制、八进制、十六进制的数据，分别需要以0B或者0b、0、0X或者0x开头。</p>
+
+<h6 id="4计算机的数据单位" data-numberify>（4）计算机的数据单位<a class="anchor ms-1" href="#4计算机的数据单位"></a></h6>
+<ul>
+<li>计算机最小的组成单元是：字节，1B=8b。</li>
+<li>在B的基础上，计算机发展出了KB、MB、GB、TB、.这些数据单位。
+<ul>
+<li>1B=8b</li>
+<li>1KB=1024B</li>
+<li>1MB=1024KB</li>
+<li>1GB=1024MB</li>
+<li>1TB=1024GB</li>
+</ul>
+</li>
+</ul>
+
+<h5 id="四数据类型" data-numberify>四、数据类型<a class="anchor ms-1" href="#四数据类型"></a></h5>
+
+<h6 id="1数据类型的作用" data-numberify>1、数据类型的作用<a class="anchor ms-1" href="#1数据类型的作用"></a></h6>
+<p>数据类型就是约束变量存储数据的形式</p>
+
+<h6 id="2数据类型的分类" data-numberify>2、数据类型的分类<a class="anchor ms-1" href="#2数据类型的分类"></a></h6>
+<ul>
+<li>
+<p>引用数据类型（除了基本数据类型之外的，如String，其他的后面学习）</p>
+</li>
+<li>
+<p>基本数据类型：4大类8种<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/46608b22338b439bb4410ac487948481.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+</li>
+</ul>
+<p><strong>注意：</strong></p>
+<ul>
+<li>随便写的整数是int类型，加上L/l就是long类型</li>
+<li>小数字面值默认是double类型，加上F/f就是float类型</li>
+</ul>
+
+<h5 id="五关键字标志符" data-numberify>五、关键字、标志符<a class="anchor ms-1" href="#五关键字标志符"></a></h5>
+
+<h6 id="1关键字" data-numberify>1、关键字<a class="anchor ms-1" href="#1关键字"></a></h6>
+<ul>
+<li>Java自己保留的一些单词，作为特殊功能的，例如：public、class、byte、short、int、long、double.…</li>
+<li>我们不能用来作为类名或者是变量名称，否则报错</li>
+<li>注意：关键字很多，不用刻意去记<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/f6a21e1465514c75abbb10755f84f808.png#pic_center" loading="lazy" />
+</picture>
+
+</li>
+</ul>
+
+<h6 id="2标识符" data-numberify>2、标识符<a class="anchor ms-1" href="#2标识符"></a></h6>
+<p>​ 标识符就是由一些字符、符号组合起来的名称，用于给类、方法、变量等起名字的规矩</p>
+
+<h6 id="1标识符的要求" data-numberify>（1）标识符的要求<a class="anchor ms-1" href="#1标识符的要求"></a></h6>
+<ul>
+<li>基本要求：由数字、字母、下划线（_）和美元符（$）等组成</li>
+<li>强制要求：不能以数字开头，不能是关键字、区分大小写</li>
+</ul>
+
+<h6 id="2命名指导规范" data-numberify>（2）命名指导规范<a class="anchor ms-1" href="#2命名指导规范"></a></h6>
+<ul>
+<li>变量名称：满足标识符规则，建议全英文、有意义、首字母小写、满足“驼峰模式”。</li>
+<li>类名称：满足标识符规则，建议全英文、有意义、首字母大写、满足“驼峰模式”。</li>
+</ul>
+
+<h3 id="第九节类型转换" data-numberify>第九节：类型转换<a class="anchor ms-1" href="#第九节类型转换"></a></h3>
+
+<h5 id="一自动类型转换" data-numberify>一、自动类型转换<a class="anchor ms-1" href="#一自动类型转换"></a></h5>
+
+<h6 id="1什么是自动类型转换为什么要学习类型转换" data-numberify>1、什么是自动类型转换，为什么要学习类型转换？<a class="anchor ms-1" href="#1什么是自动类型转换为什么要学习类型转换"></a></h6>
+<ul>
+<li>类型范围小的变量，可以直接赋值给类型大的变量。</li>
+<li>存在不同类型的变量赋值给其他类型的变量</li>
+</ul>
+
+<h6 id="2自动类型转换的底层原理" data-numberify>2、自动类型转换的底层原理<a class="anchor ms-1" href="#2自动类型转换的底层原理"></a></h6>
+<p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/a9136a14d78b417d91a0ac2aaa9e766e.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+
+<h6 id="3自动类型转换的其他形式" data-numberify>3、自动类型转换的其他形式<a class="anchor ms-1" href="#3自动类型转换的其他形式"></a></h6>
+<p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/5bbabae187ef4813ad47d24eefb55c8f.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+
+<h5 id="二表达式的自动类型转换" data-numberify>二、表达式的自动类型转换<a class="anchor ms-1" href="#二表达式的自动类型转换"></a></h5>
+
+<h6 id="1表达式的自动类型转换" data-numberify>1、表达式的自动类型转换<a class="anchor ms-1" href="#1表达式的自动类型转换"></a></h6>
+<p>在表达式中，小范围类型的变量会自动转换成当前较大范围的类型在运算。</p>
+<p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/8cce727fcfb24e6fac3c4cbac91a759e.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+<p><strong>注意事项</strong></p>
+<ul>
+<li>表达式的最终结果类型由表达式中的最高类型决定。</li>
+<li>在表达式中，byte、short、char是直接转换成int类型参与运算的。</li>
+</ul>
+
+<h5 id="三强制类型转换" data-numberify>三、强制类型转换<a class="anchor ms-1" href="#三强制类型转换"></a></h5>
+<p>​ 类型范围大的数据或者变量，不能直接赋值给类型范围小的变量，会报错。</p>
+
+<h6 id="1强制类型转换" data-numberify>1、强制类型转换<a class="anchor ms-1" href="#1强制类型转换"></a></h6>
+<p>​ 可以强行将类型范围大的变量、数据赋值给类型小的变量<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/66b68c571ce84fd69662660c26c68d15.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+
+<h6 id="2强制类型转换底层原理" data-numberify>2、强制类型转换底层原理<a class="anchor ms-1" href="#2强制类型转换底层原理"></a></h6>
+<p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/0ebc2f78d629497aae57429a8e9b62a7.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+<p><strong>注意事项</strong></p>
+<ul>
+<li>强制类型转换可能造成数据（丢失）溢出。</li>
+<li>浮点型强制转换成整型，直接丢掉小数部分，保留整数部分返回。</li>
+</ul>
+
+<h3 id="第十节运算符" data-numberify>第十节、运算符<a class="anchor ms-1" href="#第十节运算符"></a></h3>
+
+<h5 id="一基本算数运算符" data-numberify>一、基本算数运算符<a class="anchor ms-1" href="#一基本算数运算符"></a></h5>
+
+<h5 id="1运算符" data-numberify>1、运算符<a class="anchor ms-1" href="#1运算符"></a></h5>
+<p>对字面量或者变量进行操作的符号</p>
+
+<h5 id="2数字运算符" data-numberify>2、数字运算符<a class="anchor ms-1" href="#2数字运算符"></a></h5>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">作用</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">+</td>
+<td style="text-align:center">加</td>
+<td style="text-align:center">参考小学数学一年级</td>
+</tr>
+<tr>
+<td style="text-align:center">-</td>
+<td style="text-align:center">减</td>
+<td style="text-align:center">参考小学数学一年级</td>
+</tr>
+<tr>
+<td style="text-align:center">*</td>
+<td style="text-align:center">乘</td>
+<td style="text-align:center">参考小学数学二年级，与“✖”相同</td>
+</tr>
+<tr>
+<td style="text-align:center">/</td>
+<td style="text-align:center">除</td>
+<td style="text-align:center">与“➗”相同，注意：在Java中两个整数相除结果还是整数。因为最高类型是整数</td>
+</tr>
+<tr>
+<td style="text-align:center">%</td>
+<td style="text-align:center">取余</td>
+<td style="text-align:center">获取的是两个数据做除法的余数</td>
+</tr>
+</tbody>
+</table>
+
+<h5 id="二符号做连接符" data-numberify>二、+符号做连接符<a class="anchor ms-1" href="#二符号做连接符"></a></h5>
+
+<h6 id="1做连接符" data-numberify>1、“+”做连接符<a class="anchor ms-1" href="#1做连接符"></a></h6>
+<p>​ “+”符号与字符串运算的时候是用作连接符的，其结果依然是一个字符串</p>
+<p>独门秘籍：能算则算，不能算就在一起（计算机很聪明）</p>
+
+<h5 id="三自增自减运算符" data-numberify>三、自增自减运算符<a class="anchor ms-1" href="#三自增自减运算符"></a></h5>
+
+<h6 id="1自增自减运算符" data-numberify>1、自增自减运算符<a class="anchor ms-1" href="#1自增自减运算符"></a></h6>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>作用</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>++</td>
+<td>自增</td>
+<td>变量自身的值加1</td>
+</tr>
+<tr>
+<td>–</td>
+<td>自减</td>
+<td>变量自身的值减1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意：</strong></p>
+<ul>
+<li>++和–既可以放在变量的后边，也可以放在变量的前边</li>
+<li>++、–只能操作变量，不能操作字面量</li>
+</ul>
+
+<h6 id="2自增自减的使用注意事项" data-numberify>2、自增自减的使用注意事项<a class="anchor ms-1" href="#2自增自减的使用注意事项"></a></h6>
+<ul>
+<li>
+<p>如果单独使用放在前后没有区别</p>
+</li>
+<li>
+<p>++、–如果不是单独使用（如在表达式中、或者同时有其他操作），放在变量前后会存才明显区别</p>
+<ul>
+<li>
+<p>放在变量前面，先对变量进行+1、-1，再拿变量的值进行运算</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">10</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">int</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">++</span><span class="n">a</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div></li>
+<li>
+<p>放在变量后面，先拿变量的值进行运算，再对变量的值进行+1、-1</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="w"> </span><span class="n">10</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">int</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="o">++</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+
+<h5 id="四赋值运算符" data-numberify>四、赋值运算符<a class="anchor ms-1" href="#四赋值运算符"></a></h5>
+
+<h6 id="1基本赋值运算符" data-numberify>1、基本赋值运算符<a class="anchor ms-1" href="#1基本赋值运算符"></a></h6>
+<ul>
+<li>就是“=”</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">10</span><span class="p">;</span><span class="c1">//先看“=”右边，把数据10赋值给左边变量a存储</span><span class="w">
+</span></span></span></code></pre></div>
+<h6 id="2扩展赋值运算符" data-numberify>2、扩展赋值运算符<a class="anchor ms-1" href="#2扩展赋值运算符"></a></h6>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>作用</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+=</td>
+<td>加后赋值</td>
+<td>a+=b等价于a = （a的数据类型）（a+b）；将a+b的值给a</td>
+</tr>
+<tr>
+<td>-=</td>
+<td>减后赋值</td>
+<td>a-=b等价于a = （a的数据类型）（a-b）；将a-b的值给a</td>
+</tr>
+<tr>
+<td>*=</td>
+<td>乘后赋值</td>
+<td>a*=b等价于a = （a的数据类型）（a*b）；将a*b的值给a</td>
+</tr>
+<tr>
+<td>/=</td>
+<td>除后赋值</td>
+<td>a/=b等价于a = （a的数据类型）（a/b）；将a/b的商给a</td>
+</tr>
+<tr>
+<td>%=</td>
+<td>取余后赋值</td>
+<td>a%=等价于a = （a的数据类型）（a%b）；将a%b的值给a</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意：扩展的赋值运算符隐含了强制类型转换</strong></p>
+
+<h5 id="五关系运算符" data-numberify>五、关系运算符<a class="anchor ms-1" href="#五关系运算符"></a></h5>
+
+<h6 id="1关系运算符" data-numberify>1、关系运算符<a class="anchor ms-1" href="#1关系运算符"></a></h6>
+<p>是对数据进行条件判断的符号，最终会返回一个比较的布尔值（false 、true）</p>
+<p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/f3de0e7ce93640398fad1bd4c3c0a218.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+<p>**注意：**在做相等判断时，千万不要把==误写成=</p>
+
+<h5 id="六逻辑运算符" data-numberify>六、逻辑运算符<a class="anchor ms-1" href="#六逻辑运算符"></a></h5>
+
+<h6 id="1逻辑运算符概念" data-numberify>1、逻辑运算符概念<a class="anchor ms-1" href="#1逻辑运算符概念"></a></h6>
+<p>可以把多个条件的布尔结果放在一起，最终返回一个布尔结果</p>
+<p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/f8f41e9ffd87472092ad692553b3c4d6.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+
+<h6 id="2短路逻辑运算符" data-numberify>2、短路逻辑运算符<a class="anchor ms-1" href="#2短路逻辑运算符"></a></h6>
+<p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/f1c63195a4b841d98d7b29ece3d17f5a.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+<p>**注意：**逻辑与“&amp;”、逻辑或“ | ”：无论左边是false还是true，右边都要执行</p>
+
+<h5 id="七三元运算符" data-numberify>七、三元运算符<a class="anchor ms-1" href="#七三元运算符"></a></h5>
+
+<h6 id="1三元运算符介绍" data-numberify>1、三元运算符介绍<a class="anchor ms-1" href="#1三元运算符介绍"></a></h6>
+<ul>
+<li>
+<p>格式：</p>
+<pre tabindex="0"><code>条件表达式？值1：值2
+</code></pre></li>
+<li>
+<p>执行流程：首先计算关系表达式的值，如果为true，返回值1，如果为false，返回值2</p>
+</li>
+</ul>
+
+<h5 id="八运算符优先级" data-numberify>八、运算符优先级<a class="anchor ms-1" href="#八运算符优先级"></a></h5>
+
+<h6 id="1运算符优先级" data-numberify>1、运算符优先级<a class="anchor ms-1" href="#1运算符优先级"></a></h6>
+<p>在表达式中，哪个运算符先执行后执行是要看优先级的，例如“*、/”的优先级高于“+、-”。<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/043275f9b59d42f28dd6f5ddc8e8f78f.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+
+<h5 id="九案例知识键盘录入技术" data-numberify>九、案例知识：键盘录入技术<a class="anchor ms-1" href="#九案例知识键盘录入技术"></a></h5>
+
+<h6 id="1需求" data-numberify>1、需求：<a class="anchor ms-1" href="#1需求"></a></h6>
+<p>请完成Java程序与用户交互，比如录入用户输入名称、年龄，怎么办？</p>
+
+<h6 id="2apiapplication-programming-interface应用程序编程接口" data-numberify>2、API（Application Programming Interface，应用程序编程接口）<a class="anchor ms-1" href="#2apiapplication-programming-interface应用程序编程接口"></a></h6>
+<ul>
+<li>Java写好的程序（功能代码），咱们可以直接调用</li>
+<li>Oracle也为Java写好的程序提供了相应的API文档（技术使用说明书）</li>
+</ul>
+
+<h6 id="3下载api文档" data-numberify>3、下载API文档<a class="anchor ms-1" href="#3下载api文档"></a></h6>
+<p><a href="https://www.oracle.com/java/technologies/downloads/#jdk19-windows" target="_blank" rel="noopener noreferrer">https://www.oracle.com/java/technologies/downloads/#jdk19-windows<i class="fas fa-external-link-square-alt ms-1"></i></a></p>
+
+<h6 id="4键盘录入功能实现的三个步骤" data-numberify>4、键盘录入功能实现的三个步骤：<a class="anchor ms-1" href="#4键盘录入功能实现的三个步骤"></a></h6>
+<ul>
+<li>导包：告诉程序去JDK的那个包中找扫描器技术</li>
+<li>写一行代码代表得到键盘扫描对象</li>
+<li>等待用户输入数据</li>
+</ul>
+<p><strong>注意：</strong></p>
+<ul>
+<li>System、String在JDK中的Java.lang包下</li>
+<li>lang包不需要我们导包，是默认的包</li>
+</ul>
+
+<h3 id="第十节顺序结构程序默认" data-numberify>第十节、顺序结构（程序默认）<a class="anchor ms-1" href="#第十节顺序结构程序默认"></a></h3>
+<p>​ Java提供了一些流程控制语句，来控制程序的执行流程</p>
+<p>​ 如果你没有写其他的结构，按照代码的先后顺序，依次执行程序中大多数的代码是这样执行的。</p>
+<p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/fa2fc970e5a0452096c484281e2cad66.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+
+<h3 id="第十一节分支结构" data-numberify>第十一节、分支结构<a class="anchor ms-1" href="#第十一节分支结构"></a></h3>
+
+<h5 id="一if分支结构" data-numberify>一、if分支结构<a class="anchor ms-1" href="#一if分支结构"></a></h5>
+
+<h6 id="1if分支" data-numberify>1、if分支<a class="anchor ms-1" href="#1if分支"></a></h6>
+<p>​ 根据判定的结果（真或假）决定执行某个分支的代码</p>
+
+<h6 id="2if分支有三种格式" data-numberify>2、if分支有三种格式<a class="anchor ms-1" href="#2if分支有三种格式"></a></h6>
+<ul>
+<li>
+<p><strong>格式1</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="n">条件表达式</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">语句体</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div></li>
+<li>
+<p><strong>格式2</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="n">条件表达式</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">语句体1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="k">else</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">语句体2</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div></li>
+<li>
+<p><strong>格式3</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="n">条件表达式1</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">语句体1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">条件表达式2</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">语句体2</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">条件表达式3</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">语句体3</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">else</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">语句体n</span><span class="o">+</span><span class="n">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div></li>
+</ul>
+
+<h5 id="二switch分支" data-numberify>二、switch分支<a class="anchor ms-1" href="#二switch分支"></a></h5>
+
+<h6 id="1swutch分支" data-numberify>1、swutch分支<a class="anchor ms-1" href="#1swutch分支"></a></h6>
+<p>​ 也是匹配条件去执行分支，适合做值匹配的分支，结构清晰，格式良好</p>
+
+<h6 id="2格式" data-numberify>2、格式<a class="anchor ms-1" href="#2格式"></a></h6>
+<pre tabindex="0"><code>switch（表达式）{
+	case 值1:
+		执行代码...;
+		bresk;
+	case 值2:
+		执行代码...;
+		bresk;
+	...
+	case 值n-1:
+		执行代码...;
+		bresk;
+	default:
+		执行代码n;
+}
+</code></pre>
+<h6 id="3执行流程" data-numberify>3、执行流程<a class="anchor ms-1" href="#3执行流程"></a></h6>
+<ul>
+<li>先执行表达式的值，拿着这个值与case后的值进行匹配</li>
+<li>匹配哪个case的值为true就执行哪个case，遇到break就跳出switch分支</li>
+<li>如果case后的值都不匹配则执行defauli代码</li>
+</ul>
+
+<h6 id="4ifswitch分支各自适合做什么业务场景" data-numberify>4、if、switch分支各自适合做什么业务场景<a class="anchor ms-1" href="#4ifswitch分支各自适合做什么业务场景"></a></h6>
+<ul>
+<li>if其实在功能上远远强大于switch</li>
+<li>if适合做区间匹配</li>
+<li>switch适合做值匹配、代码优雅</li>
+</ul>
+
+<h6 id="5switch分支注意事项" data-numberify>5、switch分支注意事项<a class="anchor ms-1" href="#5switch分支注意事项"></a></h6>
+<ul>
+<li>表达式类型只能是byte、short、int、char，JDK5开始支持枚举，JDK7开始支持String、不支持double、float、long</li>
+<li>case给出的值不允许重复，且只能是字面量，不能是变量</li>
+<li>不要忘记写break，否则会出现穿透现象</li>
+</ul>
+
+<h6 id="6switch穿透性" data-numberify>6、switch穿透性<a class="anchor ms-1" href="#6switch穿透性"></a></h6>
+<p>​ 如果代码执行到没有写break的case模块，执行完后将直接进入下一个case块执行代码（而且不会进行任何匹配），直到遇到break才跳出分支，这是switch的穿透性</p>
+<p>​ 存在多个case分支的功能代码是一样是，可以用穿透性把流程集中到同一处处理，这样可以简化代码。</p>
+
+<h3 id="第十二节循环结构" data-numberify>第十二节、循环结构<a class="anchor ms-1" href="#第十二节循环结构"></a></h3>
+
+<h5 id="一for循环" data-numberify>一、for循环<a class="anchor ms-1" href="#一for循环"></a></h5>
+
+<h6 id="1for循环" data-numberify>1、for循环<a class="anchor ms-1" href="#1for循环"></a></h6>
+<p>​ 控制一段代码反复执行很多次</p>
+
+<h6 id="2格式-1" data-numberify>2、格式<a class="anchor ms-1" href="#2格式-1"></a></h6>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">for</span><span class="p">(</span><span class="n">初始化语句</span><span class="p">;</span><span class="n">循环条件</span><span class="p">;</span><span class="n">迭代语句</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">循环体语句</span><span class="p">(</span><span class="n">重复执行的代码</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/67a18206fd5847b5b01afab009d45c3d.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+
+<h5 id="二while循环" data-numberify>二、while循环<a class="anchor ms-1" href="#二while循环"></a></h5>
+<p>1、while循环格式与执行流程</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">初始化语句</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">while</span><span class="p">(</span><span class="n">循环条件</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">循环体语句</span><span class="p">(</span><span class="n">被重复执行的代码</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">迭代语句</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/f593f4682be94deda166b6f77abc2b1f.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+<p>2、什么时候用for循环，什么时候用while循环</p>
+<ul>
+<li>功能上是完全一样的，for能解决的while也能解决，反之亦然</li>
+<li>使用规范是：知道循环几次使用for；不知道循环几次建议使用while。</li>
+</ul>
+
+<h6 id="三do-while循环" data-numberify>三、do-while循环<a class="anchor ms-1" href="#三do-while循环"></a></h6>
+
+<h6 id="1do-while循环" data-numberify>1、do-while循环<a class="anchor ms-1" href="#1do-while循环"></a></h6>
+<ul>
+<li>先执行再判断循环条件</li>
+<li>do-while循环的特点：一定会先执行一次循环。</li>
+</ul>
+<p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/cc469af03005494ead1ad7677de9f838.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+
+<h6 id="2格式-2" data-numberify>2、格式<a class="anchor ms-1" href="#2格式-2"></a></h6>
+<pre tabindex="0"><code>初始化语句
+do{
+	循环体语句;
+	迭代语句;
+}while(循环条件);
+</code></pre>
+<h5 id="四三种循环的区别" data-numberify>四、三种循环的区别<a class="anchor ms-1" href="#四三种循环的区别"></a></h5>
+<ul>
+<li>for循环和while循环（先判断后执行）</li>
+<li>do…while（第一次先执行后判断）</li>
+</ul>
+
+<h6 id="for和while的区别" data-numberify>for和while的区别<a class="anchor ms-1" href="#for和while的区别"></a></h6>
+<ul>
+<li>for循环和while循环的执行流程是一模一样的</li>
+<li>如果已知循环次数建议使用for循环，如果不清楚要循环多少次建议使用while循环。</li>
+<li>fo循环中，控制循环的变量只在循环中可以使用。While循环中，控制循环的变量在循环后还可以继续使用。</li>
+</ul>
+
+<h5 id="五死循环" data-numberify>五、死循环<a class="anchor ms-1" href="#五死循环"></a></h5>
+<p>​ 一直循环的执行下去，如果没有干预不会停下来。</p>
+
+<h6 id="1写法" data-numberify>1、写法<a class="anchor ms-1" href="#1写法"></a></h6>
+<p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/ecfc2ff95a684625becde725349eac68.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+
+<h5 id="六嵌套循环" data-numberify>六、嵌套循环<a class="anchor ms-1" href="#六嵌套循环"></a></h5>
+<p>循环中又包含循环</p>
+
+<h6 id="1嵌套循环的特点" data-numberify>1、嵌套循环的特点<a class="anchor ms-1" href="#1嵌套循环的特点"></a></h6>
+<p>外部循环每执行一次，内部循环全部执行完一次。</p>
+
+<h5 id="七跳转关键字breakcontinue" data-numberify>七、跳转关键字：break、continue<a class="anchor ms-1" href="#七跳转关键字breakcontinue"></a></h5>
+
+<h6 id="1跳转控制语句介绍" data-numberify>1、跳转控制语句介绍<a class="anchor ms-1" href="#1跳转控制语句介绍"></a></h6>
+<ul>
+<li>
+
+<h6 id="break" data-numberify>break<a class="anchor ms-1" href="#break"></a></h6>
+<p>跳出并结束当前所在循环的执行</p>
+</li>
+<li>
+
+<h6 id="continue" data-numberify>continue<a class="anchor ms-1" href="#continue"></a></h6>
+<p>用于跳出当前循环的当次执行，进入下一次循环</p>
+</li>
+</ul>
+
+<h6 id="2注意事项" data-numberify>2、注意事项<a class="anchor ms-1" href="#2注意事项"></a></h6>
+<ul>
+<li>
+
+<h6 id="break-1" data-numberify>break<a class="anchor ms-1" href="#break-1"></a></h6>
+<p>只能用于结束所在循环，或者结束所在switch分支执行</p>
+</li>
+<li>
+
+<h6 id="continue-1" data-numberify>continue<a class="anchor ms-1" href="#continue-1"></a></h6>
+<p>只能在循环中使用</p>
+</li>
+</ul>
+
+<h5 id="八案例技术随机数random类" data-numberify>八、案例技术：随机数Random类<a class="anchor ms-1" href="#八案例技术随机数random类"></a></h5>
+
+<h6 id="1-random随机数技术" data-numberify>1、 Random随机数技术<a class="anchor ms-1" href="#1-random随机数技术"></a></h6>
+<p>作用：用于在程序中获取随机数的技术</p>
+
+<h6 id="2使用步骤" data-numberify>2、使用步骤<a class="anchor ms-1" href="#2使用步骤"></a></h6>
+<p>（1）导包：告诉程序去JDK的那个包中找随机数技术</p>
+<p>（2）写一行代码代表的到随机数对象</p>
+<p>（3）调用随机数的功能获取0-9的随机数</p>
+
+<h6 id="注意" data-numberify>注意：<a class="anchor ms-1" href="#注意"></a></h6>
+<p>nextInt功能只能生成：0至n-1之间的随机数，不包含n。</p>
+
+<h5 id="3random生成随机数的特点" data-numberify>3、Random生成随机数的特点<a class="anchor ms-1" href="#3random生成随机数的特点"></a></h5>
+<ul>
+<li>nextInt(n)功能只能生成：0-(n-1)之间的随机数。</li>
+</ul>
+
+<h6 id="4random生成区间随机数的技巧减加法" data-numberify>4、Random生成区间随机数的技巧：减加法<a class="anchor ms-1" href="#4random生成区间随机数的技巧减加法"></a></h6>
+<ul>
+<li>例如：要生成1-10之间的随机数，程序怎么实现？</li>
+</ul>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-nOj5hN62-1684550528660)(.\img\生成随机数的减加法.png)]</p>
+
+<h5 id="5生成指定区间的方法" data-numberify>5、生成指定区间的方法<a class="anchor ms-1" href="#5生成指定区间的方法"></a></h5>
+<pre tabindex="0"><code>//导包
+import java.util.Random;
+</code></pre>
+<h3 id="第十三节数组" data-numberify>第十三节、数组<a class="anchor ms-1" href="#第十三节数组"></a></h3>
+<p>​ 数组就是用来存储一批同种类型数据的内存区域（可以理解成容器）。</p>
+<p>例如：<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/43d4fddc6df945e3a993abc72411cbfa.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+<p><strong>数组适合做一批同样种类数据的存储</strong></p>
+
+<h5 id="一数组的定义" data-numberify>一、数组的定义<a class="anchor ms-1" href="#一数组的定义"></a></h5>
+
+<h6 id="1静态初始化数组" data-numberify>1、静态初始化数组<a class="anchor ms-1" href="#1静态初始化数组"></a></h6>
+<ul>
+<li>
+<p>定义数组的时候直接给数组赋值</p>
+</li>
+<li>
+
+<h6 id="静态初始化数组的格式" data-numberify>静态初始化数组的格式<a class="anchor ms-1" href="#静态初始化数组的格式"></a></h6>
+</li>
+</ul>
+<p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/263bc079f229490b93c446736a395eb5.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+<ul>
+<li>
+
+<h6 id="数组的基本原理" data-numberify>数组的基本原理<a class="anchor ms-1" href="#数组的基本原理"></a></h6>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-u7S0pPdL-1684550528663)(.\img\数组的基本原理.png)]</p>
+<p>==<strong>注意：</strong>==数组变量名中存储的是数组在内存中的地址，数组是引用类型。</p>
+</li>
+<li>
+
+<h6 id="数组的访问" data-numberify>数组的访问<a class="anchor ms-1" href="#数组的访问"></a></h6>
+</li>
+</ul>
+<p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/841c1d6ad096461eae3a5ed33d56d815.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+<ul>
+<li>
+
+<h6 id="数组的长度属性length" data-numberify>数组的长度属性：length<a class="anchor ms-1" href="#数组的长度属性length"></a></h6>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//获取数组的长度（就是数组元素的个数）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">arr</span><span class="p">.</span><span class="na">length</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>数组的最大索引：数组名.length-1（前提：元素个数大于0）</p>
+</li>
+<li>
+
+<h6 id="数组的几个注意事项" data-numberify>数组的几个注意事项<a class="anchor ms-1" href="#数组的几个注意事项"></a></h6>
+<ul>
+<li>“数据类型[] 数组名” 也可以写成 “数据类型 数组名[]”。</li>
+<li>什么类型的数组存放什么类型的数据，否则报错</li>
+<li>数组一旦定义出来，程序执行的过程中，长度、类型就固定了。</li>
+</ul>
+</li>
+</ul>
+
+<h6 id="2动态初始化数组" data-numberify>2、动态初始化数组<a class="anchor ms-1" href="#2动态初始化数组"></a></h6>
+<p>​ 定义数组的时候只确定元素的类型和数组的长度，之后再存入具体数据</p>
+<ul>
+<li>
+
+<h6 id="数组的动态初始化格式" data-numberify>数组的动态初始化格式<a class="anchor ms-1" href="#数组的动态初始化格式"></a></h6>
+</li>
+</ul>
+<p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/a7fe65c90d9f4e4aa35852b6919f8f2f.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+<ul>
+<li>
+
+<h6 id="两种数组的定义有什么区别" data-numberify>两种数组的定义有什么区别<a class="anchor ms-1" href="#两种数组的定义有什么区别"></a></h6>
+<ul>
+<li>当前已经知道存入的元素值，用静态初始化。</li>
+<li>当前还不知道要存入那些数据，用动态初始化。</li>
+</ul>
+</li>
+<li>
+
+<h6 id="动态初始化数组的元素默认值" data-numberify>动态初始化数组的元素默认值<a class="anchor ms-1" href="#动态初始化数组的元素默认值"></a></h6>
+<ul>
+<li>
+
+<h6 id="元素默认值规则" data-numberify>元素默认值规则<a class="anchor ms-1" href="#元素默认值规则"></a></h6>
+</li>
+</ul>
+</li>
+</ul>
+<p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/05ef7d8570094aa69c1c5edd55cf91e5.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+<ul>
+<li>
+
+<h6 id="两种初始化的使用场景总结注意事项" data-numberify>两种初始化的使用场景总结、注意事项<a class="anchor ms-1" href="#两种初始化的使用场景总结注意事项"></a></h6>
+<ul>
+<li>动态初始化：只指定数组长度，后期赋值，适合开始知道数据的数量，但是不确定具体元素值的业务场景。</li>
+<li>开始就存入元素值，适合一开始就能确定元素值的业务场景。</li>
+<li>两种格式的写法是独立的严，不可以混用。</li>
+</ul>
+</li>
+</ul>
+
+<h5 id="二数组的遍历" data-numberify>二、数组的遍历<a class="anchor ms-1" href="#二数组的遍历"></a></h5>
+
+<h5 id="1数组遍历介绍" data-numberify>1、数组遍历介绍<a class="anchor ms-1" href="#1数组遍历介绍"></a></h5>
+<ul>
+<li>遍历：就是一个一个数据的访问</li>
+<li>为什么要遍历数组？搜索、数据统计等等都要用到遍历</li>
+</ul>
+<p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/6eb6c955fd32495fb59ef5219377f76a.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+
+<h5 id="三数组排序" data-numberify>三、数组排序<a class="anchor ms-1" href="#三数组排序"></a></h5>
+<p>​ 就是对数组中的元素，进行升序（由小到大）或者降序（由大到小）的操作</p>
+
+<h6 id="1数组排序的技术" data-numberify>1、数组排序的技术<a class="anchor ms-1" href="#1数组排序的技术"></a></h6>
+<ul>
+<li>
+
+<h6 id="冒泡排序" data-numberify>冒泡排序<a class="anchor ms-1" href="#冒泡排序"></a></h6>
+<ul>
+<li>从头开始两两比较，把较大的元素与较小的元素进行交换</li>
+<li>每轮把节前最大的一个元素存入到数组当前的末尾。</li>
+<li><strong>实现步骤</strong>
+<ol>
+<li>定义一个外部循环控制总共需要冒几轮（数组的长度-1）</li>
+<li>定义一个内部循环，控制每轮依次往后比较几个位置（数组长度-i-1)。</li>
+<li>如果当前元素&gt;后一个元素值，两者交换</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>选择排序</p>
+</li>
+<li>
+<p>快速排序</p>
+</li>
+<li>
+<p>插入排序</p>
+</li>
+</ul>
+
+<h6 id="2数组搜索相关技术" data-numberify>2、数组搜索相关技术<a class="anchor ms-1" href="#2数组搜索相关技术"></a></h6>
+<ul>
+<li>二分搜索</li>
+<li>分块查找</li>
+<li>哈希表查找</li>
+</ul>
+
+<h5 id="四数组的内存图" data-numberify>四、数组的内存图<a class="anchor ms-1" href="#四数组的内存图"></a></h5>
+
+<h6 id="1java内存分配介绍" data-numberify>1、Java内存分配介绍<a class="anchor ms-1" href="#1java内存分配介绍"></a></h6>
+<ul>
+<li>
+<p>栈内存</p>
+<p>方法运行时所进入的内存，变量也是存在这里的</p>
+</li>
+<li>
+<p>堆内存</p>
+<p>new出来的东西会在这块内存中开辟空间并产生地址</p>
+</li>
+<li>
+<p>方法区</p>
+<p>字节码文件加载时进入的内存</p>
+</li>
+<li>
+<p>本地方法栈</p>
+</li>
+<li>
+<p>寄存器</p>
+</li>
+</ul>
+
+<h6 id="2数组内存图" data-numberify>2、数组内存图<a class="anchor ms-1" href="#2数组内存图"></a></h6>
+<p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/b84941d06cda41f39c8b90412f5d6d61.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+
+<h6 id="3两个变量指向同一个数组" data-numberify>3、两个变量指向同一个数组<a class="anchor ms-1" href="#3两个变量指向同一个数组"></a></h6>
+<p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/d1b1a27690ac475f8bf15b25ffbc1822.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+
+<h5 id="五数组使用的常见问题" data-numberify>五、数组使用的常见问题<a class="anchor ms-1" href="#五数组使用的常见问题"></a></h5>
+<p>1、如果访问的元素位置超过最大索引，执行时会出现ArraylndexOutOfBoundsException(数组索引越界异常)<br>
+2、如果数组变量中没有存储数组的地址，而是nulL,在访问数组信息时会出现NullPointerException(空指针异常)</p>
+
+<h5 id="六debug工具的使用" data-numberify>六、Debug工具的使用<a class="anchor ms-1" href="#六debug工具的使用"></a></h5>
+
+<h6 id="1debug工具断电调试工具" data-numberify>1、Debug工具（断电调试工具）<a class="anchor ms-1" href="#1debug工具断电调试工具"></a></h6>
+<p>​ IDEA自带的断电调试（排错）工具，可以控制代码从断电开始一行一行的执行，然后详细观看程序执行的情况</p>
+
+<h6 id="2debug工具基本使用步骤" data-numberify>2、Debug工具基本使用步骤<a class="anchor ms-1" href="#2debug工具基本使用步骤"></a></h6>
+<ul>
+<li>在需要控制的代码左侧点一下，形成断点</li>
+<li>选择使用Debug方式启动程序，启动后程序会在断电暂停</li>
+<li>控制代码一行行的往下执行</li>
+</ul>
+
+<h3 id="第十四节方法" data-numberify>第十四节、方法<a class="anchor ms-1" href="#第十四节方法"></a></h3>
+
+<h6 id="什么是方法" data-numberify>什么是方法？<a class="anchor ms-1" href="#什么是方法"></a></h6>
+<p>​ 方法是一种语法结构，它可以把一段代码封装成一个功能，以方便重复调用。</p>
+
+<h6 id="方法的优势" data-numberify>方法的优势：<a class="anchor ms-1" href="#方法的优势"></a></h6>
+<ul>
+<li>提高了代码的复用性</li>
+<li>让程序的逻辑更清晰</li>
+</ul>
+
+<h5 id="一方法的定义调用" data-numberify>一、方法的定义、调用<a class="anchor ms-1" href="#一方法的定义调用"></a></h5>
+
+<h6 id="1方法定义的完整格式" data-numberify>1、方法定义的完整格式<a class="anchor ms-1" href="#1方法定义的完整格式"></a></h6>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">修饰符</span><span class="w"> </span><span class="n">返回值类型</span><span class="w"> </span><span class="nf">方法名</span><span class="p">(</span><span class="n">形参列表</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">放法体代码</span><span class="err">（</span><span class="n">需要执行的功能代码</span><span class="err">）</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">返回值</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/62ff3528ab664b519718e29830403381.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+
+<h6 id="2方法的调用格式" data-numberify>2、方法的调用格式<a class="anchor ms-1" href="#2方法的调用格式"></a></h6>
+<ul>
+<li>
+<p>方法必须调用才可以跑起来，调用格式：</p>
+<pre tabindex="0"><code>方法名(参数);
+</code></pre></li>
+</ul>
+
+<h6 id="3方法格式的注意点" data-numberify>3、方法格式的注意点<a class="anchor ms-1" href="#3方法格式的注意点"></a></h6>
+<ul>
+<li>方法的修饰符：暂时都使用piblic static修饰</li>
+<li>方法申明了具体的返回值类型，内部必须使用return返回对应类型的数据</li>
+<li>形参列表可以有多个，甚至可以没有；如果有多个形参，多个形参必须用“，”隔开，且不能给初始化值。</li>
+</ul>
+
+<h6 id="4方法定义的其他写法" data-numberify>4、方法定义的其他写法<a class="anchor ms-1" href="#4方法定义的其他写法"></a></h6>
+<p>方法定义时：返回值类型、形参列表可以按照需求进行填写。</p>
+
+<h6 id="注意事项-1" data-numberify>注意事项：<a class="anchor ms-1" href="#注意事项-1"></a></h6>
+<ul>
+<li>如果方法不需要返回结果，返回值类型必须申明成void(无返回值)，此时方法内部不可以使用return返回数据。</li>
+<li>方法如果没有参数，或者返回值类型申明为void可以称为无参数、无返回值的方法，依次类推</li>
+</ul>
+
+<h5 id="二方法使用的常见问题" data-numberify>二、方法使用的常见问题<a class="anchor ms-1" href="#二方法使用的常见问题"></a></h5>
+<p>1、方法的编写顺序无所谓</p>
+<p>2、方法与方法之间是平级关系，不能嵌套定义</p>
+<p>3、方法的返回值类型为void（无返回值），方法内部不能使用return返回数据，如果方法的返回值类型写了具体类型，方法内部必须使用return返回对应数据类型的数据</p>
+<p>4、return语句下面，不能编写代码，因为永远执行不到，属于无效代码。</p>
+<p>5、方法不调用就不执行，调用时必须严格匹配方法的参数情况</p>
+<p>6、有返回值的方法调用时可以选择定义变量接收结果，或者直接输出调用，甚至直接调用；无返回值方法的调用只能直接调用一下。</p>
+
+<h5 id="三方法定义的技巧说明" data-numberify>三、方法定义的技巧说明<a class="anchor ms-1" href="#三方法定义的技巧说明"></a></h5>
+<p>1、修饰符：public static（暂时固定）</p>
+<p>2、方法名称：自己取名，有意义，英文小写，驼峰模式。</p>
+<p>3、方法体代码：完成自己需要写的功能代码即可</p>
+
+<h6 id="4真正需要关注的就两点" data-numberify>4、真正需要关注的就两点：<a class="anchor ms-1" href="#4真正需要关注的就两点"></a></h6>
+<ul>
+<li>分析方法是否需要申明返回值类型；</li>
+<li>分析方法是否需要接收参数。</li>
+</ul>
+
+<h5 id="四方法调用的内存图" data-numberify>四、方法调用的内存图<a class="anchor ms-1" href="#四方法调用的内存图"></a></h5>
+
+<h6 id="1方法的调用流程-内存图解" data-numberify>1、方法的调用流程-内存图解<a class="anchor ms-1" href="#1方法的调用流程-内存图解"></a></h6>
+<ul>
+<li>方法没有被调用的时候，在方法区中的字节码文件中存放</li>
+<li>方法被调用的时候，需要进入到栈内存中运行</li>
+</ul>
+
+<h5 id="五方法的参数传递机制" data-numberify>五、方法的参数传递机制<a class="anchor ms-1" href="#五方法的参数传递机制"></a></h5>
+
+<h6 id="1java的参数传递机制值传递" data-numberify>1、Java的参数传递机制：值传递<a class="anchor ms-1" href="#1java的参数传递机制值传递"></a></h6>
+<p>​ 在传输实参给方法的形参的时候，并不是传输实参变量本身，而是传输实参变量中存储的值，这就是值传递。</p>
+
+<h6 id="注意-1" data-numberify>注意：<a class="anchor ms-1" href="#注意-1"></a></h6>
+<ul>
+<li>形参：以方法为例，就是方法定义时的变量。</li>
+<li>实参：在方法内部定义的变量</li>
+</ul>
+
+<h6 id="2引用类型的参数传递" data-numberify>2、引用类型的参数传递<a class="anchor ms-1" href="#2引用类型的参数传递"></a></h6>
+<p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/0ba7183e613b4e728d6ac58808a133ec.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+
+<h6 id="3基本类型和引用类型的参数在传递的时候有什么不同" data-numberify>3、基本类型和引用类型的参数在传递的时候有什么不同？<a class="anchor ms-1" href="#3基本类型和引用类型的参数在传递的时候有什么不同"></a></h6>
+<ul>
+<li>都是值传递。</li>
+<li>基本类型的参数传输存储的数据值。</li>
+<li>引用类型的参数传输存储的地址值。</li>
+</ul>
+
+<h5 id="六方法重载" data-numberify>六、方法重载<a class="anchor ms-1" href="#六方法重载"></a></h5>
+<p>​ 同一个类中，出现多个方法名称相同，但是形参不同的，那么这些方法就是重载方法<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/1eb08a6407344de883b674091c11bc65.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+
+<h6 id="1方法重载的作用" data-numberify>1、方法重载的作用<a class="anchor ms-1" href="#1方法重载的作用"></a></h6>
+<p>​ 对于相似功能的业务场景：可读性好，方法名称相同提示是同一类型的功能，通过形参不同实现功能差异化的选择，这是一种专业的代码设计。</p>
+
+<h6 id="2方法重载的识别技巧" data-numberify>2、方法重载的识别技巧<a class="anchor ms-1" href="#2方法重载的识别技巧"></a></h6>
+<ul>
+<li>只要是同一个类中，方法名称相同、形参列表不同，那么他们就是重载的方法，其他都不管！(如：修饰符，返回值类型都无所谓)</li>
+<li>形参列表不同指的是：形参的个数、类型、顺序不同，不关心形参的名称。</li>
+</ul>
+
+<h5 id="七return关键字单独使用" data-numberify>七、return关键字单独使用<a class="anchor ms-1" href="#七return关键字单独使用"></a></h5>
+<p>​ return；可以立即跳出并结束当前方法的执行；return关键字单独使用可以放在任何方法中。</p>
+
+<h2 id="第十五节面向对象" data-numberify>第十五节：面向对象<a class="anchor ms-1" href="#第十五节面向对象"></a></h2>
+<p><strong>1、什么是面向对象编程？</strong></p>
+<p>面向：找、拿</p>
+<p>对象：东西</p>
+<p>面向对象编程：找或者拿东西过来编程</p>
+<p><strong>2、面向对象编程的好处，为什么用面向对象编程？</strong></p>
+<p>符合人类思维习惯，编程跟简单，更好理解</p>
+<p><strong>3、面向对象学什么？</strong></p>
+<p>学习自己设计对象并使用</p>
+<p>学习面向对象的语法</p>
+
+<h5 id="一设计对象并使用" data-numberify>一、设计对象并使用<a class="anchor ms-1" href="#一设计对象并使用"></a></h5>
+
+<h6 id="1设计类创建对象并使用" data-numberify>1、设计类，创建对象并使用<a class="anchor ms-1" href="#1设计类创建对象并使用"></a></h6>
+
+<h6 id="什么是类什么是对象" data-numberify>什么是类，什么是对象？<a class="anchor ms-1" href="#什么是类什么是对象"></a></h6>
+<ul>
+<li>**类（）设计图：**是对象共同特征的描述。</li>
+<li>**对象：**是真实存在的具体实例。</li>
+<li>**结论：**在java中，必须先设计类，才能创建对象并使用</li>
+</ul>
+
+<h6 id="2如何设计类" data-numberify>（2）如何设计类<a class="anchor ms-1" href="#2如何设计类"></a></h6>
+<p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/1cc34c94d337400ca83829ac26cbbcb1.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+
+<h6 id="3如何得到类对象" data-numberify>（3）如何得到类对象<a class="anchor ms-1" href="#3如何得到类对象"></a></h6>
+<p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/0a6e4493508340db8cf98d116d2c0780.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+
+<h6 id="4如何使用对象在这里插入图片描述httpsimg-blogcsdnimgcnf79111571d184773bde0e021db3748bfpngpic_center" data-numberify>（4）如何使用对象在这里插入图片描述<a class="anchor ms-1" href="#4如何使用对象在这里插入图片描述httpsimg-blogcsdnimgcnf79111571d184773bde0e021db3748bfpngpic_center"></a></h6>
+
+<h6 id="2定义类的几个补充注意事项" data-numberify>2、定义类的几个补充注意事项<a class="anchor ms-1" href="#2定义类的几个补充注意事项"></a></h6>
+
+<h6 id="1定义类有哪些建议有什么需要注意的" data-numberify>1、定义类有哪些建议，有什么需要注意的？<a class="anchor ms-1" href="#1定义类有哪些建议有什么需要注意的"></a></h6>
+<ul>
+<li>类名首字母建议大写，且有意义，满足“驼峰模式”，不能用关键字，必须是合法的标识符。</li>
+<li>一个Java文件中可以定义多个class类，但只能一个类是public修饰，而且public修饰的类名必须成为代码文件名。实际开发中建议还是一个文件定义一个class类。</li>
+</ul>
+
+<h6 id="2成员变量的格式是什么样的有什么特点" data-numberify>2、成员变量的格式是什么样的，有什么特点<a class="anchor ms-1" href="#2成员变量的格式是什么样的有什么特点"></a></h6>
+<ul>
+<li>成员变量的完整定义格式是：修饰符 数据类型 变量名称 = 初始化值；</li>
+<li>一般无需指定初始化值，存在默认值。</li>
+<li>成员变量的默认值规则<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/ca14c46a2498419bb1354ce8462d3369.png#pic_center" loading="lazy" />
+</picture>
+
+</li>
+</ul>
+
+<h5 id="二对象在内存中的运行机制" data-numberify>二、对象在内存中的运行机制<a class="anchor ms-1" href="#二对象在内存中的运行机制"></a></h5>
+
+<h6 id="1两个对象内存图" data-numberify>1、两个对象内存图<a class="anchor ms-1" href="#1两个对象内存图"></a></h6>
+<p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/d4c6bf80dfe542c89119bdcbe290b7b3.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+<p><strong>总结：</strong></p>
+<ul>
+<li>对象放在堆内存中</li>
+<li>Car c = new Car();c变量中存储的是对象在堆内存中的地址</li>
+<li>成员变量的数据放在对象中，也就是存在于堆内存中</li>
+</ul>
+
+<h6 id="2两个变量指向同一个对象的内存图" data-numberify>2、两个变量指向同一个对象的内存图<a class="anchor ms-1" href="#2两个变量指向同一个对象的内存图"></a></h6>
+<p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/833bbcf3892a41b59d36b74a4910817f.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+<p>垃圾回收：</p>
+<p>注意：当堆内存中的对象，没有被任何变量引用（指向）时，就会被判定为内存中的“垃圾”</p>
+<p>Java存在自动垃圾回收器，会定期进行垃圾清理</p>
+
+<h5 id="三构造器" data-numberify>三、构造器<a class="anchor ms-1" href="#三构造器"></a></h5>
+
+<h6 id="1学习构造器的目的" data-numberify>1、学习构造器的目的：<a class="anchor ms-1" href="#1学习构造器的目的"></a></h6>
+<ul>
+<li>真正知道对象具体是通过调用什么代码得到的。</li>
+<li>能够掌握为对象赋值的其他简便写法</li>
+<li>为以后学习面向对象编程的其他内容做支撑</li>
+</ul>
+
+<h6 id="2构造器的作用" data-numberify>2、构造器的作用<a class="anchor ms-1" href="#2构造器的作用"></a></h6>
+<p>定义在类中的，可以用于初始化一个类的对象，并返回对象的地址。</p>
+
+<h6 id="3构造器的格式" data-numberify>3、构造器的格式<a class="anchor ms-1" href="#3构造器的格式"></a></h6>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">修饰符</span><span class="w"> </span><span class="nf">类名</span><span class="p">(</span><span class="n">形参列表</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p><strong>例如：</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Car</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//无参构造器</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="nf">Car</span><span class="p">(){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//有参构造器</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="kd">public</span><span class="w"> </span><span class="nf">Car</span><span class="p">(</span><span class="n">Sting</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="kt">double</span><span class="w"> </span><span class="n">p</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
+<h6 id="4构造器的分类和作用" data-numberify>4、构造器的分类和作用<a class="anchor ms-1" href="#4构造器的分类和作用"></a></h6>
+<ul>
+<li>无参数构造器（默认存在的）：初始化对象时，成员变量的数据均采用默认值。</li>
+<li>有参数构造器：在初始化对象的时候，同时可以接受参数为对象进行赋值。</li>
+</ul>
+
+<h6 id="5构造器的注意事项" data-numberify>5、构造器的注意事项<a class="anchor ms-1" href="#5构造器的注意事项"></a></h6>
+<ul>
+<li>任何类定义出来，默认就自带了无参数构造器，写不写都有。</li>
+<li>一旦定义了有参数构造器，那么无参数构造器就没有了，如果还想用无参数构造器，此时就需要自己手写一个无参数构造器了。</li>
+</ul>
+
+<h5 id="四this关键字" data-numberify>四、this关键字<a class="anchor ms-1" href="#四this关键字"></a></h5>
+
+<h6 id="1this关键字是什么" data-numberify>1、this关键字是什么<a class="anchor ms-1" href="#1this关键字是什么"></a></h6>
+<ul>
+<li>可以出现在构造器、方法中</li>
+<li>代表当前对象的地址。</li>
+</ul>
+
+<h6 id="2this关键字的作用" data-numberify>2、this关键字的作用<a class="anchor ms-1" href="#2this关键字的作用"></a></h6>
+<p>可以用于指定访问当前对象的成员变量、成员方法。</p>
+
+<h6 id="3this出现在有参数构造器中的用法" data-numberify>3、this出现在有参数构造器中的用法<a class="anchor ms-1" href="#3this出现在有参数构造器中的用法"></a></h6>
+<p>​ 可以用于访问当前对象的成员变量、成员方法（代表了当前对象）。<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/840d12a48d8342a48444ba8c3c12895c.png#pic_center" loading="lazy" />
+</picture>
+
+<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/b44e24ff043b426eaf464693aaf44e87.png#pic_center" loading="lazy" />
+</picture>
+
+</p>
+
+<h5 id="五封装" data-numberify>五、封装<a class="anchor ms-1" href="#五封装"></a></h5>
+
+<h6 id="1封装" data-numberify>1、封装<a class="anchor ms-1" href="#1封装"></a></h6>
+<p>面向对象的三大特征：<strong>封装</strong>，<strong>继承</strong>，<strong>多态</strong></p>
+<p>**封装：**告诉我们，如何正确设计对象的属性和方法。</p>
+<p>**封装的原则：**对象代表什么，就得封装对应的数据，并提供数据对应的行为。</p>
+
+<h6 id="2理解封装思想有啥好处" data-numberify>2、理解封装思想有啥好处<a class="anchor ms-1" href="#2理解封装思想有啥好处"></a></h6>
+<ul>
+<li>有什么事，找对象，调方法就行，编程变得很简单。</li>
+<li>降低学习成本，可以少学、少记。</li>
+</ul>
+
+<h6 id="3如何进行分装更好" data-numberify>3、如何进行分装更好<a class="anchor ms-1" href="#3如何进行分装更好"></a></h6>
+<ul>
+<li>一般建议对成员变量使用private（私有、隐藏）关键字修饰（private修饰的成员只能在当前类中访问）</li>
+<li>为每个成员变量提供配套public修饰的getter、setter方法暴露取值和赋值</li>
+</ul>
+
+<h5 id="六标准javabean" data-numberify>六、标准JavaBean<a class="anchor ms-1" href="#六标准javabean"></a></h5>
+
+<h6 id="1javabean" data-numberify>1、JavaBean<a class="anchor ms-1" href="#1javabean"></a></h6>
+<p>也可以称为实体类，其对象可以用于在程序中封装数据。</p>
+
+<h6 id="2标准javabean需要满足如下要求" data-numberify>2、标准JavaBean需要满足如下要求：<a class="anchor ms-1" href="#2标准javabean需要满足如下要求"></a></h6>
+<ul>
+<li>成员变量使用private修饰</li>
+<li>提供成员变量对应的setXxx()/getXxx()方法</li>
+<li>必须提供一个无参构造器；有参数构造器可写可不写。</li>
+</ul>
+
+<h5 id="七补充知识成员变量局部变量的区别" data-numberify>七、补充知识：成员变量、局部变量的区别<a class="anchor ms-1" href="#七补充知识成员变量局部变量的区别"></a></h5>
+<table>
+<thead>
+<tr>
+<th>区别</th>
+<th>成员变量</th>
+<th>局部变量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>类中位置不同</td>
+<td>类中，方法外</td>
+<td>常见于方法中</td>
+</tr>
+<tr>
+<td>初始化值不同</td>
+<td>有默认值，无需初始化</td>
+<td>没有默认值</td>
+</tr>
+<tr>
+<td>内存位置不同</td>
+<td>堆内存</td>
+<td>栈内存</td>
+</tr>
+<tr>
+<td>生命周期不同</td>
+<td>随着对像的创建而存在，随着对象的消失而消失</td>
+<td>随着方法的调用而存在，随着方法的运行结束而消失</td>
+</tr>
+<tr>
+<td>作用域</td>
+<td></td>
+<td>在所属的大括号中</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="第十六节常用api" data-numberify>第十六节、常用API<a class="anchor ms-1" href="#第十六节常用api"></a></h3>
+
+<h4 id="一apiapplication-programming-interface应用程序编程接口" data-numberify>一、API（Application Programming Interface，应用程序编程接口）<a class="anchor ms-1" href="#一apiapplication-programming-interface应用程序编程接口"></a></h4>
+<p>1、Java写好的技术（功能代码），咱们可以直接调用</p>
+<p>2、Oracle也为Java提供的这些功能代码提供了相应的API文档（技术说明书）</p>
+<p>3、下载API文档:</p>
+<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener noreferrer">http://www.oracle.com/technetwork/java/javase/downloads/index.html<i class="fas fa-external-link-square-alt ms-1"></i></a></p>
+
+<h4 id="二string" data-numberify>二、String<a class="anchor ms-1" href="#二string"></a></h4>
+
+<h5 id="1string概述" data-numberify>1、String概述<a class="anchor ms-1" href="#1string概述"></a></h5>
+<ul>
+<li>java.lang.String类代表字符串，String类定义的变量可以用于指向字符串对像，然后操作该字符串。</li>
+<li>Java程序中的所有字符串文字（例如 “abc”)都为此类的对象。</li>
+</ul>
+
+<h5 id="2string类的特点详解" data-numberify>2、String类的特点详解<a class="anchor ms-1" href="#2string类的特点详解"></a></h5>
+<ul>
+<li>String其实常被称为不可变字符串类型，它的对象在创建后不能被改变</li>
+</ul>
+
+<h5 id="3字符串对象存在哪里" data-numberify>3、字符串对象存在哪里？<a class="anchor ms-1" href="#3字符串对象存在哪里"></a></h5>
+<ul>
+<li>以“ ”方式给出的字符串对象，在字符串常量池中存储。</li>
+</ul>
+
+<h5 id="4string是不可变字符串的原因" data-numberify>4、String是不可变字符串的原因？<a class="anchor ms-1" href="#4string是不可变字符串的原因"></a></h5>
+<ul>
+<li>String变量每次的修改其实都是产生并指向了新的字符串对象。</li>
+<li>原来的字符串对象都是没有改变的，所以称不可变字符串。</li>
+</ul>
+
+<h4 id="三string类创建对象的2种方式" data-numberify>三、String类创建对象的2种方式<a class="anchor ms-1" href="#三string类创建对象的2种方式"></a></h4>
+
+<h5 id="1创建方法" data-numberify>1、创建方法：<a class="anchor ms-1" href="#1创建方法"></a></h5>
+<p>方式一：直接使用“ ”定义。（推荐方式）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;传智教育&#34;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>方式二：通过String类的构造器创建对象。</p>
+<table>
+<thead>
+<tr>
+<th>构造器</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public String()</td>
+<td>创建一个空白字符串对象，不含有任何内容</td>
+</tr>
+<tr>
+<td>public String(String original)</td>
+<td>根据传入的字符内容，来创建字符串对象</td>
+</tr>
+<tr>
+<td>public String(char[] chs)</td>
+<td>根据字符数组的内容，来创建字符串对象</td>
+</tr>
+<tr>
+<td>public String(byte[] chs)</td>
+<td>根据字节数组，来创建字符串对象</td>
+</tr>
+</tbody>
+</table>
+
+<h5 id="2区别" data-numberify>2、区别<a class="anchor ms-1" href="#2区别"></a></h5>
+<ul>
+<li>以 “ ” 方式给出的字符串对象，在字符串常量池中存储，而且相同内容只会在其中存储一份</li>
+<li>通过利用构造器new对象，每个new一次都会产生一个新对象，放在堆内存中</li>
+</ul>
+
+<h4 id="四string类常用api-字符串内容比较" data-numberify>四、String类常用API-字符串内容比较<a class="anchor ms-1" href="#四string类常用api-字符串内容比较"></a></h4>
+
+<h5 id="1字符串内容比较" data-numberify>1、字符串内容比较<a class="anchor ms-1" href="#1字符串内容比较"></a></h5>
+<ul>
+<li>字符串的内容比较不适合用“==”比较</li>
+<li>推荐使用String类提供的&quot;equals“比较：只关心内容一样即可</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public blean equals(Object anObject)</td>
+<td>将此字符串与指定对象进行比较，只关心字符内容是否一致</td>
+</tr>
+<tr>
+<td>public blean equalsIgnoreCase(String anotherString)</td>
+<td>将此字符串与指定对象进行比较，忽略大小写比较字符串。只关心字符内容是否一致</td>
+</tr>
+</tbody>
+</table>
+
+<h5 id="2开发中什么时候使用比较数据" data-numberify>2、开发中什么时候使用==比较数据<a class="anchor ms-1" href="#2开发中什么时候使用比较数据"></a></h5>
+<ul>
+<li>基本数据类型比较时使用。</li>
+</ul>
+
+<h4 id="五string类常用api-遍历替代截取分割操作" data-numberify>五、String类常用API-遍历、替代、截取、分割操作<a class="anchor ms-1" href="#五string类常用api-遍历替代截取分割操作"></a></h4>
+
+<h5 id="1string常用api" data-numberify>1、String常用API<a class="anchor ms-1" href="#1string常用api"></a></h5>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public int length()</td>
+<td>返回此字符串的长度</td>
+</tr>
+<tr>
+<td>public char charAt(int index)</td>
+<td>获取某个索引位置处的字符</td>
+</tr>
+<tr>
+<td>public char[] toCharArray()</td>
+<td>将当前字符串转换成字符数组返回</td>
+</tr>
+<tr>
+<td>public String substring(int beginIndex,int endIndex)</td>
+<td>根据开始和结束索引进行截取，得到新的字符串（包前不包后）</td>
+</tr>
+<tr>
+<td>public String substring(int beinIndex)</td>
+<td>从传入的索引处截取，截取到末尾，得到新的字符串</td>
+</tr>
+<tr>
+<td>public String replace(CharSequence target,CharSequence replacement)</td>
+<td>使用新值，将字符串中的旧值替换，得到新的字符串</td>
+</tr>
+<tr>
+<td>public String[] split(String regex)</td>
+<td>根据传入的规则切割字符串，得到字符串数组返回</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="第十七节集合概述" data-numberify>第十七节、集合概述<a class="anchor ms-1" href="#第十七节集合概述"></a></h3>
+<p>​ 集合是与数组类似，也是一种容器，用于装数据的。</p>
+
+<h4 id="一集合的特点" data-numberify>一、集合的特点<a class="anchor ms-1" href="#一集合的特点"></a></h4>
+<ul>
+<li>集合的大小不固定，启动后可以动态变化，类型也可以不固定</li>
+<li>集合非常适合做元素个数不确定，且要进行增删操作的业务场景</li>
+<li>集合的提供了许多丰富、好用的功能，而且数组的功能很单一</li>
+</ul>
+
+<h4 id="二arraylist集合快速入门" data-numberify>二、ArrayList集合快速入门<a class="anchor ms-1" href="#二arraylist集合快速入门"></a></h4>
+
+<h5 id="1arraylist集合" data-numberify>1、ArrayList集合<a class="anchor ms-1" href="#1arraylist集合"></a></h5>
+<p>ArrayList是集合中的一种，它支持索引。（暂时先学习这个，后期课程会学习整个集合体系）</p>
+
+<h5 id="2arraylist集合的对象获取" data-numberify>2、ArrayList集合的对象获取<a class="anchor ms-1" href="#2arraylist集合的对象获取"></a></h5>
+<table>
+<thead>
+<tr>
+<th>构造器</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public ArrayList()</td>
+<td>创建一个空的集合对象</td>
+</tr>
+</tbody>
+</table>
+
+<h5 id="3arraylist集合添加元素的方法" data-numberify>3、ArrayList集合添加元素的方法<a class="anchor ms-1" href="#3arraylist集合添加元素的方法"></a></h5>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pubilc boolean add(E e)</td>
+<td>将指定的元素追加到此集合的末尾</td>
+</tr>
+<tr>
+<td>public void add(int index,E element)</td>
+<td>在此集合中指定位置插入指定的元素</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="三arraylist对于泛型的支持" data-numberify>三、ArrayList对于泛型的支持<a class="anchor ms-1" href="#三arraylist对于泛型的支持"></a></h4>
+
+<h5 id="1泛型概述" data-numberify>1、泛型概述<a class="anchor ms-1" href="#1泛型概述"></a></h5>
+<p>ArrayList：其实就是一个泛型类，可以在阶段约束集合对象只能操作某种数据类型</p>
+
+<h5 id="2举例" data-numberify>2、举例<a class="anchor ms-1" href="#2举例"></a></h5>
+<ul>
+<li>ArrayList：此集合只能操作字符串类型的元素。</li>
+<li>ArrayList:此集合只能操作整数类型的元素。</li>
+</ul>
+<p>注意：集合中只能存储引用类型，不支持基本数据类型</p>
+
+<h4 id="四arraylist常用api遍历" data-numberify>四、ArrayList常用API、遍历<a class="anchor ms-1" href="#四arraylist常用api遍历"></a></h4>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public E get(int index)</td>
+<td>返回指定索引处元素</td>
+</tr>
+<tr>
+<td>public int size()</td>
+<td>返回集合中的元素个数</td>
+</tr>
+<tr>
+<td>public E remove(int index)</td>
+<td>删除指定索引处的元素，返回被删除的元素</td>
+</tr>
+<tr>
+<td>public boolean remove(Objet o)</td>
+<td>删除指定的元素，返回删除是否成功</td>
+</tr>
+<tr>
+<td>public E set(int index,Eelement)</td>
+<td>修改指定索引出的元素，返回被修改的元素</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://blog.csdn.net/wocao_666/article/details/130778956" target="_blank" rel="noopener noreferrer">后续 JavaSE加强篇<i class="fas fa-external-link-square-alt ms-1"></i></a></p>
+<p>文章知识点与官方知识档案匹配，可进一步学习相关知识</p>
+<p><a href="https://edu.csdn.net/skill/java/?utm_source=csdn_ai_skill_tree_blog" target="_blank" rel="noopener noreferrer">Java技能树<i class="fas fa-external-link-square-alt ms-1"></i></a><a href="https://edu.csdn.net/skill/java/?utm_source=csdn_ai_skill_tree_blog" target="_blank" rel="noopener noreferrer">首页<i class="fas fa-external-link-square-alt ms-1"></i></a><a href="https://edu.csdn.net/skill/java/?utm_source=csdn_ai_skill_tree_blog" target="_blank" rel="noopener noreferrer">概览<i class="fas fa-external-link-square-alt ms-1"></i></a>147459 人正在系统学习中</p>
+<p>本文转自 <a href="https://blog.csdn.net/wocao_666/article/details/130778863" target="_blank" rel="noopener noreferrer">https://blog.csdn.net/wocao_666/article/details/130778863<i class="fas fa-external-link-square-alt ms-1"></i></a>，如有侵权，请联系删除。</p>
+</div>
+</div>
+<div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content surface">
+      <div class="modal-header">
+        <h5 class="modal-title text-surface" id="rewardModalLabel"><i class="fas fa-fw fa-coffee me-1"></i>Buy me a coffee</h5>
+        <a href="#" data-bs-dismiss="modal" class="btn-close" aria-label="Close"></a>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs mb-3" role="tablist"><li class="nav-item text-nowrap" role="presentation">
+            <a class="nav-link active" id="reward-alipay-tab" data-bs-toggle="tab" href="#reward-alipay" role="tab" aria-controls="reward-alipay" aria-selected="true">
+              <i class="fab fa-fw fa-alipay me-1"></i>Alipay
+            </a>
+          </li><li class="nav-item text-nowrap" role="presentation">
+            <a class="nav-link" id="reward-wechat-tab" data-bs-toggle="tab" href="#reward-wechat" role="tab" aria-controls="reward-wechat" aria-selected="true">
+              <i class="fab fa-fw fa-weixin me-1"></i>WeChat
+            </a>
+          </li></ul>
+        <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content text-center show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
+            <img class="img-fluid post-reward-img" src="https://fallingmy.github.io/images/reward/alipay.jpg" loading="lazy" data-viewer-invisible />
+          </div><div class="tab-pane fade post-reward-content text-center show" id="reward-wechat" role="tabpanel" aria-labelledby="reward-wechat-tab">
+            <img class="img-fluid post-reward-img" src="https://fallingmy.github.io/images/reward/wechat.jpg" loading="lazy" data-viewer-invisible />
+          </div></div>
+      </div>
+    </div>
+  </div>
+</div></div><div class="card-footer">
+  <div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-prev">
+      <i class="fas fa-fw fa-chevron-down post-prev-icon me-1" data-fa-transform="rotate-90"></i>
+      <a href="/docs/helpdocs/java/java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%85%AB%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-&#43;-%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">Java数据类型（八种基本数据类型 &#43; 四种引用数据类型）</a>
+    </div></div>
+</div></article><div class="post-copyright mb-3 row card component" id="post-copyright">
+    <div class="card-header">
+        <h2 class="card-title fs-4 my-2 text-surface">Copyright</h2>
+    </div>
+    <div class="card-body"><a class="d-flex align-items-center flex-column" target="_blank" rel="license noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en">
+  <span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-nc"></i><i class="fab fa-fw fa-2x fa-creative-commons-nd"></i></span>
+  CC BY-NC-ND 4.0 
+</a>
+
+
+    </div>
+</div><section class="related-posts row card component">
+      <div class="card-header">
+        <h2 class="card-title fs-4 my-2 text-surface">
+          Related Posts
+        </h2>
+      </div>
+      <div class="card-body slide px-1">
+        <div class="slide-inner row gx-0"><div class="col-12 col-md-6 col-lg-4 me-2">
+            <div class="post-card card card-body p-0 border-0 surface">
+  
+  <picture>
+      <source srcset="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample_hu1e269adb755e54f6dcb322d69e53c5ae_40960_500x0_resize_q75_h2_box_2.webp" media="(max-width: 576px)" height="375" width="500">
+      <img class="img-fluid" height="135" width="180" alt="featured-sample.webp" src="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample_hu1e269adb755e54f6dcb322d69e53c5ae_40960_180x0_resize_q75_h2_box_2.webp" data-src="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample.webp" loading="lazy"/>
+    </picture>
+
+  <a class="post-title" href="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/">
+    落茜聚
+  </a>
+  <div class="post-meta mb-0">
+    January 1, 1
+
+  </div>
+</div>
+
+          </div></div>
+        <button class="slide-control-left">
+          <i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-90"></i>
+          <span class="visually-hidden">Left</span>
+        </button>
+        <button class="slide-control-right">
+          <i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-270"></i>
+          <span class="visually-hidden">Right</span>
+        </button>
+      </div>
+    </section><div class="card component row post-comments" id="post-comments">
+  <div class="card-header">
+    <h2 class="card-title my-2 fs-4 text-surface">Comments</h2>
+  </div>
+  <div class="card-body">
+<div class="giscus"></div>
+
+
+
+</div>
+</div></div>
+</div>
+<aside class="sidebar d-flex docs-sidebar col-xxl-3 position-sticky order-xxl-5">
+  <div class="container">
+    
+    <div class="accordion post-toc d-none d-lg-block">
+  <div class="accordion-item row mb-4 card component" id="postTOC">
+    <div class="card-header accordion-header">
+      <h2 class="card-title fs-4 my-2 text-surface d-none d-lg-block">Contents</h2>
+      <a class="accordion-button d-lg-none mb-1 collapsed shadow-none p-0 bg-transparent" role="button" data-bs-toggle="collapse" href="#post-toc" aria-expanded="false" aria-controls="post-toc">
+        Contents
+      </a>
+    </div>
+    <div class="card-body collapse accordion-collapse accordion-body d-lg-block" id="post-toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#第一节java语言概述">第一节：Java语言概述</a></li>
+        <li><a href="#第二节java环境搭建">第二节：Java环境搭建</a></li>
+        <li><a href="#第三节java入门程序">第三节：Java入门程序</a></li>
+        <li><a href="#第四节java程序的执行原理">第四节：Java程序的执行原理</a></li>
+        <li><a href="#第五节jdk的组成跨平台原理">第五节：JDK的组成、跨平台原理</a></li>
+        <li><a href="#第六节jdk安装后环境变量的配置">第六节：JDK安装后环境变量的配置</a></li>
+        <li><a href="#第七节idea开发工具的使用">第七节：IDEA开发工具的使用</a></li>
+        <li><a href="#第八节java基础语法">第八节、Java基础语法</a></li>
+        <li><a href="#第九节类型转换">第九节：类型转换</a></li>
+        <li><a href="#第十节运算符">第十节、运算符</a></li>
+        <li><a href="#第十节顺序结构程序默认">第十节、顺序结构（程序默认）</a></li>
+        <li><a href="#第十一节分支结构">第十一节、分支结构</a></li>
+        <li><a href="#第十二节循环结构">第十二节、循环结构</a></li>
+        <li><a href="#第十三节数组">第十三节、数组</a></li>
+        <li><a href="#第十四节方法">第十四节、方法</a></li>
+      </ul>
+    </li>
+    <li><a href="#第十五节面向对象">第十五节：面向对象</a>
+      <ul>
+        <li></li>
+        <li><a href="#第十六节常用api">第十六节、常用API</a></li>
+        <li><a href="#第十七节集合概述">第十七节、集合概述</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </div>
+</div>
+    <div class="accordion">
+    <div class="accordion-item docs-repo row card component">
+        <div class="card-header accordion-header" id="repo-header">
+            <h2 class="card-title fs-4 my-2 text-surface d-none d-lg-block">Repository</h2>
+            <a
+                class="accordion-button d-lg-none mb-1 shadow-none p-0 bg-transparent"
+                role="button" data-bs-toggle="collapse" href="#repo" aria-expanded="true" aria-controls="repo">
+                Repository
+            </a>
+        </div>
+        <div class="card-body collapse accordion-collapse accordion-body text-secondary-on-surface d-lg-block show" id="repo" aria-labelledby="repo-header">
+            <ul class="list-unstyled"><li class="mb-1">
+                    <a href="https://github.com/FallingMY/FallingMY.github.io/blob/main//content/docs/HelpDocs/Java/JavaSE%e5%9f%ba%e7%a1%80%e7%af%87%e2%80%94%e2%80%94%e8%b6%85%e8%af%a6%e7%bb%86%ef%bc%8cJava%e5%85%a5%e9%97%a8%ef%bc%8c%e8%bf%99%e4%b8%80%e7%af%87%e5%b0%b1%e5%a4%9f%e4%ba%86-CSDN%e5%8d%9a%e5%ae%a2.md" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-fw fa-file-archive text-success"></i> View page source
+                    </a>
+                </li>
+                <li class="mb-1">
+                    <a href="https://github.com/FallingMY/FallingMY.github.io/edit/main//content/docs/HelpDocs/Java/JavaSE%e5%9f%ba%e7%a1%80%e7%af%87%e2%80%94%e2%80%94%e8%b6%85%e8%af%a6%e7%bb%86%ef%bc%8cJava%e5%85%a5%e9%97%a8%ef%bc%8c%e8%bf%99%e4%b8%80%e7%af%87%e5%b0%b1%e5%a4%9f%e4%ba%86-CSDN%e5%8d%9a%e5%ae%a2.md" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-fw fa-edit text-primary"></i> Edit this page
+                    </a>
+                </li></ul>
+        </div>
+    </div>
+</div>
+
+  </div>
+</aside>
+
+      </div>
+    </main><footer class="footer mt-auto py-3 text-center container"><div class="offcanvas offcanvas-bottom h-auto" tabindex="-1" id="offcanvasActionsPanel"
+  aria-labelledby="offcanvasActionsPanelLabel">
+  <div class="offcanvas-header">
+    <div class="offcanvas-title h5" id="offcanvasActionsPanelLabel">
+      <i class="fas fa-fw fa-th-large me-1"></i>
+      Actions
+    </div>
+    <button type="button" class="btn-close ms-auto" data-bs-dismiss="offcanvas" data-bs-target="offcanvasActionsPanel" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body mt-2"><div class="social-share mb-4 d-flex overflow-auto">
+      <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Twitter Share Button"
+      target="_blank" href="https://twitter.com/intent/tweet?title=404%20Page%20not%20found&url=https%3a%2f%2ffallingmy.github.io%2f404.html">
+        <i class="fab fa-2x fa-fw fa-twitter mb-2"></i> Twitter
+      </a>
+      <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Facebook Share Button"
+        target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ffallingmy.github.io%2f404.html">
+        <i class="fab fa-2x fa-fw fa-facebook-f mb-2"></i> Facebook
+      </a>
+    </div>
+    <hr class="mb-4"><div class="actions d-flex overflow-auto align-items-center">
+      <a role="button" class="action action-go-back d-flex flex-column align-items-center me-3" href="javascript: window.history.back();">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-90"></i></span> Go back
+      </a>
+      <a role="button" class="action action-reload-page d-flex flex-column align-items-center me-3">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-redo-alt"></i></span> Reload
+      </a>
+      <a role="button" class="action action-copy-url d-flex flex-column align-items-center me-3">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-link"></i></span> Copy URL
+      </a>
+    </div>
+  </div>
+</div><div class="row text-center">
+  <div class="col-12 mt-2">
+    <p class="mb-2">Falling_Studio_Terminal3</p>
+    <p class="text-secondary mb-2"><small>An extreme fast, responsive and feature-rich blog theme for Hugo</small></p><div class="copyright mb-2 text-secondary">
+  <small>Copyright © 2016-2024 Razon Yang. All Rights Reserved.
+</small>
+</div>
+<div class="powered-by mb-2 text-secondary">
+  <small>
+    Build with ❤️ from the <a class="text-primary" href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a> and the <a class="text-primary" href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank" rel="noopener noreferrer">HBS</a> theme.
+  </small>
+</div>
+
+
+<nav class="social-links nav justify-content-center mb-2 mt-3">
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://space.bilibili.com/327274480" title="Bilibili" rel="me">
+        <i class="fa-fw fa-2x fab fa-bilibili"
+           style="color: #fb7299;"></i>
+      </a>
+    <a class="nav-link social-link p-0 me-1 mb-2" href="mailto:falling_my@outlook.com" title="Email">
+      <i class="fas fa-fw fa-2x fa-envelope" style="color: #0963ac;"></i>
+    </a>
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://github.com/FallingMY/FallingMY.github.io" title="GitHub" rel="me">
+        <i class="fa-fw fa-2x fab fa-github"
+          ></i>
+      </a>
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://wpa.qq.com/msgrd?v=3&amp;uin=%25!s%28int=1317096804%29&amp;site=qq&amp;menu=yes" title="QQ" rel="me">
+        <i class="fa-fw fa-2x fab fa-qq"
+          ></i>
+      </a>
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://twitter.com/FallingMY3" title="Twitter" rel="me">
+        <i class="fa-fw fa-2x fab fa-twitter"
+           style="color: #1d9bf0;"></i>
+      </a>
+  <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="/index.xml" title="RSS" rel="me">
+    <i class="fas fa-fw fa-2x fa-rss" style="color: #ea6221;"></i>
+  </a>
+</nav>
+</div>
+  <div class="col-12 col-lg-8 offset-0 offset-lg-1"></div>
+</div>
+</footer>
+<script data-precache src="/assets/main/bundle.min.5ad3a40fc4e98f8fcdd019b0792ae3bbabebb3fc979db92bc7610e2fb6414529.js" integrity="sha256-WtOkD8Tpj4/N0BmweSrju6vrs/yXnbkrx2EOL7ZBRSk=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.4f30d5267a9f2f9d45ed93969d45ec626100a969a8b91f71f753315a261e9034.js" integrity="sha256-TzDVJnqfL51F7ZOWnUXsYmEAqWmouR9x91MxWiYekDQ=" crossorigin="anonymous" defer></script>
+<script data-precache src="/assets/viewer/bundle.min.06371891cfe6d10d36cba465c61c4d7cb17591a3be2fd9af4a38444d2074e709.js" integrity="sha256-BjcYkc/m0Q02y6RlxhxNfLF1kaO&#43;L9mvSjhETSB05wk=" crossorigin="anonymous" defer></script>
+  <script data-precache defer src="/assets/katex/bundle.min.ebacb71ff73d65512126000e4a076fdbd207a155f88a4e69b442c0407e576fe3.js" integrity="sha256-66y3H/c9ZVEhJgAOSgdv29IHoVX4ik5ptELAQH5Xb&#43;M=" crossorigin="anonymous"></script>
+
+<script src="/js/sw-register.js" defer></script>
+<script src="https://giscus.app/client.js"
+    data-repo="FallingMY/FallingMY.github.io"
+    data-repo-id="R_kgDOMR9LTw"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOMSZCT84Cgl_T"
+    data-mapping="pathname"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="preferred_color_scheme"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    defer>
+</script>
+
+
+  </body>
+</html>

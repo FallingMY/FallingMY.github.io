@@ -1,0 +1,1104 @@
+<!doctype html>
+<html class="position-relative" itemscope itemtype="https://schema.org/WebPage" lang="en"
+  data-bs-theme="auto" data-palette="blue-gray">
+  <head><script src="/assets/init/bundle.min.60a5effd0a083ea3601371c3b04cf6e82d273dd8c1e0ec015b7d58b80bb88822.js" integrity="sha256-YKXv/QoIPqNgE3HDsEz26C0nPdjB4OwBW31YuAu4iCI=" crossorigin="anonymous"></script>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>三种编程命名规则：驼峰命名法，帕斯卡命名法，匈牙利命名法 - Falling_Studio_Terminal3</title>
+    <link rel="icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_16x16_resize_box_3.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_32x32_resize_box_3.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_150x150_resize_box_3.png" sizes="150x150" type="image/png">
+    <link rel="apple-touch-icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_180x180_resize_box_3.png" sizes="180x180" type="image/png">
+    <link rel="icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_192x192_resize_box_3.png" sizes="192x192" type="image/png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6f42c1">
+<meta name="keywords" content="Hugo, Bootstrap, Blog Theme" />
+  <meta name="description" content="文章目录驼峰命令法(Camel) 匈牙利命名法(Hungarian) 帕斯卡（Pascal）命名法 命名的基本原则 变量名的命名规则 函数的命名规范 函数参数命名规范 三种流行的命名法则
+目前，业界共有四种命名法则：驼峰命名法、匈牙利命名法、帕斯卡命名法和下划线命名法，其中前三种是较为流行的命名法。
+驼峰命令法(Camel)也称骆驼式命名法正如它的名称所表示的那样，是指混合使用大小写字母来构成变量和函数的名字例如，下面是分别用骆驼式命名法和下划线法命名的同一个函数：
+printEmployeePaychecks()； print_employee_paychecks()； 第一个函数名使用了骆驼式命名法，函数名中的每一个逻辑断点都有一个大写字母来标记；第二个函数名使用了下划线法，函数名中的每一个逻辑断点都有一个下划线来标记
+骆驼式命名法近年来越来越流行了，在许多新的函数库和Microsoft Windows这样的环境中，它使用得当相多另一方面，下划线法是c出现后开始流行起来的，在许多旧的程序和UNIX这样的环境中，它的使用非常普遍
+驼峰式命名法分为大驼峰式命名规则：FirstName, CamelCase
+小驼峰式命名规则：firstName, camelCase
+[中间不需要空格 - _等分割符]
+匈牙利命名法(Hungarian)广泛应用于象Microsoft Windows这样的环境中Windows 编程中用到的变量（还包括宏）的命名规则匈牙利命名法，这种命名技术是由一位能干的 Microsoft 程序员查尔斯- 西蒙尼(Charles Simonyi) 提出的
+匈牙利命名法通过在变量名前面加上相应的小写字母的符号标识作为前缀，标识出变量的作用域，类型等这些符号可以多个同时使用，顺序是先m_（成员变量）， 再指针，再简单数据类型，再其它
+例如：m_lpszStr, 表示指向一个以0字符结尾的字符串的长指针成员变量
+匈牙利命名法关键是：标识符的名字以一个或者多个小写字母开头作为前缀；前缀之后的是首字母大写的一个单词或多个单词组合，该单词要指明变量的用途
+匈牙利命名法的规则是：
+属性&#43;类型&#43;描述
+属性一般是小写字母&#43;:
+g:全局变量
+m_:类成员变量
+s_:静态变量
+c_:常量
+类型就多了：
+b:bool
+sz:以零结束的字符串
+p:指针
+n:整整
+dw:双字
+l:长整型
+无符号:u
+函数:fn
+匈牙利命名法分为系统和应用两种。系统着眼于类型。应用着眼于语义，比如col表示行，c表示计数。
+帕斯卡（Pascal）命名法与骆驼命名法类似只不过骆驼命名法是首字母小写，而帕斯卡命名法是首字母大写，如：
+DisplayInfo(); string UserName; pascal命名规则：大驼峰式命名规则
+命名的基本原则(1)标识符的命名要清晰、明了，有明确含义，同时使用完整的单词或大家基本可以理解的缩写，避免使人产生误解——尽量采用采用英文单词或全部中文全拼表示，若出现英文单词和中文混合定义时，使用连字符“_”将英文与中文割开。较短的单词可通过去掉“元音”形成缩写；较长的单词可取单词的头几个字母形成缩写；一些单词有大家公认的缩写。例如：temp-&gt;tmp、flag-&gt;标志寄存器、statistic-&gt;stat、increment-&gt;inc、message-&gt;msg等缩写能够被大家基本认可。
+(2)命名中若使用特殊约定或缩写，则要有注释说明。应该在源文件的开始之处，对文件中所使用的缩写或约定，特别是特殊的缩写，进行必要的注释说明。
+(3)自己特有的命名风格，要自始至终保持一致，不可来回变化。个人的命名风格，在符合所在项目组或产品组的命名规则的前提下，才可使用。(即命名规则中没有规定到的地方才可有个人命名风格)。
+(4)对于变量命名，禁止取单个字符(如i 、j 、k… )，建议除了要有具体含义外，还能表明其变量类型、数据类型等，但i 、j 、k 作局部循环变量是允许的。变量，尤其是局部变量，如果用单个字符表示，很容易敲错(如i写成j)，而编译时又检查不出来，有可能为了这个小小的错误而花费大量的查错时间。" />
+    <meta name="robots" content="index, follow" />
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="三种编程命名规则：驼峰命名法，帕斯卡命名法，匈牙利命名法">
+  <meta name="twitter:description" content="文章目录驼峰命令法(Camel) 匈牙利命名法(Hungarian) 帕斯卡（Pascal）命名法 命名的基本原则 变量名的命名规则 函数的命名规范 函数参数命名规范 三种流行的命名法则
+目前，业界共有四种命名法则：驼峰命名法、匈牙利命名法、帕斯卡命名法和下划线命名法，其中前三种是较为流行的命名法。
+驼峰命令法(Camel)也称骆驼式命名法正如它的名称所表示的那样，是指混合使用大小写字母来构成变量和函数的名字例如，下面是分别用骆驼式命名法和下划线法命名的同一个函数：
+printEmployeePaychecks()； print_employee_paychecks()； 第一个函数名使用了骆驼式命名法，函数名中的每一个逻辑断点都有一个大写字母来标记；第二个函数名使用了下划线法，函数名中的每一个逻辑断点都有一个下划线来标记
+骆驼式命名法近年来越来越流行了，在许多新的函数库和Microsoft Windows这样的环境中，它使用得当相多另一方面，下划线法是c出现后开始流行起来的，在许多旧的程序和UNIX这样的环境中，它的使用非常普遍
+驼峰式命名法分为大驼峰式命名规则：FirstName, CamelCase
+小驼峰式命名规则：firstName, camelCase
+[中间不需要空格 - _等分割符]
+匈牙利命名法(Hungarian)广泛应用于象Microsoft Windows这样的环境中Windows 编程中用到的变量（还包括宏）的命名规则匈牙利命名法，这种命名技术是由一位能干的 Microsoft 程序员查尔斯- 西蒙尼(Charles Simonyi) 提出的
+匈牙利命名法通过在变量名前面加上相应的小写字母的符号标识作为前缀，标识出变量的作用域，类型等这些符号可以多个同时使用，顺序是先m_（成员变量）， 再指针，再简单数据类型，再其它
+例如：m_lpszStr, 表示指向一个以0字符结尾的字符串的长指针成员变量
+匈牙利命名法关键是：标识符的名字以一个或者多个小写字母开头作为前缀；前缀之后的是首字母大写的一个单词或多个单词组合，该单词要指明变量的用途
+匈牙利命名法的规则是：
+属性&#43;类型&#43;描述
+属性一般是小写字母&#43;:
+g:全局变量
+m_:类成员变量
+s_:静态变量
+c_:常量
+类型就多了：
+b:bool
+sz:以零结束的字符串
+p:指针
+n:整整
+dw:双字
+l:长整型
+无符号:u
+函数:fn
+匈牙利命名法分为系统和应用两种。系统着眼于类型。应用着眼于语义，比如col表示行，c表示计数。
+帕斯卡（Pascal）命名法与骆驼命名法类似只不过骆驼命名法是首字母小写，而帕斯卡命名法是首字母大写，如：
+DisplayInfo(); string UserName; pascal命名规则：大驼峰式命名规则
+命名的基本原则(1)标识符的命名要清晰、明了，有明确含义，同时使用完整的单词或大家基本可以理解的缩写，避免使人产生误解——尽量采用采用英文单词或全部中文全拼表示，若出现英文单词和中文混合定义时，使用连字符“_”将英文与中文割开。较短的单词可通过去掉“元音”形成缩写；较长的单词可取单词的头几个字母形成缩写；一些单词有大家公认的缩写。例如：temp-&gt;tmp、flag-&gt;标志寄存器、statistic-&gt;stat、increment-&gt;inc、message-&gt;msg等缩写能够被大家基本认可。
+(2)命名中若使用特殊约定或缩写，则要有注释说明。应该在源文件的开始之处，对文件中所使用的缩写或约定，特别是特殊的缩写，进行必要的注释说明。
+(3)自己特有的命名风格，要自始至终保持一致，不可来回变化。个人的命名风格，在符合所在项目组或产品组的命名规则的前提下，才可使用。(即命名规则中没有规定到的地方才可有个人命名风格)。
+(4)对于变量命名，禁止取单个字符(如i 、j 、k… )，建议除了要有具体含义外，还能表明其变量类型、数据类型等，但i 、j 、k 作局部循环变量是允许的。变量，尤其是局部变量，如果用单个字符表示，很容易敲错(如i写成j)，而编译时又检查不出来，有可能为了这个小小的错误而花费大量的查错时间。">
+      <meta name="twitter:site" content="@FallingMY3">
+<meta property="og:url" content="https://fallingmy.github.io/docs/helpdocs/java/%E4%B8%89%E7%A7%8D%E7%BC%96%E7%A8%8B%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99%E9%A9%BC%E5%B3%B0%E5%91%BD%E5%90%8D%E6%B3%95%E5%B8%95%E6%96%AF%E5%8D%A1%E5%91%BD%E5%90%8D%E6%B3%95%E5%8C%88%E7%89%99%E5%88%A9%E5%91%BD%E5%90%8D%E6%B3%95/">
+  <meta property="og:site_name" content="Falling_Studio_Terminal3">
+  <meta property="og:title" content="三种编程命名规则：驼峰命名法，帕斯卡命名法，匈牙利命名法">
+  <meta property="og:description" content="文章目录驼峰命令法(Camel) 匈牙利命名法(Hungarian) 帕斯卡（Pascal）命名法 命名的基本原则 变量名的命名规则 函数的命名规范 函数参数命名规范 三种流行的命名法则
+目前，业界共有四种命名法则：驼峰命名法、匈牙利命名法、帕斯卡命名法和下划线命名法，其中前三种是较为流行的命名法。
+驼峰命令法(Camel)也称骆驼式命名法正如它的名称所表示的那样，是指混合使用大小写字母来构成变量和函数的名字例如，下面是分别用骆驼式命名法和下划线法命名的同一个函数：
+printEmployeePaychecks()； print_employee_paychecks()； 第一个函数名使用了骆驼式命名法，函数名中的每一个逻辑断点都有一个大写字母来标记；第二个函数名使用了下划线法，函数名中的每一个逻辑断点都有一个下划线来标记
+骆驼式命名法近年来越来越流行了，在许多新的函数库和Microsoft Windows这样的环境中，它使用得当相多另一方面，下划线法是c出现后开始流行起来的，在许多旧的程序和UNIX这样的环境中，它的使用非常普遍
+驼峰式命名法分为大驼峰式命名规则：FirstName, CamelCase
+小驼峰式命名规则：firstName, camelCase
+[中间不需要空格 - _等分割符]
+匈牙利命名法(Hungarian)广泛应用于象Microsoft Windows这样的环境中Windows 编程中用到的变量（还包括宏）的命名规则匈牙利命名法，这种命名技术是由一位能干的 Microsoft 程序员查尔斯- 西蒙尼(Charles Simonyi) 提出的
+匈牙利命名法通过在变量名前面加上相应的小写字母的符号标识作为前缀，标识出变量的作用域，类型等这些符号可以多个同时使用，顺序是先m_（成员变量）， 再指针，再简单数据类型，再其它
+例如：m_lpszStr, 表示指向一个以0字符结尾的字符串的长指针成员变量
+匈牙利命名法关键是：标识符的名字以一个或者多个小写字母开头作为前缀；前缀之后的是首字母大写的一个单词或多个单词组合，该单词要指明变量的用途
+匈牙利命名法的规则是：
+属性&#43;类型&#43;描述
+属性一般是小写字母&#43;:
+g:全局变量
+m_:类成员变量
+s_:静态变量
+c_:常量
+类型就多了：
+b:bool
+sz:以零结束的字符串
+p:指针
+n:整整
+dw:双字
+l:长整型
+无符号:u
+函数:fn
+匈牙利命名法分为系统和应用两种。系统着眼于类型。应用着眼于语义，比如col表示行，c表示计数。
+帕斯卡（Pascal）命名法与骆驼命名法类似只不过骆驼命名法是首字母小写，而帕斯卡命名法是首字母大写，如：
+DisplayInfo(); string UserName; pascal命名规则：大驼峰式命名规则
+命名的基本原则(1)标识符的命名要清晰、明了，有明确含义，同时使用完整的单词或大家基本可以理解的缩写，避免使人产生误解——尽量采用采用英文单词或全部中文全拼表示，若出现英文单词和中文混合定义时，使用连字符“_”将英文与中文割开。较短的单词可通过去掉“元音”形成缩写；较长的单词可取单词的头几个字母形成缩写；一些单词有大家公认的缩写。例如：temp-&gt;tmp、flag-&gt;标志寄存器、statistic-&gt;stat、increment-&gt;inc、message-&gt;msg等缩写能够被大家基本认可。
+(2)命名中若使用特殊约定或缩写，则要有注释说明。应该在源文件的开始之处，对文件中所使用的缩写或约定，特别是特殊的缩写，进行必要的注释说明。
+(3)自己特有的命名风格，要自始至终保持一致，不可来回变化。个人的命名风格，在符合所在项目组或产品组的命名规则的前提下，才可使用。(即命名规则中没有规定到的地方才可有个人命名风格)。
+(4)对于变量命名，禁止取单个字符(如i 、j 、k… )，建议除了要有具体含义外，还能表明其变量类型、数据类型等，但i 、j 、k 作局部循环变量是允许的。变量，尤其是局部变量，如果用单个字符表示，很容易敲错(如i写成j)，而编译时又检查不出来，有可能为了这个小小的错误而花费大量的查错时间。">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:published_time" content="2024-07-05T11:34:47+08:00">
+    <meta property="article:modified_time" content="2024-07-05T11:34:47+08:00">
+    <meta property="article:tag" content="HelpDocs">
+    <meta property="article:tag" content="Java">
+      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/python/anaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E7%AE%A1%E7%90%86python%E7%8E%AF%E5%A2%83%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/">
+      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%B8%80%E5%85%A5%E9%97%A8%E5%8F%8A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%9F%BA%E6%9C%AC%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C/">
+      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%BA%8C%E8%8E%B7%E5%8F%96%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9B%B4%E6%96%B0/">
+      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/git/git%E7%9A%84%E4%BD%BF%E7%94%A8%E6%98%93%E6%87%82&#43;%E5%B7%A8%E6%97%A0%E6%AF%94%E8%AF%A6%E7%BB%86&#43;%E6%96%B0%E6%89%8B%E5%BF%85%E7%9C%8B/">
+      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/java/javase%E5%9F%BA%E7%A1%80%E7%AF%87%E8%B6%85%E8%AF%A6%E7%BB%86java%E5%85%A5%E9%97%A8%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/">
+      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/java/java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%85%AB%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-&#43;-%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/markdown/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/">
+
+  <meta itemprop="name" content="三种编程命名规则：驼峰命名法，帕斯卡命名法，匈牙利命名法">
+  <meta itemprop="description" content="文章目录驼峰命令法(Camel) 匈牙利命名法(Hungarian) 帕斯卡（Pascal）命名法 命名的基本原则 变量名的命名规则 函数的命名规范 函数参数命名规范 三种流行的命名法则
+目前，业界共有四种命名法则：驼峰命名法、匈牙利命名法、帕斯卡命名法和下划线命名法，其中前三种是较为流行的命名法。
+驼峰命令法(Camel)也称骆驼式命名法正如它的名称所表示的那样，是指混合使用大小写字母来构成变量和函数的名字例如，下面是分别用骆驼式命名法和下划线法命名的同一个函数：
+printEmployeePaychecks()； print_employee_paychecks()； 第一个函数名使用了骆驼式命名法，函数名中的每一个逻辑断点都有一个大写字母来标记；第二个函数名使用了下划线法，函数名中的每一个逻辑断点都有一个下划线来标记
+骆驼式命名法近年来越来越流行了，在许多新的函数库和Microsoft Windows这样的环境中，它使用得当相多另一方面，下划线法是c出现后开始流行起来的，在许多旧的程序和UNIX这样的环境中，它的使用非常普遍
+驼峰式命名法分为大驼峰式命名规则：FirstName, CamelCase
+小驼峰式命名规则：firstName, camelCase
+[中间不需要空格 - _等分割符]
+匈牙利命名法(Hungarian)广泛应用于象Microsoft Windows这样的环境中Windows 编程中用到的变量（还包括宏）的命名规则匈牙利命名法，这种命名技术是由一位能干的 Microsoft 程序员查尔斯- 西蒙尼(Charles Simonyi) 提出的
+匈牙利命名法通过在变量名前面加上相应的小写字母的符号标识作为前缀，标识出变量的作用域，类型等这些符号可以多个同时使用，顺序是先m_（成员变量）， 再指针，再简单数据类型，再其它
+例如：m_lpszStr, 表示指向一个以0字符结尾的字符串的长指针成员变量
+匈牙利命名法关键是：标识符的名字以一个或者多个小写字母开头作为前缀；前缀之后的是首字母大写的一个单词或多个单词组合，该单词要指明变量的用途
+匈牙利命名法的规则是：
+属性&#43;类型&#43;描述
+属性一般是小写字母&#43;:
+g:全局变量
+m_:类成员变量
+s_:静态变量
+c_:常量
+类型就多了：
+b:bool
+sz:以零结束的字符串
+p:指针
+n:整整
+dw:双字
+l:长整型
+无符号:u
+函数:fn
+匈牙利命名法分为系统和应用两种。系统着眼于类型。应用着眼于语义，比如col表示行，c表示计数。
+帕斯卡（Pascal）命名法与骆驼命名法类似只不过骆驼命名法是首字母小写，而帕斯卡命名法是首字母大写，如：
+DisplayInfo(); string UserName; pascal命名规则：大驼峰式命名规则
+命名的基本原则(1)标识符的命名要清晰、明了，有明确含义，同时使用完整的单词或大家基本可以理解的缩写，避免使人产生误解——尽量采用采用英文单词或全部中文全拼表示，若出现英文单词和中文混合定义时，使用连字符“_”将英文与中文割开。较短的单词可通过去掉“元音”形成缩写；较长的单词可取单词的头几个字母形成缩写；一些单词有大家公认的缩写。例如：temp-&gt;tmp、flag-&gt;标志寄存器、statistic-&gt;stat、increment-&gt;inc、message-&gt;msg等缩写能够被大家基本认可。
+(2)命名中若使用特殊约定或缩写，则要有注释说明。应该在源文件的开始之处，对文件中所使用的缩写或约定，特别是特殊的缩写，进行必要的注释说明。
+(3)自己特有的命名风格，要自始至终保持一致，不可来回变化。个人的命名风格，在符合所在项目组或产品组的命名规则的前提下，才可使用。(即命名规则中没有规定到的地方才可有个人命名风格)。
+(4)对于变量命名，禁止取单个字符(如i 、j 、k… )，建议除了要有具体含义外，还能表明其变量类型、数据类型等，但i 、j 、k 作局部循环变量是允许的。变量，尤其是局部变量，如果用单个字符表示，很容易敲错(如i写成j)，而编译时又检查不出来，有可能为了这个小小的错误而花费大量的查错时间。">
+  <meta itemprop="datePublished" content="2024-07-05T11:34:47+08:00">
+  <meta itemprop="dateModified" content="2024-07-05T11:34:47+08:00">
+  <meta itemprop="wordCount" content="289">
+  <meta itemprop="keywords" content="HelpDocs,Java">
+  <meta property="og:image" content="https://fallingmy.github.io/images/icon.png"/>
+  <meta name="twitter:image" content="https://fallingmy.github.io/images/icon.png"/>
+  <meta property="og:image:alt" content="三种编程命名规则：驼峰命名法，帕斯卡命名法，匈牙利命名法" />
+  <meta name="twitter:image:alt" content="三种编程命名规则：驼峰命名法，帕斯卡命名法，匈牙利命名法" />
+  <link rel="manifest" href="/manifest.json">
+
+  
+
+
+<link data-precache rel="stylesheet" href="/assets/main/bundle.min.04b2a3705d0c7a8fbca98a9909f0297b5107ee78e64b85c6b5bb2eb1794343e3.css" integrity="sha256-BLKjcF0Meo+8qYqZCfApe1EH7njmS4XGtbsusXlDQ+M=" crossorigin="anonymous">
+
+<link data-precache rel="stylesheet" href="/assets/katex/bundle.min.506b6798499d2e8621e3d1f1db89099c3aa2639acd8b3b000b14cc6999c5b340.css" integrity="sha256-UGtnmEmdLoYh49Hx24kJnDqiY5rNizsACxTMaZnFs0A=" crossorigin="anonymous">
+
+    <link data-precache rel="stylesheet" href="/assets/viewer/bundle.min.8c1002839fa22c1350d6ae1eef6593120e108f973c41348be9b5065430566aaf.css" integrity="sha256-jBACg5&#43;iLBNQ1q4e72WTEg4Qj5c8QTSL6bUGVDBWaq8=" crossorigin="anonymous">
+
+
+</head>
+  <body><header class="mb-4 sticky-top">
+  
+<nav class="top-app-bar shadow navbar navbar-expand-xxl">
+  <div class="container">
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDocsNav"
+      aria-expanded="false" aria-label="Toggle docs navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+<a class="navbar-brand d-flex align-items-center flex-grow-1 flex-xxl-grow-0 justify-content-xxl-start justify-content-center ms-2 ms-xxl-0 mx-auto me-xxl-2"
+    href="https://fallingmy.github.io/">
+    <picture><img class="logo " alt="Logo" src="https://fallingmy.github.io/images/icon.png?v=1f41693bbcf319c2f188adfb373971c6" loading="lazy" width="891" height="891" />
+</picture>
+Falling_MY
+</a>
+
+    <div class="offcanvas-xxl offcanvas-end flex-grow-1" data-bs-scroll="true" tabindex="-1" id="navbarMenus" aria-labelledby="navbarMenusLabel">
+      <div class="offcanvas-header px-4 pb-0">
+        <div class="offcanvas-title h5" id="navbarMenusLabel">Falling_MY</div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#navbarMenus" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body p-4 pt-0 p-xxl-0">
+        <hr class="d-xxl-none">
+        <ul class="navbar-nav flex-row flex-wrap align-items-center me-auto"><li class="nav-item col-6 col-xxl-auto">
+            <a class="nav-link py-2 px-0 px-xxl-2" href="https://fallingmy.github.io/docs/">
+<span class="menu-icon me-1"><i class="fas fa-fw fa-file"></i></span>Docs
+            </a>
+          </li><li class="nav-item col-6 col-xxl-auto">
+            <a class="nav-link py-2 px-0 px-xxl-2" href="https://fallingmy.github.io/news/">
+<span class="menu-icon me-1"><i class="fas fa-fw fa-newspaper"></i></span>News
+            </a>
+          </li>
+          <li class="nav-item col-12 col-xxl-auto dropdown px-0">
+            <a href="#"
+              class="nav-link dropdown-toggle"
+              id="navbarDropdownBlog" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+<span class="menu-icon me-1"><i class="fas fa-fw fa-blog"></i></span>Blog
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog" data-bs-popper="none">
+                <li><h6 class="dropdown-header">Blog Menu Description</h6></li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="https://fallingmy.github.io/archives/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-file-archive text-primary"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-0">Archives</p>
+                  </div></a>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="https://fallingmy.github.io/series/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-columns"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-1">Series</p>
+                      <p class="dropdown-item-description mb-0 text-secondary">List of series.</p>
+                  </div></a>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="https://fallingmy.github.io/categories/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-folder text-success"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-1">Categories</p>
+                      <p class="dropdown-item-description mb-0 text-secondary">List of categories.</p>
+                  </div></a>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="https://fallingmy.github.io/tags/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-tags"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-1">Tags</p>
+                      <p class="dropdown-item-description mb-0 text-secondary">List of tags.</p>
+                  </div></a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        
+    <hr class="d-xxl-none">
+    <form class="search-bar ms-auto my-auto" action="/search/" novalidate>
+      <div class="input-group align-items-center">
+        <span class="btn btn-search disabled position-absolute left-0 border-0 px-1">
+          <i class="fas fa-fw fa-search fa-lg"></i>
+        </span>
+        <input
+          class="my-1 form-control border-white rounded-5 search-input bg-body"
+          name="q"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          required>
+          <span class="search-shortcut position-absolute end-0 top-0 me-2">
+            <kbd class="text-dark bg-white opacity-75 rounded-3 shadow border border-primary py-1 fw-bold">/</kbd>
+          </span>
+      </div>
+    </form><hr class="d-xxl-none">
+        <ul class="navbar-nav flex-row flex-wrap align-items-center ms-md-auto">
+<li class="nav-item py-2 py-xxl-1 col-12 col-xxl-auto">
+
+
+<nav class="social-links nav justify-content-center flex-row">
+      <a class="nav-link social-link col-6 col-xxl-auto p-1" target="_blank" href="https://github.com/FallingMY/FallingMY.github.io" title="GitHub" rel="me">
+        <i class="fa-fw fab fa-github"
+          ></i>
+        <span class="ms-1 d-xxl-none">Github</span>
+      </a>
+  <a class="nav-link social-link col-6 col-xxl-auto p-1" target="_blank" href="/index.xml" title="RSS" rel="me">
+    <i class="fas fa-fw fa-rss"></i>
+    <span class="ms-1 d-xxl-none">RSS</span>
+  </a>
+</nav>
+
+</li>
+<li class="nav-item py-2 py-xxl-1 col-12 col-xxl-auto">
+  <div class="vr d-none d-xxl-flex h-100 mx-xxl-2 text-white"></div>
+  <hr class="d-xxl-none my-2">
+</li>
+<li class="nav-item dropdown col-6 col-xxl-auto">
+    <a class="nav-link px-0 py-2 px-xxl-1" href="#" id="fontSizeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-fw fa-font"></i>
+        <span class="d-xxl-none">Font Size</span>
+    </a>
+    <ul class="font-size-dropdown-menu dropdown-menu dropdown-menu-end" aria-labelledby="fontSizeDropdown">
+        <li>
+            <button class="font-size-item dropdown-item" data-size="xs">
+                Extra Small
+            </button>
+        </li>
+        <li>
+            <button class="font-size-item dropdown-item" data-size="sm">
+                Small
+            </button>
+        </li>
+        <li>
+            <button class="font-size-item dropdown-item active" data-size="md">
+                Medium
+            </button>
+        </li>
+        <li>
+            <button class="font-size-item dropdown-item" data-size="lg">
+                Large
+            </button>
+        </li>
+        <li>
+            <button class="font-size-item dropdown-item" data-size="xl">
+                Extra Large
+            </button>
+        </li>
+    </ul>
+</li>
+<li class="nav-item dropdown col-6 col-xxl-auto">
+    <a class="nav-link px-0 py-2 px-xxl-1" href="#" id="paletteDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-fw fa-palette"></i>
+        <span class="d-xxl-none">Palette</span>
+    </a>
+    <ul class="palette-dropdown-menu dropdown-menu dropdown-menu-end px-2 row g-2" aria-labelledby="paletteDropdown">
+            <li class="col-4 my-1">
+                <a role="button" id="palette-blue" aria-label="Blue"
+                    class="btn btn-sm w-100 palette text-bg-blue" data-palette="blue">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-blue-gray" aria-label="Blue Gray"
+                    class="btn btn-sm w-100 palette text-bg-blue-gray" data-palette="blue-gray">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-brown" aria-label="Brown"
+                    class="btn btn-sm w-100 palette text-bg-brown" data-palette="brown">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-cyan" aria-label="Cyan"
+                    class="btn btn-sm w-100 palette text-bg-cyan" data-palette="cyan">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-green" aria-label="Green"
+                    class="btn btn-sm w-100 palette text-bg-green" data-palette="green">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-indigo" aria-label="Indigo"
+                    class="btn btn-sm w-100 palette text-bg-indigo" data-palette="indigo">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-orange" aria-label="Orange"
+                    class="btn btn-sm w-100 palette text-bg-orange" data-palette="orange">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-pink" aria-label="Pink"
+                    class="btn btn-sm w-100 palette text-bg-pink" data-palette="pink">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-purple" aria-label="Purple"
+                    class="btn btn-sm w-100 palette text-bg-purple" data-palette="purple">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-red" aria-label="Red"
+                    class="btn btn-sm w-100 palette text-bg-red" data-palette="red">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-teal" aria-label="Teal"
+                    class="btn btn-sm w-100 palette text-bg-teal" data-palette="teal">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-yellow" aria-label="Yellow"
+                    class="btn btn-sm w-100 palette text-bg-yellow" data-palette="yellow">
+                </a>
+            </li>
+    </ul>
+</li>
+<li class="nav-item dropdown col-6 col-xxl-auto">
+    <a class="nav-link px-0 py-2 px-xxl-1" href="#" id="modeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="mode-icon fas fa-fw fa-adjust" id="modeIcon"></i>
+        <span class="d-xxl-none">Mode</span>
+    </a>
+    <ul class="mode-dropdown-menu dropdown-menu dropdown-menu-end" aria-labelledby="modeDropdown">
+        <li class="mode-item" data-color-mode="light" data-icon="sun">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-sun"></i> Light
+            </button>
+        </li>
+        <li class="mode-item" data-color-mode="dark" data-icon="moon">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-moon"></i> Dark
+            </button>
+        </li>
+        <li class="mode-item active" data-color-mode="auto" data-icon="adjust">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-adjust"></i> Auto
+            </button>
+        </li>
+    </ul>
+</li>
+        </ul>
+      </div>
+    </div>
+    <div class="d-flex">
+      <button class="navbar-toggler order-5 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarMenus"
+        aria-controls="navbarMenus" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-ellipsis-h"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+</header>
+
+    <main class="container">
+      <div class="row content"><noscript>
+    <div class="alert alert-danger" role="alert">Your browser does not support JavaScript.</div>
+</noscript>
+<aside class="docs-nav col-xxl-2" tabindex="-1" data-bs-hide="focusout">
+  <div class="offcanvas-xxl offcanvas-start" id="offcanvasDocsNav" aria-labelledby="offcanvasDocsNavLabel">
+    <div class="offcanvas-header border-bottom">
+      <div class="offcanvas-title h5" id="offcanvasDocsNavLabel">Browse docs</div>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#offcanvasDocsNav"></button>
+    </div>
+    <div class="offcanvas-body pt-2 flex-column"><ul class="list-unstyled mb-2 w-100"><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3 text-primary">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/"><span class="docs-nav-title">HelpDocs</span></a>
+            <a class="btn-toggle ms-1" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-ebe568325b3994b345762d8c5739485e" aria-expanded="true" aria-controls="nav-ebe568325b3994b345762d8c5739485e">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse  show border-primary" id="nav-ebe568325b3994b345762d8c5739485e">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/c/c&#43;&#43;/"><span class="docs-nav-title">C/C&#43;&#43;</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-4c352665280bb902c3cd1f57edc236a4" aria-expanded="false" aria-controls="nav-4c352665280bb902c3cd1f57edc236a4">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-4c352665280bb902c3cd1f57edc236a4">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"></ul>
+            </div>
+          </div>
+        </li><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/"><span class="docs-nav-title">Git</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-31299be8729f19977a763ab46f2da124" aria-expanded="false" aria-controls="nav-31299be8729f19977a763ab46f2da124">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-31299be8729f19977a763ab46f2da124">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%B8%80%E5%85%A5%E9%97%A8%E5%8F%8A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%9F%BA%E6%9C%AC%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C/"><span class="docs-nav-title">Git基本使用教程（一）：入门及第一次基本完整操作</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%BA%8C%E8%8E%B7%E5%8F%96%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9B%B4%E6%96%B0/"><span class="docs-nav-title">Git基本使用教程（二）：获取更新与推送更新</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/git%E7%9A%84%E4%BD%BF%E7%94%A8%E6%98%93%E6%87%82&#43;%E5%B7%A8%E6%97%A0%E6%AF%94%E8%AF%A6%E7%BB%86&#43;%E6%96%B0%E6%89%8B%E5%BF%85%E7%9C%8B/"><span class="docs-nav-title">Git的使用（易懂&#43;巨无比详细&#43;新手必看）</span></a>
+        </li></ul>
+            </div>
+          </div>
+        </li><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3 text-primary">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/"><span class="docs-nav-title">Java</span></a>
+            <a class="btn-toggle ms-1" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-987b22e609e9d70bb1861e492b4fd185" aria-expanded="true" aria-controls="nav-987b22e609e9d70bb1861e492b4fd185">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse  show border-primary" id="nav-987b22e609e9d70bb1861e492b4fd185">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/javase%E5%9F%BA%E7%A1%80%E7%AF%87%E8%B6%85%E8%AF%A6%E7%BB%86java%E5%85%A5%E9%97%A8%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">JavaSE基础篇——超详细，Java入门，这一篇就够了-CSDN博客</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%85%AB%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-&#43;-%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"><span class="docs-nav-title">Java数据类型（八种基本数据类型 &#43; 四种引用数据类型）</span></a>
+        </li><li class="mb-2 py-1 ms-3 text-primary" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/%E4%B8%89%E7%A7%8D%E7%BC%96%E7%A8%8B%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99%E9%A9%BC%E5%B3%B0%E5%91%BD%E5%90%8D%E6%B3%95%E5%B8%95%E6%96%AF%E5%8D%A1%E5%91%BD%E5%90%8D%E6%B3%95%E5%8C%88%E7%89%99%E5%88%A9%E5%91%BD%E5%90%8D%E6%B3%95/"><span class="docs-nav-title">三种编程命名规则：驼峰命名法，帕斯卡命名法，匈牙利命名法</span></a>
+        </li></ul>
+            </div>
+          </div>
+        </li><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/markdown/"><span class="docs-nav-title">Markdown</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-2d8c19f8492a0d4510acf00e408e5b58" aria-expanded="false" aria-controls="nav-2d8c19f8492a0d4510acf00e408e5b58">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-2d8c19f8492a0d4510acf00e408e5b58">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/markdown/vs-code-markdown%E6%8A%A5%E9%94%99%E8%87%AA%E6%9F%A5/"><span class="docs-nav-title"></span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/markdown/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/"><span class="docs-nav-title">Markdown语法大全(超级版)</span></a>
+        </li></ul>
+            </div>
+          </div>
+        </li><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/"><span class="docs-nav-title">Python</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-b7433288507247eb51c5fc0011005e07" aria-expanded="false" aria-controls="nav-b7433288507247eb51c5fc0011005e07">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-b7433288507247eb51c5fc0011005e07">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/anaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E7%AE%A1%E7%90%86python%E7%8E%AF%E5%A2%83%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">anaconda的安装和使用（管理python环境看这一篇就够了）-CSDN博客</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python-%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E6%BA%90/"><span class="docs-nav-title">Python 国内镜像源</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python-%E5%B0%8F%E7%94%B2%E9%B1%BC%E6%95%99%E7%A8%8B-easygui-%E7%AF%87/"><span class="docs-nav-title">Python 小甲鱼教程 Easygui 篇</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python-%E5%BC%B9%E5%87%BA%E6%8F%90%E7%A4%BA%E6%A1%86%E7%BB%83%E4%B9%A0tkinter.messagebox%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"><span class="docs-nav-title">Python 弹出提示框练习：tkinter.messagebox使用方法</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8Fre%E6%A8%A1%E5%9D%97%E8%AF%A6%E8%A7%A3/"><span class="docs-nav-title">python——正则表达式(re模块)详解</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python%E7%88%AC%E8%99%AB%E5%8F%B2%E4%B8%8A%E8%B6%85%E8%AF%A6%E7%BB%86%E8%AE%B2%E8%A7%A3%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E8%80%81%E5%B9%B4%E4%BA%BA%E9%83%BD%E7%9C%8B%E7%9A%84%E6%87%82-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">Python爬虫史上超详细讲解（零基础入门，老年人都看的懂）-CSDN博客</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AF%AD%E6%B3%95%E6%96%87%E6%9C%AB%E9%99%84%E5%B8%B8%E7%94%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F/"><span class="docs-nav-title">史上最全正则表达式语法，文末附常用表达式！</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">掌握计算机自动化：PyAutoGUI库详细教程（最全使用方法，每行代码都有注释，帮你解决与之有关的所有问题）-CSDN博客</span></a>
+        </li></ul>
+            </div>
+          </div>
+        </li></ul>
+            </div>
+          </div>
+        </li><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/luoxicon/"><span class="docs-nav-title">LuoxiCon</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-3270f174caefc52ef8340af35ea9b651" aria-expanded="false" aria-controls="nav-3270f174caefc52ef8340af35ea9b651">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-3270f174caefc52ef8340af35ea9b651">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/luoxicon/20240725_summary/"><span class="docs-nav-title"></span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/luoxicon/%E5%B0%8F%E6%B8%B8%E6%88%8F/"><span class="docs-nav-title"></span></a>
+        </li></ul>
+            </div>
+          </div>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/%E5%B8%B8%E7%94%A8%E5%8F%82%E8%80%83%E7%BD%91%E7%AB%99%E5%90%88%E9%9B%86/"><span class="docs-nav-title">常用参考网站合集</span></a>
+        </li></ul></div>
+  </div>
+</aside><div class="col-xxl-7 ms-auto">
+  <div class="container-fluid"><nav class="row card component" aria-label="breadcrumb">
+  <div class="card-body pb-0">
+    <ol class="hbs-breadcrumb breadcrumb flex-nowrap"><li class="breadcrumb-item text-surface"><a href="/">Home</a></li><li class="breadcrumb-item text-surface"><a href="/docs/">Docs</a></li><li class="breadcrumb-item text-surface"><a href="/docs/helpdocs/">HelpDocs</a></li><li class="breadcrumb-item text-surface"><a href="/docs/helpdocs/java/">Java</a></li><li class="breadcrumb-item active">三种编程命名规则：驼峰命名法，帕斯卡命名法，匈牙利命名法</li></ol>
+  </div>
+</nav><div class="post-panel-wrapper position-relative d-flex justify-content-center">
+  <div class="d-flex flex-row justify-content-center rounded-5 border post-panel position-fixed px-3 py-1 surface shadow-1">
+    
+    
+
+    <a class="action btn-reward" role="button" data-bs-toggle="modal" data-bs-target="#rewardModal" title="Buy me a coffee">
+  <i class="fas fa-fw fa-coffee"></i>
+</a>
+    
+    
+<a class="action action-toc d-block d-xxl-none" href="#post-toc-container" role="button" title="Contents">
+  <i class="fas fa-fw fa-list-alt"></i>
+</a>
+    <a class="action action-copyright" href="#post-copyright" role="button" aria-label="Copyright" title="Copyright">
+  <i class="fas fa-fw fa-copyright"></i>
+</a>
+    <a class="action action-post-comments" href="#post-comments" role="button" aria-label="Comments" title="Comments">
+  <i class="fas fa-fw fa-comments"></i>
+</a>
+    
+<a id="sidebarToggler" class="action action-sidebar-toggler d-none d-xxl-block" role="button" title="Toggle sidebar">
+  <i class="fas fa-fw fa-expand-alt" data-fa-transform="rotate-45"></i>
+</a>
+
+    
+  </div>
+</div><article class="row card component mb-4 post">
+<div class="card-header ">
+    <h1 class="card-title post-title my-2">三种编程命名规则：驼峰命名法，帕斯卡命名法，匈牙利命名法</h1>
+</div>
+<div class="card-body"><div class="post-meta mb-3">
+  <span class="post-date me-1 mb-1" title="created on 2024-07-05 11:34:47 &#43;0800 CST.">July 5, 2024</span><span class="post-reading-time me-1 mb-1">2 min read</span><a href="/authors/csdn_user/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-author">
+      <i class="fas fa-fw fa-user me-1"></i>CSDN_user</a><a href="/series/helpdocs/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
+      <i class="fas fa-fw fa-columns me-1"></i>HelpDocs</a><a href="/tags/helpdocs/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">HelpDocs</a><a href="/tags/java/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Java</a>
+</div>
+
+<div class="mt-2 mb-3 d-block d-xxl-none">
+    <h2 class="text-surface mb-3">Contents</h2>
+    <div id="post-toc-container">
+        </div>
+    <hr class="text-secondary">
+</div><div class="post-content mb-3" data-bs-spy="scroll" data-bs-target="#TableOfContents" tabindex="0">
+        <div id="post-content-body">
+<h4 id="文章目录" data-numberify>文章目录<a class="anchor ms-1" href="#文章目录"></a></h4>
+<ul>
+<li><a href="/docs/helpdocs/java/%E4%B8%89%E7%A7%8D%E7%BC%96%E7%A8%8B%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99%E9%A9%BC%E5%B3%B0%E5%91%BD%E5%90%8D%E6%B3%95%E5%B8%95%E6%96%AF%E5%8D%A1%E5%91%BD%E5%90%8D%E6%B3%95%E5%8C%88%E7%89%99%E5%88%A9%E5%91%BD%E5%90%8D%E6%B3%95/#%e9%a9%bc%e5%b3%b0%e5%91%bd%e4%bb%a4%e6%b3%95camel">驼峰命令法(Camel)</a></li>
+<li><a href="/docs/helpdocs/java/%E4%B8%89%E7%A7%8D%E7%BC%96%E7%A8%8B%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99%E9%A9%BC%E5%B3%B0%E5%91%BD%E5%90%8D%E6%B3%95%E5%B8%95%E6%96%AF%E5%8D%A1%E5%91%BD%E5%90%8D%E6%B3%95%E5%8C%88%E7%89%99%E5%88%A9%E5%91%BD%E5%90%8D%E6%B3%95/#%e5%8c%88%e7%89%99%e5%88%a9%e5%91%bd%e5%90%8d%e6%b3%95hungarian">匈牙利命名法(Hungarian)</a></li>
+<li><a href="/docs/helpdocs/java/%E4%B8%89%E7%A7%8D%E7%BC%96%E7%A8%8B%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99%E9%A9%BC%E5%B3%B0%E5%91%BD%E5%90%8D%E6%B3%95%E5%B8%95%E6%96%AF%E5%8D%A1%E5%91%BD%E5%90%8D%E6%B3%95%E5%8C%88%E7%89%99%E5%88%A9%E5%91%BD%E5%90%8D%E6%B3%95/#%e5%b8%95%e6%96%af%e5%8d%a1pascal%e5%91%bd%e5%90%8d%e6%b3%95">帕斯卡（Pascal）命名法</a></li>
+<li><a href="/docs/helpdocs/java/%E4%B8%89%E7%A7%8D%E7%BC%96%E7%A8%8B%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99%E9%A9%BC%E5%B3%B0%E5%91%BD%E5%90%8D%E6%B3%95%E5%B8%95%E6%96%AF%E5%8D%A1%E5%91%BD%E5%90%8D%E6%B3%95%E5%8C%88%E7%89%99%E5%88%A9%E5%91%BD%E5%90%8D%E6%B3%95/#%e5%91%bd%e5%90%8d%e7%9a%84%e5%9f%ba%e6%9c%ac%e5%8e%9f%e5%88%99">命名的基本原则</a></li>
+<li><a href="/docs/helpdocs/java/%E4%B8%89%E7%A7%8D%E7%BC%96%E7%A8%8B%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99%E9%A9%BC%E5%B3%B0%E5%91%BD%E5%90%8D%E6%B3%95%E5%B8%95%E6%96%AF%E5%8D%A1%E5%91%BD%E5%90%8D%E6%B3%95%E5%8C%88%E7%89%99%E5%88%A9%E5%91%BD%E5%90%8D%E6%B3%95/#%e5%8f%98%e9%87%8f%e5%90%8d%e7%9a%84%e5%91%bd%e5%90%8d%e8%a7%84%e5%88%99">变量名的命名规则</a></li>
+<li><a href="/docs/helpdocs/java/%E4%B8%89%E7%A7%8D%E7%BC%96%E7%A8%8B%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99%E9%A9%BC%E5%B3%B0%E5%91%BD%E5%90%8D%E6%B3%95%E5%B8%95%E6%96%AF%E5%8D%A1%E5%91%BD%E5%90%8D%E6%B3%95%E5%8C%88%E7%89%99%E5%88%A9%E5%91%BD%E5%90%8D%E6%B3%95/#%e5%87%bd%e6%95%b0%e7%9a%84%e5%91%bd%e5%90%8d%e8%a7%84%e8%8c%83">函数的命名规范</a></li>
+<li><a href="/docs/helpdocs/java/%E4%B8%89%E7%A7%8D%E7%BC%96%E7%A8%8B%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99%E9%A9%BC%E5%B3%B0%E5%91%BD%E5%90%8D%E6%B3%95%E5%B8%95%E6%96%AF%E5%8D%A1%E5%91%BD%E5%90%8D%E6%B3%95%E5%8C%88%E7%89%99%E5%88%A9%E5%91%BD%E5%90%8D%E6%B3%95/#%e5%87%bd%e6%95%b0%e5%8f%82%e6%95%b0%e5%91%bd%e5%90%8d%e8%a7%84%e8%8c%83">函数参数命名规范</a></li>
+</ul>
+<p>三种流行的命名法则</p>
+<p>目前，业界共有四种命名法则：<a href="https://so.csdn.net/so/search?q=%E9%A9%BC%E5%B3%B0%E5%91%BD%E5%90%8D%E6%B3%95&amp;spm=1001.2101.3001.7020" target="_blank" rel="noopener noreferrer">驼峰命名法<i class="fas fa-external-link-square-alt ms-1"></i></a>、匈牙利命名法、帕斯卡命名法和下划线命名法，其中前三种是较为流行的命名法。</p>
+
+<h2 id="驼峰命令法camel" data-numberify>驼峰命令法(Camel)<a class="anchor ms-1" href="#驼峰命令法camel"></a></h2>
+<p>也称骆驼式命名法正如它的名称所表示的那样，是指混合使用大小写字母来构成变量和函数的名字例如，下面是分别用骆驼式命名法和下划线法命名的同一个函数：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="nf">printEmployeePaychecks</span><span class="p">()</span><span class="err">；</span>
+</span></span><span class="line"><span class="cl"><span class="nf">print_employee_paychecks</span><span class="p">()</span><span class="err">；</span>
+</span></span></code></pre></div><p>第一个函数名使用了骆驼式命名法，函数名中的每一个逻辑断点都有一个大写字母来标记；第二个函数名使用了下划线法，函数名中的每一个逻辑断点都有一个下划线来标记</p>
+<p>骆驼式命名法近年来越来越流行了，在许多新的函数库和Microsoft Windows这样的环境中，它使用得当相多另一方面，下划线法是c出现后开始流行起来的，在许多旧的程序和UNIX这样的环境中，它的使用非常普遍</p>
+<p>驼峰式命名法分为大驼峰式命名规则：FirstName, CamelCase</p>
+<p>小驼峰式命名规则：firstName, camelCase</p>
+<p>[中间不需要空格 - _等分割符]</p>
+
+<h2 id="匈牙利命名法hungarian" data-numberify>匈牙利命名法(Hungarian)<a class="anchor ms-1" href="#匈牙利命名法hungarian"></a></h2>
+<p>广泛应用于象Microsoft Windows这样的环境中Windows 编程中用到的变量（还包括宏）的命名规则匈牙利命名法，这种命名技术是由一位能干的 Microsoft 程序员查尔斯- 西蒙尼(Charles Simonyi) 提出的</p>
+<p>匈牙利命名法通过在变量名前面加上相应的小写字母的符号标识作为前缀，标识出变量的作用域，类型等这些符号可以多个同时使用，顺序是先m_（成员变量）， 再指针，再简单数据类型，再其它</p>
+<p>例如：m_lpszStr, 表示指向一个以0字符结尾的字符串的长指针成员变量</p>
+<p>匈牙利命名法关键是：标识符的名字以一个或者多个小写字母开头作为前缀；前缀之后的是首字母大写的一个单词或多个单词组合，该单词要指明变量的用途</p>
+<p>匈牙利命名法的规则是：</p>
+<blockquote>
+<p>属性+类型+描述<br>
+属性一般是小写字母+<em>:<br>
+g</em>:全局变量<br>
+m_:类成员变量<br>
+s_:静态变量<br>
+c_:常量<br>
+类型就多了：<br>
+b:bool<br>
+sz:以零结束的字符串<br>
+p:指针<br>
+n:整整<br>
+dw:双字<br>
+l:长整型<br>
+无符号:u<br>
+函数:fn</p>
+</blockquote>
+<p>匈牙利命名法分为系统和应用两种。系统着眼于类型。应用着眼于语义，比如col表示行，c表示计数。</p>
+
+<h2 id="帕斯卡pascal命名法" data-numberify>帕斯卡（Pascal）命名法<a class="anchor ms-1" href="#帕斯卡pascal命名法"></a></h2>
+<p>与骆驼命名法类似只不过骆驼命名法是首字母小写，而帕斯卡命名法是首字母大写，如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="nf">DisplayInfo</span><span class="p">();</span> 
+</span></span><span class="line"><span class="cl"><span class="n">string</span> <span class="n">UserName</span><span class="p">;</span>
+</span></span></code></pre></div><p>pascal命名规则：大驼峰式命名规则</p>
+
+<h2 id="命名的基本原则" data-numberify>命名的基本原则<a class="anchor ms-1" href="#命名的基本原则"></a></h2>
+<p>(1)标识符的命名要清晰、明了，有明确含义，同时使用完整的单词或大家基本可以理解的缩写，避免使人产生误解——尽量采用采用英文单词或全部中文全拼表示，若出现英文单词和中文混合定义时，使用连字符“_”将英文与中文割开。较短的单词可通过去掉“元音”形成缩写；较长的单词可取单词的头几个字母形成缩写；一些单词有大家公认的缩写。例如：temp-&gt;tmp、flag-&gt;标志寄存器、statistic-&gt;stat、increment-&gt;inc、message-&gt;msg等缩写能够被大家基本认可。<br>
+(2)命名中若使用特殊约定或缩写，则要有注释说明。应该在源文件的开始之处，对文件中所使用的缩写或约定，特别是特殊的缩写，进行必要的注释说明。<br>
+(3)自己特有的命名风格，要自始至终保持一致，不可来回变化。个人的命名风格，在符合所在项目组或产品组的命名规则的前提下，才可使用。(即命名规则中没有规定到的地方才可有个人命名风格)。<br>
+(4)对于变量命名，禁止取单个字符(如i 、j 、k… )，建议除了要有具体含义外，还能表明其变量类型、数据类型等，但i 、j 、k 作局部循环变量是允许的。变量，尤其是局部变量，如果用单个字符表示，很容易敲错(如i写成j)，而编译时又检查不出来，有可能为了这个小小的错误而花费大量的查错时间。<br>
+(5)除非必要，不要用数字或较奇怪的字符来定义标识符。<br>
+(6)命名规范必须与所使用的系统风格保持一致，并在同一项目中统一。<br>
+(7)在同一软件产品内，应规划好接口部分标识符(变量、结构、函数及常量)的命名，防止编译、链接时产生冲突。对接口部分的标识符应该有更严格限制，防止冲突。如可规定接口部分的变量与常量之前加上“模块”标识等。<br>
+(8)用正确的反义词组命名具有互斥意义的变量或相**作的函数等。</p>
+<p>下面是一些在软件中常用的反义词组:</p>
+<blockquote>
+<p>add / remove begin / end create / destroy<br>
+insert / delete first / last g et / release<br>
+increment / decrement put / get<br>
+add / delete lock / unlock open / close<br>
+min / max old / new start / stop<br>
+next / previous source / target show / hide<br>
+send / receive source / destination<br>
+cut / paste up / down<br>
+示例：<br>
+intmin_sum;<br>
+intmax_sum;<br>
+intadd_user( BYTE *user_name );<br>
+intdelete_user( BYTE *user_name );</p>
+</blockquote>
+<p>(9)除了编译开关/ 头文件等特殊应用，应避免使用_EXAMPLE_TEST_ 之类以下划线开始和结尾的定义。</p>
+
+<h2 id="变量名的命名规则" data-numberify>变量名的命名规则<a class="anchor ms-1" href="#变量名的命名规则"></a></h2>
+<p>(1)变量的命名规则要求用“匈牙利法则”。<br>
+即开头字母用变量的类型，其余部分用变量的英文意思、英文的缩写、中文全拼或中文全拼的缩写,要求单词的第一个字母应大写。<br>
+即： 变量名=变量类型+变量的英文意思(或英文缩写、中文全拼、中文全拼缩写)<br>
+对非通用的变量，在定义时加入注释说明，变量定义尽量可能放在函数的开始处。<br>
+见下表：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>首字母</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bool</td>
+<td>用b开头</td>
+<td>b标志寄存器</td>
+</tr>
+<tr>
+<td>int</td>
+<td>用i开头</td>
+<td>iCount</td>
+</tr>
+<tr>
+<td>short int</td>
+<td>用n开头</td>
+<td>nStepCount</td>
+</tr>
+<tr>
+<td>long int</td>
+<td>用l开头</td>
+<td>lSum</td>
+</tr>
+<tr>
+<td>char</td>
+<td>用c开头</td>
+<td>cCount</td>
+</tr>
+<tr>
+<td>unsigned char</td>
+<td>用by开头</td>
+<td></td>
+</tr>
+<tr>
+<td>float</td>
+<td>用f开头</td>
+<td>fAvg</td>
+</tr>
+<tr>
+<td>double</td>
+<td>用d开头</td>
+<td>dDeta</td>
+</tr>
+<tr>
+<td>unsigned int(WORD)</td>
+<td>用w开头</td>
+<td>wCount</td>
+</tr>
+<tr>
+<td>unsigned long int(DWORD)</td>
+<td>用dw开头</td>
+<td>dwBroad</td>
+</tr>
+<tr>
+<td>字符串</td>
+<td>用s开头</td>
+<td>sFileName</td>
+</tr>
+<tr>
+<td>用0结尾的字符串</td>
+<td>用sz开头</td>
+<td>szFileName</td>
+</tr>
+</tbody>
+</table>
+<p>(2)指针变量命名的基本原则为：</p>
+<p>对一重指针变量的基本原则为：“p”+变量类型前缀+命名，如一个float*型应该表示为pfStat。对二重指针变量的基本规则为：“pp”+变量类型前缀+命名。对三重指针变量的基本规则为：“ppp”+变量类型前缀+命名。<br>
+(3)全局变量用g_开头,如一个全局的长型变量定义为g_lFailCount。即：变量名=g_+变量类型+变量的英文意思(或缩写)。此规则还可避免局部变量和全局变量同名而引起的问题。<br>
+(4)静态变量用s_开头,如一个静态的指针变量定义为s_plPerv_Inst。即： 变量名=s_+变量类型+变量的英文意思(或缩写)<br>
+(5)对枚举类型(enum)中的变量，要求用枚举变量或其缩写做前缀。并且要求用大写。如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">enum</span> <span class="n">cmEMDAYS</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="n">EMDAYS_MONDAY</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">EMDAYS_TUESDAY</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="err">……</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>(6)对struct、union变量的命名要求定义的类型用大写。并要加上前缀，其内部变量的命名规则与变量命名规则一致。<br>
+结构一般用S开头，如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">ScmNPoint</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">nX</span><span class="p">;</span><span class="c1">//点的X位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">nY</span><span class="p">;</span> <span class="c1">//点的Y位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span></code></pre></div><p>联合体一般用U开头，如:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">union</span> <span class="n">UcmLPoint</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="n">LONG</span> <span class="n">lX</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">LONG</span> <span class="n">lY</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>(7)对常量(包括错误的编码)命名，要求常量名用大写，常量名用英文表达其意思。当需要由多个单词表示时，单词与单词之间必须采用连字符“_”连接。</p>
+<blockquote>
+<p>如：#define CM_FILE_NOT_FOUND CMMAKEHR(0X20B) 其中CM表示类别。</p>
+</blockquote>
+<p>(8)对const 的变量要求在变量的命名规则前加入c_。即：c_+变量命名规则；示例：const char* c_szFileName;</p>
+
+<h2 id="函数的命名规范" data-numberify>函数的命名规范<a class="anchor ms-1" href="#函数的命名规范"></a></h2>
+<p>(1)函数的命名应该尽量用英文(或英文缩写、中文全拼、中文全拼缩写)表达出函数完成的功能——函数名应准确描述函数的功能。遵循动宾结构的命名法则，函数名中动词在前,并在命名前加入函数的前缀，函数名的长度不得少于8个字母。函数名首字大写，若包含有两个单词的每个单词首字母大写。如果是OOP 方法，可以只有动词(名词是对象本身)。示例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">LONG</span> <span class="nf">GetDeviceCount</span><span class="p">(</span><span class="err">……</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">print_record</span><span class="p">(</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">rec_ind</span> <span class="p">)</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nf">intinput_record</span><span class="p">(</span> <span class="kt">void</span> <span class="p">)</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">unsigned</span> <span class="kt">char</span> <span class="nf">get_current_color</span><span class="p">(</span> <span class="kt">void</span> <span class="p">)</span> <span class="p">;</span>
+</span></span></code></pre></div><p>(2)避免使用无意义或含义不清的动词为函数命名。如使用process、handle等为函数命名，因为这些动词并没有说明要具体做什么。</p>
+<p>(3)必须使用函数原型声明。函数原型声明包括：引用外来函数及内部函数，外部引用必须在右侧注明函数来源： 模块名及文件名；内部函数，只要注释其定义文件名——和调用者在同一文件中(简单程序)时不需要注释。<br>
+应确保每个函数声明中的参数的名称、类型和定义中的名称、类型一致。</p>
+
+<h2 id="函数参数命名规范" data-numberify>函数参数命名规范<a class="anchor ms-1" href="#函数参数命名规范"></a></h2>
+<p>(1)参数名称的命名参照变量命名规范。<br>
+(2)为了提高程序的运行效率，减少参数占用的堆栈，传递大结构的参数，一律采用指针或引用方式传递。<br>
+(3)为了便于其他程序员识别某个指针参数是入口参数还是出口参数，同时便于编译器检查错误，应该在入口参数前加入const标志。</p>
+<blockquote>
+<p>如：……cmCopyString(const CHAR * c_szSource, CHAR * szDest)</p>
+</blockquote>
+<p>文件名(包括动态库、组件、控件、工程文件等)的命名规范文件名的命名要求表达出文件的内容，要求文件名的长度不得少于5个字母，严禁使用象file1,myfile之类的文件名。</p>
+<p>[转]<code>[三种编程命名规则：驼峰命名法，帕斯卡命名法，匈牙利命名法](https://www.cnblogs.com/Offie/p/5021368.html)</code></p>
+<p>本文转自 <a href="https://blog.csdn.net/weixin_43758823/article/details/84888470" target="_blank" rel="noopener noreferrer">https://blog.csdn.net/weixin_43758823/article/details/84888470<i class="fas fa-external-link-square-alt ms-1"></i></a>，如有侵权，请联系删除。</p>
+</div>
+</div>
+<div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content surface">
+      <div class="modal-header">
+        <h5 class="modal-title text-surface" id="rewardModalLabel"><i class="fas fa-fw fa-coffee me-1"></i>Buy me a coffee</h5>
+        <a href="#" data-bs-dismiss="modal" class="btn-close" aria-label="Close"></a>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs mb-3" role="tablist"><li class="nav-item text-nowrap" role="presentation">
+            <a class="nav-link active" id="reward-alipay-tab" data-bs-toggle="tab" href="#reward-alipay" role="tab" aria-controls="reward-alipay" aria-selected="true">
+              <i class="fab fa-fw fa-alipay me-1"></i>Alipay
+            </a>
+          </li><li class="nav-item text-nowrap" role="presentation">
+            <a class="nav-link" id="reward-wechat-tab" data-bs-toggle="tab" href="#reward-wechat" role="tab" aria-controls="reward-wechat" aria-selected="true">
+              <i class="fab fa-fw fa-weixin me-1"></i>WeChat
+            </a>
+          </li></ul>
+        <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content text-center show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
+            <img class="img-fluid post-reward-img" src="https://fallingmy.github.io/images/reward/alipay.jpg" loading="lazy" data-viewer-invisible />
+          </div><div class="tab-pane fade post-reward-content text-center show" id="reward-wechat" role="tabpanel" aria-labelledby="reward-wechat-tab">
+            <img class="img-fluid post-reward-img" src="https://fallingmy.github.io/images/reward/wechat.jpg" loading="lazy" data-viewer-invisible />
+          </div></div>
+      </div>
+    </div>
+  </div>
+</div></div><div class="card-footer">
+  <div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-next">
+      <a href="/docs/helpdocs/java/java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%85%AB%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-&#43;-%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">Java数据类型（八种基本数据类型 &#43; 四种引用数据类型）</a>
+      <i class="fas fa-fw fa-chevron-down post-next-icon ms-1" data-fa-transform="rotate-270"></i>
+    </div></div>
+</div></article><div class="post-copyright mb-3 row card component" id="post-copyright">
+    <div class="card-header">
+        <h2 class="card-title fs-4 my-2 text-surface">Copyright</h2>
+    </div>
+    <div class="card-body"><a class="d-flex align-items-center flex-column" target="_blank" rel="license noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en">
+  <span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-nc"></i><i class="fab fa-fw fa-2x fa-creative-commons-nd"></i></span>
+  CC BY-NC-ND 4.0 
+</a>
+
+
+    </div>
+</div><section class="related-posts row card component">
+      <div class="card-header">
+        <h2 class="card-title fs-4 my-2 text-surface">
+          Related Posts
+        </h2>
+      </div>
+      <div class="card-body slide px-1">
+        <div class="slide-inner row gx-0"><div class="col-12 col-md-6 col-lg-4 me-2">
+            <div class="post-card card card-body p-0 border-0 surface">
+  
+  <picture>
+      <source srcset="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample_hu1e269adb755e54f6dcb322d69e53c5ae_40960_500x0_resize_q75_h2_box_2.webp" media="(max-width: 576px)" height="375" width="500">
+      <img class="img-fluid" height="135" width="180" alt="featured-sample.webp" src="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample_hu1e269adb755e54f6dcb322d69e53c5ae_40960_180x0_resize_q75_h2_box_2.webp" data-src="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample.webp" loading="lazy"/>
+    </picture>
+
+  <a class="post-title" href="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/">
+    落茜聚
+  </a>
+  <div class="post-meta mb-0">
+    January 1, 1
+
+  </div>
+</div>
+
+          </div></div>
+        <button class="slide-control-left">
+          <i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-90"></i>
+          <span class="visually-hidden">Left</span>
+        </button>
+        <button class="slide-control-right">
+          <i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-270"></i>
+          <span class="visually-hidden">Right</span>
+        </button>
+      </div>
+    </section><div class="card component row post-comments" id="post-comments">
+  <div class="card-header">
+    <h2 class="card-title my-2 fs-4 text-surface">Comments</h2>
+  </div>
+  <div class="card-body">
+<div class="giscus"></div>
+
+
+
+</div>
+</div></div>
+</div>
+<aside class="sidebar d-flex docs-sidebar col-xxl-3 position-sticky order-xxl-5">
+  <div class="container">
+    
+    <div class="accordion post-toc d-none d-lg-block">
+  <div class="accordion-item row mb-4 card component" id="postTOC">
+    <div class="card-header accordion-header">
+      <h2 class="card-title fs-4 my-2 text-surface d-none d-lg-block">Contents</h2>
+      <a class="accordion-button d-lg-none mb-1 collapsed shadow-none p-0 bg-transparent" role="button" data-bs-toggle="collapse" href="#post-toc" aria-expanded="false" aria-controls="post-toc">
+        Contents
+      </a>
+    </div>
+    <div class="card-body collapse accordion-collapse accordion-body d-lg-block" id="post-toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#驼峰命令法camel">驼峰命令法(Camel)</a></li>
+    <li><a href="#匈牙利命名法hungarian">匈牙利命名法(Hungarian)</a></li>
+    <li><a href="#帕斯卡pascal命名法">帕斯卡（Pascal）命名法</a></li>
+    <li><a href="#命名的基本原则">命名的基本原则</a></li>
+    <li><a href="#变量名的命名规则">变量名的命名规则</a></li>
+    <li><a href="#函数的命名规范">函数的命名规范</a></li>
+    <li><a href="#函数参数命名规范">函数参数命名规范</a></li>
+  </ul>
+</nav>
+    </div>
+  </div>
+</div>
+    <div class="accordion">
+    <div class="accordion-item docs-repo row card component">
+        <div class="card-header accordion-header" id="repo-header">
+            <h2 class="card-title fs-4 my-2 text-surface d-none d-lg-block">Repository</h2>
+            <a
+                class="accordion-button d-lg-none mb-1 shadow-none p-0 bg-transparent"
+                role="button" data-bs-toggle="collapse" href="#repo" aria-expanded="true" aria-controls="repo">
+                Repository
+            </a>
+        </div>
+        <div class="card-body collapse accordion-collapse accordion-body text-secondary-on-surface d-lg-block show" id="repo" aria-labelledby="repo-header">
+            <ul class="list-unstyled"><li class="mb-1">
+                    <a href="https://github.com/FallingMY/FallingMY.github.io/blob/main//content/docs/HelpDocs/Java/%e4%b8%89%e7%a7%8d%e7%bc%96%e7%a8%8b%e5%91%bd%e5%90%8d%e8%a7%84%e5%88%99%ef%bc%9a%e9%a9%bc%e5%b3%b0%e5%91%bd%e5%90%8d%e6%b3%95%ef%bc%8c%e5%b8%95%e6%96%af%e5%8d%a1%e5%91%bd%e5%90%8d%e6%b3%95%ef%bc%8c%e5%8c%88%e7%89%99%e5%88%a9%e5%91%bd%e5%90%8d%e6%b3%95.md" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-fw fa-file-archive text-success"></i> View page source
+                    </a>
+                </li>
+                <li class="mb-1">
+                    <a href="https://github.com/FallingMY/FallingMY.github.io/edit/main//content/docs/HelpDocs/Java/%e4%b8%89%e7%a7%8d%e7%bc%96%e7%a8%8b%e5%91%bd%e5%90%8d%e8%a7%84%e5%88%99%ef%bc%9a%e9%a9%bc%e5%b3%b0%e5%91%bd%e5%90%8d%e6%b3%95%ef%bc%8c%e5%b8%95%e6%96%af%e5%8d%a1%e5%91%bd%e5%90%8d%e6%b3%95%ef%bc%8c%e5%8c%88%e7%89%99%e5%88%a9%e5%91%bd%e5%90%8d%e6%b3%95.md" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-fw fa-edit text-primary"></i> Edit this page
+                    </a>
+                </li></ul>
+        </div>
+    </div>
+</div>
+
+  </div>
+</aside>
+
+      </div>
+    </main><footer class="footer mt-auto py-3 text-center container"><div class="offcanvas offcanvas-bottom h-auto" tabindex="-1" id="offcanvasActionsPanel"
+  aria-labelledby="offcanvasActionsPanelLabel">
+  <div class="offcanvas-header">
+    <div class="offcanvas-title h5" id="offcanvasActionsPanelLabel">
+      <i class="fas fa-fw fa-th-large me-1"></i>
+      Actions
+    </div>
+    <button type="button" class="btn-close ms-auto" data-bs-dismiss="offcanvas" data-bs-target="offcanvasActionsPanel" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body mt-2"><div class="social-share mb-4 d-flex overflow-auto">
+      <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Twitter Share Button"
+      target="_blank" href="https://twitter.com/intent/tweet?title=404%20Page%20not%20found&url=https%3a%2f%2ffallingmy.github.io%2f404.html">
+        <i class="fab fa-2x fa-fw fa-twitter mb-2"></i> Twitter
+      </a>
+      <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Facebook Share Button"
+        target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ffallingmy.github.io%2f404.html">
+        <i class="fab fa-2x fa-fw fa-facebook-f mb-2"></i> Facebook
+      </a>
+    </div>
+    <hr class="mb-4"><div class="actions d-flex overflow-auto align-items-center">
+      <a role="button" class="action action-go-back d-flex flex-column align-items-center me-3" href="javascript: window.history.back();">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-90"></i></span> Go back
+      </a>
+      <a role="button" class="action action-reload-page d-flex flex-column align-items-center me-3">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-redo-alt"></i></span> Reload
+      </a>
+      <a role="button" class="action action-copy-url d-flex flex-column align-items-center me-3">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-link"></i></span> Copy URL
+      </a>
+    </div>
+  </div>
+</div><div class="row text-center">
+  <div class="col-12 mt-2">
+    <p class="mb-2">Falling_Studio_Terminal3</p>
+    <p class="text-secondary mb-2"><small>An extreme fast, responsive and feature-rich blog theme for Hugo</small></p><div class="copyright mb-2 text-secondary">
+  <small>Copyright © 2016-2024 Razon Yang. All Rights Reserved.
+</small>
+</div>
+<div class="powered-by mb-2 text-secondary">
+  <small>
+    Build with ❤️ from the <a class="text-primary" href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a> and the <a class="text-primary" href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank" rel="noopener noreferrer">HBS</a> theme.
+  </small>
+</div>
+
+
+<nav class="social-links nav justify-content-center mb-2 mt-3">
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://space.bilibili.com/327274480" title="Bilibili" rel="me">
+        <i class="fa-fw fa-2x fab fa-bilibili"
+           style="color: #fb7299;"></i>
+      </a>
+    <a class="nav-link social-link p-0 me-1 mb-2" href="mailto:falling_my@outlook.com" title="Email">
+      <i class="fas fa-fw fa-2x fa-envelope" style="color: #0963ac;"></i>
+    </a>
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://github.com/FallingMY/FallingMY.github.io" title="GitHub" rel="me">
+        <i class="fa-fw fa-2x fab fa-github"
+          ></i>
+      </a>
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://wpa.qq.com/msgrd?v=3&amp;uin=%25!s%28int=1317096804%29&amp;site=qq&amp;menu=yes" title="QQ" rel="me">
+        <i class="fa-fw fa-2x fab fa-qq"
+          ></i>
+      </a>
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://twitter.com/FallingMY3" title="Twitter" rel="me">
+        <i class="fa-fw fa-2x fab fa-twitter"
+           style="color: #1d9bf0;"></i>
+      </a>
+  <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="/index.xml" title="RSS" rel="me">
+    <i class="fas fa-fw fa-2x fa-rss" style="color: #ea6221;"></i>
+  </a>
+</nav>
+</div>
+  <div class="col-12 col-lg-8 offset-0 offset-lg-1"></div>
+</div>
+</footer>
+<script data-precache src="/assets/main/bundle.min.5ad3a40fc4e98f8fcdd019b0792ae3bbabebb3fc979db92bc7610e2fb6414529.js" integrity="sha256-WtOkD8Tpj4/N0BmweSrju6vrs/yXnbkrx2EOL7ZBRSk=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.4f30d5267a9f2f9d45ed93969d45ec626100a969a8b91f71f753315a261e9034.js" integrity="sha256-TzDVJnqfL51F7ZOWnUXsYmEAqWmouR9x91MxWiYekDQ=" crossorigin="anonymous" defer></script>
+<script data-precache src="/assets/viewer/bundle.min.06371891cfe6d10d36cba465c61c4d7cb17591a3be2fd9af4a38444d2074e709.js" integrity="sha256-BjcYkc/m0Q02y6RlxhxNfLF1kaO&#43;L9mvSjhETSB05wk=" crossorigin="anonymous" defer></script>
+  <script data-precache defer src="/assets/katex/bundle.min.ebacb71ff73d65512126000e4a076fdbd207a155f88a4e69b442c0407e576fe3.js" integrity="sha256-66y3H/c9ZVEhJgAOSgdv29IHoVX4ik5ptELAQH5Xb&#43;M=" crossorigin="anonymous"></script>
+
+<script src="/js/sw-register.js" defer></script>
+<script src="https://giscus.app/client.js"
+    data-repo="FallingMY/FallingMY.github.io"
+    data-repo-id="R_kgDOMR9LTw"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOMSZCT84Cgl_T"
+    data-mapping="pathname"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="preferred_color_scheme"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    defer>
+</script>
+
+
+  </body>
+</html>

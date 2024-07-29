@@ -1,0 +1,1176 @@
+<!doctype html>
+<html class="position-relative" itemscope itemtype="https://schema.org/WebPage" lang="en"
+  data-bs-theme="auto" data-palette="blue-gray">
+  <head><script src="/assets/init/bundle.min.60a5effd0a083ea3601371c3b04cf6e82d273dd8c1e0ec015b7d58b80bb88822.js" integrity="sha256-YKXv/QoIPqNgE3HDsEz26C0nPdjB4OwBW31YuAu4iCI=" crossorigin="anonymous"></script>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Git基本使用教程（一）：入门及第一次基本完整操作 - Falling_Studio_Terminal3</title>
+    <link rel="icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_16x16_resize_box_3.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_32x32_resize_box_3.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_150x150_resize_box_3.png" sizes="150x150" type="image/png">
+    <link rel="apple-touch-icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_180x180_resize_box_3.png" sizes="180x180" type="image/png">
+    <link rel="icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_192x192_resize_box_3.png" sizes="192x192" type="image/png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6f42c1">
+<meta name="keywords" content="Hugo, Bootstrap, Blog Theme" />
+  <meta name="description" content="带着以下问题阅读本文，相信会事半功倍。
+什么是git？为什么用git而不是其他的版本控制工具，如svn？ 什么是仓库？本地仓库与远程仓库，常用的远程仓库有哪些，如何建立？ 怎么用git？如何用git管理文件，实现版本控制？ 2019年8月19日 15:59:48
+git安装尽量避免中文路径，一般会因路径含中文出现以下问题：
+一、git简介git是个分布式版本管理工具，与集中式版本管理工具svn相反。
+二、下载git官网： https://git-scm.com/downloads
+官网速度较慢，腾讯软件中心就有，而且版本更新及时。
+https://pc.qq.com/detail/13/detail_22693.html
+三、安装git3.1安装位置
+图3.1
+3.2安装配置文件，根据需要选择图3.2
+3.3启动文件夹设置（截图略）
+3.4设置默认编辑器，可自定义，点击Browse，添加第三方编辑器.exe即可，本文以NotePad&#43;&#43;为例
+图3.4
+3.5选择path配置，提示都是见名知意，按需选择。
+图3.5
+3.6默认即可
+图3.6
+3.7 配置行结束标记，保持默认即可
+图3.7
+3.8选择git使用终端风格图3.8
+3.9额外配置，默认即可图3.9
+3.10 默认
+图3.10
+3.11 安装完成
+图3.11
+3.12 打开git bash
+图3.12
+图3.13
+四、远程仓库配置远程仓库有很多，比如github，国内的码云，局域网自建git服务器，托管在其他地方的服务器，本文以github为例
+**网址：**https://github.com
+4.1注册账户： 类似普通的网站新用户注册，使用邮箱注册即可。
+4.2新建仓库： 点击右上角，加号，new repository
+下一步
+如，我已经建立好的仓库：
+五、生成（配置）SSHgit客户端安装后，如何和远程仓库，如github连接呢？本文使用SSH。
+5.1 用户名
+git config --global user.name &#34;注册名&#34; 5.2 邮箱
+git config --global user.email &#34;注册邮箱&#34; 5." />
+    <meta name="robots" content="index, follow" />
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Git基本使用教程（一）：入门及第一次基本完整操作">
+  <meta name="twitter:description" content="带着以下问题阅读本文，相信会事半功倍。
+什么是git？为什么用git而不是其他的版本控制工具，如svn？ 什么是仓库？本地仓库与远程仓库，常用的远程仓库有哪些，如何建立？ 怎么用git？如何用git管理文件，实现版本控制？ 2019年8月19日 15:59:48
+git安装尽量避免中文路径，一般会因路径含中文出现以下问题：
+一、git简介git是个分布式版本管理工具，与集中式版本管理工具svn相反。
+二、下载git官网： https://git-scm.com/downloads
+官网速度较慢，腾讯软件中心就有，而且版本更新及时。
+https://pc.qq.com/detail/13/detail_22693.html
+三、安装git3.1安装位置
+图3.1
+3.2安装配置文件，根据需要选择图3.2
+3.3启动文件夹设置（截图略）
+3.4设置默认编辑器，可自定义，点击Browse，添加第三方编辑器.exe即可，本文以NotePad&#43;&#43;为例
+图3.4
+3.5选择path配置，提示都是见名知意，按需选择。
+图3.5
+3.6默认即可
+图3.6
+3.7 配置行结束标记，保持默认即可
+图3.7
+3.8选择git使用终端风格图3.8
+3.9额外配置，默认即可图3.9
+3.10 默认
+图3.10
+3.11 安装完成
+图3.11
+3.12 打开git bash
+图3.12
+图3.13
+四、远程仓库配置远程仓库有很多，比如github，国内的码云，局域网自建git服务器，托管在其他地方的服务器，本文以github为例
+**网址：**https://github.com
+4.1注册账户： 类似普通的网站新用户注册，使用邮箱注册即可。
+4.2新建仓库： 点击右上角，加号，new repository
+下一步
+如，我已经建立好的仓库：
+五、生成（配置）SSHgit客户端安装后，如何和远程仓库，如github连接呢？本文使用SSH。
+5.1 用户名
+git config --global user.name &#34;注册名&#34; 5.2 邮箱
+git config --global user.email &#34;注册邮箱&#34; 5.">
+      <meta name="twitter:site" content="@FallingMY3">
+<meta property="og:url" content="https://fallingmy.github.io/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%B8%80%E5%85%A5%E9%97%A8%E5%8F%8A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%9F%BA%E6%9C%AC%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C/">
+  <meta property="og:site_name" content="Falling_Studio_Terminal3">
+  <meta property="og:title" content="Git基本使用教程（一）：入门及第一次基本完整操作">
+  <meta property="og:description" content="带着以下问题阅读本文，相信会事半功倍。
+什么是git？为什么用git而不是其他的版本控制工具，如svn？ 什么是仓库？本地仓库与远程仓库，常用的远程仓库有哪些，如何建立？ 怎么用git？如何用git管理文件，实现版本控制？ 2019年8月19日 15:59:48
+git安装尽量避免中文路径，一般会因路径含中文出现以下问题：
+一、git简介git是个分布式版本管理工具，与集中式版本管理工具svn相反。
+二、下载git官网： https://git-scm.com/downloads
+官网速度较慢，腾讯软件中心就有，而且版本更新及时。
+https://pc.qq.com/detail/13/detail_22693.html
+三、安装git3.1安装位置
+图3.1
+3.2安装配置文件，根据需要选择图3.2
+3.3启动文件夹设置（截图略）
+3.4设置默认编辑器，可自定义，点击Browse，添加第三方编辑器.exe即可，本文以NotePad&#43;&#43;为例
+图3.4
+3.5选择path配置，提示都是见名知意，按需选择。
+图3.5
+3.6默认即可
+图3.6
+3.7 配置行结束标记，保持默认即可
+图3.7
+3.8选择git使用终端风格图3.8
+3.9额外配置，默认即可图3.9
+3.10 默认
+图3.10
+3.11 安装完成
+图3.11
+3.12 打开git bash
+图3.12
+图3.13
+四、远程仓库配置远程仓库有很多，比如github，国内的码云，局域网自建git服务器，托管在其他地方的服务器，本文以github为例
+**网址：**https://github.com
+4.1注册账户： 类似普通的网站新用户注册，使用邮箱注册即可。
+4.2新建仓库： 点击右上角，加号，new repository
+下一步
+如，我已经建立好的仓库：
+五、生成（配置）SSHgit客户端安装后，如何和远程仓库，如github连接呢？本文使用SSH。
+5.1 用户名
+git config --global user.name &#34;注册名&#34; 5.2 邮箱
+git config --global user.email &#34;注册邮箱&#34; 5.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:published_time" content="2024-07-05T11:34:47+08:00">
+    <meta property="article:modified_time" content="2024-07-05T11:34:47+08:00">
+    <meta property="article:tag" content="HelpDocs">
+    <meta property="article:tag" content="Git">
+      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/python/anaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E7%AE%A1%E7%90%86python%E7%8E%AF%E5%A2%83%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/">
+      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%BA%8C%E8%8E%B7%E5%8F%96%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9B%B4%E6%96%B0/">
+      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/git/git%E7%9A%84%E4%BD%BF%E7%94%A8%E6%98%93%E6%87%82&#43;%E5%B7%A8%E6%97%A0%E6%AF%94%E8%AF%A6%E7%BB%86&#43;%E6%96%B0%E6%89%8B%E5%BF%85%E7%9C%8B/">
+      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/java/javase%E5%9F%BA%E7%A1%80%E7%AF%87%E8%B6%85%E8%AF%A6%E7%BB%86java%E5%85%A5%E9%97%A8%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/">
+      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/java/java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%85%AB%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-&#43;-%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/markdown/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/">
+
+  <meta itemprop="name" content="Git基本使用教程（一）：入门及第一次基本完整操作">
+  <meta itemprop="description" content="带着以下问题阅读本文，相信会事半功倍。
+什么是git？为什么用git而不是其他的版本控制工具，如svn？ 什么是仓库？本地仓库与远程仓库，常用的远程仓库有哪些，如何建立？ 怎么用git？如何用git管理文件，实现版本控制？ 2019年8月19日 15:59:48
+git安装尽量避免中文路径，一般会因路径含中文出现以下问题：
+一、git简介git是个分布式版本管理工具，与集中式版本管理工具svn相反。
+二、下载git官网： https://git-scm.com/downloads
+官网速度较慢，腾讯软件中心就有，而且版本更新及时。
+https://pc.qq.com/detail/13/detail_22693.html
+三、安装git3.1安装位置
+图3.1
+3.2安装配置文件，根据需要选择图3.2
+3.3启动文件夹设置（截图略）
+3.4设置默认编辑器，可自定义，点击Browse，添加第三方编辑器.exe即可，本文以NotePad&#43;&#43;为例
+图3.4
+3.5选择path配置，提示都是见名知意，按需选择。
+图3.5
+3.6默认即可
+图3.6
+3.7 配置行结束标记，保持默认即可
+图3.7
+3.8选择git使用终端风格图3.8
+3.9额外配置，默认即可图3.9
+3.10 默认
+图3.10
+3.11 安装完成
+图3.11
+3.12 打开git bash
+图3.12
+图3.13
+四、远程仓库配置远程仓库有很多，比如github，国内的码云，局域网自建git服务器，托管在其他地方的服务器，本文以github为例
+**网址：**https://github.com
+4.1注册账户： 类似普通的网站新用户注册，使用邮箱注册即可。
+4.2新建仓库： 点击右上角，加号，new repository
+下一步
+如，我已经建立好的仓库：
+五、生成（配置）SSHgit客户端安装后，如何和远程仓库，如github连接呢？本文使用SSH。
+5.1 用户名
+git config --global user.name &#34;注册名&#34; 5.2 邮箱
+git config --global user.email &#34;注册邮箱&#34; 5.">
+  <meta itemprop="datePublished" content="2024-07-05T11:34:47+08:00">
+  <meta itemprop="dateModified" content="2024-07-05T11:34:47+08:00">
+  <meta itemprop="wordCount" content="177">
+  <meta itemprop="keywords" content="HelpDocs,Git">
+  <meta property="og:image" content="https://fallingmy.github.io/images/icon.png"/>
+  <meta name="twitter:image" content="https://fallingmy.github.io/images/icon.png"/>
+  <meta property="og:image:alt" content="Git基本使用教程（一）：入门及第一次基本完整操作" />
+  <meta name="twitter:image:alt" content="Git基本使用教程（一）：入门及第一次基本完整操作" />
+  <link rel="manifest" href="/manifest.json">
+
+  
+
+
+<link data-precache rel="stylesheet" href="/assets/main/bundle.min.04b2a3705d0c7a8fbca98a9909f0297b5107ee78e64b85c6b5bb2eb1794343e3.css" integrity="sha256-BLKjcF0Meo+8qYqZCfApe1EH7njmS4XGtbsusXlDQ+M=" crossorigin="anonymous">
+
+<link data-precache rel="stylesheet" href="/assets/katex/bundle.min.506b6798499d2e8621e3d1f1db89099c3aa2639acd8b3b000b14cc6999c5b340.css" integrity="sha256-UGtnmEmdLoYh49Hx24kJnDqiY5rNizsACxTMaZnFs0A=" crossorigin="anonymous">
+
+    <link data-precache rel="stylesheet" href="/assets/viewer/bundle.min.8c1002839fa22c1350d6ae1eef6593120e108f973c41348be9b5065430566aaf.css" integrity="sha256-jBACg5&#43;iLBNQ1q4e72WTEg4Qj5c8QTSL6bUGVDBWaq8=" crossorigin="anonymous">
+
+
+</head>
+  <body><header class="mb-4 sticky-top">
+  
+<nav class="top-app-bar shadow navbar navbar-expand-xxl">
+  <div class="container">
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDocsNav"
+      aria-expanded="false" aria-label="Toggle docs navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+<a class="navbar-brand d-flex align-items-center flex-grow-1 flex-xxl-grow-0 justify-content-xxl-start justify-content-center ms-2 ms-xxl-0 mx-auto me-xxl-2"
+    href="https://fallingmy.github.io/">
+    <picture><img class="logo " alt="Logo" src="https://fallingmy.github.io/images/icon.png?v=1f41693bbcf319c2f188adfb373971c6" loading="lazy" width="891" height="891" />
+</picture>
+Falling_MY
+</a>
+
+    <div class="offcanvas-xxl offcanvas-end flex-grow-1" data-bs-scroll="true" tabindex="-1" id="navbarMenus" aria-labelledby="navbarMenusLabel">
+      <div class="offcanvas-header px-4 pb-0">
+        <div class="offcanvas-title h5" id="navbarMenusLabel">Falling_MY</div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#navbarMenus" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body p-4 pt-0 p-xxl-0">
+        <hr class="d-xxl-none">
+        <ul class="navbar-nav flex-row flex-wrap align-items-center me-auto"><li class="nav-item col-6 col-xxl-auto">
+            <a class="nav-link py-2 px-0 px-xxl-2" href="https://fallingmy.github.io/docs/">
+<span class="menu-icon me-1"><i class="fas fa-fw fa-file"></i></span>Docs
+            </a>
+          </li><li class="nav-item col-6 col-xxl-auto">
+            <a class="nav-link py-2 px-0 px-xxl-2" href="https://fallingmy.github.io/news/">
+<span class="menu-icon me-1"><i class="fas fa-fw fa-newspaper"></i></span>News
+            </a>
+          </li>
+          <li class="nav-item col-12 col-xxl-auto dropdown px-0">
+            <a href="#"
+              class="nav-link dropdown-toggle"
+              id="navbarDropdownBlog" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+<span class="menu-icon me-1"><i class="fas fa-fw fa-blog"></i></span>Blog
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog" data-bs-popper="none">
+                <li><h6 class="dropdown-header">Blog Menu Description</h6></li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="https://fallingmy.github.io/archives/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-file-archive text-primary"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-0">Archives</p>
+                  </div></a>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="https://fallingmy.github.io/series/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-columns"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-1">Series</p>
+                      <p class="dropdown-item-description mb-0 text-secondary">List of series.</p>
+                  </div></a>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="https://fallingmy.github.io/categories/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-folder text-success"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-1">Categories</p>
+                      <p class="dropdown-item-description mb-0 text-secondary">List of categories.</p>
+                  </div></a>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="https://fallingmy.github.io/tags/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-tags"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-1">Tags</p>
+                      <p class="dropdown-item-description mb-0 text-secondary">List of tags.</p>
+                  </div></a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        
+    <hr class="d-xxl-none">
+    <form class="search-bar ms-auto my-auto" action="/search/" novalidate>
+      <div class="input-group align-items-center">
+        <span class="btn btn-search disabled position-absolute left-0 border-0 px-1">
+          <i class="fas fa-fw fa-search fa-lg"></i>
+        </span>
+        <input
+          class="my-1 form-control border-white rounded-5 search-input bg-body"
+          name="q"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          required>
+          <span class="search-shortcut position-absolute end-0 top-0 me-2">
+            <kbd class="text-dark bg-white opacity-75 rounded-3 shadow border border-primary py-1 fw-bold">/</kbd>
+          </span>
+      </div>
+    </form><hr class="d-xxl-none">
+        <ul class="navbar-nav flex-row flex-wrap align-items-center ms-md-auto">
+<li class="nav-item py-2 py-xxl-1 col-12 col-xxl-auto">
+
+
+<nav class="social-links nav justify-content-center flex-row">
+      <a class="nav-link social-link col-6 col-xxl-auto p-1" target="_blank" href="https://github.com/FallingMY/FallingMY.github.io" title="GitHub" rel="me">
+        <i class="fa-fw fab fa-github"
+          ></i>
+        <span class="ms-1 d-xxl-none">Github</span>
+      </a>
+  <a class="nav-link social-link col-6 col-xxl-auto p-1" target="_blank" href="/index.xml" title="RSS" rel="me">
+    <i class="fas fa-fw fa-rss"></i>
+    <span class="ms-1 d-xxl-none">RSS</span>
+  </a>
+</nav>
+
+</li>
+<li class="nav-item py-2 py-xxl-1 col-12 col-xxl-auto">
+  <div class="vr d-none d-xxl-flex h-100 mx-xxl-2 text-white"></div>
+  <hr class="d-xxl-none my-2">
+</li>
+<li class="nav-item dropdown col-6 col-xxl-auto">
+    <a class="nav-link px-0 py-2 px-xxl-1" href="#" id="fontSizeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-fw fa-font"></i>
+        <span class="d-xxl-none">Font Size</span>
+    </a>
+    <ul class="font-size-dropdown-menu dropdown-menu dropdown-menu-end" aria-labelledby="fontSizeDropdown">
+        <li>
+            <button class="font-size-item dropdown-item" data-size="xs">
+                Extra Small
+            </button>
+        </li>
+        <li>
+            <button class="font-size-item dropdown-item" data-size="sm">
+                Small
+            </button>
+        </li>
+        <li>
+            <button class="font-size-item dropdown-item active" data-size="md">
+                Medium
+            </button>
+        </li>
+        <li>
+            <button class="font-size-item dropdown-item" data-size="lg">
+                Large
+            </button>
+        </li>
+        <li>
+            <button class="font-size-item dropdown-item" data-size="xl">
+                Extra Large
+            </button>
+        </li>
+    </ul>
+</li>
+<li class="nav-item dropdown col-6 col-xxl-auto">
+    <a class="nav-link px-0 py-2 px-xxl-1" href="#" id="paletteDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-fw fa-palette"></i>
+        <span class="d-xxl-none">Palette</span>
+    </a>
+    <ul class="palette-dropdown-menu dropdown-menu dropdown-menu-end px-2 row g-2" aria-labelledby="paletteDropdown">
+            <li class="col-4 my-1">
+                <a role="button" id="palette-blue" aria-label="Blue"
+                    class="btn btn-sm w-100 palette text-bg-blue" data-palette="blue">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-blue-gray" aria-label="Blue Gray"
+                    class="btn btn-sm w-100 palette text-bg-blue-gray" data-palette="blue-gray">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-brown" aria-label="Brown"
+                    class="btn btn-sm w-100 palette text-bg-brown" data-palette="brown">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-cyan" aria-label="Cyan"
+                    class="btn btn-sm w-100 palette text-bg-cyan" data-palette="cyan">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-green" aria-label="Green"
+                    class="btn btn-sm w-100 palette text-bg-green" data-palette="green">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-indigo" aria-label="Indigo"
+                    class="btn btn-sm w-100 palette text-bg-indigo" data-palette="indigo">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-orange" aria-label="Orange"
+                    class="btn btn-sm w-100 palette text-bg-orange" data-palette="orange">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-pink" aria-label="Pink"
+                    class="btn btn-sm w-100 palette text-bg-pink" data-palette="pink">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-purple" aria-label="Purple"
+                    class="btn btn-sm w-100 palette text-bg-purple" data-palette="purple">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-red" aria-label="Red"
+                    class="btn btn-sm w-100 palette text-bg-red" data-palette="red">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-teal" aria-label="Teal"
+                    class="btn btn-sm w-100 palette text-bg-teal" data-palette="teal">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-yellow" aria-label="Yellow"
+                    class="btn btn-sm w-100 palette text-bg-yellow" data-palette="yellow">
+                </a>
+            </li>
+    </ul>
+</li>
+<li class="nav-item dropdown col-6 col-xxl-auto">
+    <a class="nav-link px-0 py-2 px-xxl-1" href="#" id="modeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="mode-icon fas fa-fw fa-adjust" id="modeIcon"></i>
+        <span class="d-xxl-none">Mode</span>
+    </a>
+    <ul class="mode-dropdown-menu dropdown-menu dropdown-menu-end" aria-labelledby="modeDropdown">
+        <li class="mode-item" data-color-mode="light" data-icon="sun">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-sun"></i> Light
+            </button>
+        </li>
+        <li class="mode-item" data-color-mode="dark" data-icon="moon">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-moon"></i> Dark
+            </button>
+        </li>
+        <li class="mode-item active" data-color-mode="auto" data-icon="adjust">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-adjust"></i> Auto
+            </button>
+        </li>
+    </ul>
+</li>
+        </ul>
+      </div>
+    </div>
+    <div class="d-flex">
+      <button class="navbar-toggler order-5 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarMenus"
+        aria-controls="navbarMenus" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-ellipsis-h"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+</header>
+
+    <main class="container">
+      <div class="row content"><noscript>
+    <div class="alert alert-danger" role="alert">Your browser does not support JavaScript.</div>
+</noscript>
+<aside class="docs-nav col-xxl-2" tabindex="-1" data-bs-hide="focusout">
+  <div class="offcanvas-xxl offcanvas-start" id="offcanvasDocsNav" aria-labelledby="offcanvasDocsNavLabel">
+    <div class="offcanvas-header border-bottom">
+      <div class="offcanvas-title h5" id="offcanvasDocsNavLabel">Browse docs</div>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#offcanvasDocsNav"></button>
+    </div>
+    <div class="offcanvas-body pt-2 flex-column"><ul class="list-unstyled mb-2 w-100"><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3 text-primary">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/"><span class="docs-nav-title">HelpDocs</span></a>
+            <a class="btn-toggle ms-1" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-ebe568325b3994b345762d8c5739485e" aria-expanded="true" aria-controls="nav-ebe568325b3994b345762d8c5739485e">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse  show border-primary" id="nav-ebe568325b3994b345762d8c5739485e">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/c/c&#43;&#43;/"><span class="docs-nav-title">C/C&#43;&#43;</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-4c352665280bb902c3cd1f57edc236a4" aria-expanded="false" aria-controls="nav-4c352665280bb902c3cd1f57edc236a4">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-4c352665280bb902c3cd1f57edc236a4">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"></ul>
+            </div>
+          </div>
+        </li><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3 text-primary">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/"><span class="docs-nav-title">Git</span></a>
+            <a class="btn-toggle ms-1" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-31299be8729f19977a763ab46f2da124" aria-expanded="true" aria-controls="nav-31299be8729f19977a763ab46f2da124">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse  show border-primary" id="nav-31299be8729f19977a763ab46f2da124">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3 text-primary" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%B8%80%E5%85%A5%E9%97%A8%E5%8F%8A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%9F%BA%E6%9C%AC%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C/"><span class="docs-nav-title">Git基本使用教程（一）：入门及第一次基本完整操作</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%BA%8C%E8%8E%B7%E5%8F%96%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9B%B4%E6%96%B0/"><span class="docs-nav-title">Git基本使用教程（二）：获取更新与推送更新</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/git%E7%9A%84%E4%BD%BF%E7%94%A8%E6%98%93%E6%87%82&#43;%E5%B7%A8%E6%97%A0%E6%AF%94%E8%AF%A6%E7%BB%86&#43;%E6%96%B0%E6%89%8B%E5%BF%85%E7%9C%8B/"><span class="docs-nav-title">Git的使用（易懂&#43;巨无比详细&#43;新手必看）</span></a>
+        </li></ul>
+            </div>
+          </div>
+        </li><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/"><span class="docs-nav-title">Java</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-987b22e609e9d70bb1861e492b4fd185" aria-expanded="false" aria-controls="nav-987b22e609e9d70bb1861e492b4fd185">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-987b22e609e9d70bb1861e492b4fd185">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/javase%E5%9F%BA%E7%A1%80%E7%AF%87%E8%B6%85%E8%AF%A6%E7%BB%86java%E5%85%A5%E9%97%A8%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">JavaSE基础篇——超详细，Java入门，这一篇就够了-CSDN博客</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%85%AB%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-&#43;-%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"><span class="docs-nav-title">Java数据类型（八种基本数据类型 &#43; 四种引用数据类型）</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/%E4%B8%89%E7%A7%8D%E7%BC%96%E7%A8%8B%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99%E9%A9%BC%E5%B3%B0%E5%91%BD%E5%90%8D%E6%B3%95%E5%B8%95%E6%96%AF%E5%8D%A1%E5%91%BD%E5%90%8D%E6%B3%95%E5%8C%88%E7%89%99%E5%88%A9%E5%91%BD%E5%90%8D%E6%B3%95/"><span class="docs-nav-title">三种编程命名规则：驼峰命名法，帕斯卡命名法，匈牙利命名法</span></a>
+        </li></ul>
+            </div>
+          </div>
+        </li><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/markdown/"><span class="docs-nav-title">Markdown</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-2d8c19f8492a0d4510acf00e408e5b58" aria-expanded="false" aria-controls="nav-2d8c19f8492a0d4510acf00e408e5b58">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-2d8c19f8492a0d4510acf00e408e5b58">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/markdown/vs-code-markdown%E6%8A%A5%E9%94%99%E8%87%AA%E6%9F%A5/"><span class="docs-nav-title"></span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/markdown/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/"><span class="docs-nav-title">Markdown语法大全(超级版)</span></a>
+        </li></ul>
+            </div>
+          </div>
+        </li><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/"><span class="docs-nav-title">Python</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-b7433288507247eb51c5fc0011005e07" aria-expanded="false" aria-controls="nav-b7433288507247eb51c5fc0011005e07">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-b7433288507247eb51c5fc0011005e07">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/anaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E7%AE%A1%E7%90%86python%E7%8E%AF%E5%A2%83%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">anaconda的安装和使用（管理python环境看这一篇就够了）-CSDN博客</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python-%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E6%BA%90/"><span class="docs-nav-title">Python 国内镜像源</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python-%E5%B0%8F%E7%94%B2%E9%B1%BC%E6%95%99%E7%A8%8B-easygui-%E7%AF%87/"><span class="docs-nav-title">Python 小甲鱼教程 Easygui 篇</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python-%E5%BC%B9%E5%87%BA%E6%8F%90%E7%A4%BA%E6%A1%86%E7%BB%83%E4%B9%A0tkinter.messagebox%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"><span class="docs-nav-title">Python 弹出提示框练习：tkinter.messagebox使用方法</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8Fre%E6%A8%A1%E5%9D%97%E8%AF%A6%E8%A7%A3/"><span class="docs-nav-title">python——正则表达式(re模块)详解</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python%E7%88%AC%E8%99%AB%E5%8F%B2%E4%B8%8A%E8%B6%85%E8%AF%A6%E7%BB%86%E8%AE%B2%E8%A7%A3%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E8%80%81%E5%B9%B4%E4%BA%BA%E9%83%BD%E7%9C%8B%E7%9A%84%E6%87%82-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">Python爬虫史上超详细讲解（零基础入门，老年人都看的懂）-CSDN博客</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AF%AD%E6%B3%95%E6%96%87%E6%9C%AB%E9%99%84%E5%B8%B8%E7%94%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F/"><span class="docs-nav-title">史上最全正则表达式语法，文末附常用表达式！</span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">掌握计算机自动化：PyAutoGUI库详细教程（最全使用方法，每行代码都有注释，帮你解决与之有关的所有问题）-CSDN博客</span></a>
+        </li></ul>
+            </div>
+          </div>
+        </li></ul>
+            </div>
+          </div>
+        </li><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/luoxicon/"><span class="docs-nav-title">LuoxiCon</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-3270f174caefc52ef8340af35ea9b651" aria-expanded="false" aria-controls="nav-3270f174caefc52ef8340af35ea9b651">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-3270f174caefc52ef8340af35ea9b651">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/luoxicon/20240725_summary/"><span class="docs-nav-title"></span></a>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/luoxicon/%E5%B0%8F%E6%B8%B8%E6%88%8F/"><span class="docs-nav-title"></span></a>
+        </li></ul>
+            </div>
+          </div>
+        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/%E5%B8%B8%E7%94%A8%E5%8F%82%E8%80%83%E7%BD%91%E7%AB%99%E5%90%88%E9%9B%86/"><span class="docs-nav-title">常用参考网站合集</span></a>
+        </li></ul></div>
+  </div>
+</aside><div class="col-xxl-7 ms-auto">
+  <div class="container-fluid"><nav class="row card component" aria-label="breadcrumb">
+  <div class="card-body pb-0">
+    <ol class="hbs-breadcrumb breadcrumb flex-nowrap"><li class="breadcrumb-item text-surface"><a href="/">Home</a></li><li class="breadcrumb-item text-surface"><a href="/docs/">Docs</a></li><li class="breadcrumb-item text-surface"><a href="/docs/helpdocs/">HelpDocs</a></li><li class="breadcrumb-item text-surface"><a href="/docs/helpdocs/git/">Git</a></li><li class="breadcrumb-item active">Git基本使用教程（一）：入门及第一次基本完整操作</li></ol>
+  </div>
+</nav><div class="post-panel-wrapper position-relative d-flex justify-content-center">
+  <div class="d-flex flex-row justify-content-center rounded-5 border post-panel position-fixed px-3 py-1 surface shadow-1">
+    
+    
+
+    <a class="action btn-reward" role="button" data-bs-toggle="modal" data-bs-target="#rewardModal" title="Buy me a coffee">
+  <i class="fas fa-fw fa-coffee"></i>
+</a>
+    
+    
+<a class="action action-toc d-block d-xxl-none" href="#post-toc-container" role="button" title="Contents">
+  <i class="fas fa-fw fa-list-alt"></i>
+</a>
+    <a class="action action-copyright" href="#post-copyright" role="button" aria-label="Copyright" title="Copyright">
+  <i class="fas fa-fw fa-copyright"></i>
+</a>
+    <a class="action action-post-comments" href="#post-comments" role="button" aria-label="Comments" title="Comments">
+  <i class="fas fa-fw fa-comments"></i>
+</a>
+    
+<a id="sidebarToggler" class="action action-sidebar-toggler d-none d-xxl-block" role="button" title="Toggle sidebar">
+  <i class="fas fa-fw fa-expand-alt" data-fa-transform="rotate-45"></i>
+</a>
+
+    
+  </div>
+</div><article class="row card component mb-4 post">
+<div class="card-header ">
+    <h1 class="card-title post-title my-2">Git基本使用教程（一）：入门及第一次基本完整操作</h1>
+</div>
+<div class="card-body"><div class="post-meta mb-3">
+  <span class="post-date me-1 mb-1" title="created on 2024-07-05 11:34:47 &#43;0800 CST.">July 5, 2024</span><span class="post-reading-time me-1 mb-1">1 min read</span><a href="/authors/csdn_user/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-author">
+      <i class="fas fa-fw fa-user me-1"></i>CSDN_user</a><a href="/series/helpdocs/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
+      <i class="fas fa-fw fa-columns me-1"></i>HelpDocs</a><a href="/tags/git/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Git</a><a href="/tags/helpdocs/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">HelpDocs</a>
+</div>
+
+<div class="mt-2 mb-3 d-block d-xxl-none">
+    <h2 class="text-surface mb-3">Contents</h2>
+    <div id="post-toc-container">
+        </div>
+    <hr class="text-secondary">
+</div><div class="post-content mb-3" data-bs-spy="scroll" data-bs-target="#TableOfContents" tabindex="0">
+        <div id="post-content-body"><!-- raw HTML omitted -->
+<p>带着以下问题阅读本文，相信会事半功倍。</p>
+<ul>
+<li>什么是git？为什么用git而不是其他的版本控制工具，如svn？</li>
+<li>什么是仓库？本地仓库与远程仓库，常用的远程仓库有哪些，如何建立？</li>
+<li>怎么用git？如何用git管理文件，实现版本控制？</li>
+</ul>
+<hr>
+<p><strong>2019年8月19日 15:59:48</strong><br>
+git安装尽量避免中文路径，一般会因路径含中文出现以下问题：<br>
+<picture><img class="img-fluid " alt="1234" src="https://img-blog.csdnimg.cn/20190819160037459.png?w=200" loading="lazy" />
+</picture>
+
+</p>
+<hr>
+
+<h3 id="一git简介" data-numberify>一、git简介<a class="anchor ms-1" href="#一git简介"></a></h3>
+<p>git是个<a href="https://so.csdn.net/so/search?q=%E5%88%86%E5%B8%83%E5%BC%8F&amp;spm=1001.2101.3001.7020" target="_blank" rel="noopener noreferrer">分布式<i class="fas fa-external-link-square-alt ms-1"></i></a>版本管理工具，与集中式版本管理工具svn相反。</p>
+
+<h3 id="二下载git" data-numberify>二、下载git<a class="anchor ms-1" href="#二下载git"></a></h3>
+<p><strong>官网：</strong> <a href="https://git-scm.com/downloads" target="_blank" rel="noopener noreferrer">https://git-scm.com/downloads<i class="fas fa-external-link-square-alt ms-1"></i></a><br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190729233653855.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MjA2MjQ0,size_16,color_FFFFFF,t_70" loading="lazy" />
+</picture>
+
+<br>
+官网速度较慢，腾讯软件中心就有，而且版本更新及时。<br>
+<a href="https://pc.qq.com/detail/13/detail" target="_blank" rel="noopener noreferrer">https://pc.qq.com/detail/13/detail<i class="fas fa-external-link-square-alt ms-1"></i></a>_22693.html<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190729233815391.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MjA2MjQ0,size_16,color_FFFFFF,t_70" loading="lazy" />
+</picture>
+
+</p>
+
+<h3 id="三安装git" data-numberify>三、安装git<a class="anchor ms-1" href="#三安装git"></a></h3>
+<p><strong>3.1安装位置</strong><br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190729233937924.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MjA2MjQ0,size_16,color_FFFFFF,t_70" loading="lazy" />
+</picture>
+
+</p>
+<p>图3.1</p>
+<p><strong>3.2安装配置文件，根据需要选择</strong><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190729234200143.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MjA2MjQ0,size_16,color_FFFFFF,t_70" loading="lazy" />
+</picture>
+
+</p>
+<p>图3.2</p>
+<p><strong>3.3启动文件夹设置（截图略）</strong><br>
+<strong>3.4设置默认编辑器，可自定义，点击Browse，添加第三方编辑器.exe即可，本文以NotePad++为例</strong></p>
+<p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190729234332235.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MjA2MjQ0,size_16,color_FFFFFF,t_70" loading="lazy" />
+</picture>
+
+</p>
+<p>图3.4</p>
+<p><strong>3.5选择path配置，提示都是见名知意，按需选择。</strong><br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190729234722878.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MjA2MjQ0,size_16,color_FFFFFF,t_70" loading="lazy" />
+</picture>
+
+</p>
+<p>图3.5</p>
+<p><strong>3.6默认即可</strong><br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190729234853473.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MjA2MjQ0,size_16,color_FFFFFF,t_70" loading="lazy" />
+</picture>
+
+</p>
+<p>图3.6</p>
+<p><strong>3.7 配置行结束标记，保持默认即可</strong><br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190729234948226.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MjA2MjQ0,size_16,color_FFFFFF,t_70" loading="lazy" />
+</picture>
+
+</p>
+<p>图3.7</p>
+<p><strong>3.8选择git使用终端风格</strong><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190729235043508.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MjA2MjQ0,size_16,color_FFFFFF,t_70" loading="lazy" />
+</picture>
+
+</p>
+<p>图3.8</p>
+<p><strong>3.9额外配置，默认即可</strong><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190729235054858.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MjA2MjQ0,size_16,color_FFFFFF,t_70" loading="lazy" />
+</picture>
+
+</p>
+<p>图3.9</p>
+<p><strong>3.10 默认</strong><br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190729235140350.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MjA2MjQ0,size_16,color_FFFFFF,t_70" loading="lazy" />
+</picture>
+
+</p>
+<p>图3.10</p>
+<p><strong>3.11 安装完成</strong><br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190729235211798.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MjA2MjQ0,size_16,color_FFFFFF,t_70" loading="lazy" />
+</picture>
+
+</p>
+<p>图3.11</p>
+<p><strong>3.12 打开git bash</strong><br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190730000059611.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MjA2MjQ0,size_16,color_FFFFFF,t_70" loading="lazy" />
+</picture>
+
+</p>
+<p>图3.12</p>
+<p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/201907300001189.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MjA2MjQ0,size_16,color_FFFFFF,t_70" loading="lazy" />
+</picture>
+
+</p>
+<p>图3.13</p>
+
+<h3 id="四远程仓库配置" data-numberify>四、远程仓库配置<a class="anchor ms-1" href="#四远程仓库配置"></a></h3>
+<p>远程仓库有很多，比如github，国内的码云，局域网自建git服务器，托管在其他地方的服务器，本文以github为例<br>
+**网址：**https://github.com<br>
+<strong>4.1注册账户：</strong> 类似普通的网站新用户注册，使用邮箱注册即可。<br>
+<strong>4.2新建仓库：</strong> 点击右上角，加号，new repository<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190729235714573.png" loading="lazy" />
+</picture>
+
+<br>
+下一步<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190729235836900.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MjA2MjQ0,size_16,color_FFFFFF,t_70" loading="lazy" />
+</picture>
+
+<br>
+如，我已经建立好的仓库：<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190729235937334.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MjA2MjQ0,size_16,color_FFFFFF,t_70" loading="lazy" />
+</picture>
+
+</p>
+
+<h3 id="五生成配置ssh" data-numberify>五、生成（配置）SSH<a class="anchor ms-1" href="#五生成配置ssh"></a></h3>
+<p>git客户端安装后，如何和远程仓库，如github连接呢？本文使用SSH。<br>
+<strong>5.1 用户名</strong></p>
+<pre tabindex="0"><code>git config --global user.name &#34;注册名&#34;
+</code></pre><p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190730000857658.png" loading="lazy" />
+</picture>
+
+<br>
+<strong>5.2 邮箱</strong></p>
+<pre tabindex="0"><code>git config --global user.email &#34;注册邮箱&#34;
+</code></pre><p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190730000949953.png" loading="lazy" />
+</picture>
+
+<br>
+<strong>5.3 生成SSH（以有SSH可以跳过这一步）</strong></p>
+<pre tabindex="0"><code>ssh-keygen -t rsa -C &#34;自己的邮箱&#34;
+</code></pre><p>生成成功，如下图所示：<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/2019073000112998.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MjA2MjQ0,size_16,color_FFFFFF,t_70" loading="lazy" />
+</picture>
+
+<br>
+SSH文件存放在C:/User/用户/.ssh下，id_rsa为私钥，id_rsa.pub为公钥。<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190730001331166.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MjA2MjQ0,size_16,color_FFFFFF,t_70" loading="lazy" />
+</picture>
+
+<br>
+<strong>5.4 github配置SSH</strong><br>
+打开id_rsa.pub文件，全选，复制全文<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190730001702732.png" loading="lazy" />
+</picture>
+
+<br>
+github-&gt;账户-&gt;setting<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/2019073000180875.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MjA2MjQ0,size_16,color_FFFFFF,t_70" loading="lazy" />
+</picture>
+
+<br>
+选择SSH and GPGkeys，New SSH key<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190730001839805.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MjA2MjQ0,size_16,color_FFFFFF,t_70" loading="lazy" />
+</picture>
+
+<br>
+自定义一个title，然后粘贴从公钥文件中拷贝的key<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190730001953753.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MjA2MjQ0,size_16,color_FFFFFF,t_70" loading="lazy" />
+</picture>
+
+<br>
+<strong>5.5 测试SSH连接</strong></p>
+<pre tabindex="0"><code>ssh -T git@github.com
+</code></pre><p>按照提示输入yes，回车，提示successfully之类的就说明SSH连接正常，github上的钥匙也会变成绿色<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190730002414433.png" loading="lazy" />
+</picture>
+
+<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190730002509244.png" loading="lazy" />
+</picture>
+
+<br>
+至此，本地git客户端和远程github建立了联系。</p>
+
+<h3 id="六推送文件至远程仓库" data-numberify>六、推送文件至远程仓库<a class="anchor ms-1" href="#六推送文件至远程仓库"></a></h3>
+<p>在把文件推送到远程仓库之前，先要了解本地仓库这个概念，此外还有add，commit，push等概念，本文不再赘述。<br>
+<strong>基本流程:add-&gt;commit-&gt;push</strong></p>
+
+<h4 id="61建立本地仓库" data-numberify>6.1建立本地仓库<a class="anchor ms-1" href="#61建立本地仓库"></a></h4>
+<p>新建一个文件夹<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190730002808996.png" loading="lazy" />
+</picture>
+
+<br>
+git bash中执行命令，将该文件夹初始化为一个仓库</p>
+<pre tabindex="0"><code>git init
+</code></pre><p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190730002923399.png" loading="lazy" />
+</picture>
+
+<br>
+结束以后在文件夹下面会出现一个隐藏的文件夹.git，没有的话，设置一下文件夹选项，显示隐藏文件<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190730003039575.png" loading="lazy" />
+</picture>
+
+</p>
+
+<h4 id="62-推送文件至远程" data-numberify>6.2 推送文件至远程<a class="anchor ms-1" href="#62-推送文件至远程"></a></h4>
+<p><strong>本文建议</strong>，在远程建立好仓库，本地进行clone，然后再添加新文件，最后推送至远程。这样的步骤对新手比较友好。<br>
+如：事先在github建立了仓库，bysj，并新建了README文件，此时远程仓库中只有这一个文件。<br>
+<strong>一、clone远程至本地</strong></p>
+<pre tabindex="0"><code>git clone git@github.com:用户名/仓库名.git
+</code></pre><p>将远程的bysj仓库及其中的README文件clone至本地<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190730003552508.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MjA2MjQ0,size_16,color_FFFFFF,t_70" loading="lazy" />
+</picture>
+
+<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190730003650409.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MjA2MjQ0,size_16,color_FFFFFF,t_70" loading="lazy" />
+</picture>
+
+<br>
+然后，向bysj文件夹中手动添加了doc，src，WebContent三个文件夹及其中的子文件夹和文件等。<br>
+可以用ls命令查看bysj文件夹下的文件，可以看到有一个文件，三个文件夹，<strong>使用命令进行add</strong><br>
+<strong>二、add</strong></p>
+<pre tabindex="0"><code>git add 文件夹1/ 文件夹2/
+</code></pre><p>注意:add有多种形式，可以add某个文件，某个文件夹，或直接add当前仓库下所有文件</p>
+<pre tabindex="0"><code>git add 单个文件
+git add 文件夹1/ 文件夹2/ ……多个文件夹之间空格隔开
+git add .
+</code></pre><p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190730004215755.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MjA2MjQ0,size_16,color_FFFFFF,t_70" loading="lazy" />
+</picture>
+
+<br>
+<strong>三、commit</strong></p>
+<pre tabindex="0"><code>git commit -m “注释”
+</code></pre><p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190730004625458.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MjA2MjQ0,size_16,color_FFFFFF,t_70" loading="lazy" />
+</picture>
+
+<br>
+<strong>四、push</strong></p>
+<pre tabindex="0"><code>git push -u origin master
+</code></pre><p><picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190730004926747.png" loading="lazy" />
+</picture>
+
+<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190730004802447.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MjA2MjQ0,size_16,color_FFFFFF,t_70" loading="lazy" />
+</picture>
+
+<br>
+成功推送至远程仓库bysj，三个文件夹，一个README文件。<br>
+<picture><img class="img-fluid " alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20190730005030739.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MjA2MjQ0,size_16,color_FFFFFF,t_70" loading="lazy" />
+</picture>
+
+</p>
+<hr>
+
+<h4 id="总结如何推送文件至远程" data-numberify>总结：如何推送文件至远程？<a class="anchor ms-1" href="#总结如何推送文件至远程"></a></h4>
+<p>①建立本地仓库<br>
+②与远程建立连接，测试</p>
+<pre tabindex="0"><code>ssh -T git@github.com
+</code></pre><p>③init命令初始化仓库</p>
+<pre tabindex="0"><code>git init
+</code></pre><p>④手动拷贝文件，并执行add命令</p>
+<pre tabindex="0"><code>git add 文件夹1/ 文件夹2/
+</code></pre><p>⑤commit命令</p>
+<pre tabindex="0"><code>git commit -m “注释”
+</code></pre><p>⑥push命令</p>
+<pre tabindex="0"><code>git push -u origin master
+</code></pre><blockquote>
+<p>后记：时间匆忙，难免有遗漏或不当之处，望大家批评指正！</p>
+</blockquote>
+<p>文章知识点与官方知识档案匹配，可进一步学习相关知识</p>
+<p><a href="https://edu.csdn.net/skill/git/git-62c30f9c31f64a1d96af732c47c93f04?utm_source=csdn_ai_skill_tree_blog" target="_blank" rel="noopener noreferrer">Git技能树<i class="fas fa-external-link-square-alt ms-1"></i></a><a href="https://edu.csdn.net/skill/git/git-62c30f9c31f64a1d96af732c47c93f04?utm_source=csdn_ai_skill_tree_blog" target="_blank" rel="noopener noreferrer">Git入门<i class="fas fa-external-link-square-alt ms-1"></i></a><a href="https://edu.csdn.net/skill/git/git-62c30f9c31f64a1d96af732c47c93f04?utm_source=csdn_ai_skill_tree_blog" target="_blank" rel="noopener noreferrer">Git简介<i class="fas fa-external-link-square-alt ms-1"></i></a>7467 人正在系统学习中</p>
+<p>本文转自 <a href="https://blog.csdn.net/qq_35206244/article/details/97698815" target="_blank" rel="noopener noreferrer">https://blog.csdn.net/qq_35206244/article/details/97698815<i class="fas fa-external-link-square-alt ms-1"></i></a>，如有侵权，请联系删除。</p>
+</div>
+</div>
+<div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content surface">
+      <div class="modal-header">
+        <h5 class="modal-title text-surface" id="rewardModalLabel"><i class="fas fa-fw fa-coffee me-1"></i>Buy me a coffee</h5>
+        <a href="#" data-bs-dismiss="modal" class="btn-close" aria-label="Close"></a>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs mb-3" role="tablist"><li class="nav-item text-nowrap" role="presentation">
+            <a class="nav-link active" id="reward-alipay-tab" data-bs-toggle="tab" href="#reward-alipay" role="tab" aria-controls="reward-alipay" aria-selected="true">
+              <i class="fab fa-fw fa-alipay me-1"></i>Alipay
+            </a>
+          </li><li class="nav-item text-nowrap" role="presentation">
+            <a class="nav-link" id="reward-wechat-tab" data-bs-toggle="tab" href="#reward-wechat" role="tab" aria-controls="reward-wechat" aria-selected="true">
+              <i class="fab fa-fw fa-weixin me-1"></i>WeChat
+            </a>
+          </li></ul>
+        <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content text-center show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
+            <img class="img-fluid post-reward-img" src="https://fallingmy.github.io/images/reward/alipay.jpg" loading="lazy" data-viewer-invisible />
+          </div><div class="tab-pane fade post-reward-content text-center show" id="reward-wechat" role="tabpanel" aria-labelledby="reward-wechat-tab">
+            <img class="img-fluid post-reward-img" src="https://fallingmy.github.io/images/reward/wechat.jpg" loading="lazy" data-viewer-invisible />
+          </div></div>
+      </div>
+    </div>
+  </div>
+</div></div><div class="card-footer">
+  <div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-prev">
+      <i class="fas fa-fw fa-chevron-down post-prev-icon me-1" data-fa-transform="rotate-90"></i>
+      <a href="/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%BA%8C%E8%8E%B7%E5%8F%96%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9B%B4%E6%96%B0/">Git基本使用教程（二）：获取更新与推送更新</a>
+    </div></div>
+</div></article><div class="post-copyright mb-3 row card component" id="post-copyright">
+    <div class="card-header">
+        <h2 class="card-title fs-4 my-2 text-surface">Copyright</h2>
+    </div>
+    <div class="card-body"><a class="d-flex align-items-center flex-column" target="_blank" rel="license noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en">
+  <span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-nc"></i><i class="fab fa-fw fa-2x fa-creative-commons-nd"></i></span>
+  CC BY-NC-ND 4.0 
+</a>
+
+
+    </div>
+</div><section class="related-posts row card component">
+      <div class="card-header">
+        <h2 class="card-title fs-4 my-2 text-surface">
+          Related Posts
+        </h2>
+      </div>
+      <div class="card-body slide px-1">
+        <div class="slide-inner row gx-0"><div class="col-12 col-md-6 col-lg-4 me-2">
+            <div class="post-card card card-body p-0 border-0 surface">
+  
+  <picture>
+      <source srcset="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample_hu1e269adb755e54f6dcb322d69e53c5ae_40960_500x0_resize_q75_h2_box_2.webp" media="(max-width: 576px)" height="375" width="500">
+      <img class="img-fluid" height="135" width="180" alt="featured-sample.webp" src="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample_hu1e269adb755e54f6dcb322d69e53c5ae_40960_180x0_resize_q75_h2_box_2.webp" data-src="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample.webp" loading="lazy"/>
+    </picture>
+
+  <a class="post-title" href="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/">
+    落茜聚
+  </a>
+  <div class="post-meta mb-0">
+    January 1, 1
+
+  </div>
+</div>
+
+          </div></div>
+        <button class="slide-control-left">
+          <i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-90"></i>
+          <span class="visually-hidden">Left</span>
+        </button>
+        <button class="slide-control-right">
+          <i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-270"></i>
+          <span class="visually-hidden">Right</span>
+        </button>
+      </div>
+    </section><div class="card component row post-comments" id="post-comments">
+  <div class="card-header">
+    <h2 class="card-title my-2 fs-4 text-surface">Comments</h2>
+  </div>
+  <div class="card-body">
+<div class="giscus"></div>
+
+
+
+</div>
+</div></div>
+</div>
+<aside class="sidebar d-flex docs-sidebar col-xxl-3 position-sticky order-xxl-5">
+  <div class="container">
+    
+    <div class="accordion post-toc d-none d-lg-block">
+  <div class="accordion-item row mb-4 card component" id="postTOC">
+    <div class="card-header accordion-header">
+      <h2 class="card-title fs-4 my-2 text-surface d-none d-lg-block">Contents</h2>
+      <a class="accordion-button d-lg-none mb-1 collapsed shadow-none p-0 bg-transparent" role="button" data-bs-toggle="collapse" href="#post-toc" aria-expanded="false" aria-controls="post-toc">
+        Contents
+      </a>
+    </div>
+    <div class="card-body collapse accordion-collapse accordion-body d-lg-block" id="post-toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一git简介">一、git简介</a></li>
+        <li><a href="#二下载git">二、下载git</a></li>
+        <li><a href="#三安装git">三、安装git</a></li>
+        <li><a href="#四远程仓库配置">四、远程仓库配置</a></li>
+        <li><a href="#五生成配置ssh">五、生成（配置）SSH</a></li>
+        <li><a href="#六推送文件至远程仓库">六、推送文件至远程仓库</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </div>
+</div>
+    <div class="accordion">
+    <div class="accordion-item docs-repo row card component">
+        <div class="card-header accordion-header" id="repo-header">
+            <h2 class="card-title fs-4 my-2 text-surface d-none d-lg-block">Repository</h2>
+            <a
+                class="accordion-button d-lg-none mb-1 shadow-none p-0 bg-transparent"
+                role="button" data-bs-toggle="collapse" href="#repo" aria-expanded="true" aria-controls="repo">
+                Repository
+            </a>
+        </div>
+        <div class="card-body collapse accordion-collapse accordion-body text-secondary-on-surface d-lg-block show" id="repo" aria-labelledby="repo-header">
+            <ul class="list-unstyled"><li class="mb-1">
+                    <a href="https://github.com/FallingMY/FallingMY.github.io/blob/main//content/docs/HelpDocs/Git/Git%e5%9f%ba%e6%9c%ac%e4%bd%bf%e7%94%a8%e6%95%99%e7%a8%8b%ef%bc%88%e4%b8%80%ef%bc%89%ef%bc%9a%e5%85%a5%e9%97%a8%e5%8f%8a%e7%ac%ac%e4%b8%80%e6%ac%a1%e5%9f%ba%e6%9c%ac%e5%ae%8c%e6%95%b4%e6%93%8d%e4%bd%9c.md" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-fw fa-file-archive text-success"></i> View page source
+                    </a>
+                </li>
+                <li class="mb-1">
+                    <a href="https://github.com/FallingMY/FallingMY.github.io/edit/main//content/docs/HelpDocs/Git/Git%e5%9f%ba%e6%9c%ac%e4%bd%bf%e7%94%a8%e6%95%99%e7%a8%8b%ef%bc%88%e4%b8%80%ef%bc%89%ef%bc%9a%e5%85%a5%e9%97%a8%e5%8f%8a%e7%ac%ac%e4%b8%80%e6%ac%a1%e5%9f%ba%e6%9c%ac%e5%ae%8c%e6%95%b4%e6%93%8d%e4%bd%9c.md" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-fw fa-edit text-primary"></i> Edit this page
+                    </a>
+                </li></ul>
+        </div>
+    </div>
+</div>
+
+  </div>
+</aside>
+
+      </div>
+    </main><footer class="footer mt-auto py-3 text-center container"><div class="offcanvas offcanvas-bottom h-auto" tabindex="-1" id="offcanvasActionsPanel"
+  aria-labelledby="offcanvasActionsPanelLabel">
+  <div class="offcanvas-header">
+    <div class="offcanvas-title h5" id="offcanvasActionsPanelLabel">
+      <i class="fas fa-fw fa-th-large me-1"></i>
+      Actions
+    </div>
+    <button type="button" class="btn-close ms-auto" data-bs-dismiss="offcanvas" data-bs-target="offcanvasActionsPanel" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body mt-2"><div class="social-share mb-4 d-flex overflow-auto">
+      <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Twitter Share Button"
+      target="_blank" href="https://twitter.com/intent/tweet?title=404%20Page%20not%20found&url=https%3a%2f%2ffallingmy.github.io%2f404.html">
+        <i class="fab fa-2x fa-fw fa-twitter mb-2"></i> Twitter
+      </a>
+      <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Facebook Share Button"
+        target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ffallingmy.github.io%2f404.html">
+        <i class="fab fa-2x fa-fw fa-facebook-f mb-2"></i> Facebook
+      </a>
+    </div>
+    <hr class="mb-4"><div class="actions d-flex overflow-auto align-items-center">
+      <a role="button" class="action action-go-back d-flex flex-column align-items-center me-3" href="javascript: window.history.back();">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-90"></i></span> Go back
+      </a>
+      <a role="button" class="action action-reload-page d-flex flex-column align-items-center me-3">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-redo-alt"></i></span> Reload
+      </a>
+      <a role="button" class="action action-copy-url d-flex flex-column align-items-center me-3">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-link"></i></span> Copy URL
+      </a>
+    </div>
+  </div>
+</div><div class="row text-center">
+  <div class="col-12 mt-2">
+    <p class="mb-2">Falling_Studio_Terminal3</p>
+    <p class="text-secondary mb-2"><small>An extreme fast, responsive and feature-rich blog theme for Hugo</small></p><div class="copyright mb-2 text-secondary">
+  <small>Copyright © 2016-2024 Razon Yang. All Rights Reserved.
+</small>
+</div>
+<div class="powered-by mb-2 text-secondary">
+  <small>
+    Build with ❤️ from the <a class="text-primary" href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a> and the <a class="text-primary" href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank" rel="noopener noreferrer">HBS</a> theme.
+  </small>
+</div>
+
+
+<nav class="social-links nav justify-content-center mb-2 mt-3">
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://space.bilibili.com/327274480" title="Bilibili" rel="me">
+        <i class="fa-fw fa-2x fab fa-bilibili"
+           style="color: #fb7299;"></i>
+      </a>
+    <a class="nav-link social-link p-0 me-1 mb-2" href="mailto:falling_my@outlook.com" title="Email">
+      <i class="fas fa-fw fa-2x fa-envelope" style="color: #0963ac;"></i>
+    </a>
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://github.com/FallingMY/FallingMY.github.io" title="GitHub" rel="me">
+        <i class="fa-fw fa-2x fab fa-github"
+          ></i>
+      </a>
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://wpa.qq.com/msgrd?v=3&amp;uin=%25!s%28int=1317096804%29&amp;site=qq&amp;menu=yes" title="QQ" rel="me">
+        <i class="fa-fw fa-2x fab fa-qq"
+          ></i>
+      </a>
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://twitter.com/FallingMY3" title="Twitter" rel="me">
+        <i class="fa-fw fa-2x fab fa-twitter"
+           style="color: #1d9bf0;"></i>
+      </a>
+  <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="/index.xml" title="RSS" rel="me">
+    <i class="fas fa-fw fa-2x fa-rss" style="color: #ea6221;"></i>
+  </a>
+</nav>
+</div>
+  <div class="col-12 col-lg-8 offset-0 offset-lg-1"></div>
+</div>
+</footer>
+<script data-precache src="/assets/main/bundle.min.5ad3a40fc4e98f8fcdd019b0792ae3bbabebb3fc979db92bc7610e2fb6414529.js" integrity="sha256-WtOkD8Tpj4/N0BmweSrju6vrs/yXnbkrx2EOL7ZBRSk=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.4f30d5267a9f2f9d45ed93969d45ec626100a969a8b91f71f753315a261e9034.js" integrity="sha256-TzDVJnqfL51F7ZOWnUXsYmEAqWmouR9x91MxWiYekDQ=" crossorigin="anonymous" defer></script>
+<script data-precache src="/assets/viewer/bundle.min.06371891cfe6d10d36cba465c61c4d7cb17591a3be2fd9af4a38444d2074e709.js" integrity="sha256-BjcYkc/m0Q02y6RlxhxNfLF1kaO&#43;L9mvSjhETSB05wk=" crossorigin="anonymous" defer></script>
+  <script data-precache defer src="/assets/katex/bundle.min.ebacb71ff73d65512126000e4a076fdbd207a155f88a4e69b442c0407e576fe3.js" integrity="sha256-66y3H/c9ZVEhJgAOSgdv29IHoVX4ik5ptELAQH5Xb&#43;M=" crossorigin="anonymous"></script>
+
+<script src="/js/sw-register.js" defer></script>
+<script src="https://giscus.app/client.js"
+    data-repo="FallingMY/FallingMY.github.io"
+    data-repo-id="R_kgDOMR9LTw"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOMSZCT84Cgl_T"
+    data-mapping="pathname"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="preferred_color_scheme"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    defer>
+</script>
+
+
+  </body>
+</html>
