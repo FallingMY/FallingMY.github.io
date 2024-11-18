@@ -4,7 +4,7 @@
   <head><script src="/assets/init/bundle.min.60a5effd0a083ea3601371c3b04cf6e82d273dd8c1e0ec015b7d58b80bb88822.js" integrity="sha256-YKXv/QoIPqNgE3HDsEz26C0nPdjB4OwBW31YuAu4iCI=" crossorigin="anonymous"></script>
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>C_Lan - Falling_Studio_Terminal3</title>
+    <title>指针 - Falling_Studio_Terminal3</title>
     <link rel="icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_16x16_resize_box_3.png" sizes="16x16" type="image/png">
     <link rel="icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_32x32_resize_box_3.png" sizes="32x32" type="image/png">
     <link rel="icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_150x150_resize_box_3.png" sizes="150x150" type="image/png">
@@ -12,29 +12,93 @@
     <link rel="icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_192x192_resize_box_3.png" sizes="192x192" type="image/png">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6f42c1">
 <meta name="keywords" content="Hugo, Bootstrap, Blog Theme" />
-  <meta name="description" content="An extreme fast, responsive and feature-rich blog theme for Hugo" />
+  <meta name="description" content=" C语言能处理一类非常特殊的数据——内存地址（常量）
+引入计算机内部有很多储存单元，每个储存单位都用唯一的地址编号（表示为一个整数加以区别），简称为地址
+或者说
+内存中每个字节都有一个编号——地址
+指针使程序的不同部分能共享数据（地址唯一性）
+指针指针自身的是一个变量，内容为地址变量。指针自身被称为指针变量（也作指针）。
+指针变量指向目标变量。
+char *p,x; x = &#34;A&#34;; p = &amp;x; *为取目标运算
+&amp;为取地址运算
+空指针int *p = 0; int p = null; 定义了一个空指针
+指向的目标变量为null
+作用任何变量一旦定义就有值
+在不知道指针的指向时，将其定义为空指针
+无类型指针void *p; void意思为该指针的目标类型当前未知
+在知道目标类型之后，可用强制类型转换将空类型指针转为整形指针或字符型指针
+(int*) p; (char*) p; 例数字交换#include&lt;stdio.h&gt; void swap(int *p1,int *p2){ int tmp; tmp = *p1;//储存p1目标变量值[a] *p1 = *p2;//将p2的目标变量值[b]赋值给p1 *p2 = tmp;//将p1的原目标值[a]赋值给p2 }//将a,b地址的变量进行交换操作 int main (){ int a, b; scanf(&#34;%d %d&#34;, &amp;a, &amp;b); swap(&amp;a, &amp;b); printf(&#34;%d %d\n&#34;, a, b); } " />
     <meta name="robots" content="index, follow" />
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="C_Lan">
-  <meta name="twitter:description" content="An extreme fast, responsive and feature-rich blog theme for Hugo">
+  <meta name="twitter:title" content="指针">
+  <meta name="twitter:description" content=" C语言能处理一类非常特殊的数据——内存地址（常量）
+引入计算机内部有很多储存单元，每个储存单位都用唯一的地址编号（表示为一个整数加以区别），简称为地址
+或者说
+内存中每个字节都有一个编号——地址
+指针使程序的不同部分能共享数据（地址唯一性）
+指针指针自身的是一个变量，内容为地址变量。指针自身被称为指针变量（也作指针）。
+指针变量指向目标变量。
+char *p,x; x = &#34;A&#34;; p = &amp;x; *为取目标运算
+&amp;为取地址运算
+空指针int *p = 0; int p = null; 定义了一个空指针
+指向的目标变量为null
+作用任何变量一旦定义就有值
+在不知道指针的指向时，将其定义为空指针
+无类型指针void *p; void意思为该指针的目标类型当前未知
+在知道目标类型之后，可用强制类型转换将空类型指针转为整形指针或字符型指针
+(int*) p; (char*) p; 例数字交换#include&lt;stdio.h&gt; void swap(int *p1,int *p2){ int tmp; tmp = *p1;//储存p1目标变量值[a] *p1 = *p2;//将p2的目标变量值[b]赋值给p1 *p2 = tmp;//将p1的原目标值[a]赋值给p2 }//将a,b地址的变量进行交换操作 int main (){ int a, b; scanf(&#34;%d %d&#34;, &amp;a, &amp;b); swap(&amp;a, &amp;b); printf(&#34;%d %d\n&#34;, a, b); } ">
       <meta name="twitter:site" content="@FallingMY3">
-<meta property="og:url" content="https://fallingmy.github.io/docs/helpdocs/c_lan/">
+<meta property="og:url" content="https://fallingmy.github.io/docs/helpdocs/c/c&#43;&#43;/pointer/">
   <meta property="og:site_name" content="Falling_Studio_Terminal3">
-  <meta property="og:title" content="C_Lan">
-  <meta property="og:description" content="An extreme fast, responsive and feature-rich blog theme for Hugo">
+  <meta property="og:title" content="指针">
+  <meta property="og:description" content=" C语言能处理一类非常特殊的数据——内存地址（常量）
+引入计算机内部有很多储存单元，每个储存单位都用唯一的地址编号（表示为一个整数加以区别），简称为地址
+或者说
+内存中每个字节都有一个编号——地址
+指针使程序的不同部分能共享数据（地址唯一性）
+指针指针自身的是一个变量，内容为地址变量。指针自身被称为指针变量（也作指针）。
+指针变量指向目标变量。
+char *p,x; x = &#34;A&#34;; p = &amp;x; *为取目标运算
+&amp;为取地址运算
+空指针int *p = 0; int p = null; 定义了一个空指针
+指向的目标变量为null
+作用任何变量一旦定义就有值
+在不知道指针的指向时，将其定义为空指针
+无类型指针void *p; void意思为该指针的目标类型当前未知
+在知道目标类型之后，可用强制类型转换将空类型指针转为整形指针或字符型指针
+(int*) p; (char*) p; 例数字交换#include&lt;stdio.h&gt; void swap(int *p1,int *p2){ int tmp; tmp = *p1;//储存p1目标变量值[a] *p1 = *p2;//将p2的目标变量值[b]赋值给p1 *p2 = tmp;//将p1的原目标值[a]赋值给p2 }//将a,b地址的变量进行交换操作 int main (){ int a, b; scanf(&#34;%d %d&#34;, &amp;a, &amp;b); swap(&amp;a, &amp;b); printf(&#34;%d %d\n&#34;, a, b); } ">
   <meta property="og:locale" content="en">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:published_time" content="2024-11-18T08:08:06+08:00">
+    <meta property="article:modified_time" content="2024-11-18T08:08:06+08:00">
 
-  <meta itemprop="name" content="C_Lan">
-  <meta itemprop="description" content="An extreme fast, responsive and feature-rich blog theme for Hugo">
-  <meta itemprop="datePublished" content="2024-09-17T11:34:47+08:00">
-  <meta itemprop="dateModified" content="2024-09-17T11:34:47+08:00">
+  <meta itemprop="name" content="指针">
+  <meta itemprop="description" content=" C语言能处理一类非常特殊的数据——内存地址（常量）
+引入计算机内部有很多储存单元，每个储存单位都用唯一的地址编号（表示为一个整数加以区别），简称为地址
+或者说
+内存中每个字节都有一个编号——地址
+指针使程序的不同部分能共享数据（地址唯一性）
+指针指针自身的是一个变量，内容为地址变量。指针自身被称为指针变量（也作指针）。
+指针变量指向目标变量。
+char *p,x; x = &#34;A&#34;; p = &amp;x; *为取目标运算
+&amp;为取地址运算
+空指针int *p = 0; int p = null; 定义了一个空指针
+指向的目标变量为null
+作用任何变量一旦定义就有值
+在不知道指针的指向时，将其定义为空指针
+无类型指针void *p; void意思为该指针的目标类型当前未知
+在知道目标类型之后，可用强制类型转换将空类型指针转为整形指针或字符型指针
+(int*) p; (char*) p; 例数字交换#include&lt;stdio.h&gt; void swap(int *p1,int *p2){ int tmp; tmp = *p1;//储存p1目标变量值[a] *p1 = *p2;//将p2的目标变量值[b]赋值给p1 *p2 = tmp;//将p1的原目标值[a]赋值给p2 }//将a,b地址的变量进行交换操作 int main (){ int a, b; scanf(&#34;%d %d&#34;, &amp;a, &amp;b); swap(&amp;a, &amp;b); printf(&#34;%d %d\n&#34;, a, b); } ">
+  <meta itemprop="datePublished" content="2024-11-18T08:08:06+08:00">
+  <meta itemprop="dateModified" content="2024-11-18T08:08:06+08:00">
+  <meta itemprop="wordCount" content="78">
   <meta property="og:image" content="https://fallingmy.github.io/images/icon.png"/>
   <meta name="twitter:image" content="https://fallingmy.github.io/images/icon.png"/>
-  <meta property="og:image:alt" content="C_Lan" />
-  <meta name="twitter:image:alt" content="C_Lan" />
+  <meta property="og:image:alt" content="指针" />
+  <meta name="twitter:image:alt" content="指针" />
   <link rel="manifest" href="/manifest.json">
-<link rel="alternate" type="application/rss+xml" href="/docs/helpdocs/c_lan/index.xml" title="Falling_Studio_Terminal3" />
+
   
 
 
@@ -160,7 +224,7 @@ Falling_MY
           ></i>
         <span class="ms-1 d-xxl-none">Github</span>
       </a>
-  <a class="nav-link social-link col-6 col-xxl-auto p-1" target="_blank" href="/docs/helpdocs/c_lan/index.xml" title="RSS" rel="me">
+  <a class="nav-link social-link col-6 col-xxl-auto p-1" target="_blank" href="/index.xml" title="RSS" rel="me">
     <i class="fas fa-fw fa-rss"></i>
     <span class="ms-1 d-xxl-none">RSS</span>
   </a>
@@ -331,20 +395,16 @@ Falling_MY
             <div class="btn-toggle-nav fw-normal ms-2 small">
               <ul class="list-unstyled mb-2 w-100"><li class="mb-2" tabindex="-1">
           <div class="py-1 d-flex justify-content-between align-items-center ms-3 text-primary">
-            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/c_lan/"><span class="docs-nav-title">C_Lan</span></a>
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/c/c&#43;&#43;/"><span class="docs-nav-title">C/C&#43;&#43;</span></a>
             <a class="btn-toggle ms-1" role="button" data-bs-toggle="collapse"
-              data-bs-target="#nav-a89fd3e4a7e257e7b93f2e7eb5a6bfdb" aria-expanded="true" aria-controls="nav-a89fd3e4a7e257e7b93f2e7eb5a6bfdb">
+              data-bs-target="#nav-4c352665280bb902c3cd1f57edc236a4" aria-expanded="true" aria-controls="nav-4c352665280bb902c3cd1f57edc236a4">
               <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
             </a>
           </div>
-          <div class="docs-nav-subnavs border-start mt-2 collapse  show border-primary" id="nav-a89fd3e4a7e257e7b93f2e7eb5a6bfdb">
+          <div class="docs-nav-subnavs border-start mt-2 collapse  show border-primary" id="nav-4c352665280bb902c3cd1f57edc236a4">
             <div class="btn-toggle-nav fw-normal ms-2 small">
-              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
-          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/c_lan/c%E8%AF%AD%E8%A8%80_c%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86%E8%B6%85%E5%85%A8/"><span class="docs-nav-title">【C语言】c语言基础知识梳理（超全）</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
-          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/c_lan/c_printfscanf-%E5%92%8C%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2%E6%8E%A7%E5%88%B6%E5%8D%A0%E4%BD%8D%E7%AC%A6/"><span class="docs-nav-title">C printf、scanf 和格式转换(控制、占位)符</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
-          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/c_lan/c%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E6%A0%BC%E5%BC%8F%E6%8E%A7%E5%88%B6%E7%AC%A6-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">C语言中的格式控制符-CSDN博客</span></a>
+              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3 text-primary" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/c/c&#43;&#43;/pointer/"><span class="docs-nav-title">指针</span></a>
         </li></ul>
             </div>
           </div>
@@ -495,73 +555,238 @@ Falling_MY
         </li></ul></div>
   </div>
 </aside><div class="col-xxl-7 ms-auto">
-  <div class="container"><nav class="row card component" aria-label="breadcrumb">
+  <div class="container-fluid"><nav class="row card component" aria-label="breadcrumb">
   <div class="card-body pb-0">
-    <ol class="hbs-breadcrumb breadcrumb flex-nowrap"><li class="breadcrumb-item text-surface"><a href="/">Home</a></li><li class="breadcrumb-item text-surface"><a href="/docs/">Docs</a></li><li class="breadcrumb-item text-surface"><a href="/docs/helpdocs/">HelpDocs</a></li><li class="breadcrumb-item active">C_Lan</li></ol>
+    <ol class="hbs-breadcrumb breadcrumb flex-nowrap"><li class="breadcrumb-item text-surface"><a href="/">Home</a></li><li class="breadcrumb-item text-surface"><a href="/docs/">Docs</a></li><li class="breadcrumb-item text-surface"><a href="/docs/helpdocs/">HelpDocs</a></li><li class="breadcrumb-item text-surface"><a href="/docs/helpdocs/c/c&#43;&#43;/">C/C&#43;&#43;</a></li><li class="breadcrumb-item active">指针</li></ol>
   </div>
-</nav><div class="posts mb-4"><article class="row card post component">
-  <div class="card-header">
-    <h2 class="card-title post-title my-2 fs-4">
-      <a href="/docs/helpdocs/c_lan/c%E8%AF%AD%E8%A8%80_c%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86%E8%B6%85%E5%85%A8/">【C语言】c语言基础知识梳理（超全）</a>
-    </h2>
+</nav><div class="post-panel-wrapper position-relative d-flex justify-content-center">
+  <div class="d-flex flex-row justify-content-center rounded-5 border post-panel position-fixed px-3 py-1 surface shadow-1">
+    
+    
+
+    <a class="action btn-reward" role="button" data-bs-toggle="modal" data-bs-target="#rewardModal" title="Buy me a coffee">
+  <i class="fas fa-fw fa-coffee"></i>
+</a>
+    
+    
+<a class="action action-toc d-block d-xxl-none" href="#post-toc-container" role="button" title="Contents">
+  <i class="fas fa-fw fa-list-alt"></i>
+</a>
+    <a class="action action-copyright" href="#post-copyright" role="button" aria-label="Copyright" title="Copyright">
+  <i class="fas fa-fw fa-copyright"></i>
+</a>
+    <a class="action action-post-comments" href="#post-comments" role="button" aria-label="Comments" title="Comments">
+  <i class="fas fa-fw fa-comments"></i>
+</a>
+    
+<a id="sidebarToggler" class="action action-sidebar-toggler d-none d-xxl-block" role="button" title="Toggle sidebar">
+  <i class="fas fa-fw fa-expand-alt" data-fa-transform="rotate-45"></i>
+</a>
+
+    
   </div>
-  <div class="card-body"><div class="post-meta mb-3">
-  <span class="post-date me-1 mb-1" title="created on 2024-09-17 11:34:47 &#43;0800 CST.">September 17, 2024</span><span class="post-reading-time me-1 mb-1">6 min read</span><a href="/authors/csdn_user/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-author">
-      <i class="fas fa-fw fa-user me-1"></i>CSDN_user</a><a href="/series/helpdocs/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
-      <i class="fas fa-fw fa-columns me-1"></i>HelpDocs</a><a href="/tags/c/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">C</a><a href="/tags/helpdocs/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">HelpDocs</a>
+</div><article class="row card component mb-4 post">
+<div class="card-header ">
+    <h1 class="card-title post-title my-2">指针</h1>
+</div>
+<div class="card-body"><div class="post-meta mb-3">
+  <span class="post-date me-1 mb-1" title="created on 2024-11-18 08:08:06 &#43;0800 CST.">November 18, 2024</span><span class="post-reading-time me-1 mb-1">1 min read</span>
 </div>
 
-    <div class="post-summary"><p>C语言基础知识梳理零、概述 一、变量和基本类型 （一）基本类型 1、有符号常见类型大小及其范围 2、浮点数范围来由及其有效数字 3、字面值常量 （1）十进制字面值 （2）浮点数字面值 （3）指定字面值类型 4、字符和字符串常量 5、总结 （二）变量 1、定义变量 2、常用特殊前缀 3、数组与初始化变量 4、变量作用域 （1）局部变量与全局变量的差别 （三）字符串 （四） 自定类型——结构体 二、表达式 三、语句 （一）条件语句 1、if语句 2、switch语句 （二）迭代语句 1、while语句 2、do while语句 3、for语句 （三）跳转语句 四、函数 （一）函数一般格式 （二）函数声明 （三）结构体中的函数 五、指...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/helpdocs/c_lan/c%E8%AF%AD%E8%A8%80_c%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86%E8%B6%85%E5%85%A8/">Read More</a></div>
+<div class="mt-2 mb-3 d-block d-xxl-none">
+    <h2 class="text-surface mb-3">Contents</h2>
+    <div id="post-toc-container">
+        </div>
+    <hr class="text-secondary">
+</div><div class="post-content mb-3" data-bs-spy="scroll" data-bs-target="#TableOfContents" tabindex="0">
+        <div id="post-content-body"><blockquote>
+<p>C语言能处理一类非常特殊的数据——内存地址（常量）</p>
+</blockquote>
+
+<h2 id="引入" data-numberify>引入<a class="anchor ms-1" href="#引入"></a></h2>
+<p>计算机内部有很多储存单元，每个储存单位都用唯一的地址编号（表示为一个整数加以区别），简称为<strong>地址</strong></p>
+<p>或者说</p>
+<p>内存中每个字节都有一个编号——<strong>地址</strong></p>
+<p>指针使程序的不同部分能共享数据（<strong>地址唯一性</strong>）</p>
+
+<h2 id="指针" data-numberify>指针<a class="anchor ms-1" href="#指针"></a></h2>
+<p>指针自身的是一个变量，内容为地址变量。指针自身被称为指针变量（也作指针）。<br>
+指针变量指向目标变量。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">char</span> <span class="o">*</span><span class="n">p</span><span class="p">,</span><span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="s">&#34;A&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>
+</span></span></code></pre></div><p><code>*</code>为取目标运算<br>
+<code>&amp;</code>为取地址运算</p>
+
+<h3 id="空指针" data-numberify>空指针<a class="anchor ms-1" href="#空指针"></a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">int</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="n">null</span><span class="p">;</span>
+</span></span></code></pre></div><p>定义了一个空指针<br>
+指向的目标变量为<em>null</em></p>
+
+<h4 id="作用" data-numberify>作用<a class="anchor ms-1" href="#作用"></a></h4>
+<blockquote>
+<p>任何变量一旦定义就有值</p>
+</blockquote>
+<p>在不知道指针的指向时，将其定义为空指针</p>
+
+<h3 id="无类型指针" data-numberify>无类型指针<a class="anchor ms-1" href="#无类型指针"></a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">void</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+</span></span></code></pre></div><p>void意思为该指针的目标类型当前未知<br>
+在知道目标类型之后，可用强制类型转换将空类型指针转为整形指针或字符型指针</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span> <span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span> <span class="n">p</span><span class="p">;</span>
+</span></span></code></pre></div>
+<h2 id="例" data-numberify>例<a class="anchor ms-1" href="#例"></a></h2>
+
+<h3 id="数字交换" data-numberify>数字交换<a class="anchor ms-1" href="#数字交换"></a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">p1</span><span class="p">,</span><span class="kt">int</span> <span class="o">*</span><span class="n">p2</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">tmp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tmp</span> <span class="o">=</span> <span class="o">*</span><span class="n">p1</span><span class="p">;</span><span class="c1">//储存p1目标变量值[a]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">*</span><span class="n">p1</span> <span class="o">=</span> <span class="o">*</span><span class="n">p2</span><span class="p">;</span><span class="c1">//将p2的目标变量值[b]赋值给p1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">*</span><span class="n">p2</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span><span class="c1">//将p1的原目标值[a]赋值给p2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span><span class="c1">//将a,b地址的变量进行交换操作
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span> <span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%d %d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></div>
+</div>
+<div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content surface">
+      <div class="modal-header">
+        <h5 class="modal-title text-surface" id="rewardModalLabel"><i class="fas fa-fw fa-coffee me-1"></i>Buy me a coffee</h5>
+        <a href="#" data-bs-dismiss="modal" class="btn-close" aria-label="Close"></a>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs mb-3" role="tablist"><li class="nav-item text-nowrap" role="presentation">
+            <a class="nav-link active" id="reward-alipay-tab" data-bs-toggle="tab" href="#reward-alipay" role="tab" aria-controls="reward-alipay" aria-selected="true">
+              <i class="fab fa-fw fa-alipay me-1"></i>Alipay
+            </a>
+          </li><li class="nav-item text-nowrap" role="presentation">
+            <a class="nav-link" id="reward-wechat-tab" data-bs-toggle="tab" href="#reward-wechat" role="tab" aria-controls="reward-wechat" aria-selected="true">
+              <i class="fab fa-fw fa-weixin me-1"></i>WeChat
+            </a>
+          </li></ul>
+        <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content text-center show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
+            <img class="img-fluid post-reward-img" src="https://fallingmy.github.io/images/reward/alipay.jpg" loading="lazy" data-viewer-invisible />
+          </div><div class="tab-pane fade post-reward-content text-center show" id="reward-wechat" role="tabpanel" aria-labelledby="reward-wechat-tab">
+            <img class="img-fluid post-reward-img" src="https://fallingmy.github.io/images/reward/wechat.jpg" loading="lazy" data-viewer-invisible />
+          </div></div>
+      </div>
     </div>
   </div>
-</article>
-<article class="row card post component">
-  <div class="card-header">
-    <h2 class="card-title post-title my-2 fs-4">
-      <a href="/docs/helpdocs/c_lan/c%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E6%A0%BC%E5%BC%8F%E6%8E%A7%E5%88%B6%E7%AC%A6-csdn%E5%8D%9A%E5%AE%A2/">C语言中的格式控制符-CSDN博客</a>
-    </h2>
-  </div>
-  <div class="card-body"><div class="post-meta mb-3">
-  <span class="post-date me-1 mb-1" title="created on 2024-09-17 11:34:47 &#43;0800 CST.">September 17, 2024</span><span class="post-reading-time me-1 mb-1">1 min read</span><a href="/authors/csdn_user/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-author">
-      <i class="fas fa-fw fa-user me-1"></i>CSDN_user</a><a href="/series/helpdocs/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
-      <i class="fas fa-fw fa-columns me-1"></i>HelpDocs</a><a href="/tags/c/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">C</a><a href="/tags/helpdocs/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">HelpDocs</a>
-</div>
-
-    <div class="post-summary"><p> 用在输入 输出函数scanf( )和printf( )中的格式控制部分， 即第一个逗号前的双引号内 ，用来对输出的数据（标识符或表达式）进行格式说明，包括数据类型、长度、对齐方式、小数位数等。
-1.格式控制符的形式
-其中[ ]里面的内容是可选的
--：表示左对齐，缺省情况下为右对齐（若没规定输出数据的宽度则为左对齐）。
-0：当规定输出数据的宽度时，所输出数据实际的宽度小于规定的宽度，则在左边用“0”补齐。
-m/m.n：m规定了输出数据的宽度（位数），若数据实际的宽度大于m，则突破m的限制全部输出，反之， 将数据全部输出之后用空格进行左补齐；对于实数n是指小数点后的位数，若n小于小数点后实际的位数，则按四舍五入原则进行截取；对于字符...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/helpdocs/c_lan/c%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E6%A0%BC%E5%BC%8F%E6%8E%A7%E5%88%B6%E7%AC%A6-csdn%E5%8D%9A%E5%AE%A2/">Read More</a></div>
+</div></div></article><div class="post-copyright mb-3 row card component" id="post-copyright">
+    <div class="card-header">
+        <h2 class="card-title fs-4 my-2 text-surface">Copyright</h2>
     </div>
-  </div>
-</article>
-<article class="row card post component">
-  <div class="card-header">
-    <h2 class="card-title post-title my-2 fs-4">
-      <a href="/docs/helpdocs/c_lan/c_printfscanf-%E5%92%8C%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2%E6%8E%A7%E5%88%B6%E5%8D%A0%E4%BD%8D%E7%AC%A6/">C Printf、scanf 和格式转换(控制、占位)符</a>
-    </h2>
-  </div>
-  <div class="card-body"><div class="post-meta mb-3">
-  <span class="post-date me-1 mb-1" title="created on 2024-09-16 11:34:47 &#43;0800 CST.">September 16, 2024</span><span class="post-reading-time me-1 mb-1">2 min read</span><a href="/authors/csdn_user/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-author">
-      <i class="fas fa-fw fa-user me-1"></i>CSDN_user</a><a href="/series/helpdocs/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
-      <i class="fas fa-fw fa-columns me-1"></i>HelpDocs</a><a href="/tags/c/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">C</a><a href="/tags/helpdocs/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">HelpDocs</a>
-</div>
+    <div class="card-body"><a class="d-flex align-items-center flex-column" target="_blank" rel="license noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en">
+  <span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-nc"></i><i class="fab fa-fw fa-2x fa-creative-commons-nd"></i></span>
+  CC BY-NC-ND 4.0 
+</a>
 
-    <div class="post-summary"><p>在程序中要使用输入输出函数（printf 和 scanf），就必须要包含 stdio.h 头文件。
-一、格式转换符整型控制符 说明 %d 或 i% 有符号十进制整型（int、short、char） %hd 短整型 %ld 长整型 %lld 或 %l64d 64 位整型 %u 无符号十进制整型（unsigned） %o 无符号八进制整型 %x 或 %X 无符号十六进制整型，x 小写对应的十六进制为小写，X 大写对应大写 实型G/E 格式表示的指数形式中 E 大写
-控制符 说明 %f 十进制单精度浮点数（float），默认小数部分超过 6 位的四舍五入 %lf 小数形式双精度实型 %e 或 %E 指数形式单精度实型，le...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/helpdocs/c_lan/c_printfscanf-%E5%92%8C%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2%E6%8E%A7%E5%88%B6%E5%8D%A0%E4%BD%8D%E7%AC%A6/">Read More</a></div>
+
     </div>
+</div><section class="related-posts row card component">
+      <div class="card-header">
+        <h2 class="card-title fs-4 my-2 text-surface">
+          Related Posts
+        </h2>
+      </div>
+      <div class="card-body slide px-1">
+        <div class="slide-inner row gx-0"><div class="col-12 col-md-6 col-lg-4 me-2">
+            <div class="post-card card card-body p-0 border-0 surface">
+  
+  <picture>
+      <source srcset="/news/2024/07/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/featured_hu293caa2108e30c65c4bcef1384bf5550_6352_500x0_resize_q75_h2_box_2.webp" media="(max-width: 576px)" height="78" width="500">
+      <img class="img-fluid" height="28" width="180" alt="featured.webp" src="/news/2024/07/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/featured_hu293caa2108e30c65c4bcef1384bf5550_6352_180x0_resize_q75_h2_box_2.webp" data-src="/news/2024/07/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/featured.webp" loading="lazy"/>
+    </picture>
+
+  <a class="post-title" href="/news/2024/07/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/">
+    第一个博客！
+  </a>
+  <div class="post-meta mb-0">
+    July 5, 2024
+
   </div>
-</article>
-</div><div class="row table-responsive mb-3"></div>
 </div>
 
+          </div><div class="col-12 col-md-6 col-lg-4 me-2">
+            <div class="post-card card card-body p-0 border-0 surface">
+  
+  <picture>
+      <source srcset="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample_hu1e269adb755e54f6dcb322d69e53c5ae_40960_500x0_resize_q75_h2_box_2.webp" media="(max-width: 576px)" height="375" width="500">
+      <img class="img-fluid" height="135" width="180" alt="featured-sample.webp" src="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample_hu1e269adb755e54f6dcb322d69e53c5ae_40960_180x0_resize_q75_h2_box_2.webp" data-src="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample.webp" loading="lazy"/>
+    </picture>
+
+  <a class="post-title" href="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/">
+    落茜聚
+  </a>
+  <div class="post-meta mb-0">
+    January 1, 1
+
+  </div>
+</div>
+
+          </div></div>
+        <button class="slide-control-left">
+          <i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-90"></i>
+          <span class="visually-hidden">Left</span>
+        </button>
+        <button class="slide-control-right">
+          <i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-270"></i>
+          <span class="visually-hidden">Right</span>
+        </button>
+      </div>
+    </section><div class="card component row post-comments" id="post-comments">
+  <div class="card-header">
+    <h2 class="card-title my-2 fs-4 text-surface">Comments</h2>
+  </div>
+  <div class="card-body">
+<div class="giscus"></div>
+
+
+
+</div>
+</div></div>
 </div>
 <aside class="sidebar d-flex docs-sidebar col-xxl-3 position-sticky order-xxl-5">
   <div class="container">
     
-    
+    <div class="accordion post-toc d-none d-lg-block">
+  <div class="accordion-item row mb-4 card component" id="postTOC">
+    <div class="card-header accordion-header">
+      <h2 class="card-title fs-4 my-2 text-surface d-none d-lg-block">Contents</h2>
+      <a class="accordion-button d-lg-none mb-1 collapsed shadow-none p-0 bg-transparent" role="button" data-bs-toggle="collapse" href="#post-toc" aria-expanded="false" aria-controls="post-toc">
+        Contents
+      </a>
+    </div>
+    <div class="card-body collapse accordion-collapse accordion-body d-lg-block" id="post-toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#引入">引入</a></li>
+    <li><a href="#指针">指针</a>
+      <ul>
+        <li><a href="#空指针">空指针</a></li>
+        <li><a href="#无类型指针">无类型指针</a></li>
+      </ul>
+    </li>
+    <li><a href="#例">例</a>
+      <ul>
+        <li><a href="#数字交换">数字交换</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </div>
+</div>
     <div class="accordion">
     <div class="accordion-item docs-repo row card component">
         <div class="card-header accordion-header" id="repo-header">
@@ -574,12 +799,12 @@ m/m.n：m规定了输出数据的宽度（位数），若数据实际的宽度�
         </div>
         <div class="card-body collapse accordion-collapse accordion-body text-secondary-on-surface d-lg-block show" id="repo" aria-labelledby="repo-header">
             <ul class="list-unstyled"><li class="mb-1">
-                    <a href="https://github.com/FallingMY/FallingMY.github.io/blob/main//content/docs/HelpDocs/C_Lan/_index.md" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/FallingMY/FallingMY.github.io/blob/main//content/docs/HelpDocs/C/C&#43;&#43;/pointer.md" target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-fw fa-file-archive text-success"></i> View page source
                     </a>
                 </li>
                 <li class="mb-1">
-                    <a href="https://github.com/FallingMY/FallingMY.github.io/edit/main//content/docs/HelpDocs/C_Lan/_index.md" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/FallingMY/FallingMY.github.io/edit/main//content/docs/HelpDocs/C/C&#43;&#43;/pointer.md" target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-fw fa-edit text-primary"></i> Edit this page
                     </a>
                 </li></ul>
@@ -656,7 +881,7 @@ m/m.n：m规定了输出数据的宽度（位数），若数据实际的宽度�
         <i class="fa-fw fa-2x fab fa-twitter"
            style="color: #1d9bf0;"></i>
       </a>
-  <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="/docs/helpdocs/c_lan/index.xml" title="RSS" rel="me">
+  <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="/index.xml" title="RSS" rel="me">
     <i class="fas fa-fw fa-2x fa-rss" style="color: #ea6221;"></i>
   </a>
 </nav>
@@ -669,6 +894,22 @@ m/m.n：m规定了输出数据的宽度（位数），若数据实际的宽度�
   <script data-precache defer src="/assets/katex/bundle.min.ebacb71ff73d65512126000e4a076fdbd207a155f88a4e69b442c0407e576fe3.js" integrity="sha256-66y3H/c9ZVEhJgAOSgdv29IHoVX4ik5ptELAQH5Xb&#43;M=" crossorigin="anonymous"></script>
 
 <script src="/js/sw-register.js" defer></script>
+<script src="https://giscus.app/client.js"
+    data-repo="FallingMY/FallingMY.github.io"
+    data-repo-id="R_kgDOMR9LTw"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOMSZCT84Cgl_T"
+    data-mapping="pathname"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="preferred_color_scheme"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    defer>
+</script>
+
 
   </body>
 </html>
