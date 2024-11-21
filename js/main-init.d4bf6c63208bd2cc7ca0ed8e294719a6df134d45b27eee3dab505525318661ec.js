@@ -1,6 +1,6 @@
 (() => {
   // ns-params:@params
-  var params_default = { baseURL: "http://localhost:1313/" };
+  var params_default = { baseURL: "https://fallingmy.github.io/" };
 
   // ns-hugo:/Users/Zhuanz/Code/git/myblog/themes/hugo-theme-bootstrap/assets/js/local-storage/index.ts
   var PathLocalStorage = class {
