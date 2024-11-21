@@ -1,19 +1,21 @@
 <!doctype html>
 <html class="position-relative" itemscope itemtype="https://schema.org/WebPage" lang="en"
   data-bs-theme="auto" data-palette="blue-gray">
-  <head><script src="/assets/init/bundle.min.60a5effd0a083ea3601371c3b04cf6e82d273dd8c1e0ec015b7d58b80bb88822.js" integrity="sha256-YKXv/QoIPqNgE3HDsEz26C0nPdjB4OwBW31YuAu4iCI=" crossorigin="anonymous"></script>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><script src="/assets/init/bundle.min.fb1f09ac59b2842320e38f03810e1e8ac197af0295d5e1aad1246c67f5693497.js" integrity="sha256-&#43;x8JrFmyhCMg448DgQ4eisGXrwKV1eGq0SRsZ/VpNJc=" crossorigin="anonymous"></script>
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>史上最全正则表达式语法，文末附常用表达式！ - Falling_Studio_Terminal3</title>
-    <link rel="icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_16x16_resize_box_3.png" sizes="16x16" type="image/png">
-    <link rel="icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_32x32_resize_box_3.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_150x150_resize_box_3.png" sizes="150x150" type="image/png">
-    <link rel="apple-touch-icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_180x180_resize_box_3.png" sizes="180x180" type="image/png">
-    <link rel="icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_192x192_resize_box_3.png" sizes="192x192" type="image/png">
+    <link rel="icon" href="/favicon_hu4694133314791059470.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="/favicon_hu1114292297158002801.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/favicon_hu15156048902608200372.png" sizes="150x150" type="image/png">
+    <link rel="apple-touch-icon" href="/favicon_hu14028710294497923009.png" sizes="180x180" type="image/png">
+    <link rel="icon" href="/favicon_hu12185621123592544675.png" sizes="192x192" type="image/png">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6f42c1">
 <meta name="keywords" content="Hugo, Bootstrap, Blog Theme" />
   <meta name="description" content="废话少说，直接开始学习！
-一、元字符元字符是构造正则表达式的一种基本元素。
+
+一、元字符
+元字符是构造正则表达式的一种基本元素。
 . ：匹配除换行符以外的任意字符
 w：匹配字母或数字或下划线或汉字
 s：匹配任意的空白符
@@ -21,7 +23,10 @@ d：匹配数字
 b：匹配单词的开始或结束
 ^：匹配字符串的开始
 $：匹配字符串的结束
-匹配有abc开头的字符串：abc或者^abc 匹配8位数字的QQ号码：^dddddddd$ 匹配1开头11位数字的手机号码：^1dddddddddd$ 二、重复限定符正则没提供办法处理这些重复的元字符吗？答案肯定是有的。
+匹配有abc开头的字符串：abc或者^abc 匹配8位数字的QQ号码：^dddddddd$ 匹配1开头11位数字的手机号码：^1dddddddddd$
+
+二、重复限定符
+正则没提供办法处理这些重复的元字符吗？答案肯定是有的。
 *：重复零次或更多次
 &#43;：重复一次或更多次
 ?：重复零次或一次
@@ -29,33 +34,35 @@ $：匹配字符串的结束
 {n,}：重复n次或更多次
 {n,m}：重复n到m次
 有了这些限定符之后，我们就可以对之前的正则表达式进行改造了，比如：
-匹配8位数字的QQ号码：^d{8}$ 匹配1开头11位数字的手机号码：^1d{10}$ 匹配银行卡号是14~18位的数字：^d{14,18}$ 匹配以a开头的，0个或多个b结尾的字符串^ab*$ 三、分组（）限定符是作用在与他左边最近的一个字符，那么问题来了，如果我想要ab同时被限定那怎么办呢？
+匹配8位数字的QQ号码：^d{8}$ 匹配1开头11位数字的手机号码：^1d{10}$ 匹配银行卡号是14~18位的数字：^d{14,18}$ 匹配以a开头的，0个或多个b结尾的字符串^ab*$
+
+三、分组（）
+限定符是作用在与他左边最近的一个字符，那么问题来了，如果我想要ab同时被限定那怎么办呢？
 正则表达式中用小括号()来做分组，也就是括号中的内容作为一个整体。
 因此当我们要匹配多个ab时，我们可以这样。
-如匹配字符串中包含0到多个ab开头：^(ab)* 四、转义正则提供了转义的方式，也就是要把这些元字符、限定符或者关键字转义成普通的字符，做法很简答，就是在要转义的字符前面加个斜杠，也就是\即可。
-匹配字符串中包含0到多个ab开头：^(\(ab\))* 五、条件或 |回到我们刚才的手机号匹配，我们都知道：国内号码都来自三大网，它们都有属于自己的号段，比如联通有130/131/132/155/156/185/186/145/176等号段，假如让我们匹配一个联通的号码，那按照我们目前所学到的正则，应该无从下手的，因为这里包含了一些并列的条件，也就是“或”，那么在正则中是如何表示“或”的呢？
+如匹配字符串中包含0到多个ab开头：^(ab)*
+
+四、转义
+正则提供了转义的方式，也就是要把这些元字符、限定符或者关键字转义成普通的字符，做法很简答，就是在要转义的字符前面加个斜杠，也就是\即可。
+匹配字符串中包含0到多个ab开头：^(\(ab\))*
+
+五、条件或 |
+回到我们刚才的手机号匹配，我们都知道：国内号码都来自三大网，它们都有属于自己的号段，比如联通有130/131/132/155/156/185/186/145/176等号段，假如让我们匹配一个联通的号码，那按照我们目前所学到的正则，应该无从下手的，因为这里包含了一些并列的条件，也就是“或”，那么在正则中是如何表示“或”的呢？
+
 正则用符号 | 来表示或，也叫做分支条件，当满足正则里的分支条件的任何一种条件时，都会当成是匹配成功。
+
 那么我们就可以用或条件来处理这个问题
-^(130|131|132|155|156|185|186|145|176)\d{8}$ 六、区间\[ \]看到上面的例子，是不是看到有什么规律？是不是还有一种想要简化的冲动？
+^(130|131|132|155|156|185|186|145|176)\d{8}$
+
+六、区间\[ \]
+看到上面的例子，是不是看到有什么规律？是不是还有一种想要简化的冲动？
 实际是有的
-正则提供一个元字符中括号 [] 来表示区间条件。
-限定0到9 可以写成[0-9]
-限定A-Z 写成[A-Z]
-限定某些数字 [165]
-那上面的正则我们还改成这样：
-^((13[0-2])|(15[56])|(18[5-6])|145|176)\d{8}$ 七、正则进阶之零宽断言断言：俗话的断言就是“我断定什么什么”，而正则中的断言，就是说正则可以指明在指定的内容的前面或后面会出现满足指定规则的内容，
-意思正则也可以像人类那样断定什么什么，比如&quot;ss1aa2bb3&quot;,正则可以用断言找出aa2前面有bb3，也可以找出aa2后面有ss1.
-零宽：就是没有宽度，在正则中，断言只是匹配位置，不占字符，也就是说，匹配结果里是不会返回断言本身。
-我们来举个栗子：
-假设我们要用爬虫抓取csdn里的文章阅读量。通过查看源代码可以看到文章阅读量这个内容是这样的结构
-&#34;&lt;span class=&#34;read-count&#34;&gt;阅读数：641&lt;/span&gt;&#34; 其中也就‘641’这个是变量，也就是说不同文章不同的值，当我们拿到这个字符串时，需要获得这里边的‘641’有很多种办法，但如果正则应该怎么匹配呢？下面先来讲几种类型的断言：
-正向先行断言（正前瞻）： 语法：（?=pattern）
-作用：匹配pattern表达式的前面内容，不返回本身。" />
-    <meta name="robots" content="index, follow" />
+
+正则提供一个元字符中括号 [] 来表示区间条件。" />
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="史上最全正则表达式语法，文末附常用表达式！">
   <meta name="twitter:description" content="废话少说，直接开始学习！
-一、元字符元字符是构造正则表达式的一种基本元素。
+一、元字符 元字符是构造正则表达式的一种基本元素。
 . ：匹配除换行符以外的任意字符
 w：匹配字母或数字或下划线或汉字
 s：匹配任意的空白符
@@ -63,7 +70,7 @@ d：匹配数字
 b：匹配单词的开始或结束
 ^：匹配字符串的开始
 $：匹配字符串的结束
-匹配有abc开头的字符串：abc或者^abc 匹配8位数字的QQ号码：^dddddddd$ 匹配1开头11位数字的手机号码：^1dddddddddd$ 二、重复限定符正则没提供办法处理这些重复的元字符吗？答案肯定是有的。
+匹配有abc开头的字符串：abc或者^abc 匹配8位数字的QQ号码：^dddddddd$ 匹配1开头11位数字的手机号码：^1dddddddddd$ 二、重复限定符 正则没提供办法处理这些重复的元字符吗？答案肯定是有的。
 *：重复零次或更多次
 &#43;：重复一次或更多次
 ?：重复零次或一次
@@ -71,34 +78,22 @@ $：匹配字符串的结束
 {n,}：重复n次或更多次
 {n,m}：重复n到m次
 有了这些限定符之后，我们就可以对之前的正则表达式进行改造了，比如：
-匹配8位数字的QQ号码：^d{8}$ 匹配1开头11位数字的手机号码：^1d{10}$ 匹配银行卡号是14~18位的数字：^d{14,18}$ 匹配以a开头的，0个或多个b结尾的字符串^ab*$ 三、分组（）限定符是作用在与他左边最近的一个字符，那么问题来了，如果我想要ab同时被限定那怎么办呢？
+匹配8位数字的QQ号码：^d{8}$ 匹配1开头11位数字的手机号码：^1d{10}$ 匹配银行卡号是14~18位的数字：^d{14,18}$ 匹配以a开头的，0个或多个b结尾的字符串^ab*$ 三、分组（） 限定符是作用在与他左边最近的一个字符，那么问题来了，如果我想要ab同时被限定那怎么办呢？
 正则表达式中用小括号()来做分组，也就是括号中的内容作为一个整体。
 因此当我们要匹配多个ab时，我们可以这样。
-如匹配字符串中包含0到多个ab开头：^(ab)* 四、转义正则提供了转义的方式，也就是要把这些元字符、限定符或者关键字转义成普通的字符，做法很简答，就是在要转义的字符前面加个斜杠，也就是\即可。
-匹配字符串中包含0到多个ab开头：^(\(ab\))* 五、条件或 |回到我们刚才的手机号匹配，我们都知道：国内号码都来自三大网，它们都有属于自己的号段，比如联通有130/131/132/155/156/185/186/145/176等号段，假如让我们匹配一个联通的号码，那按照我们目前所学到的正则，应该无从下手的，因为这里包含了一些并列的条件，也就是“或”，那么在正则中是如何表示“或”的呢？
+如匹配字符串中包含0到多个ab开头：^(ab)* 四、转义 正则提供了转义的方式，也就是要把这些元字符、限定符或者关键字转义成普通的字符，做法很简答，就是在要转义的字符前面加个斜杠，也就是\即可。
+匹配字符串中包含0到多个ab开头：^(\(ab\))* 五、条件或 | 回到我们刚才的手机号匹配，我们都知道：国内号码都来自三大网，它们都有属于自己的号段，比如联通有130/131/132/155/156/185/186/145/176等号段，假如让我们匹配一个联通的号码，那按照我们目前所学到的正则，应该无从下手的，因为这里包含了一些并列的条件，也就是“或”，那么在正则中是如何表示“或”的呢？
 正则用符号 | 来表示或，也叫做分支条件，当满足正则里的分支条件的任何一种条件时，都会当成是匹配成功。
 那么我们就可以用或条件来处理这个问题
-^(130|131|132|155|156|185|186|145|176)\d{8}$ 六、区间\[ \]看到上面的例子，是不是看到有什么规律？是不是还有一种想要简化的冲动？
+^(130|131|132|155|156|185|186|145|176)\d{8}$ 六、区间\[ \] 看到上面的例子，是不是看到有什么规律？是不是还有一种想要简化的冲动？
 实际是有的
-正则提供一个元字符中括号 [] 来表示区间条件。
-限定0到9 可以写成[0-9]
-限定A-Z 写成[A-Z]
-限定某些数字 [165]
-那上面的正则我们还改成这样：
-^((13[0-2])|(15[56])|(18[5-6])|145|176)\d{8}$ 七、正则进阶之零宽断言断言：俗话的断言就是“我断定什么什么”，而正则中的断言，就是说正则可以指明在指定的内容的前面或后面会出现满足指定规则的内容，
-意思正则也可以像人类那样断定什么什么，比如&#34;ss1aa2bb3&#34;,正则可以用断言找出aa2前面有bb3，也可以找出aa2后面有ss1.
-零宽：就是没有宽度，在正则中，断言只是匹配位置，不占字符，也就是说，匹配结果里是不会返回断言本身。
-我们来举个栗子：
-假设我们要用爬虫抓取csdn里的文章阅读量。通过查看源代码可以看到文章阅读量这个内容是这样的结构
-&#34;&lt;span class=&#34;read-count&#34;&gt;阅读数：641&lt;/span&gt;&#34; 其中也就‘641’这个是变量，也就是说不同文章不同的值，当我们拿到这个字符串时，需要获得这里边的‘641’有很多种办法，但如果正则应该怎么匹配呢？下面先来讲几种类型的断言：
-正向先行断言（正前瞻）： 语法：（?=pattern）
-作用：匹配pattern表达式的前面内容，不返回本身。">
-      <meta name="twitter:site" content="@FallingMY3">
-<meta property="og:url" content="https://fallingmy.github.io/docs/helpdocs/python/%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AF%AD%E6%B3%95%E6%96%87%E6%9C%AB%E9%99%84%E5%B8%B8%E7%94%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+正则提供一个元字符中括号 [] 来表示区间条件。">
+      <meta name="twitter:site" content="@Falling_Studio_">
+<meta property="og:url" content="http://localhost:1313/docs/helpdocs/python/%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AF%AD%E6%B3%95%E6%96%87%E6%9C%AB%E9%99%84%E5%B8%B8%E7%94%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
   <meta property="og:site_name" content="Falling_Studio_Terminal3">
   <meta property="og:title" content="史上最全正则表达式语法，文末附常用表达式！">
   <meta property="og:description" content="废话少说，直接开始学习！
-一、元字符元字符是构造正则表达式的一种基本元素。
+一、元字符 元字符是构造正则表达式的一种基本元素。
 . ：匹配除换行符以外的任意字符
 w：匹配字母或数字或下划线或汉字
 s：匹配任意的空白符
@@ -106,7 +101,7 @@ d：匹配数字
 b：匹配单词的开始或结束
 ^：匹配字符串的开始
 $：匹配字符串的结束
-匹配有abc开头的字符串：abc或者^abc 匹配8位数字的QQ号码：^dddddddd$ 匹配1开头11位数字的手机号码：^1dddddddddd$ 二、重复限定符正则没提供办法处理这些重复的元字符吗？答案肯定是有的。
+匹配有abc开头的字符串：abc或者^abc 匹配8位数字的QQ号码：^dddddddd$ 匹配1开头11位数字的手机号码：^1dddddddddd$ 二、重复限定符 正则没提供办法处理这些重复的元字符吗？答案肯定是有的。
 *：重复零次或更多次
 &#43;：重复一次或更多次
 ?：重复零次或一次
@@ -114,28 +109,16 @@ $：匹配字符串的结束
 {n,}：重复n次或更多次
 {n,m}：重复n到m次
 有了这些限定符之后，我们就可以对之前的正则表达式进行改造了，比如：
-匹配8位数字的QQ号码：^d{8}$ 匹配1开头11位数字的手机号码：^1d{10}$ 匹配银行卡号是14~18位的数字：^d{14,18}$ 匹配以a开头的，0个或多个b结尾的字符串^ab*$ 三、分组（）限定符是作用在与他左边最近的一个字符，那么问题来了，如果我想要ab同时被限定那怎么办呢？
+匹配8位数字的QQ号码：^d{8}$ 匹配1开头11位数字的手机号码：^1d{10}$ 匹配银行卡号是14~18位的数字：^d{14,18}$ 匹配以a开头的，0个或多个b结尾的字符串^ab*$ 三、分组（） 限定符是作用在与他左边最近的一个字符，那么问题来了，如果我想要ab同时被限定那怎么办呢？
 正则表达式中用小括号()来做分组，也就是括号中的内容作为一个整体。
 因此当我们要匹配多个ab时，我们可以这样。
-如匹配字符串中包含0到多个ab开头：^(ab)* 四、转义正则提供了转义的方式，也就是要把这些元字符、限定符或者关键字转义成普通的字符，做法很简答，就是在要转义的字符前面加个斜杠，也就是\即可。
-匹配字符串中包含0到多个ab开头：^(\(ab\))* 五、条件或 |回到我们刚才的手机号匹配，我们都知道：国内号码都来自三大网，它们都有属于自己的号段，比如联通有130/131/132/155/156/185/186/145/176等号段，假如让我们匹配一个联通的号码，那按照我们目前所学到的正则，应该无从下手的，因为这里包含了一些并列的条件，也就是“或”，那么在正则中是如何表示“或”的呢？
+如匹配字符串中包含0到多个ab开头：^(ab)* 四、转义 正则提供了转义的方式，也就是要把这些元字符、限定符或者关键字转义成普通的字符，做法很简答，就是在要转义的字符前面加个斜杠，也就是\即可。
+匹配字符串中包含0到多个ab开头：^(\(ab\))* 五、条件或 | 回到我们刚才的手机号匹配，我们都知道：国内号码都来自三大网，它们都有属于自己的号段，比如联通有130/131/132/155/156/185/186/145/176等号段，假如让我们匹配一个联通的号码，那按照我们目前所学到的正则，应该无从下手的，因为这里包含了一些并列的条件，也就是“或”，那么在正则中是如何表示“或”的呢？
 正则用符号 | 来表示或，也叫做分支条件，当满足正则里的分支条件的任何一种条件时，都会当成是匹配成功。
 那么我们就可以用或条件来处理这个问题
-^(130|131|132|155|156|185|186|145|176)\d{8}$ 六、区间\[ \]看到上面的例子，是不是看到有什么规律？是不是还有一种想要简化的冲动？
+^(130|131|132|155|156|185|186|145|176)\d{8}$ 六、区间\[ \] 看到上面的例子，是不是看到有什么规律？是不是还有一种想要简化的冲动？
 实际是有的
-正则提供一个元字符中括号 [] 来表示区间条件。
-限定0到9 可以写成[0-9]
-限定A-Z 写成[A-Z]
-限定某些数字 [165]
-那上面的正则我们还改成这样：
-^((13[0-2])|(15[56])|(18[5-6])|145|176)\d{8}$ 七、正则进阶之零宽断言断言：俗话的断言就是“我断定什么什么”，而正则中的断言，就是说正则可以指明在指定的内容的前面或后面会出现满足指定规则的内容，
-意思正则也可以像人类那样断定什么什么，比如&#34;ss1aa2bb3&#34;,正则可以用断言找出aa2前面有bb3，也可以找出aa2后面有ss1.
-零宽：就是没有宽度，在正则中，断言只是匹配位置，不占字符，也就是说，匹配结果里是不会返回断言本身。
-我们来举个栗子：
-假设我们要用爬虫抓取csdn里的文章阅读量。通过查看源代码可以看到文章阅读量这个内容是这样的结构
-&#34;&lt;span class=&#34;read-count&#34;&gt;阅读数：641&lt;/span&gt;&#34; 其中也就‘641’这个是变量，也就是说不同文章不同的值，当我们拿到这个字符串时，需要获得这里边的‘641’有很多种办法，但如果正则应该怎么匹配呢？下面先来讲几种类型的断言：
-正向先行断言（正前瞻）： 语法：（?=pattern）
-作用：匹配pattern表达式的前面内容，不返回本身。">
+正则提供一个元字符中括号 [] 来表示区间条件。">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -144,17 +127,17 @@ $：匹配字符串的结束
     <meta property="article:tag" content="HelpDocs">
     <meta property="article:tag" content="Python">
     <meta property="article:tag" content="正则表达式">
-      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/python/anaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E7%AE%A1%E7%90%86python%E7%8E%AF%E5%A2%83%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/">
-      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%B8%80%E5%85%A5%E9%97%A8%E5%8F%8A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%9F%BA%E6%9C%AC%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C/">
-      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%BA%8C%E8%8E%B7%E5%8F%96%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9B%B4%E6%96%B0/">
-      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/git/git%E7%9A%84%E4%BD%BF%E7%94%A8%E6%98%93%E6%87%82&#43;%E5%B7%A8%E6%97%A0%E6%AF%94%E8%AF%A6%E7%BB%86&#43;%E6%96%B0%E6%89%8B%E5%BF%85%E7%9C%8B/">
-      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/java/javase%E5%9F%BA%E7%A1%80%E7%AF%87%E8%B6%85%E8%AF%A6%E7%BB%86java%E5%85%A5%E9%97%A8%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/">
-      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/java/java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%85%AB%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-&#43;-%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
-      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/markdown/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/helpdocs/python/anaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E7%AE%A1%E7%90%86python%E7%8E%AF%E5%A2%83%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%B8%80%E5%85%A5%E9%97%A8%E5%8F%8A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%9F%BA%E6%9C%AC%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%BA%8C%E8%8E%B7%E5%8F%96%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9B%B4%E6%96%B0/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/helpdocs/git/git%E7%9A%84%E4%BD%BF%E7%94%A8%E6%98%93%E6%87%82&#43;%E5%B7%A8%E6%97%A0%E6%AF%94%E8%AF%A6%E7%BB%86&#43;%E6%96%B0%E6%89%8B%E5%BF%85%E7%9C%8B/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/helpdocs/java/javase%E5%9F%BA%E7%A1%80%E7%AF%87%E8%B6%85%E8%AF%A6%E7%BB%86java%E5%85%A5%E9%97%A8%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/helpdocs/java/java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%85%AB%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-&#43;-%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/helpdocs/markdown/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/">
 
   <meta itemprop="name" content="史上最全正则表达式语法，文末附常用表达式！">
   <meta itemprop="description" content="废话少说，直接开始学习！
-一、元字符元字符是构造正则表达式的一种基本元素。
+一、元字符 元字符是构造正则表达式的一种基本元素。
 . ：匹配除换行符以外的任意字符
 w：匹配字母或数字或下划线或汉字
 s：匹配任意的空白符
@@ -162,7 +145,7 @@ d：匹配数字
 b：匹配单词的开始或结束
 ^：匹配字符串的开始
 $：匹配字符串的结束
-匹配有abc开头的字符串：abc或者^abc 匹配8位数字的QQ号码：^dddddddd$ 匹配1开头11位数字的手机号码：^1dddddddddd$ 二、重复限定符正则没提供办法处理这些重复的元字符吗？答案肯定是有的。
+匹配有abc开头的字符串：abc或者^abc 匹配8位数字的QQ号码：^dddddddd$ 匹配1开头11位数字的手机号码：^1dddddddddd$ 二、重复限定符 正则没提供办法处理这些重复的元字符吗？答案肯定是有的。
 *：重复零次或更多次
 &#43;：重复一次或更多次
 ?：重复零次或一次
@@ -170,46 +153,31 @@ $：匹配字符串的结束
 {n,}：重复n次或更多次
 {n,m}：重复n到m次
 有了这些限定符之后，我们就可以对之前的正则表达式进行改造了，比如：
-匹配8位数字的QQ号码：^d{8}$ 匹配1开头11位数字的手机号码：^1d{10}$ 匹配银行卡号是14~18位的数字：^d{14,18}$ 匹配以a开头的，0个或多个b结尾的字符串^ab*$ 三、分组（）限定符是作用在与他左边最近的一个字符，那么问题来了，如果我想要ab同时被限定那怎么办呢？
+匹配8位数字的QQ号码：^d{8}$ 匹配1开头11位数字的手机号码：^1d{10}$ 匹配银行卡号是14~18位的数字：^d{14,18}$ 匹配以a开头的，0个或多个b结尾的字符串^ab*$ 三、分组（） 限定符是作用在与他左边最近的一个字符，那么问题来了，如果我想要ab同时被限定那怎么办呢？
 正则表达式中用小括号()来做分组，也就是括号中的内容作为一个整体。
 因此当我们要匹配多个ab时，我们可以这样。
-如匹配字符串中包含0到多个ab开头：^(ab)* 四、转义正则提供了转义的方式，也就是要把这些元字符、限定符或者关键字转义成普通的字符，做法很简答，就是在要转义的字符前面加个斜杠，也就是\即可。
-匹配字符串中包含0到多个ab开头：^(\(ab\))* 五、条件或 |回到我们刚才的手机号匹配，我们都知道：国内号码都来自三大网，它们都有属于自己的号段，比如联通有130/131/132/155/156/185/186/145/176等号段，假如让我们匹配一个联通的号码，那按照我们目前所学到的正则，应该无从下手的，因为这里包含了一些并列的条件，也就是“或”，那么在正则中是如何表示“或”的呢？
+如匹配字符串中包含0到多个ab开头：^(ab)* 四、转义 正则提供了转义的方式，也就是要把这些元字符、限定符或者关键字转义成普通的字符，做法很简答，就是在要转义的字符前面加个斜杠，也就是\即可。
+匹配字符串中包含0到多个ab开头：^(\(ab\))* 五、条件或 | 回到我们刚才的手机号匹配，我们都知道：国内号码都来自三大网，它们都有属于自己的号段，比如联通有130/131/132/155/156/185/186/145/176等号段，假如让我们匹配一个联通的号码，那按照我们目前所学到的正则，应该无从下手的，因为这里包含了一些并列的条件，也就是“或”，那么在正则中是如何表示“或”的呢？
 正则用符号 | 来表示或，也叫做分支条件，当满足正则里的分支条件的任何一种条件时，都会当成是匹配成功。
 那么我们就可以用或条件来处理这个问题
-^(130|131|132|155|156|185|186|145|176)\d{8}$ 六、区间\[ \]看到上面的例子，是不是看到有什么规律？是不是还有一种想要简化的冲动？
+^(130|131|132|155|156|185|186|145|176)\d{8}$ 六、区间\[ \] 看到上面的例子，是不是看到有什么规律？是不是还有一种想要简化的冲动？
 实际是有的
-正则提供一个元字符中括号 [] 来表示区间条件。
-限定0到9 可以写成[0-9]
-限定A-Z 写成[A-Z]
-限定某些数字 [165]
-那上面的正则我们还改成这样：
-^((13[0-2])|(15[56])|(18[5-6])|145|176)\d{8}$ 七、正则进阶之零宽断言断言：俗话的断言就是“我断定什么什么”，而正则中的断言，就是说正则可以指明在指定的内容的前面或后面会出现满足指定规则的内容，
-意思正则也可以像人类那样断定什么什么，比如&#34;ss1aa2bb3&#34;,正则可以用断言找出aa2前面有bb3，也可以找出aa2后面有ss1.
-零宽：就是没有宽度，在正则中，断言只是匹配位置，不占字符，也就是说，匹配结果里是不会返回断言本身。
-我们来举个栗子：
-假设我们要用爬虫抓取csdn里的文章阅读量。通过查看源代码可以看到文章阅读量这个内容是这样的结构
-&#34;&lt;span class=&#34;read-count&#34;&gt;阅读数：641&lt;/span&gt;&#34; 其中也就‘641’这个是变量，也就是说不同文章不同的值，当我们拿到这个字符串时，需要获得这里边的‘641’有很多种办法，但如果正则应该怎么匹配呢？下面先来讲几种类型的断言：
-正向先行断言（正前瞻）： 语法：（?=pattern）
-作用：匹配pattern表达式的前面内容，不返回本身。">
+正则提供一个元字符中括号 [] 来表示区间条件。">
   <meta itemprop="datePublished" content="2024-07-05T11:34:47+08:00">
   <meta itemprop="dateModified" content="2024-07-05T11:34:47+08:00">
   <meta itemprop="wordCount" content="705">
   <meta itemprop="keywords" content="HelpDocs,Python,正则表达式">
-  <meta property="og:image" content="https://fallingmy.github.io/images/icon.png"/>
-  <meta name="twitter:image" content="https://fallingmy.github.io/images/icon.png"/>
+  <meta property="og:image" content="http://localhost:1313/images/icon.png"/>
+  <meta name="twitter:image" content="http://localhost:1313/images/icon.png"/>
   <meta property="og:image:alt" content="史上最全正则表达式语法，文末附常用表达式！" />
   <meta name="twitter:image:alt" content="史上最全正则表达式语法，文末附常用表达式！" />
   <link rel="manifest" href="/manifest.json">
 
-  
+<link data-precache rel="stylesheet" href="/assets/main/bundle.min.ce02c09e4eca3c51ac7c4c0ab656cbc7a1386804422b4edecbe748b7aab05569.css" integrity="sha256-zgLAnk7KPFGsfEwKtlbLx6E4aARCK07ey&#43;dIt6qwVWk=" crossorigin="anonymous">
 
+<link data-precache rel="stylesheet" href="/assets/katex/bundle.min.95b995465e88deb0152ab2d55893df3735bca23caf1bf7822b4aa791ee66b5b3.css" integrity="sha256-lbmVRl6I3rAVKrLVWJPfNzW8ojyvG/eCK0qnke5mtbM=" crossorigin="anonymous">
 
-<link data-precache rel="stylesheet" href="/assets/main/bundle.min.04b2a3705d0c7a8fbca98a9909f0297b5107ee78e64b85c6b5bb2eb1794343e3.css" integrity="sha256-BLKjcF0Meo+8qYqZCfApe1EH7njmS4XGtbsusXlDQ+M=" crossorigin="anonymous">
-
-<link data-precache rel="stylesheet" href="/assets/katex/bundle.min.506b6798499d2e8621e3d1f1db89099c3aa2639acd8b3b000b14cc6999c5b340.css" integrity="sha256-UGtnmEmdLoYh49Hx24kJnDqiY5rNizsACxTMaZnFs0A=" crossorigin="anonymous">
-
-    <link data-precache rel="stylesheet" href="/assets/viewer/bundle.min.8c1002839fa22c1350d6ae1eef6593120e108f973c41348be9b5065430566aaf.css" integrity="sha256-jBACg5&#43;iLBNQ1q4e72WTEg4Qj5c8QTSL6bUGVDBWaq8=" crossorigin="anonymous">
+    <link data-precache rel="stylesheet" href="/assets/viewer/bundle.min.81fc6ea2b654c63ccf8e3c859d12072f72f8cbe3f759361479f8b0c00f754e95.css" integrity="sha256-gfxuorZUxjzPjjyFnRIHL3L4y&#43;P3WTYUefiwwA91TpU=" crossorigin="anonymous">
 
 
 </head>
@@ -222,8 +190,8 @@ $：匹配字符串的结束
       <i class="fas fa-bars"></i>
     </button>
 <a class="navbar-brand d-flex align-items-center flex-grow-1 flex-xxl-grow-0 justify-content-xxl-start justify-content-center ms-2 ms-xxl-0 mx-auto me-xxl-2"
-    href="https://fallingmy.github.io/">
-    <picture><img class="logo " alt="Logo" src="https://fallingmy.github.io/images/icon.png?v=1f41693bbcf319c2f188adfb373971c6" loading="lazy" width="891" height="891" />
+    href="http://localhost:1313/">
+    <picture><img class="logo " alt="Logo" src="http://localhost:1313/images/icon.png?v=6fd297eb16523c441f62c01a9ffd8221" loading="lazy" width="891" height="891" />
 </picture>
 Falling_MY
 </a>
@@ -236,11 +204,11 @@ Falling_MY
       <div class="offcanvas-body p-4 pt-0 p-xxl-0">
         <hr class="d-xxl-none">
         <ul class="navbar-nav flex-row flex-wrap align-items-center me-auto"><li class="nav-item col-6 col-xxl-auto">
-            <a class="nav-link py-2 px-0 px-xxl-2" href="https://fallingmy.github.io/docs/">
+            <a class="nav-link py-2 px-0 px-xxl-2" href="http://localhost:1313/docs/">
 <span class="menu-icon me-1"><i class="fas fa-fw fa-file"></i></span>Docs
             </a>
           </li><li class="nav-item col-6 col-xxl-auto">
-            <a class="nav-link py-2 px-0 px-xxl-2" href="https://fallingmy.github.io/news/">
+            <a class="nav-link py-2 px-0 px-xxl-2" href="http://localhost:1313/news/">
 <span class="menu-icon me-1"><i class="fas fa-fw fa-newspaper"></i></span>News
             </a>
           </li>
@@ -254,7 +222,7 @@ Falling_MY
                 <li><h6 class="dropdown-header">Blog Menu Description</h6></li>
               <li>
                 <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
-                  href="https://fallingmy.github.io/archives/">
+                  href="http://localhost:1313/archives/">
                     <span class="dropdown-item-icon me-2 p-2 rounded">
                       <i class="fas fa-fw fa-file-archive text-primary"></i>
                     </span>
@@ -264,7 +232,7 @@ Falling_MY
               </li>
               <li>
                 <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
-                  href="https://fallingmy.github.io/series/">
+                  href="http://localhost:1313/series/">
                     <span class="dropdown-item-icon me-2 p-2 rounded">
                       <i class="fas fa-fw fa-columns"></i>
                     </span>
@@ -275,7 +243,7 @@ Falling_MY
               </li>
               <li>
                 <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
-                  href="https://fallingmy.github.io/categories/">
+                  href="http://localhost:1313/categories/">
                     <span class="dropdown-item-icon me-2 p-2 rounded">
                       <i class="fas fa-fw fa-folder text-success"></i>
                     </span>
@@ -286,7 +254,7 @@ Falling_MY
               </li>
               <li>
                 <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
-                  href="https://fallingmy.github.io/tags/">
+                  href="http://localhost:1313/tags/">
                     <span class="dropdown-item-icon me-2 p-2 rounded">
                       <i class="fas fa-fw fa-tags"></i>
                     </span>
@@ -476,7 +444,8 @@ Falling_MY
 
 </header>
 
-    <main class="container">
+    <main class="container has-sidebar" data-kind="page"><script data-precache src="/js/main-init.22a4a8a4139001adf723a1609f1300530cfb7fad040cc971ca62c6ba2daa90d9.js" integrity="sha256-IqSopBOQAa33I6FgnxMAUwz7f60EDMlxymLGui2qkNk=" crossorigin="anonymous"></script>
+
       <div class="row content"><noscript>
     <div class="alert alert-danger" role="alert">Your browser does not support JavaScript.</div>
 </noscript>
@@ -487,17 +456,17 @@ Falling_MY
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#offcanvasDocsNav"></button>
     </div>
     <div class="offcanvas-body pt-2 flex-column"><ul class="list-unstyled mb-2 w-100"><li class="mb-2" tabindex="-1">
-          <div class="py-1 d-flex justify-content-between align-items-center ms-3 text-primary">
+          <div class="py-1 d-flex justify-content-between align-items-center text-primary">
             <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/"><span class="docs-nav-title">HelpDocs</span></a>
             <a class="btn-toggle ms-1" role="button" data-bs-toggle="collapse"
               data-bs-target="#nav-ebe568325b3994b345762d8c5739485e" aria-expanded="true" aria-controls="nav-ebe568325b3994b345762d8c5739485e">
               <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
             </a>
           </div>
-          <div class="docs-nav-subnavs border-start mt-2 collapse  show border-primary" id="nav-ebe568325b3994b345762d8c5739485e">
+          <div class="docs-nav-subnavs border-start mt-2 collapse  show" id="nav-ebe568325b3994b345762d8c5739485e">
             <div class="btn-toggle-nav fw-normal ms-2 small">
               <ul class="list-unstyled mb-2 w-100"><li class="mb-2" tabindex="-1">
-          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+          <div class="py-1 d-flex justify-content-between align-items-center">
             <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/c/c&#43;&#43;/"><span class="docs-nav-title">C/C&#43;&#43;</span></a>
             <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
               data-bs-target="#nav-4c352665280bb902c3cd1f57edc236a4" aria-expanded="false" aria-controls="nav-4c352665280bb902c3cd1f57edc236a4">
@@ -506,13 +475,14 @@ Falling_MY
           </div>
           <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-4c352665280bb902c3cd1f57edc236a4">
             <div class="btn-toggle-nav fw-normal ms-2 small">
-              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+              <ul class="list-unstyled mb-2 w-100">
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/c/c&#43;&#43;/pointer/"><span class="docs-nav-title">指针</span></a>
         </li></ul>
             </div>
           </div>
         </li><li class="mb-2" tabindex="-1">
-          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+          <div class="py-1 d-flex justify-content-between align-items-center">
             <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/"><span class="docs-nav-title">Git</span></a>
             <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
               data-bs-target="#nav-31299be8729f19977a763ab46f2da124" aria-expanded="false" aria-controls="nav-31299be8729f19977a763ab46f2da124">
@@ -521,17 +491,20 @@ Falling_MY
           </div>
           <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-31299be8729f19977a763ab46f2da124">
             <div class="btn-toggle-nav fw-normal ms-2 small">
-              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+              <ul class="list-unstyled mb-2 w-100">
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%B8%80%E5%85%A5%E9%97%A8%E5%8F%8A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%9F%BA%E6%9C%AC%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C/"><span class="docs-nav-title">Git基本使用教程（一）：入门及第一次基本完整操作</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%BA%8C%E8%8E%B7%E5%8F%96%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9B%B4%E6%96%B0/"><span class="docs-nav-title">Git基本使用教程（二）：获取更新与推送更新</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/git%E7%9A%84%E4%BD%BF%E7%94%A8%E6%98%93%E6%87%82&#43;%E5%B7%A8%E6%97%A0%E6%AF%94%E8%AF%A6%E7%BB%86&#43;%E6%96%B0%E6%89%8B%E5%BF%85%E7%9C%8B/"><span class="docs-nav-title">Git的使用（易懂&#43;巨无比详细&#43;新手必看）</span></a>
         </li></ul>
             </div>
           </div>
         </li><li class="mb-2" tabindex="-1">
-          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+          <div class="py-1 d-flex justify-content-between align-items-center">
             <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/"><span class="docs-nav-title">Java</span></a>
             <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
               data-bs-target="#nav-987b22e609e9d70bb1861e492b4fd185" aria-expanded="false" aria-controls="nav-987b22e609e9d70bb1861e492b4fd185">
@@ -540,17 +513,20 @@ Falling_MY
           </div>
           <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-987b22e609e9d70bb1861e492b4fd185">
             <div class="btn-toggle-nav fw-normal ms-2 small">
-              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+              <ul class="list-unstyled mb-2 w-100">
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/javase%E5%9F%BA%E7%A1%80%E7%AF%87%E8%B6%85%E8%AF%A6%E7%BB%86java%E5%85%A5%E9%97%A8%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">JavaSE基础篇——超详细，Java入门，这一篇就够了-CSDN博客</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%85%AB%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-&#43;-%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"><span class="docs-nav-title">Java数据类型（八种基本数据类型 &#43; 四种引用数据类型）</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/%E4%B8%89%E7%A7%8D%E7%BC%96%E7%A8%8B%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99%E9%A9%BC%E5%B3%B0%E5%91%BD%E5%90%8D%E6%B3%95%E5%B8%95%E6%96%AF%E5%8D%A1%E5%91%BD%E5%90%8D%E6%B3%95%E5%8C%88%E7%89%99%E5%88%A9%E5%91%BD%E5%90%8D%E6%B3%95/"><span class="docs-nav-title">三种编程命名规则：驼峰命名法，帕斯卡命名法，匈牙利命名法</span></a>
         </li></ul>
             </div>
           </div>
         </li><li class="mb-2" tabindex="-1">
-          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+          <div class="py-1 d-flex justify-content-between align-items-center">
             <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/markdown/"><span class="docs-nav-title">Markdown</span></a>
             <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
               data-bs-target="#nav-2d8c19f8492a0d4510acf00e408e5b58" aria-expanded="false" aria-controls="nav-2d8c19f8492a0d4510acf00e408e5b58">
@@ -559,38 +535,48 @@ Falling_MY
           </div>
           <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-2d8c19f8492a0d4510acf00e408e5b58">
             <div class="btn-toggle-nav fw-normal ms-2 small">
-              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+              <ul class="list-unstyled mb-2 w-100">
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/markdown/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/"><span class="docs-nav-title">Markdown语法大全(超级版)</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/markdown/vs-code-markdown%E6%8A%A5%E9%94%99%E8%87%AA%E6%9F%A5/"><span class="docs-nav-title">VS code Markdown报错自查</span></a>
         </li></ul>
             </div>
           </div>
         </li><li class="mb-2" tabindex="-1">
-          <div class="py-1 d-flex justify-content-between align-items-center ms-3 text-primary">
+          <div class="py-1 d-flex justify-content-between align-items-center text-primary">
             <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/"><span class="docs-nav-title">Python</span></a>
             <a class="btn-toggle ms-1" role="button" data-bs-toggle="collapse"
               data-bs-target="#nav-b7433288507247eb51c5fc0011005e07" aria-expanded="true" aria-controls="nav-b7433288507247eb51c5fc0011005e07">
               <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
             </a>
           </div>
-          <div class="docs-nav-subnavs border-start mt-2 collapse  show border-primary" id="nav-b7433288507247eb51c5fc0011005e07">
+          <div class="docs-nav-subnavs border-start mt-2 collapse  show" id="nav-b7433288507247eb51c5fc0011005e07">
             <div class="btn-toggle-nav fw-normal ms-2 small">
-              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+              <ul class="list-unstyled mb-2 w-100">
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/anaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E7%AE%A1%E7%90%86python%E7%8E%AF%E5%A2%83%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">anaconda的安装和使用（管理python环境看这一篇就够了）-CSDN博客</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python-%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E6%BA%90/"><span class="docs-nav-title">Python 国内镜像源</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python-%E5%B0%8F%E7%94%B2%E9%B1%BC%E6%95%99%E7%A8%8B-easygui-%E7%AF%87/"><span class="docs-nav-title">Python 小甲鱼教程 Easygui 篇</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python-%E5%BC%B9%E5%87%BA%E6%8F%90%E7%A4%BA%E6%A1%86%E7%BB%83%E4%B9%A0tkinter.messagebox%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"><span class="docs-nav-title">Python 弹出提示框练习：tkinter.messagebox使用方法</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8Fre%E6%A8%A1%E5%9D%97%E8%AF%A6%E8%A7%A3/"><span class="docs-nav-title">python——正则表达式(re模块)详解</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python%E7%88%AC%E8%99%AB%E5%8F%B2%E4%B8%8A%E8%B6%85%E8%AF%A6%E7%BB%86%E8%AE%B2%E8%A7%A3%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E8%80%81%E5%B9%B4%E4%BA%BA%E9%83%BD%E7%9C%8B%E7%9A%84%E6%87%82-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">Python爬虫史上超详细讲解（零基础入门，老年人都看的懂）-CSDN博客</span></a>
-        </li><li class="mb-2 py-1 ms-3 text-primary" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1 text-primary border-2 border-start border-primary ps-2 docs-nav-active-item" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AF%AD%E6%B3%95%E6%96%87%E6%9C%AB%E9%99%84%E5%B8%B8%E7%94%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F/"><span class="docs-nav-title">史上最全正则表达式语法，文末附常用表达式！</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">掌握计算机自动化：PyAutoGUI库详细教程（最全使用方法，每行代码都有注释，帮你解决与之有关的所有问题）-CSDN博客</span></a>
         </li></ul>
             </div>
@@ -599,7 +585,7 @@ Falling_MY
             </div>
           </div>
         </li><li class="mb-2" tabindex="-1">
-          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+          <div class="py-1 d-flex justify-content-between align-items-center">
             <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/"><span class="docs-nav-title">Notes</span></a>
             <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
               data-bs-target="#nav-3fc5f5a13d5a7ed99b268197524af708" aria-expanded="false" aria-controls="nav-3fc5f5a13d5a7ed99b268197524af708">
@@ -609,7 +595,7 @@ Falling_MY
           <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-3fc5f5a13d5a7ed99b268197524af708">
             <div class="btn-toggle-nav fw-normal ms-2 small">
               <ul class="list-unstyled mb-2 w-100"><li class="mb-2" tabindex="-1">
-          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+          <div class="py-1 d-flex justify-content-between align-items-center">
             <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/"><span class="docs-nav-title">数据结构与算法</span></a>
             <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
               data-bs-target="#nav-adfea214110dfdde1358c99694432487" aria-expanded="false" aria-controls="nav-adfea214110dfdde1358c99694432487">
@@ -618,11 +604,14 @@ Falling_MY
           </div>
           <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-adfea214110dfdde1358c99694432487">
             <div class="btn-toggle-nav fw-normal ms-2 small">
-              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+              <ul class="list-unstyled mb-2 w-100">
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/1/"><span class="docs-nav-title">1.数据结构和算法简介, 二分查找</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/2/"><span class="docs-nav-title">2.时间空间复杂度、BigO表示法</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/3/"><span class="docs-nav-title">排序算法</span></a>
         </li></ul>
             </div>
@@ -630,12 +619,14 @@ Falling_MY
         </li></ul>
             </div>
           </div>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/%E5%85%B3%E4%BA%8E%E5%AD%A6%E5%88%86%E7%BB%A9%E7%82%B9%E4%BB%A5%E5%8F%8Agpa/"><span class="docs-nav-title">关于学分、绩点以及GPA</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/%E5%B8%B8%E7%94%A8%E5%8F%82%E8%80%83%E7%BD%91%E7%AB%99%E5%90%88%E9%9B%86/"><span class="docs-nav-title">常用参考网站合集</span></a>
         </li><li class="mb-2" tabindex="-1">
-          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+          <div class="py-1 d-flex justify-content-between align-items-center">
             <a class="docs-nav-link d-flex align-items-center" href="/docs/luoxicon/"><span class="docs-nav-title">落茜聚</span></a>
             <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
               data-bs-target="#nav-3270f174caefc52ef8340af35ea9b651" aria-expanded="false" aria-controls="nav-3270f174caefc52ef8340af35ea9b651">
@@ -644,20 +635,24 @@ Falling_MY
           </div>
           <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-3270f174caefc52ef8340af35ea9b651">
             <div class="btn-toggle-nav fw-normal ms-2 small">
-              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+              <ul class="list-unstyled mb-2 w-100">
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/luoxicon/20240812/"><span class="docs-nav-title">官摊</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/luoxicon/%E5%B0%8F%E6%B8%B8%E6%88%8F/"><span class="docs-nav-title">小游戏</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/luoxicon/20240731/"><span class="docs-nav-title">成都友豪锦江酒店</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/luoxicon/20240725_summary/"><span class="docs-nav-title">票种权益相关</span></a>
         </li></ul>
             </div>
           </div>
         </li></ul></div>
   </div>
-</aside><div class="col-xxl-7 ms-auto">
+</aside><div class="col ms-auto content-docs">
   <div class="container-fluid"><nav class="row card component" aria-label="breadcrumb">
   <div class="card-body pb-0">
     <ol class="hbs-breadcrumb breadcrumb flex-nowrap"><li class="breadcrumb-item text-surface"><a href="/">Home</a></li><li class="breadcrumb-item text-surface"><a href="/docs/">Docs</a></li><li class="breadcrumb-item text-surface"><a href="/docs/helpdocs/">HelpDocs</a></li><li class="breadcrumb-item text-surface"><a href="/docs/helpdocs/python/">Python</a></li><li class="breadcrumb-item active">史上最全正则表达式语法，文末附常用表达式！</li></ol>
@@ -868,34 +863,34 @@ Falling_MY
 </ol>
 </blockquote>
 <table>
-<thead>
-<tr>
-<th>序号</th>
-<th>编号</th>
-<th>分组</th>
-<th>内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>0</td>
-<td>(0\d{2})-(\d{8})</td>
-<td>020-85653333</td>
-</tr>
-<tr>
-<td>1</td>
-<td>1</td>
-<td>(0\d{2})</td>
-<td>020</td>
-</tr>
-<tr>
-<td>2</td>
-<td>2</td>
-<td>(\d{8})</td>
-<td>85653333</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>序号</th>
+          <th>编号</th>
+          <th>分组</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>(0\d{2})-(\d{8})</td>
+          <td>020-85653333</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>(0\d{2})</td>
+          <td>020</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>2</td>
+          <td>(\d{8})</td>
+          <td>85653333</td>
+      </tr>
+  </tbody>
 </table>
 <p>我们用Java来验证一下：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cobol" data-lang="cobol"><span class="line"><span class="cl"><span class="c"> Strin</span><span class="nv">g</span><span class="err"> </span><span class="kp">test </span><span class="o">=</span><span class="err"> </span><span class="s2">&#34;020-85653333&#34;</span><span class="p">;</span><span class="err">         </span><span class="kr">String</span><span class="err"> </span><span class="nv">reg</span><span class="o">=</span><span class="s2">&#34;(0\\d{2})-(\\d{8})&#34;</span><span class="p">;</span><span class="err">         </span><span class="nv">Pattern</span><span class="err"> </span><span class="nv">pattern</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="nv">Pattern</span><span class="p">.</span><span class="nv">compile</span><span class="p">(</span><span class="nv">reg</span><span class="p">);</span><span class="err">         </span><span class="nv">Matcher</span><span class="err"> </span><span class="nv">mc</span><span class="o">=</span><span class="err"> </span><span class="nv">pattern</span><span class="p">.</span><span class="nv">matcher</span><span class="p">(</span><span class="kp">test</span><span class="p">);</span><span class="err">         </span><span class="kr">if</span><span class="p">(</span><span class="nv">mc</span><span class="p">.</span><span class="nv">find</span><span class="p">())</span><span class="err">{             </span><span class="nv">System</span><span class="p">.</span><span class="nv">out</span><span class="p">.</span><span class="nv">println</span><span class="p">(</span><span class="s2">&#34;分组的个数有：&#34;</span><span class="o">+</span><span class="nv">mc</span><span class="p">.</span><span class="nv">groupCount</span><span class="p">());</span><span class="err">             </span><span class="kp">for</span><span class="p">(</span><span class="nv">int</span><span class="err"> </span><span class="nv">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nv">i</span><span class="o">&lt;=</span><span class="nv">mc</span><span class="p">.</span><span class="nv">groupCount</span><span class="p">();</span><span class="nv">i</span><span class="o">++</span><span class="p">)</span><span class="err">{                 </span><span class="nv">System</span><span class="p">.</span><span class="nv">out</span><span class="p">.</span><span class="nv">println</span><span class="p">(</span><span class="s2">&#34;第&#34;</span><span class="o">+</span><span class="nv">i</span><span class="o">+</span><span class="s2">&#34;个分组为：&#34;</span><span class="o">+</span><span class="nv">mc</span><span class="p">.</span><span class="kp">group</span><span class="p">(</span><span class="nv">i</span><span class="p">));</span><span class="err">             }        }
@@ -914,34 +909,34 @@ Falling_MY
 </ol>
 </blockquote>
 <table>
-<thead>
-<tr>
-<th>序号</th>
-<th>名称</th>
-<th>分组</th>
-<th>内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>0</td>
-<td>(0\d{2})-(\d{8})</td>
-<td>020-85653333</td>
-</tr>
-<tr>
-<td>1</td>
-<td>quhao</td>
-<td>(0\d{2})</td>
-<td>020</td>
-</tr>
-<tr>
-<td>2</td>
-<td>haoma</td>
-<td>(\d{8})</td>
-<td>85653333</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>序号</th>
+          <th>名称</th>
+          <th>分组</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>(0\d{2})-(\d{8})</td>
+          <td>020-85653333</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>quhao</td>
+          <td>(0\d{2})</td>
+          <td>020</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>haoma</td>
+          <td>(\d{8})</td>
+          <td>85653333</td>
+      </tr>
+  </tbody>
 </table>
 <p>用代码来验证一下：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cobol" data-lang="cobol"><span class="line"><span class="cl"><span class="c">1Strin</span><span class="nv">g</span><span class="err"> </span><span class="kp">test </span><span class="o">=</span><span class="err"> </span><span class="s2">&#34;020-85653333&#34;</span><span class="p">;</span><span class="mi">2        </span><span class="kr">String</span><span class="err"> </span><span class="nv">reg</span><span class="o">=</span><span class="s2">&#34;(?&lt;quhao&gt;0\\d{2})-(?&lt;haoma&gt;\\d{8})&#34;</span><span class="p">;</span><span class="mi">3        </span><span class="nv">Pattern</span><span class="err"> </span><span class="nv">pattern</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="nv">Pattern</span><span class="p">.</span><span class="nv">compile</span><span class="p">(</span><span class="nv">reg</span><span class="p">);</span><span class="mi">4        </span><span class="nv">Matcher</span><span class="err"> </span><span class="nv">mc</span><span class="o">=</span><span class="err"> </span><span class="nv">pattern</span><span class="p">.</span><span class="nv">matcher</span><span class="p">(</span><span class="kp">test</span><span class="p">);</span><span class="mi">5        </span><span class="kr">if</span><span class="p">(</span><span class="nv">mc</span><span class="p">.</span><span class="nv">find</span><span class="p">())</span><span class="err">{</span><span class="mi">6            </span><span class="nv">System</span><span class="p">.</span><span class="nv">out</span><span class="p">.</span><span class="nv">println</span><span class="p">(</span><span class="s2">&#34;分组的个数有：&#34;</span><span class="o">+</span><span class="nv">mc</span><span class="p">.</span><span class="nv">groupCount</span><span class="p">());</span><span class="mi">7            </span><span class="nv">System</span><span class="p">.</span><span class="nv">out</span><span class="p">.</span><span class="nv">println</span><span class="p">(</span><span class="nv">mc</span><span class="p">.</span><span class="kp">group</span><span class="p">(</span><span class="s2">&#34;quhao&#34;</span><span class="p">));</span><span class="mi">8            </span><span class="nv">System</span><span class="p">.</span><span class="nv">out</span><span class="p">.</span><span class="nv">println</span><span class="p">(</span><span class="nv">mc</span><span class="p">.</span><span class="kp">group</span><span class="p">(</span><span class="s2">&#34;haoma&#34;</span><span class="p">));</span><span class="mi">9        </span><span class="err">}
@@ -957,28 +952,28 @@ Falling_MY
 <p>比如上面的正则表达式，程序不需要用到第一个分组，那就可以这样写：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="p">(</span><span class="o">?</span><span class="nd">:</span><span class="err">\</span><span class="nt">0</span><span class="err">\</span><span class="nt">d</span><span class="p">{</span><span class="nt">2</span><span class="p">})</span><span class="o">-(</span><span class="err">\</span><span class="nt">d</span><span class="p">{</span><span class="nt">8</span><span class="p">})</span>
 </span></span></code></pre></div><table>
-<thead>
-<tr>
-<th>序号</th>
-<th>编号</th>
-<th>分组</th>
-<th>内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>0</td>
-<td>(0\d{2})-(\d{8})</td>
-<td>020-85653333</td>
-</tr>
-<tr>
-<td>1</td>
-<td>1</td>
-<td>(\d{8})</td>
-<td>85653333</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>序号</th>
+          <th>编号</th>
+          <th>分组</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>(0\d{2})-(\d{8})</td>
+          <td>020-85653333</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>(\d{8})</td>
+          <td>85653333</td>
+      </tr>
+  </tbody>
 </table>
 <p>验证一下：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cobol" data-lang="cobol"><span class="line"><span class="cl"><span class="c"> Strin</span><span class="nv">g</span><span class="err"> </span><span class="kp">test </span><span class="o">=</span><span class="err"> </span><span class="s2">&#34;020-85653333&#34;</span><span class="p">;</span><span class="err">         </span><span class="kr">String</span><span class="err"> </span><span class="nv">reg</span><span class="o">=</span><span class="s2">&#34;(?:0\\d{2})-(\\d{8})&#34;</span><span class="p">;</span><span class="err">         </span><span class="nv">Pattern</span><span class="err"> </span><span class="nv">pattern</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="nv">Pattern</span><span class="p">.</span><span class="nv">compile</span><span class="p">(</span><span class="nv">reg</span><span class="p">);</span><span class="err">         </span><span class="nv">Matcher</span><span class="err"> </span><span class="nv">mc</span><span class="o">=</span><span class="err"> </span><span class="nv">pattern</span><span class="p">.</span><span class="nv">matcher</span><span class="p">(</span><span class="kp">test</span><span class="p">);</span><span class="err">         </span><span class="kr">if</span><span class="p">(</span><span class="nv">mc</span><span class="p">.</span><span class="nv">find</span><span class="p">())</span><span class="err">{                 </span><span class="nv">System</span><span class="p">.</span><span class="nv">out</span><span class="p">.</span><span class="nv">println</span><span class="p">(</span><span class="s2">&#34;分组的个数有：&#34;</span><span class="o">+</span><span class="nv">mc</span><span class="p">.</span><span class="nv">groupCount</span><span class="p">());</span><span class="err">                 </span><span class="kp">for</span><span class="p">(</span><span class="nv">int</span><span class="err"> </span><span class="nv">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nv">i</span><span class="o">&lt;=</span><span class="nv">mc</span><span class="p">.</span><span class="nv">groupCount</span><span class="p">();</span><span class="nv">i</span><span class="o">++</span><span class="p">)</span><span class="err">{                     </span><span class="nv">System</span><span class="p">.</span><span class="nv">out</span><span class="p">.</span><span class="nv">println</span><span class="p">(</span><span class="s2">&#34;第&#34;</span><span class="o">+</span><span class="nv">i</span><span class="o">+</span><span class="s2">&#34;个分组为：&#34;</span><span class="o">+</span><span class="nv">mc</span><span class="p">.</span><span class="kp">group</span><span class="p">(</span><span class="nv">i</span><span class="p">));</span><span class="err">                 }        }
@@ -1106,34 +1101,34 @@ Falling_MY
 </blockquote>
 <p>懒惰量词是在贪婪量词后面加个“？”</p>
 <table>
-<thead>
-<tr>
-<th>代码</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>*?</td>
-<td>重复任意次，但尽可能少重复</td>
-</tr>
-<tr>
-<td>+?</td>
-<td>重复1次或更多次，但尽可能少重复</td>
-</tr>
-<tr>
-<td>??</td>
-<td>重复0次或1次，但尽可能少重复</td>
-</tr>
-<tr>
-<td>{n,m}?</td>
-<td>重复n到m次，但尽可能少重复</td>
-</tr>
-<tr>
-<td>{n,}?</td>
-<td>重复n次以上，但尽可能少重复</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>代码</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>*?</td>
+          <td>重复任意次，但尽可能少重复</td>
+      </tr>
+      <tr>
+          <td>+?</td>
+          <td>重复1次或更多次，但尽可能少重复</td>
+      </tr>
+      <tr>
+          <td>??</td>
+          <td>重复0次或1次，但尽可能少重复</td>
+      </tr>
+      <tr>
+          <td>{n,m}?</td>
+          <td>重复n到m次，但尽可能少重复</td>
+      </tr>
+      <tr>
+          <td>{n,}?</td>
+          <td>重复n次以上，但尽可能少重复</td>
+      </tr>
+  </tbody>
 </table>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cobol" data-lang="cobol"><span class="line"><span class="cl"><span class="c">String</span><span class="err"> </span><span class="nv">reg</span><span class="o">=</span><span class="s2">&#34;(\\d{1,2}?)(\\d{3,4})&#34;</span><span class="p">;</span><span class="err">        </span><span class="kr">String</span><span class="err"> </span><span class="kp">test</span><span class="o">=</span><span class="s2">&#34;61762828 176 2991 87321&#34;</span><span class="p">;</span><span class="err">        </span><span class="nv">System</span><span class="p">.</span><span class="nv">out</span><span class="p">.</span><span class="nv">println</span><span class="p">(</span><span class="s2">&#34;文本：&#34;</span><span class="o">+</span><span class="kp">test</span><span class="p">);</span><span class="err">        </span><span class="nv">System</span><span class="p">.</span><span class="nv">out</span><span class="p">.</span><span class="nv">println</span><span class="p">(</span><span class="s2">&#34;贪婪模式：&#34;</span><span class="o">+</span><span class="nv">reg</span><span class="p">);</span><span class="err">        </span><span class="nv">Pattern</span><span class="err"> </span><span class="nv">p1</span><span class="err"> </span><span class="o">=</span><span class="nv">Pattern</span><span class="p">.</span><span class="nv">compile</span><span class="p">(</span><span class="nv">reg</span><span class="p">);</span><span class="err">        </span><span class="nv">Matcher</span><span class="err"> </span><span class="nv">m1</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="nv">p1</span><span class="p">.</span><span class="nv">matcher</span><span class="p">(</span><span class="kp">test</span><span class="p">);</span><span class="err">        </span><span class="nv">while</span><span class="p">(</span><span class="nv">m1</span><span class="p">.</span><span class="nv">find</span><span class="p">())</span><span class="err">{            </span><span class="nv">System</span><span class="p">.</span><span class="nv">out</span><span class="p">.</span><span class="nv">println</span><span class="p">(</span><span class="s2">&#34;匹配结果：&#34;</span><span class="o">+</span><span class="nv">m1</span><span class="p">.</span><span class="kp">group</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span><span class="err">        }
 </span></span></span></code></pre></div><p>输出结果：</p>
@@ -1148,38 +1143,38 @@ Falling_MY
 <h3 id="十一正则进阶之反义" data-numberify>十一、正则进阶之反义<a class="anchor ms-1" href="#十一正则进阶之反义"></a></h3>
 <p>前面说到元字符的都是要匹配什么什么，当然如果你想反着来，不想匹配某些字符，正则也提供了一些常用的反义元字符：</p>
 <table>
-<thead>
-<tr>
-<th>元字符</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>\W</td>
-<td>匹配任意不是字母，数字，下划线，汉字的字符</td>
-</tr>
-<tr>
-<td>\S</td>
-<td>匹配任意不是空白符的字符</td>
-</tr>
-<tr>
-<td>\D</td>
-<td>匹配任意非数字的字符</td>
-</tr>
-<tr>
-<td>\B</td>
-<td>匹配不是单词开头或结束的位置</td>
-</tr>
-<tr>
-<td>[^x]</td>
-<td>匹配除了x以外的任意字符</td>
-</tr>
-<tr>
-<td>[^aeiou]</td>
-<td>匹配除了aeiou这几个字母以外的任意字符</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>元字符</th>
+          <th>解释</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>\W</td>
+          <td>匹配任意不是字母，数字，下划线，汉字的字符</td>
+      </tr>
+      <tr>
+          <td>\S</td>
+          <td>匹配任意不是空白符的字符</td>
+      </tr>
+      <tr>
+          <td>\D</td>
+          <td>匹配任意非数字的字符</td>
+      </tr>
+      <tr>
+          <td>\B</td>
+          <td>匹配不是单词开头或结束的位置</td>
+      </tr>
+      <tr>
+          <td>[^x]</td>
+          <td>匹配除了x以外的任意字符</td>
+      </tr>
+      <tr>
+          <td>[^aeiou]</td>
+          <td>匹配除了aeiou这几个字母以外的任意字符</td>
+      </tr>
+  </tbody>
 </table>
 
 <h3 id="十二正则表达式匹配网站" data-numberify>十二、正则表达式匹配网站<a class="anchor ms-1" href="#十二正则表达式匹配网站"></a></h3>
@@ -1212,9 +1207,9 @@ Falling_MY
             </a>
           </li></ul>
         <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content text-center show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
-            <img class="img-fluid post-reward-img" src="https://fallingmy.github.io/images/reward/alipay.jpg" loading="lazy" data-viewer-invisible />
+            <img class="img-fluid post-reward-img" src="http://localhost:1313/images/reward/alipay.jpg" loading="lazy" data-viewer-invisible />
           </div><div class="tab-pane fade post-reward-content text-center show" id="reward-wechat" role="tabpanel" aria-labelledby="reward-wechat-tab">
-            <img class="img-fluid post-reward-img" src="https://fallingmy.github.io/images/reward/wechat.jpg" loading="lazy" data-viewer-invisible />
+            <img class="img-fluid post-reward-img" src="http://localhost:1313/images/reward/wechat.jpg" loading="lazy" data-viewer-invisible />
           </div></div>
       </div>
     </div>
@@ -1222,9 +1217,9 @@ Falling_MY
 </div></div><div class="card-footer">
   <div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-prev">
       <i class="fas fa-fw fa-chevron-down post-prev-icon me-1" data-fa-transform="rotate-90"></i>
-      <a href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/">掌握计算机自动化：PyAutoGUI库详细教程（最全使用方法，每行代码都有注释，帮你解决与之有关的所有问题）-CSDN博客</a>
-    </div><div class="post-nav post-next">
       <a href="/docs/helpdocs/python/python%E7%88%AC%E8%99%AB%E5%8F%B2%E4%B8%8A%E8%B6%85%E8%AF%A6%E7%BB%86%E8%AE%B2%E8%A7%A3%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E8%80%81%E5%B9%B4%E4%BA%BA%E9%83%BD%E7%9C%8B%E7%9A%84%E6%87%82-csdn%E5%8D%9A%E5%AE%A2/">Python爬虫史上超详细讲解（零基础入门，老年人都看的懂）-CSDN博客</a>
+    </div><div class="post-nav post-next">
+      <a href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/">掌握计算机自动化：PyAutoGUI库详细教程（最全使用方法，每行代码都有注释，帮你解决与之有关的所有问题）-CSDN博客</a>
       <i class="fas fa-fw fa-chevron-down post-next-icon ms-1" data-fa-transform="rotate-270"></i>
     </div></div>
 </div></article><div class="post-copyright mb-3 row card component" id="post-copyright">
@@ -1249,8 +1244,8 @@ Falling_MY
             <div class="post-card card card-body p-0 border-0 surface">
   
   <picture>
-      <source srcset="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample_hu1e269adb755e54f6dcb322d69e53c5ae_40960_500x0_resize_q75_h2_box_2.webp" media="(max-width: 576px)" height="375" width="500">
-      <img class="img-fluid" height="135" width="180" alt="featured-sample.webp" src="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample_hu1e269adb755e54f6dcb322d69e53c5ae_40960_180x0_resize_q75_h2_box_2.webp" data-src="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample.webp" loading="lazy"/>
+      <source srcset="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample_hu14422031441054246417.webp" media="(max-width: 576px)" height="375" width="500">
+      <img class="img-fluid" height="135" width="180" alt="featured-sample.webp" src="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample_hu719346528928233388.webp" data-src="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample.webp" loading="lazy"/>
     </picture>
 
   <a class="post-title" href="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/">
@@ -1360,11 +1355,11 @@ Falling_MY
   </div>
   <div class="offcanvas-body mt-2"><div class="social-share mb-4 d-flex overflow-auto">
       <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Twitter Share Button"
-      target="_blank" href="https://twitter.com/intent/tweet?title=404%20Page%20not%20found&url=https%3a%2f%2ffallingmy.github.io%2f404.html">
+      target="_blank" href="https://twitter.com/intent/tweet?title=404%20Page%20not%20found&url=http%3a%2f%2flocalhost%3a1313%2f404.html">
         <i class="fab fa-2x fa-fw fa-twitter mb-2"></i> Twitter
       </a>
       <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Facebook Share Button"
-        target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ffallingmy.github.io%2f404.html">
+        target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2f404.html">
         <i class="fab fa-2x fa-fw fa-facebook-f mb-2"></i> Facebook
       </a>
     </div>
@@ -1410,7 +1405,7 @@ Falling_MY
         <i class="fa-fw fa-2x fab fa-qq"
           ></i>
       </a>
-      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://twitter.com/FallingMY3" title="Twitter" rel="me">
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://twitter.com/Falling_Studio_" title="Twitter" rel="me">
         <i class="fa-fw fa-2x fab fa-twitter"
            style="color: #1d9bf0;"></i>
       </a>
@@ -1422,9 +1417,9 @@ Falling_MY
   <div class="col-12 col-lg-8 offset-0 offset-lg-1"></div>
 </div>
 </footer>
-<script data-precache src="/assets/main/bundle.min.5ad3a40fc4e98f8fcdd019b0792ae3bbabebb3fc979db92bc7610e2fb6414529.js" integrity="sha256-WtOkD8Tpj4/N0BmweSrju6vrs/yXnbkrx2EOL7ZBRSk=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.4f30d5267a9f2f9d45ed93969d45ec626100a969a8b91f71f753315a261e9034.js" integrity="sha256-TzDVJnqfL51F7ZOWnUXsYmEAqWmouR9x91MxWiYekDQ=" crossorigin="anonymous" defer></script>
-<script data-precache src="/assets/viewer/bundle.min.06371891cfe6d10d36cba465c61c4d7cb17591a3be2fd9af4a38444d2074e709.js" integrity="sha256-BjcYkc/m0Q02y6RlxhxNfLF1kaO&#43;L9mvSjhETSB05wk=" crossorigin="anonymous" defer></script>
-  <script data-precache defer src="/assets/katex/bundle.min.ebacb71ff73d65512126000e4a076fdbd207a155f88a4e69b442c0407e576fe3.js" integrity="sha256-66y3H/c9ZVEhJgAOSgdv29IHoVX4ik5ptELAQH5Xb&#43;M=" crossorigin="anonymous"></script>
+<script data-precache src="/assets/main/bundle.min.80e07ae9425de8b9573c491e94a4b2e2f23b9a734a89e3ce74a08f15c48167c1.js" integrity="sha256-gOB66UJd6LlXPEkelKSy4vI7mnNKiePOdKCPFcSBZ8E=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.e54d449fb2f61868599339bf9539fdf870c40f403df48b6bb0b222993514e533.js" integrity="sha256-5U1En7L2GGhZkzm/lTn9&#43;HDED0A99ItrsLIimTUU5TM=" crossorigin="anonymous" defer></script>
+<script data-precache src="/assets/viewer/bundle.min.6b04108bcf5bfd45397e320e83d728b1df778a7e2c2021b8dc97a41d783acae9.js" integrity="sha256-awQQi89b/UU5fjIOg9cosd93in4sICG43JekHXg6yuk=" crossorigin="anonymous" defer></script>
+  <script data-precache defer src="/assets/katex/bundle.min.59e7d586c5d16cbae10fc198286c7abbcba11bfe2a928bc3428ba07862371b2a.js" integrity="sha256-WefVhsXRbLrhD8GYKGx6u8uhG/4qkovDQougeGI3Gyo=" crossorigin="anonymous"></script>
 
 <script src="/js/sw-register.js" defer></script>
 <script src="https://giscus.app/client.js"

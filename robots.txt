@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://fallingmy.github.io/sitemap.xml
+Sitemap: http://localhost:1313/sitemap.xml

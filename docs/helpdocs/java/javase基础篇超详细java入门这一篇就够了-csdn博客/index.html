@@ -1,96 +1,121 @@
 <!doctype html>
 <html class="position-relative" itemscope itemtype="https://schema.org/WebPage" lang="en"
   data-bs-theme="auto" data-palette="blue-gray">
-  <head><script src="/assets/init/bundle.min.60a5effd0a083ea3601371c3b04cf6e82d273dd8c1e0ec015b7d58b80bb88822.js" integrity="sha256-YKXv/QoIPqNgE3HDsEz26C0nPdjB4OwBW31YuAu4iCI=" crossorigin="anonymous"></script>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><script src="/assets/init/bundle.min.fb1f09ac59b2842320e38f03810e1e8ac197af0295d5e1aad1246c67f5693497.js" integrity="sha256-&#43;x8JrFmyhCMg448DgQ4eisGXrwKV1eGq0SRsZ/VpNJc=" crossorigin="anonymous"></script>
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>JavaSE基础篇——超详细，Java入门，这一篇就够了-CSDN博客 - Falling_Studio_Terminal3</title>
-    <link rel="icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_16x16_resize_box_3.png" sizes="16x16" type="image/png">
-    <link rel="icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_32x32_resize_box_3.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_150x150_resize_box_3.png" sizes="150x150" type="image/png">
-    <link rel="apple-touch-icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_180x180_resize_box_3.png" sizes="180x180" type="image/png">
-    <link rel="icon" href="/favicon_hudd1cb299ae4786bedef8a52e2202fff9_1561_192x192_resize_box_3.png" sizes="192x192" type="image/png">
+    <link rel="icon" href="/favicon_hu4694133314791059470.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="/favicon_hu1114292297158002801.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/favicon_hu15156048902608200372.png" sizes="150x150" type="image/png">
+    <link rel="apple-touch-icon" href="/favicon_hu14028710294497923009.png" sizes="180x180" type="image/png">
+    <link rel="icon" href="/favicon_hu12185621123592544675.png" sizes="192x192" type="image/png">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6f42c1">
 <meta name="keywords" content="Hugo, Bootstrap, Blog Theme" />
-  <meta name="description" content="第一节：Java语言概述一、java背景知识1、Java是美国sun公司（Stanford University Network）在1995年推出的一门计算机高级编程语言。
+  <meta name="description" content="第一节：Java语言概述
+
+一、java背景知识
+1、Java是美国sun公司（Stanford University Network）在1995年推出的一门计算机高级编程语言。
 2、Java早期被称为Oak（橡树），后期改名为Java。
 3、Java之父：詹姆斯·高斯林（James Gosling）
 4、2009年sun公司被Oracle（甲骨文）公司收购
-二、为什么用Java1、世界上最流行的编程语言之一，在国内使用最为广泛的编程语言
+
+二、为什么用Java
+1、世界上最流行的编程语言之一，在国内使用最为广泛的编程语言
 2、可移植性、安全可靠、性能较好
 3、开发社区最完善，功能最丰富
-三、JAVA能干什么1、桌面应用开发
+
+三、JAVA能干什么
+1、桌面应用开发
 2、企业级应用开发
 3、移动应用开发
 4、服务器系统
 5、大数据开发
 6、游戏开发
-四、JAVA技术体系技术体系 说明 Java SE：标准版 Java技术的核心和基础 Java EE：企业版 企业级应用开发的一套解决方案 Java ME：小型版 针对移动设备应用的解决方案 第二节：Java环境搭建一、如何使用Java1、Java语言的产品是JDK（Java Development Kit：Java开发者工具包）,必须安装JDK才能使用Java语言。JDK产品的发展使。
+
+四、JAVA技术体系
+
+  
+      
+          技术体系
+          说明
+      
+  
+  
+      
+          Java SE：标准版
+          Java技术的核心和基础
+      
+      
+          Java EE：企业版
+          企业级应用开发的一套解决方案
+      
+      
+          Java ME：小型版
+          针对移动设备应用的解决方案
+      
+  
+
+
+第二节：Java环境搭建
+
+一、如何使用Java
+1、Java语言的产品是JDK（Java Development Kit：Java开发者工具包）,必须安装JDK才能使用Java语言。JDK产品的发展使。
 2、JDK产品的发展史
-LTS(long-term support)：长期支持版 3、如何获取JDK
-去Oracle官网下载JDK 4、验证JDK安装成功的方式查询JDK的版本号
-在命令行中输入 java -version javac -version 查看版本，如果版本提示与自己安装的版本号一致，则代表安装成功。
-5、java和javac介绍
-java是执行工具
-javac是编译工具
-将来我们写好的java程序都是高级语言，计算机底层是不能识别这些语言的。
-必须先通过javac编译工具进行翻译，然后再通过java执行工具执行才可以驱动机器干活
-5、补充常用命令 说明 盘符： 切换到某个盘下 dir 查看当前路径下的文件信息 cd 进入单级目录：cd 目录名 进入多级目录：cd 路径 回退到上一级目录：cd … 回退到盘符根目录：cd \ cls 清屏 第三节：Java入门程序一、Java程序的开发的三个步骤1、编写代码：源代码文件（." />
-    <meta name="robots" content="index, follow" />
+
+
+
+
+
+LTS(long-term support)：长期支持版
+
+3、如何获取JDK
+
+去Oracle官网下载JDK
+
+
+4、验证JDK安装成功的方式
+查询JDK的版本号" />
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="JavaSE基础篇——超详细，Java入门，这一篇就够了-CSDN博客">
-  <meta name="twitter:description" content="第一节：Java语言概述一、java背景知识1、Java是美国sun公司（Stanford University Network）在1995年推出的一门计算机高级编程语言。
+  <meta name="twitter:description" content="第一节：Java语言概述 一、java背景知识 1、Java是美国sun公司（Stanford University Network）在1995年推出的一门计算机高级编程语言。
 2、Java早期被称为Oak（橡树），后期改名为Java。
 3、Java之父：詹姆斯·高斯林（James Gosling）
 4、2009年sun公司被Oracle（甲骨文）公司收购
-二、为什么用Java1、世界上最流行的编程语言之一，在国内使用最为广泛的编程语言
+二、为什么用Java 1、世界上最流行的编程语言之一，在国内使用最为广泛的编程语言
 2、可移植性、安全可靠、性能较好
 3、开发社区最完善，功能最丰富
-三、JAVA能干什么1、桌面应用开发
+三、JAVA能干什么 1、桌面应用开发
 2、企业级应用开发
 3、移动应用开发
 4、服务器系统
 5、大数据开发
 6、游戏开发
-四、JAVA技术体系技术体系 说明 Java SE：标准版 Java技术的核心和基础 Java EE：企业版 企业级应用开发的一套解决方案 Java ME：小型版 针对移动设备应用的解决方案 第二节：Java环境搭建一、如何使用Java1、Java语言的产品是JDK（Java Development Kit：Java开发者工具包）,必须安装JDK才能使用Java语言。JDK产品的发展使。
+四、JAVA技术体系 技术体系 说明 Java SE：标准版 Java技术的核心和基础 Java EE：企业版 企业级应用开发的一套解决方案 Java ME：小型版 针对移动设备应用的解决方案 第二节：Java环境搭建 一、如何使用Java 1、Java语言的产品是JDK（Java Development Kit：Java开发者工具包）,必须安装JDK才能使用Java语言。JDK产品的发展使。
 2、JDK产品的发展史
 LTS(long-term support)：长期支持版 3、如何获取JDK
-去Oracle官网下载JDK 4、验证JDK安装成功的方式查询JDK的版本号
-在命令行中输入 java -version javac -version 查看版本，如果版本提示与自己安装的版本号一致，则代表安装成功。
-5、java和javac介绍
-java是执行工具
-javac是编译工具
-将来我们写好的java程序都是高级语言，计算机底层是不能识别这些语言的。
-必须先通过javac编译工具进行翻译，然后再通过java执行工具执行才可以驱动机器干活
-5、补充常用命令 说明 盘符： 切换到某个盘下 dir 查看当前路径下的文件信息 cd 进入单级目录：cd 目录名 进入多级目录：cd 路径 回退到上一级目录：cd … 回退到盘符根目录：cd \ cls 清屏 第三节：Java入门程序一、Java程序的开发的三个步骤1、编写代码：源代码文件（.">
-      <meta name="twitter:site" content="@FallingMY3">
-<meta property="og:url" content="https://fallingmy.github.io/docs/helpdocs/java/javase%E5%9F%BA%E7%A1%80%E7%AF%87%E8%B6%85%E8%AF%A6%E7%BB%86java%E5%85%A5%E9%97%A8%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/">
+去Oracle官网下载JDK 4、验证JDK安装成功的方式 查询JDK的版本号">
+      <meta name="twitter:site" content="@Falling_Studio_">
+<meta property="og:url" content="http://localhost:1313/docs/helpdocs/java/javase%E5%9F%BA%E7%A1%80%E7%AF%87%E8%B6%85%E8%AF%A6%E7%BB%86java%E5%85%A5%E9%97%A8%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/">
   <meta property="og:site_name" content="Falling_Studio_Terminal3">
   <meta property="og:title" content="JavaSE基础篇——超详细，Java入门，这一篇就够了-CSDN博客">
-  <meta property="og:description" content="第一节：Java语言概述一、java背景知识1、Java是美国sun公司（Stanford University Network）在1995年推出的一门计算机高级编程语言。
+  <meta property="og:description" content="第一节：Java语言概述 一、java背景知识 1、Java是美国sun公司（Stanford University Network）在1995年推出的一门计算机高级编程语言。
 2、Java早期被称为Oak（橡树），后期改名为Java。
 3、Java之父：詹姆斯·高斯林（James Gosling）
 4、2009年sun公司被Oracle（甲骨文）公司收购
-二、为什么用Java1、世界上最流行的编程语言之一，在国内使用最为广泛的编程语言
+二、为什么用Java 1、世界上最流行的编程语言之一，在国内使用最为广泛的编程语言
 2、可移植性、安全可靠、性能较好
 3、开发社区最完善，功能最丰富
-三、JAVA能干什么1、桌面应用开发
+三、JAVA能干什么 1、桌面应用开发
 2、企业级应用开发
 3、移动应用开发
 4、服务器系统
 5、大数据开发
 6、游戏开发
-四、JAVA技术体系技术体系 说明 Java SE：标准版 Java技术的核心和基础 Java EE：企业版 企业级应用开发的一套解决方案 Java ME：小型版 针对移动设备应用的解决方案 第二节：Java环境搭建一、如何使用Java1、Java语言的产品是JDK（Java Development Kit：Java开发者工具包）,必须安装JDK才能使用Java语言。JDK产品的发展使。
+四、JAVA技术体系 技术体系 说明 Java SE：标准版 Java技术的核心和基础 Java EE：企业版 企业级应用开发的一套解决方案 Java ME：小型版 针对移动设备应用的解决方案 第二节：Java环境搭建 一、如何使用Java 1、Java语言的产品是JDK（Java Development Kit：Java开发者工具包）,必须安装JDK才能使用Java语言。JDK产品的发展使。
 2、JDK产品的发展史
 LTS(long-term support)：长期支持版 3、如何获取JDK
-去Oracle官网下载JDK 4、验证JDK安装成功的方式查询JDK的版本号
-在命令行中输入 java -version javac -version 查看版本，如果版本提示与自己安装的版本号一致，则代表安装成功。
-5、java和javac介绍
-java是执行工具
-javac是编译工具
-将来我们写好的java程序都是高级语言，计算机底层是不能识别这些语言的。
-必须先通过javac编译工具进行翻译，然后再通过java执行工具执行才可以驱动机器干活
-5、补充常用命令 说明 盘符： 切换到某个盘下 dir 查看当前路径下的文件信息 cd 进入单级目录：cd 目录名 进入多级目录：cd 路径 回退到上一级目录：cd … 回退到盘符根目录：cd \ cls 清屏 第三节：Java入门程序一、Java程序的开发的三个步骤1、编写代码：源代码文件（.">
+去Oracle官网下载JDK 4、验证JDK安装成功的方式 查询JDK的版本号">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -98,56 +123,46 @@ javac是编译工具
     <meta property="article:modified_time" content="2024-07-05T11:34:47+08:00">
     <meta property="article:tag" content="HelpDocs">
     <meta property="article:tag" content="Java">
-      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/python/anaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E7%AE%A1%E7%90%86python%E7%8E%AF%E5%A2%83%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/">
-      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%B8%80%E5%85%A5%E9%97%A8%E5%8F%8A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%9F%BA%E6%9C%AC%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C/">
-      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%BA%8C%E8%8E%B7%E5%8F%96%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9B%B4%E6%96%B0/">
-      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/git/git%E7%9A%84%E4%BD%BF%E7%94%A8%E6%98%93%E6%87%82&#43;%E5%B7%A8%E6%97%A0%E6%AF%94%E8%AF%A6%E7%BB%86&#43;%E6%96%B0%E6%89%8B%E5%BF%85%E7%9C%8B/">
-      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/java/java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%85%AB%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-&#43;-%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
-      <meta property="og:see_also" content="https://fallingmy.github.io/docs/helpdocs/markdown/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/helpdocs/python/anaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E7%AE%A1%E7%90%86python%E7%8E%AF%E5%A2%83%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%B8%80%E5%85%A5%E9%97%A8%E5%8F%8A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%9F%BA%E6%9C%AC%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%BA%8C%E8%8E%B7%E5%8F%96%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9B%B4%E6%96%B0/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/helpdocs/git/git%E7%9A%84%E4%BD%BF%E7%94%A8%E6%98%93%E6%87%82&#43;%E5%B7%A8%E6%97%A0%E6%AF%94%E8%AF%A6%E7%BB%86&#43;%E6%96%B0%E6%89%8B%E5%BF%85%E7%9C%8B/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/helpdocs/java/java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%85%AB%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-&#43;-%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/helpdocs/markdown/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/">
 
   <meta itemprop="name" content="JavaSE基础篇——超详细，Java入门，这一篇就够了-CSDN博客">
-  <meta itemprop="description" content="第一节：Java语言概述一、java背景知识1、Java是美国sun公司（Stanford University Network）在1995年推出的一门计算机高级编程语言。
+  <meta itemprop="description" content="第一节：Java语言概述 一、java背景知识 1、Java是美国sun公司（Stanford University Network）在1995年推出的一门计算机高级编程语言。
 2、Java早期被称为Oak（橡树），后期改名为Java。
 3、Java之父：詹姆斯·高斯林（James Gosling）
 4、2009年sun公司被Oracle（甲骨文）公司收购
-二、为什么用Java1、世界上最流行的编程语言之一，在国内使用最为广泛的编程语言
+二、为什么用Java 1、世界上最流行的编程语言之一，在国内使用最为广泛的编程语言
 2、可移植性、安全可靠、性能较好
 3、开发社区最完善，功能最丰富
-三、JAVA能干什么1、桌面应用开发
+三、JAVA能干什么 1、桌面应用开发
 2、企业级应用开发
 3、移动应用开发
 4、服务器系统
 5、大数据开发
 6、游戏开发
-四、JAVA技术体系技术体系 说明 Java SE：标准版 Java技术的核心和基础 Java EE：企业版 企业级应用开发的一套解决方案 Java ME：小型版 针对移动设备应用的解决方案 第二节：Java环境搭建一、如何使用Java1、Java语言的产品是JDK（Java Development Kit：Java开发者工具包）,必须安装JDK才能使用Java语言。JDK产品的发展使。
+四、JAVA技术体系 技术体系 说明 Java SE：标准版 Java技术的核心和基础 Java EE：企业版 企业级应用开发的一套解决方案 Java ME：小型版 针对移动设备应用的解决方案 第二节：Java环境搭建 一、如何使用Java 1、Java语言的产品是JDK（Java Development Kit：Java开发者工具包）,必须安装JDK才能使用Java语言。JDK产品的发展使。
 2、JDK产品的发展史
 LTS(long-term support)：长期支持版 3、如何获取JDK
-去Oracle官网下载JDK 4、验证JDK安装成功的方式查询JDK的版本号
-在命令行中输入 java -version javac -version 查看版本，如果版本提示与自己安装的版本号一致，则代表安装成功。
-5、java和javac介绍
-java是执行工具
-javac是编译工具
-将来我们写好的java程序都是高级语言，计算机底层是不能识别这些语言的。
-必须先通过javac编译工具进行翻译，然后再通过java执行工具执行才可以驱动机器干活
-5、补充常用命令 说明 盘符： 切换到某个盘下 dir 查看当前路径下的文件信息 cd 进入单级目录：cd 目录名 进入多级目录：cd 路径 回退到上一级目录：cd … 回退到盘符根目录：cd \ cls 清屏 第三节：Java入门程序一、Java程序的开发的三个步骤1、编写代码：源代码文件（.">
+去Oracle官网下载JDK 4、验证JDK安装成功的方式 查询JDK的版本号">
   <meta itemprop="datePublished" content="2024-07-05T11:34:47+08:00">
   <meta itemprop="dateModified" content="2024-07-05T11:34:47+08:00">
   <meta itemprop="wordCount" content="1116">
   <meta itemprop="keywords" content="HelpDocs,Java">
-  <meta property="og:image" content="https://fallingmy.github.io/images/icon.png"/>
-  <meta name="twitter:image" content="https://fallingmy.github.io/images/icon.png"/>
+  <meta property="og:image" content="http://localhost:1313/images/icon.png"/>
+  <meta name="twitter:image" content="http://localhost:1313/images/icon.png"/>
   <meta property="og:image:alt" content="JavaSE基础篇——超详细，Java入门，这一篇就够了-CSDN博客" />
   <meta name="twitter:image:alt" content="JavaSE基础篇——超详细，Java入门，这一篇就够了-CSDN博客" />
   <link rel="manifest" href="/manifest.json">
 
-  
+<link data-precache rel="stylesheet" href="/assets/main/bundle.min.ce02c09e4eca3c51ac7c4c0ab656cbc7a1386804422b4edecbe748b7aab05569.css" integrity="sha256-zgLAnk7KPFGsfEwKtlbLx6E4aARCK07ey&#43;dIt6qwVWk=" crossorigin="anonymous">
 
+<link data-precache rel="stylesheet" href="/assets/katex/bundle.min.95b995465e88deb0152ab2d55893df3735bca23caf1bf7822b4aa791ee66b5b3.css" integrity="sha256-lbmVRl6I3rAVKrLVWJPfNzW8ojyvG/eCK0qnke5mtbM=" crossorigin="anonymous">
 
-<link data-precache rel="stylesheet" href="/assets/main/bundle.min.04b2a3705d0c7a8fbca98a9909f0297b5107ee78e64b85c6b5bb2eb1794343e3.css" integrity="sha256-BLKjcF0Meo+8qYqZCfApe1EH7njmS4XGtbsusXlDQ+M=" crossorigin="anonymous">
-
-<link data-precache rel="stylesheet" href="/assets/katex/bundle.min.506b6798499d2e8621e3d1f1db89099c3aa2639acd8b3b000b14cc6999c5b340.css" integrity="sha256-UGtnmEmdLoYh49Hx24kJnDqiY5rNizsACxTMaZnFs0A=" crossorigin="anonymous">
-
-    <link data-precache rel="stylesheet" href="/assets/viewer/bundle.min.8c1002839fa22c1350d6ae1eef6593120e108f973c41348be9b5065430566aaf.css" integrity="sha256-jBACg5&#43;iLBNQ1q4e72WTEg4Qj5c8QTSL6bUGVDBWaq8=" crossorigin="anonymous">
+    <link data-precache rel="stylesheet" href="/assets/viewer/bundle.min.81fc6ea2b654c63ccf8e3c859d12072f72f8cbe3f759361479f8b0c00f754e95.css" integrity="sha256-gfxuorZUxjzPjjyFnRIHL3L4y&#43;P3WTYUefiwwA91TpU=" crossorigin="anonymous">
 
 
 </head>
@@ -160,8 +175,8 @@ javac是编译工具
       <i class="fas fa-bars"></i>
     </button>
 <a class="navbar-brand d-flex align-items-center flex-grow-1 flex-xxl-grow-0 justify-content-xxl-start justify-content-center ms-2 ms-xxl-0 mx-auto me-xxl-2"
-    href="https://fallingmy.github.io/">
-    <picture><img class="logo " alt="Logo" src="https://fallingmy.github.io/images/icon.png?v=1f41693bbcf319c2f188adfb373971c6" loading="lazy" width="891" height="891" />
+    href="http://localhost:1313/">
+    <picture><img class="logo " alt="Logo" src="http://localhost:1313/images/icon.png?v=6fd297eb16523c441f62c01a9ffd8221" loading="lazy" width="891" height="891" />
 </picture>
 Falling_MY
 </a>
@@ -174,11 +189,11 @@ Falling_MY
       <div class="offcanvas-body p-4 pt-0 p-xxl-0">
         <hr class="d-xxl-none">
         <ul class="navbar-nav flex-row flex-wrap align-items-center me-auto"><li class="nav-item col-6 col-xxl-auto">
-            <a class="nav-link py-2 px-0 px-xxl-2" href="https://fallingmy.github.io/docs/">
+            <a class="nav-link py-2 px-0 px-xxl-2" href="http://localhost:1313/docs/">
 <span class="menu-icon me-1"><i class="fas fa-fw fa-file"></i></span>Docs
             </a>
           </li><li class="nav-item col-6 col-xxl-auto">
-            <a class="nav-link py-2 px-0 px-xxl-2" href="https://fallingmy.github.io/news/">
+            <a class="nav-link py-2 px-0 px-xxl-2" href="http://localhost:1313/news/">
 <span class="menu-icon me-1"><i class="fas fa-fw fa-newspaper"></i></span>News
             </a>
           </li>
@@ -192,7 +207,7 @@ Falling_MY
                 <li><h6 class="dropdown-header">Blog Menu Description</h6></li>
               <li>
                 <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
-                  href="https://fallingmy.github.io/archives/">
+                  href="http://localhost:1313/archives/">
                     <span class="dropdown-item-icon me-2 p-2 rounded">
                       <i class="fas fa-fw fa-file-archive text-primary"></i>
                     </span>
@@ -202,7 +217,7 @@ Falling_MY
               </li>
               <li>
                 <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
-                  href="https://fallingmy.github.io/series/">
+                  href="http://localhost:1313/series/">
                     <span class="dropdown-item-icon me-2 p-2 rounded">
                       <i class="fas fa-fw fa-columns"></i>
                     </span>
@@ -213,7 +228,7 @@ Falling_MY
               </li>
               <li>
                 <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
-                  href="https://fallingmy.github.io/categories/">
+                  href="http://localhost:1313/categories/">
                     <span class="dropdown-item-icon me-2 p-2 rounded">
                       <i class="fas fa-fw fa-folder text-success"></i>
                     </span>
@@ -224,7 +239,7 @@ Falling_MY
               </li>
               <li>
                 <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
-                  href="https://fallingmy.github.io/tags/">
+                  href="http://localhost:1313/tags/">
                     <span class="dropdown-item-icon me-2 p-2 rounded">
                       <i class="fas fa-fw fa-tags"></i>
                     </span>
@@ -414,7 +429,8 @@ Falling_MY
 
 </header>
 
-    <main class="container">
+    <main class="container has-sidebar" data-kind="page"><script data-precache src="/js/main-init.22a4a8a4139001adf723a1609f1300530cfb7fad040cc971ca62c6ba2daa90d9.js" integrity="sha256-IqSopBOQAa33I6FgnxMAUwz7f60EDMlxymLGui2qkNk=" crossorigin="anonymous"></script>
+
       <div class="row content"><noscript>
     <div class="alert alert-danger" role="alert">Your browser does not support JavaScript.</div>
 </noscript>
@@ -425,17 +441,17 @@ Falling_MY
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#offcanvasDocsNav"></button>
     </div>
     <div class="offcanvas-body pt-2 flex-column"><ul class="list-unstyled mb-2 w-100"><li class="mb-2" tabindex="-1">
-          <div class="py-1 d-flex justify-content-between align-items-center ms-3 text-primary">
+          <div class="py-1 d-flex justify-content-between align-items-center text-primary">
             <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/"><span class="docs-nav-title">HelpDocs</span></a>
             <a class="btn-toggle ms-1" role="button" data-bs-toggle="collapse"
               data-bs-target="#nav-ebe568325b3994b345762d8c5739485e" aria-expanded="true" aria-controls="nav-ebe568325b3994b345762d8c5739485e">
               <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
             </a>
           </div>
-          <div class="docs-nav-subnavs border-start mt-2 collapse  show border-primary" id="nav-ebe568325b3994b345762d8c5739485e">
+          <div class="docs-nav-subnavs border-start mt-2 collapse  show" id="nav-ebe568325b3994b345762d8c5739485e">
             <div class="btn-toggle-nav fw-normal ms-2 small">
               <ul class="list-unstyled mb-2 w-100"><li class="mb-2" tabindex="-1">
-          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+          <div class="py-1 d-flex justify-content-between align-items-center">
             <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/c/c&#43;&#43;/"><span class="docs-nav-title">C/C&#43;&#43;</span></a>
             <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
               data-bs-target="#nav-4c352665280bb902c3cd1f57edc236a4" aria-expanded="false" aria-controls="nav-4c352665280bb902c3cd1f57edc236a4">
@@ -444,13 +460,14 @@ Falling_MY
           </div>
           <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-4c352665280bb902c3cd1f57edc236a4">
             <div class="btn-toggle-nav fw-normal ms-2 small">
-              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+              <ul class="list-unstyled mb-2 w-100">
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/c/c&#43;&#43;/pointer/"><span class="docs-nav-title">指针</span></a>
         </li></ul>
             </div>
           </div>
         </li><li class="mb-2" tabindex="-1">
-          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+          <div class="py-1 d-flex justify-content-between align-items-center">
             <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/"><span class="docs-nav-title">Git</span></a>
             <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
               data-bs-target="#nav-31299be8729f19977a763ab46f2da124" aria-expanded="false" aria-controls="nav-31299be8729f19977a763ab46f2da124">
@@ -459,36 +476,42 @@ Falling_MY
           </div>
           <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-31299be8729f19977a763ab46f2da124">
             <div class="btn-toggle-nav fw-normal ms-2 small">
-              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+              <ul class="list-unstyled mb-2 w-100">
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%B8%80%E5%85%A5%E9%97%A8%E5%8F%8A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%9F%BA%E6%9C%AC%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C/"><span class="docs-nav-title">Git基本使用教程（一）：入门及第一次基本完整操作</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%BA%8C%E8%8E%B7%E5%8F%96%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9B%B4%E6%96%B0/"><span class="docs-nav-title">Git基本使用教程（二）：获取更新与推送更新</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/git/git%E7%9A%84%E4%BD%BF%E7%94%A8%E6%98%93%E6%87%82&#43;%E5%B7%A8%E6%97%A0%E6%AF%94%E8%AF%A6%E7%BB%86&#43;%E6%96%B0%E6%89%8B%E5%BF%85%E7%9C%8B/"><span class="docs-nav-title">Git的使用（易懂&#43;巨无比详细&#43;新手必看）</span></a>
         </li></ul>
             </div>
           </div>
         </li><li class="mb-2" tabindex="-1">
-          <div class="py-1 d-flex justify-content-between align-items-center ms-3 text-primary">
+          <div class="py-1 d-flex justify-content-between align-items-center text-primary">
             <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/"><span class="docs-nav-title">Java</span></a>
             <a class="btn-toggle ms-1" role="button" data-bs-toggle="collapse"
               data-bs-target="#nav-987b22e609e9d70bb1861e492b4fd185" aria-expanded="true" aria-controls="nav-987b22e609e9d70bb1861e492b4fd185">
               <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
             </a>
           </div>
-          <div class="docs-nav-subnavs border-start mt-2 collapse  show border-primary" id="nav-987b22e609e9d70bb1861e492b4fd185">
+          <div class="docs-nav-subnavs border-start mt-2 collapse  show" id="nav-987b22e609e9d70bb1861e492b4fd185">
             <div class="btn-toggle-nav fw-normal ms-2 small">
-              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3 text-primary" tabindex="-1">
+              <ul class="list-unstyled mb-2 w-100">
+        <li class="mb-2 py-1 text-primary border-2 border-start border-primary ps-2 docs-nav-active-item" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/javase%E5%9F%BA%E7%A1%80%E7%AF%87%E8%B6%85%E8%AF%A6%E7%BB%86java%E5%85%A5%E9%97%A8%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">JavaSE基础篇——超详细，Java入门，这一篇就够了-CSDN博客</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%85%AB%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-&#43;-%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"><span class="docs-nav-title">Java数据类型（八种基本数据类型 &#43; 四种引用数据类型）</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/java/%E4%B8%89%E7%A7%8D%E7%BC%96%E7%A8%8B%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99%E9%A9%BC%E5%B3%B0%E5%91%BD%E5%90%8D%E6%B3%95%E5%B8%95%E6%96%AF%E5%8D%A1%E5%91%BD%E5%90%8D%E6%B3%95%E5%8C%88%E7%89%99%E5%88%A9%E5%91%BD%E5%90%8D%E6%B3%95/"><span class="docs-nav-title">三种编程命名规则：驼峰命名法，帕斯卡命名法，匈牙利命名法</span></a>
         </li></ul>
             </div>
           </div>
         </li><li class="mb-2" tabindex="-1">
-          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+          <div class="py-1 d-flex justify-content-between align-items-center">
             <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/markdown/"><span class="docs-nav-title">Markdown</span></a>
             <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
               data-bs-target="#nav-2d8c19f8492a0d4510acf00e408e5b58" aria-expanded="false" aria-controls="nav-2d8c19f8492a0d4510acf00e408e5b58">
@@ -497,15 +520,17 @@ Falling_MY
           </div>
           <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-2d8c19f8492a0d4510acf00e408e5b58">
             <div class="btn-toggle-nav fw-normal ms-2 small">
-              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+              <ul class="list-unstyled mb-2 w-100">
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/markdown/markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E8%B6%85%E7%BA%A7%E7%89%88/"><span class="docs-nav-title">Markdown语法大全(超级版)</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/markdown/vs-code-markdown%E6%8A%A5%E9%94%99%E8%87%AA%E6%9F%A5/"><span class="docs-nav-title">VS code Markdown报错自查</span></a>
         </li></ul>
             </div>
           </div>
         </li><li class="mb-2" tabindex="-1">
-          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+          <div class="py-1 d-flex justify-content-between align-items-center">
             <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/"><span class="docs-nav-title">Python</span></a>
             <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
               data-bs-target="#nav-b7433288507247eb51c5fc0011005e07" aria-expanded="false" aria-controls="nav-b7433288507247eb51c5fc0011005e07">
@@ -514,21 +539,29 @@ Falling_MY
           </div>
           <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-b7433288507247eb51c5fc0011005e07">
             <div class="btn-toggle-nav fw-normal ms-2 small">
-              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+              <ul class="list-unstyled mb-2 w-100">
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/anaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E7%AE%A1%E7%90%86python%E7%8E%AF%E5%A2%83%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">anaconda的安装和使用（管理python环境看这一篇就够了）-CSDN博客</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python-%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E6%BA%90/"><span class="docs-nav-title">Python 国内镜像源</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python-%E5%B0%8F%E7%94%B2%E9%B1%BC%E6%95%99%E7%A8%8B-easygui-%E7%AF%87/"><span class="docs-nav-title">Python 小甲鱼教程 Easygui 篇</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python-%E5%BC%B9%E5%87%BA%E6%8F%90%E7%A4%BA%E6%A1%86%E7%BB%83%E4%B9%A0tkinter.messagebox%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"><span class="docs-nav-title">Python 弹出提示框练习：tkinter.messagebox使用方法</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8Fre%E6%A8%A1%E5%9D%97%E8%AF%A6%E8%A7%A3/"><span class="docs-nav-title">python——正则表达式(re模块)详解</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/python%E7%88%AC%E8%99%AB%E5%8F%B2%E4%B8%8A%E8%B6%85%E8%AF%A6%E7%BB%86%E8%AE%B2%E8%A7%A3%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E8%80%81%E5%B9%B4%E4%BA%BA%E9%83%BD%E7%9C%8B%E7%9A%84%E6%87%82-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">Python爬虫史上超详细讲解（零基础入门，老年人都看的懂）-CSDN博客</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AF%AD%E6%B3%95%E6%96%87%E6%9C%AB%E9%99%84%E5%B8%B8%E7%94%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F/"><span class="docs-nav-title">史上最全正则表达式语法，文末附常用表达式！</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/python/%E6%8E%8C%E6%8F%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8C%96pyautogui%E5%BA%93%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%AF%8F%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%BD%E6%9C%89%E6%B3%A8%E9%87%8A%E5%B8%AE%E4%BD%A0%E8%A7%A3%E5%86%B3%E4%B8%8E%E4%B9%8B%E6%9C%89%E5%85%B3%E7%9A%84%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98-csdn%E5%8D%9A%E5%AE%A2/"><span class="docs-nav-title">掌握计算机自动化：PyAutoGUI库详细教程（最全使用方法，每行代码都有注释，帮你解决与之有关的所有问题）-CSDN博客</span></a>
         </li></ul>
             </div>
@@ -537,7 +570,7 @@ Falling_MY
             </div>
           </div>
         </li><li class="mb-2" tabindex="-1">
-          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+          <div class="py-1 d-flex justify-content-between align-items-center">
             <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/"><span class="docs-nav-title">Notes</span></a>
             <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
               data-bs-target="#nav-3fc5f5a13d5a7ed99b268197524af708" aria-expanded="false" aria-controls="nav-3fc5f5a13d5a7ed99b268197524af708">
@@ -547,7 +580,7 @@ Falling_MY
           <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-3fc5f5a13d5a7ed99b268197524af708">
             <div class="btn-toggle-nav fw-normal ms-2 small">
               <ul class="list-unstyled mb-2 w-100"><li class="mb-2" tabindex="-1">
-          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+          <div class="py-1 d-flex justify-content-between align-items-center">
             <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/"><span class="docs-nav-title">数据结构与算法</span></a>
             <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
               data-bs-target="#nav-adfea214110dfdde1358c99694432487" aria-expanded="false" aria-controls="nav-adfea214110dfdde1358c99694432487">
@@ -556,11 +589,14 @@ Falling_MY
           </div>
           <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-adfea214110dfdde1358c99694432487">
             <div class="btn-toggle-nav fw-normal ms-2 small">
-              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+              <ul class="list-unstyled mb-2 w-100">
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/1/"><span class="docs-nav-title">1.数据结构和算法简介, 二分查找</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/2/"><span class="docs-nav-title">2.时间空间复杂度、BigO表示法</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/3/"><span class="docs-nav-title">排序算法</span></a>
         </li></ul>
             </div>
@@ -568,12 +604,14 @@ Falling_MY
         </li></ul>
             </div>
           </div>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/%E5%85%B3%E4%BA%8E%E5%AD%A6%E5%88%86%E7%BB%A9%E7%82%B9%E4%BB%A5%E5%8F%8Agpa/"><span class="docs-nav-title">关于学分、绩点以及GPA</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/%E5%B8%B8%E7%94%A8%E5%8F%82%E8%80%83%E7%BD%91%E7%AB%99%E5%90%88%E9%9B%86/"><span class="docs-nav-title">常用参考网站合集</span></a>
         </li><li class="mb-2" tabindex="-1">
-          <div class="py-1 d-flex justify-content-between align-items-center ms-3">
+          <div class="py-1 d-flex justify-content-between align-items-center">
             <a class="docs-nav-link d-flex align-items-center" href="/docs/luoxicon/"><span class="docs-nav-title">落茜聚</span></a>
             <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
               data-bs-target="#nav-3270f174caefc52ef8340af35ea9b651" aria-expanded="false" aria-controls="nav-3270f174caefc52ef8340af35ea9b651">
@@ -582,20 +620,24 @@ Falling_MY
           </div>
           <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-3270f174caefc52ef8340af35ea9b651">
             <div class="btn-toggle-nav fw-normal ms-2 small">
-              <ul class="list-unstyled mb-2 w-100"><li class="mb-2 py-1 ms-3" tabindex="-1">
+              <ul class="list-unstyled mb-2 w-100">
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/luoxicon/20240812/"><span class="docs-nav-title">官摊</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/luoxicon/%E5%B0%8F%E6%B8%B8%E6%88%8F/"><span class="docs-nav-title">小游戏</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/luoxicon/20240731/"><span class="docs-nav-title">成都友豪锦江酒店</span></a>
-        </li><li class="mb-2 py-1 ms-3" tabindex="-1">
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/luoxicon/20240725_summary/"><span class="docs-nav-title">票种权益相关</span></a>
         </li></ul>
             </div>
           </div>
         </li></ul></div>
   </div>
-</aside><div class="col-xxl-7 ms-auto">
+</aside><div class="col ms-auto content-docs">
   <div class="container-fluid"><nav class="row card component" aria-label="breadcrumb">
   <div class="card-body pb-0">
     <ol class="hbs-breadcrumb breadcrumb flex-nowrap"><li class="breadcrumb-item text-surface"><a href="/">Home</a></li><li class="breadcrumb-item text-surface"><a href="/docs/">Docs</a></li><li class="breadcrumb-item text-surface"><a href="/docs/helpdocs/">HelpDocs</a></li><li class="breadcrumb-item text-surface"><a href="/docs/helpdocs/java/">Java</a></li><li class="breadcrumb-item active">JavaSE基础篇——超详细，Java入门，这一篇就够了-CSDN博客</li></ol>
@@ -666,26 +708,26 @@ Falling_MY
 
 <h5 id="四java技术体系" data-numberify>四、JAVA技术体系<a class="anchor ms-1" href="#四java技术体系"></a></h5>
 <table>
-<thead>
-<tr>
-<th style="text-align:center">技术体系</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Java SE：标准版</td>
-<td style="text-align:center">Java技术的核心和基础</td>
-</tr>
-<tr>
-<td style="text-align:center">Java EE：企业版</td>
-<td style="text-align:center">企业级应用开发的一套解决方案</td>
-</tr>
-<tr>
-<td style="text-align:center">Java ME：小型版</td>
-<td style="text-align:center">针对移动设备应用的解决方案</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: center">技术体系</th>
+          <th style="text-align: center">说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">Java SE：标准版</td>
+          <td style="text-align: center">Java技术的核心和基础</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Java EE：企业版</td>
+          <td style="text-align: center">企业级应用开发的一套解决方案</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Java ME：小型版</td>
+          <td style="text-align: center">针对移动设备应用的解决方案</td>
+      </tr>
+  </tbody>
 </table>
 
 <h3 id="第二节java环境搭建" data-numberify>第二节：Java环境搭建<a class="anchor ms-1" href="#第二节java环境搭建"></a></h3>
@@ -731,42 +773,42 @@ Falling_MY
 
 <h6 id="5补充" data-numberify>5、补充<a class="anchor ms-1" href="#5补充"></a></h6>
 <table>
-<thead>
-<tr>
-<th>常用命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>盘符：</td>
-<td>切换到某个盘下</td>
-</tr>
-<tr>
-<td>dir</td>
-<td>查看当前路径下的文件信息</td>
-</tr>
-<tr>
-<td>cd</td>
-<td>进入单级目录：cd 目录名</td>
-</tr>
-<tr>
-<td>进入多级目录：cd 路径</td>
-<td></td>
-</tr>
-<tr>
-<td>回退到上一级目录：cd …</td>
-<td></td>
-</tr>
-<tr>
-<td>回退到盘符根目录：cd \</td>
-<td></td>
-</tr>
-<tr>
-<td>cls</td>
-<td>清屏</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>常用命令</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>盘符：</td>
+          <td>切换到某个盘下</td>
+      </tr>
+      <tr>
+          <td>dir</td>
+          <td>查看当前路径下的文件信息</td>
+      </tr>
+      <tr>
+          <td>cd</td>
+          <td>进入单级目录：cd 目录名</td>
+      </tr>
+      <tr>
+          <td>进入多级目录：cd 路径</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>回退到上一级目录：cd …</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>回退到盘符根目录：cd \</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>cls</td>
+          <td>清屏</td>
+      </tr>
+  </tbody>
 </table>
 
 <h3 id="第三节java入门程序" data-numberify>第三节：Java入门程序<a class="anchor ms-1" href="#第三节java入门程序"></a></h3>
@@ -1231,40 +1273,40 @@ java HelloWord
 
 <h5 id="2数字运算符" data-numberify>2、数字运算符<a class="anchor ms-1" href="#2数字运算符"></a></h5>
 <table>
-<thead>
-<tr>
-<th style="text-align:center">符号</th>
-<th style="text-align:center">作用</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">+</td>
-<td style="text-align:center">加</td>
-<td style="text-align:center">参考小学数学一年级</td>
-</tr>
-<tr>
-<td style="text-align:center">-</td>
-<td style="text-align:center">减</td>
-<td style="text-align:center">参考小学数学一年级</td>
-</tr>
-<tr>
-<td style="text-align:center">*</td>
-<td style="text-align:center">乘</td>
-<td style="text-align:center">参考小学数学二年级，与“✖”相同</td>
-</tr>
-<tr>
-<td style="text-align:center">/</td>
-<td style="text-align:center">除</td>
-<td style="text-align:center">与“➗”相同，注意：在Java中两个整数相除结果还是整数。因为最高类型是整数</td>
-</tr>
-<tr>
-<td style="text-align:center">%</td>
-<td style="text-align:center">取余</td>
-<td style="text-align:center">获取的是两个数据做除法的余数</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: center">符号</th>
+          <th style="text-align: center">作用</th>
+          <th style="text-align: center">说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">+</td>
+          <td style="text-align: center">加</td>
+          <td style="text-align: center">参考小学数学一年级</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">-</td>
+          <td style="text-align: center">减</td>
+          <td style="text-align: center">参考小学数学一年级</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">*</td>
+          <td style="text-align: center">乘</td>
+          <td style="text-align: center">参考小学数学二年级，与“✖”相同</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">/</td>
+          <td style="text-align: center">除</td>
+          <td style="text-align: center">与“➗”相同，注意：在Java中两个整数相除结果还是整数。因为最高类型是整数</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">%</td>
+          <td style="text-align: center">取余</td>
+          <td style="text-align: center">获取的是两个数据做除法的余数</td>
+      </tr>
+  </tbody>
 </table>
 
 <h5 id="二符号做连接符" data-numberify>二、+符号做连接符<a class="anchor ms-1" href="#二符号做连接符"></a></h5>
@@ -1277,25 +1319,25 @@ java HelloWord
 
 <h6 id="1自增自减运算符" data-numberify>1、自增自减运算符<a class="anchor ms-1" href="#1自增自减运算符"></a></h6>
 <table>
-<thead>
-<tr>
-<th>符号</th>
-<th>作用</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>++</td>
-<td>自增</td>
-<td>变量自身的值加1</td>
-</tr>
-<tr>
-<td>–</td>
-<td>自减</td>
-<td>变量自身的值减1</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>符号</th>
+          <th>作用</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>++</td>
+          <td>自增</td>
+          <td>变量自身的值加1</td>
+      </tr>
+      <tr>
+          <td>–</td>
+          <td>自减</td>
+          <td>变量自身的值减1</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>注意：</strong></p>
 <ul>
@@ -1335,40 +1377,40 @@ java HelloWord
 </span></span></span></code></pre></div>
 <h6 id="2扩展赋值运算符" data-numberify>2、扩展赋值运算符<a class="anchor ms-1" href="#2扩展赋值运算符"></a></h6>
 <table>
-<thead>
-<tr>
-<th>符号</th>
-<th>作用</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>+=</td>
-<td>加后赋值</td>
-<td>a+=b等价于a = （a的数据类型）（a+b）；将a+b的值给a</td>
-</tr>
-<tr>
-<td>-=</td>
-<td>减后赋值</td>
-<td>a-=b等价于a = （a的数据类型）（a-b）；将a-b的值给a</td>
-</tr>
-<tr>
-<td>*=</td>
-<td>乘后赋值</td>
-<td>a*=b等价于a = （a的数据类型）（a*b）；将a*b的值给a</td>
-</tr>
-<tr>
-<td>/=</td>
-<td>除后赋值</td>
-<td>a/=b等价于a = （a的数据类型）（a/b）；将a/b的商给a</td>
-</tr>
-<tr>
-<td>%=</td>
-<td>取余后赋值</td>
-<td>a%=等价于a = （a的数据类型）（a%b）；将a%b的值给a</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>符号</th>
+          <th>作用</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>+=</td>
+          <td>加后赋值</td>
+          <td>a+=b等价于a = （a的数据类型）（a+b）；将a+b的值给a</td>
+      </tr>
+      <tr>
+          <td>-=</td>
+          <td>减后赋值</td>
+          <td>a-=b等价于a = （a的数据类型）（a-b）；将a-b的值给a</td>
+      </tr>
+      <tr>
+          <td>*=</td>
+          <td>乘后赋值</td>
+          <td>a*=b等价于a = （a的数据类型）（a*b）；将a*b的值给a</td>
+      </tr>
+      <tr>
+          <td>/=</td>
+          <td>除后赋值</td>
+          <td>a/=b等价于a = （a的数据类型）（a/b）；将a/b的商给a</td>
+      </tr>
+      <tr>
+          <td>%=</td>
+          <td>取余后赋值</td>
+          <td>a%=等价于a = （a的数据类型）（a%b）；将a%b的值给a</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>注意：扩展的赋值运算符隐含了强制类型转换</strong></p>
 
@@ -2178,40 +2220,40 @@ import java.util.Random;
 
 <h5 id="七补充知识成员变量局部变量的区别" data-numberify>七、补充知识：成员变量、局部变量的区别<a class="anchor ms-1" href="#七补充知识成员变量局部变量的区别"></a></h5>
 <table>
-<thead>
-<tr>
-<th>区别</th>
-<th>成员变量</th>
-<th>局部变量</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>类中位置不同</td>
-<td>类中，方法外</td>
-<td>常见于方法中</td>
-</tr>
-<tr>
-<td>初始化值不同</td>
-<td>有默认值，无需初始化</td>
-<td>没有默认值</td>
-</tr>
-<tr>
-<td>内存位置不同</td>
-<td>堆内存</td>
-<td>栈内存</td>
-</tr>
-<tr>
-<td>生命周期不同</td>
-<td>随着对像的创建而存在，随着对象的消失而消失</td>
-<td>随着方法的调用而存在，随着方法的运行结束而消失</td>
-</tr>
-<tr>
-<td>作用域</td>
-<td></td>
-<td>在所属的大括号中</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>区别</th>
+          <th>成员变量</th>
+          <th>局部变量</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>类中位置不同</td>
+          <td>类中，方法外</td>
+          <td>常见于方法中</td>
+      </tr>
+      <tr>
+          <td>初始化值不同</td>
+          <td>有默认值，无需初始化</td>
+          <td>没有默认值</td>
+      </tr>
+      <tr>
+          <td>内存位置不同</td>
+          <td>堆内存</td>
+          <td>栈内存</td>
+      </tr>
+      <tr>
+          <td>生命周期不同</td>
+          <td>随着对像的创建而存在，随着对象的消失而消失</td>
+          <td>随着方法的调用而存在，随着方法的运行结束而消失</td>
+      </tr>
+      <tr>
+          <td>作用域</td>
+          <td></td>
+          <td>在所属的大括号中</td>
+      </tr>
+  </tbody>
 </table>
 
 <h3 id="第十六节常用api" data-numberify>第十六节、常用API<a class="anchor ms-1" href="#第十六节常用api"></a></h3>
@@ -2253,30 +2295,30 @@ import java.util.Random;
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;传智教育&#34;</span><span class="p">;</span><span class="w">
 </span></span></span></code></pre></div><p>方式二：通过String类的构造器创建对象。</p>
 <table>
-<thead>
-<tr>
-<th>构造器</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>public String()</td>
-<td>创建一个空白字符串对象，不含有任何内容</td>
-</tr>
-<tr>
-<td>public String(String original)</td>
-<td>根据传入的字符内容，来创建字符串对象</td>
-</tr>
-<tr>
-<td>public String(char[] chs)</td>
-<td>根据字符数组的内容，来创建字符串对象</td>
-</tr>
-<tr>
-<td>public String(byte[] chs)</td>
-<td>根据字节数组，来创建字符串对象</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>构造器</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>public String()</td>
+          <td>创建一个空白字符串对象，不含有任何内容</td>
+      </tr>
+      <tr>
+          <td>public String(String original)</td>
+          <td>根据传入的字符内容，来创建字符串对象</td>
+      </tr>
+      <tr>
+          <td>public String(char[] chs)</td>
+          <td>根据字符数组的内容，来创建字符串对象</td>
+      </tr>
+      <tr>
+          <td>public String(byte[] chs)</td>
+          <td>根据字节数组，来创建字符串对象</td>
+      </tr>
+  </tbody>
 </table>
 
 <h5 id="2区别" data-numberify>2、区别<a class="anchor ms-1" href="#2区别"></a></h5>
@@ -2293,22 +2335,22 @@ import java.util.Random;
 <li>推荐使用String类提供的&quot;equals“比较：只关心内容一样即可</li>
 </ul>
 <table>
-<thead>
-<tr>
-<th>方法名</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>public blean equals(Object anObject)</td>
-<td>将此字符串与指定对象进行比较，只关心字符内容是否一致</td>
-</tr>
-<tr>
-<td>public blean equalsIgnoreCase(String anotherString)</td>
-<td>将此字符串与指定对象进行比较，忽略大小写比较字符串。只关心字符内容是否一致</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>方法名</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>public blean equals(Object anObject)</td>
+          <td>将此字符串与指定对象进行比较，只关心字符内容是否一致</td>
+      </tr>
+      <tr>
+          <td>public blean equalsIgnoreCase(String anotherString)</td>
+          <td>将此字符串与指定对象进行比较，忽略大小写比较字符串。只关心字符内容是否一致</td>
+      </tr>
+  </tbody>
 </table>
 
 <h5 id="2开发中什么时候使用比较数据" data-numberify>2、开发中什么时候使用==比较数据<a class="anchor ms-1" href="#2开发中什么时候使用比较数据"></a></h5>
@@ -2320,42 +2362,42 @@ import java.util.Random;
 
 <h5 id="1string常用api" data-numberify>1、String常用API<a class="anchor ms-1" href="#1string常用api"></a></h5>
 <table>
-<thead>
-<tr>
-<th>方法名</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>public int length()</td>
-<td>返回此字符串的长度</td>
-</tr>
-<tr>
-<td>public char charAt(int index)</td>
-<td>获取某个索引位置处的字符</td>
-</tr>
-<tr>
-<td>public char[] toCharArray()</td>
-<td>将当前字符串转换成字符数组返回</td>
-</tr>
-<tr>
-<td>public String substring(int beginIndex,int endIndex)</td>
-<td>根据开始和结束索引进行截取，得到新的字符串（包前不包后）</td>
-</tr>
-<tr>
-<td>public String substring(int beinIndex)</td>
-<td>从传入的索引处截取，截取到末尾，得到新的字符串</td>
-</tr>
-<tr>
-<td>public String replace(CharSequence target,CharSequence replacement)</td>
-<td>使用新值，将字符串中的旧值替换，得到新的字符串</td>
-</tr>
-<tr>
-<td>public String[] split(String regex)</td>
-<td>根据传入的规则切割字符串，得到字符串数组返回</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>方法名</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>public int length()</td>
+          <td>返回此字符串的长度</td>
+      </tr>
+      <tr>
+          <td>public char charAt(int index)</td>
+          <td>获取某个索引位置处的字符</td>
+      </tr>
+      <tr>
+          <td>public char[] toCharArray()</td>
+          <td>将当前字符串转换成字符数组返回</td>
+      </tr>
+      <tr>
+          <td>public String substring(int beginIndex,int endIndex)</td>
+          <td>根据开始和结束索引进行截取，得到新的字符串（包前不包后）</td>
+      </tr>
+      <tr>
+          <td>public String substring(int beinIndex)</td>
+          <td>从传入的索引处截取，截取到末尾，得到新的字符串</td>
+      </tr>
+      <tr>
+          <td>public String replace(CharSequence target,CharSequence replacement)</td>
+          <td>使用新值，将字符串中的旧值替换，得到新的字符串</td>
+      </tr>
+      <tr>
+          <td>public String[] split(String regex)</td>
+          <td>根据传入的规则切割字符串，得到字符串数组返回</td>
+      </tr>
+  </tbody>
 </table>
 
 <h3 id="第十七节集合概述" data-numberify>第十七节、集合概述<a class="anchor ms-1" href="#第十七节集合概述"></a></h3>
@@ -2375,38 +2417,38 @@ import java.util.Random;
 
 <h5 id="2arraylist集合的对象获取" data-numberify>2、ArrayList集合的对象获取<a class="anchor ms-1" href="#2arraylist集合的对象获取"></a></h5>
 <table>
-<thead>
-<tr>
-<th>构造器</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>public ArrayList()</td>
-<td>创建一个空的集合对象</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>构造器</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>public ArrayList()</td>
+          <td>创建一个空的集合对象</td>
+      </tr>
+  </tbody>
 </table>
 
 <h5 id="3arraylist集合添加元素的方法" data-numberify>3、ArrayList集合添加元素的方法<a class="anchor ms-1" href="#3arraylist集合添加元素的方法"></a></h5>
 <table>
-<thead>
-<tr>
-<th>方法名</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>pubilc boolean add(E e)</td>
-<td>将指定的元素追加到此集合的末尾</td>
-</tr>
-<tr>
-<td>public void add(int index,E element)</td>
-<td>在此集合中指定位置插入指定的元素</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>方法名</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>pubilc boolean add(E e)</td>
+          <td>将指定的元素追加到此集合的末尾</td>
+      </tr>
+      <tr>
+          <td>public void add(int index,E element)</td>
+          <td>在此集合中指定位置插入指定的元素</td>
+      </tr>
+  </tbody>
 </table>
 
 <h4 id="三arraylist对于泛型的支持" data-numberify>三、ArrayList对于泛型的支持<a class="anchor ms-1" href="#三arraylist对于泛型的支持"></a></h4>
@@ -2423,34 +2465,34 @@ import java.util.Random;
 
 <h4 id="四arraylist常用api遍历" data-numberify>四、ArrayList常用API、遍历<a class="anchor ms-1" href="#四arraylist常用api遍历"></a></h4>
 <table>
-<thead>
-<tr>
-<th>方法名称</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>public E get(int index)</td>
-<td>返回指定索引处元素</td>
-</tr>
-<tr>
-<td>public int size()</td>
-<td>返回集合中的元素个数</td>
-</tr>
-<tr>
-<td>public E remove(int index)</td>
-<td>删除指定索引处的元素，返回被删除的元素</td>
-</tr>
-<tr>
-<td>public boolean remove(Objet o)</td>
-<td>删除指定的元素，返回删除是否成功</td>
-</tr>
-<tr>
-<td>public E set(int index,Eelement)</td>
-<td>修改指定索引出的元素，返回被修改的元素</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>方法名称</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>public E get(int index)</td>
+          <td>返回指定索引处元素</td>
+      </tr>
+      <tr>
+          <td>public int size()</td>
+          <td>返回集合中的元素个数</td>
+      </tr>
+      <tr>
+          <td>public E remove(int index)</td>
+          <td>删除指定索引处的元素，返回被删除的元素</td>
+      </tr>
+      <tr>
+          <td>public boolean remove(Objet o)</td>
+          <td>删除指定的元素，返回删除是否成功</td>
+      </tr>
+      <tr>
+          <td>public E set(int index,Eelement)</td>
+          <td>修改指定索引出的元素，返回被修改的元素</td>
+      </tr>
+  </tbody>
 </table>
 <p><a href="https://blog.csdn.net/wocao_666/article/details/130778956" target="_blank" rel="noopener noreferrer">后续 JavaSE加强篇<i class="fas fa-external-link-square-alt ms-1"></i></a></p>
 <p>文章知识点与官方知识档案匹配，可进一步学习相关知识</p>
@@ -2476,17 +2518,17 @@ import java.util.Random;
             </a>
           </li></ul>
         <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content text-center show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
-            <img class="img-fluid post-reward-img" src="https://fallingmy.github.io/images/reward/alipay.jpg" loading="lazy" data-viewer-invisible />
+            <img class="img-fluid post-reward-img" src="http://localhost:1313/images/reward/alipay.jpg" loading="lazy" data-viewer-invisible />
           </div><div class="tab-pane fade post-reward-content text-center show" id="reward-wechat" role="tabpanel" aria-labelledby="reward-wechat-tab">
-            <img class="img-fluid post-reward-img" src="https://fallingmy.github.io/images/reward/wechat.jpg" loading="lazy" data-viewer-invisible />
+            <img class="img-fluid post-reward-img" src="http://localhost:1313/images/reward/wechat.jpg" loading="lazy" data-viewer-invisible />
           </div></div>
       </div>
     </div>
   </div>
 </div></div><div class="card-footer">
-  <div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-prev">
-      <i class="fas fa-fw fa-chevron-down post-prev-icon me-1" data-fa-transform="rotate-90"></i>
+  <div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-next">
       <a href="/docs/helpdocs/java/java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%85%AB%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-&#43;-%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">Java数据类型（八种基本数据类型 &#43; 四种引用数据类型）</a>
+      <i class="fas fa-fw fa-chevron-down post-next-icon ms-1" data-fa-transform="rotate-270"></i>
     </div></div>
 </div></article><div class="post-copyright mb-3 row card component" id="post-copyright">
     <div class="card-header">
@@ -2510,8 +2552,8 @@ import java.util.Random;
             <div class="post-card card card-body p-0 border-0 surface">
   
   <picture>
-      <source srcset="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample_hu1e269adb755e54f6dcb322d69e53c5ae_40960_500x0_resize_q75_h2_box_2.webp" media="(max-width: 576px)" height="375" width="500">
-      <img class="img-fluid" height="135" width="180" alt="featured-sample.webp" src="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample_hu1e269adb755e54f6dcb322d69e53c5ae_40960_180x0_resize_q75_h2_box_2.webp" data-src="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample.webp" loading="lazy"/>
+      <source srcset="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample_hu14422031441054246417.webp" media="(max-width: 576px)" height="375" width="500">
+      <img class="img-fluid" height="135" width="180" alt="featured-sample.webp" src="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample_hu719346528928233388.webp" data-src="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/featured-sample.webp" loading="lazy"/>
     </picture>
 
   <a class="post-title" href="/news/1/01/%E8%90%BD%E8%8C%9C%E8%81%9A/">
@@ -2630,11 +2672,11 @@ import java.util.Random;
   </div>
   <div class="offcanvas-body mt-2"><div class="social-share mb-4 d-flex overflow-auto">
       <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Twitter Share Button"
-      target="_blank" href="https://twitter.com/intent/tweet?title=404%20Page%20not%20found&url=https%3a%2f%2ffallingmy.github.io%2f404.html">
+      target="_blank" href="https://twitter.com/intent/tweet?title=404%20Page%20not%20found&url=http%3a%2f%2flocalhost%3a1313%2f404.html">
         <i class="fab fa-2x fa-fw fa-twitter mb-2"></i> Twitter
       </a>
       <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Facebook Share Button"
-        target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ffallingmy.github.io%2f404.html">
+        target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2f404.html">
         <i class="fab fa-2x fa-fw fa-facebook-f mb-2"></i> Facebook
       </a>
     </div>
@@ -2680,7 +2722,7 @@ import java.util.Random;
         <i class="fa-fw fa-2x fab fa-qq"
           ></i>
       </a>
-      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://twitter.com/FallingMY3" title="Twitter" rel="me">
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://twitter.com/Falling_Studio_" title="Twitter" rel="me">
         <i class="fa-fw fa-2x fab fa-twitter"
            style="color: #1d9bf0;"></i>
       </a>
@@ -2692,9 +2734,9 @@ import java.util.Random;
   <div class="col-12 col-lg-8 offset-0 offset-lg-1"></div>
 </div>
 </footer>
-<script data-precache src="/assets/main/bundle.min.5ad3a40fc4e98f8fcdd019b0792ae3bbabebb3fc979db92bc7610e2fb6414529.js" integrity="sha256-WtOkD8Tpj4/N0BmweSrju6vrs/yXnbkrx2EOL7ZBRSk=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.4f30d5267a9f2f9d45ed93969d45ec626100a969a8b91f71f753315a261e9034.js" integrity="sha256-TzDVJnqfL51F7ZOWnUXsYmEAqWmouR9x91MxWiYekDQ=" crossorigin="anonymous" defer></script>
-<script data-precache src="/assets/viewer/bundle.min.06371891cfe6d10d36cba465c61c4d7cb17591a3be2fd9af4a38444d2074e709.js" integrity="sha256-BjcYkc/m0Q02y6RlxhxNfLF1kaO&#43;L9mvSjhETSB05wk=" crossorigin="anonymous" defer></script>
-  <script data-precache defer src="/assets/katex/bundle.min.ebacb71ff73d65512126000e4a076fdbd207a155f88a4e69b442c0407e576fe3.js" integrity="sha256-66y3H/c9ZVEhJgAOSgdv29IHoVX4ik5ptELAQH5Xb&#43;M=" crossorigin="anonymous"></script>
+<script data-precache src="/assets/main/bundle.min.80e07ae9425de8b9573c491e94a4b2e2f23b9a734a89e3ce74a08f15c48167c1.js" integrity="sha256-gOB66UJd6LlXPEkelKSy4vI7mnNKiePOdKCPFcSBZ8E=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.e54d449fb2f61868599339bf9539fdf870c40f403df48b6bb0b222993514e533.js" integrity="sha256-5U1En7L2GGhZkzm/lTn9&#43;HDED0A99ItrsLIimTUU5TM=" crossorigin="anonymous" defer></script>
+<script data-precache src="/assets/viewer/bundle.min.6b04108bcf5bfd45397e320e83d728b1df778a7e2c2021b8dc97a41d783acae9.js" integrity="sha256-awQQi89b/UU5fjIOg9cosd93in4sICG43JekHXg6yuk=" crossorigin="anonymous" defer></script>
+  <script data-precache defer src="/assets/katex/bundle.min.59e7d586c5d16cbae10fc198286c7abbcba11bfe2a928bc3428ba07862371b2a.js" integrity="sha256-WefVhsXRbLrhD8GYKGx6u8uhG/4qkovDQougeGI3Gyo=" crossorigin="anonymous"></script>
 
 <script src="/js/sw-register.js" defer></script>
 <script src="https://giscus.app/client.js"
