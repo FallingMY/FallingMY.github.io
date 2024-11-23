@@ -27,8 +27,8 @@
 
   <meta itemprop="name" content="数据结构与算法">
   <meta itemprop="description" content="Data Structures and Algorithm">
-  <meta itemprop="datePublished" content="2024-09-08T08:58:36+08:00">
-  <meta itemprop="dateModified" content="2024-09-08T08:58:36+08:00">
+  <meta itemprop="datePublished" content="2024-11-23T11:39:07+08:00">
+  <meta itemprop="dateModified" content="2024-11-23T11:39:07+08:00">
   <meta itemprop="wordCount" content="4">
   <meta property="og:image" content="https://fallingmy.github.io/images/icon.png"/>
   <meta name="twitter:image" content="https://fallingmy.github.io/images/icon.png"/>
@@ -488,7 +488,16 @@ Falling_MY
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/2/"><span class="docs-nav-title">2.时间空间复杂度、BigO表示法</span></a>
         </li>
         <li class="mb-2 py-1" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/string_1/"><span class="docs-nav-title">串</span></a>
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/3/"><span class="docs-nav-title">排序算法</span></a>
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/staker_1/"><span class="docs-nav-title">栈</span></a>
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/queue/"><span class="docs-nav-title">队列</span></a>
         </li></ul>
             </div>
           </div>
@@ -539,6 +548,71 @@ Falling_MY
 
       </div>
     </article><div class="posts mb-4"><article class="row card post component">
+  <div class="card-header">
+    <h2 class="card-title post-title my-2 fs-4">
+      <a href="/docs/notes/dsa/string_1/">串</a>
+    </h2>
+  </div>
+  <div class="card-body"><div class="post-meta mb-3">
+  <span class="post-date me-1 mb-1" title="created on 2024-11-23 11:39:07 &#43;0800 CST.">November 23, 2024</span><span class="post-reading-time me-1 mb-1">1 min read</span><a href="/authors/falling_my/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-author">
+      <i class="fas fa-fw fa-user me-1"></i>Falling_MY</a><a href="/series/%E7%AB%9E%E8%B5%9B%E5%9F%B9%E8%AE%AD%E8%AF%BE%E7%AC%94%E8%AE%B0/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
+      <i class="fas fa-fw fa-columns me-1"></i>竞赛培训课笔记</a>
+</div>
+
+    <div class="post-summary"><p>串，及字符串，是由零个或多个字符组成的有限序列。一般记为： $$ S = ‘a_1a_2a_3…a_n’ (n&gt;0)$$
+串是一种特殊的线性表，数据元素之间呈线性关系。 串的数据对象是字符的有限序列。
+串的基本操作 StrAssign(&amp;T, chars) 赋值操作，把串T赋值为chars StrCopy(&amp;T, S) 复制操作，把串S复制给串T StrEmpty(S) 判空操作，若S为空串，则返回true，否则返回false StrLength(S) 求串长，返回串S的元素个数 ClearString(&amp;S) 清空操作，将S清空 DestroyString(&amp;S) 销毁串，将串S销毁 Concat(&amp;T, S1, S2) 串联接，...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/notes/dsa/string_1/">Read More</a></div>
+    </div>
+  </div>
+</article>
+<article class="row card post component">
+  <div class="card-header">
+    <h2 class="card-title post-title my-2 fs-4">
+      <a href="/docs/notes/dsa/queue/">队列</a>
+    </h2>
+  </div>
+  <div class="card-body"><div class="post-meta mb-3">
+  <span class="post-date me-1 mb-1" title="created on 2024-11-23 09:56:09 &#43;0800 CST.">November 23, 2024</span><span class="post-reading-time me-1 mb-1">2 min read</span><a href="/authors/falling_my/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-author">
+      <i class="fas fa-fw fa-user me-1"></i>Falling_MY</a><a href="/series/%E7%AB%9E%E8%B5%9B%E5%9F%B9%E8%AE%AD%E8%AF%BE%E7%AC%94%E8%AE%B0/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
+      <i class="fas fa-fw fa-columns me-1"></i>竞赛培训课笔记</a>
+</div>
+
+    <div class="post-summary"><p> 定义 与栈不同，队列的两端都允许插入和删除操作。
+队列(Queue) 是只允许一端进行插入操作，而另一端进行删除操作的线性表。
+相关术语
+队头：允许删除的一端
+队尾：允许插入的一端
+空队列：无元素
+特点：先进先出
+基本操作 InitQueue(&amp;Q) 初始化队列, 构造一个空队列Q DestroyQueue(&amp;Q) 销毁队列, 释放Q占用的内存空间 EnQueue(&amp;Q, x) 入队, 若队列Q未满, 则将x加入, 使之成为新的队尾 DeQueue(&amp;Q, &amp;x) 出队, 若队列Q非空, 则删除Q的队头元素, 并用x返回 GetHead(Q, &amp;x) 读队头元素, 若队列Q非空, 则将队头元素赋值给x QueueEmpty(Q) ...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/notes/dsa/queue/">Read More</a></div>
+    </div>
+  </div>
+</article>
+<article class="row card post component">
+  <div class="card-header">
+    <h2 class="card-title post-title my-2 fs-4">
+      <a href="/docs/notes/dsa/staker_1/">栈</a>
+    </h2>
+  </div>
+  <div class="card-body"><div class="post-meta mb-3">
+  <span class="post-date me-1 mb-1" title="created on 2024-11-23 08:27:33 &#43;0800 CST.">November 23, 2024</span><span class="post-reading-time me-1 mb-1">3 min read</span><a href="/authors/falling_my/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-author">
+      <i class="fas fa-fw fa-user me-1"></i>Falling_MY</a><a href="/series/%E7%AB%9E%E8%B5%9B%E5%9F%B9%E8%AE%AD%E8%AF%BE%E7%AC%94%E8%AE%B0/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
+      <i class="fas fa-fw fa-columns me-1"></i>竞赛培训课笔记</a>
+</div>
+
+    <div class="post-summary"><p>2024.11.23 这里是大一的我。 自己目前还不是很能理解栈和队列的相关知识，只是简单的做一下竞赛课程的笔记。
+不是很了解，所以我就先把我目前学到的东西记录下来，以后再慢慢补充。
+我们在以后的数据结构再见吧！
+由于老师上课的速度很快，所以难免笔记会有疏漏，并且代码大部分由Marscode生成。 如果你发现有什么问题或者有什么建议，欢迎在评论区留言。
+Btw，如果你觉的这篇文章对你有帮助，不妨点个赞吧⬇️ 👍 栈(stack) 定义 线性表是具有相同数据结构的n个元素的有限序列
+栈是只允许一段进行插入或删除操作的线性表
+相关术语 栈顶：允许插入和删除的一段 栈底：不允许操作的一段 空栈：无元素
+特点：先进后出
+基本操作 线性表 初...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/notes/dsa/staker_1/">Read More</a></div>
+    </div>
+  </div>
+</article>
+<article class="row card post component">
   <div class="card-header">
     <h2 class="card-title post-title my-2 fs-4">
       <a href="/docs/notes/dsa/3/">排序算法</a>
