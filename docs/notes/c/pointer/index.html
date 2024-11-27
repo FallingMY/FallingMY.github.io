@@ -51,7 +51,7 @@ C语言能处理一类非常特殊的数据——内存地址（常量）
 👍">
   <meta itemprop="datePublished" content="2024-11-18T08:08:06+08:00">
   <meta itemprop="dateModified" content="2024-11-18T08:08:06+08:00">
-  <meta itemprop="wordCount" content="141">
+  <meta itemprop="wordCount" content="190">
   <meta property="og:image" content="https://fallingmy.github.io/images/icon.png"/>
   <meta name="twitter:image" content="https://fallingmy.github.io/images/icon.png"/>
   <meta property="og:image:alt" content="指针" />
@@ -76,7 +76,7 @@ C语言能处理一类非常特殊的数据——内存地址（常量）
     </button>
 <a class="navbar-brand d-flex align-items-center flex-grow-1 flex-xxl-grow-0 justify-content-xxl-start justify-content-center ms-2 ms-xxl-0 mx-auto me-xxl-2"
     href="https://fallingmy.github.io/">
-    <picture><img class="logo " alt="Logo" src="https://fallingmy.github.io/images/icon.png?v=6fd297eb16523c441f62c01a9ffd8221" loading="lazy" width="891" height="891" />
+    <picture><img class="logo " alt="Logo" src="https://fallingmy.github.io/images/icon.png?v=b6559881d477ba278b5ed6703ba80301" loading="lazy" width="891" height="891" />
 </picture>
 Falling_MY
 </a>
@@ -352,13 +352,13 @@ Falling_MY
             <div class="btn-toggle-nav fw-normal ms-2 small">
               <ul class="list-unstyled mb-2 w-100"><li class="mb-2" tabindex="-1">
           <div class="py-1 d-flex justify-content-between align-items-center">
-            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/c/c&#43;&#43;/"><span class="docs-nav-title">C/C&#43;&#43;</span></a>
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/helpdocs/c/"><span class="docs-nav-title">C/C&#43;&#43;</span></a>
             <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
-              data-bs-target="#nav-4c352665280bb902c3cd1f57edc236a4" aria-expanded="false" aria-controls="nav-4c352665280bb902c3cd1f57edc236a4">
+              data-bs-target="#nav-1ebcc895e8d2e39b6291d4b2959b953e" aria-expanded="false" aria-controls="nav-1ebcc895e8d2e39b6291d4b2959b953e">
               <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
             </a>
           </div>
-          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-4c352665280bb902c3cd1f57edc236a4">
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-1ebcc895e8d2e39b6291d4b2959b953e">
             <div class="btn-toggle-nav fw-normal ms-2 small">
               <ul class="list-unstyled mb-2 w-100"></ul>
             </div>
@@ -791,15 +791,61 @@ Falling_MY
 <p>注意：应当注意当函数返回地址时，地址对应的空间是否被释放</p>
 </blockquote>
 
+<h3 id="数组指针作函数参数" data-numberify>数组指针作函数参数<a class="anchor ms-1" href="#数组指针作函数参数"></a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">max</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//其中x[]传入的实际上是指针，也可以写作下面这样
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">max</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">);</span>
+</span></span></code></pre></div><p>数组指针作为函数参数中实参和形参的对应关系：</p>
+<blockquote>
+<p>若<code>int a[3][4]; int (*p1)[4]=a; int *p2=a[0]</code></p>
+</blockquote>
+<table>
+  <thead>
+      <tr>
+          <th>形参</th>
+          <th>实参</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>数组定义<code>int x[][4]</code></td>
+          <td>数组名<code>a</code></td>
+      </tr>
+      <tr>
+          <td>指针变量<code>int (*q)[4]</code></td>
+          <td>数组名<code>a</code></td>
+      </tr>
+      <tr>
+          <td>数组定义<code>int x[][4]</code></td>
+          <td>指针变量<code>p1</code></td>
+      </tr>
+      <tr>
+          <td>指针变量<code>int (*q)[4]</code></td>
+          <td>指针变量<code>p1</code></td>
+      </tr>
+      <tr>
+          <td>指针变量<code>int *q</code></td>
+          <td>指针变量<code>p2</code></td>
+      </tr>
+  </tbody>
+</table>
+<blockquote>
+<p>题外话：<strong>二维数组定义时第二个参数不可省略</strong>
+<code>a[n][m]</code>,<code>a[][m]</code>都是正确的<br>
+<code>a[][]</code>,<code>a[n][]</code>是错误的<br>
+原因是我们应该告诉程序行指针每一行有多少数字，每次移动应该跨越多少</p>
+</blockquote>
+
 <h2 id="指针和数组" data-numberify>指针和数组<a class="anchor ms-1" href="#指针和数组"></a></h2>
 <p><strong>数组名</strong>就是数组在内存存储区域的首地址（常称为数组的指针），并且为常量</p>
 <p>指针变量可以用于存储变量的地址，也可存放数组的指针或数组元素的指针</p>
+<p>由于数组是连续占用内存，所以可以使用指针+位移来访问整个数组</p>
 <p>用一个指针变量来存储这个数组的首地址；数组和数组元素的引用，也可以通过使用指针的方式进行间接访问</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl"><span class="kt">int</span><span class="o">*</span> <span class="n">p</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span><span class="c1">//等价于p = &amp;a[0]
 </span></span></span></code></pre></div>
-<h3 id="指针简介访问数组元素" data-numberify>指针简介访问数组元素<a class="anchor ms-1" href="#指针简介访问数组元素"></a></h3>
+<h3 id="指针间接访问数组元素" data-numberify>指针间接访问数组元素<a class="anchor ms-1" href="#指针间接访问数组元素"></a></h3>
 <ul>
 <li><code>p+i</code>和<code>a+i</code>都可以表示数组元素<code>a[i]</code>的<strong>地址</strong></li>
 <li>间接访问<code>*(p+i)</code>和<code>*(a+i)</code>就表示为数组的各元素即等效于<code>a[i]</code></li>
@@ -818,11 +864,17 @@ Falling_MY
 不同的拆分方法诞生了不同的访问方法</p>
 
 <h3 id="列地址" data-numberify>列地址<a class="anchor ms-1" href="#列地址"></a></h3>
+<blockquote>
+<p>+1跨过一列</p>
+</blockquote>
 <p>例如：<code>a[0][0]</code>可以视为一维数组<code>a[0]</code>的第1个值<br>
 <code>a[i]+j</code>$\lrArr$<code>&amp;a[i][0]+j</code>$\lrArr$<code>&amp;a[i][j]</code></p>
 <p>故可以使用<code>*(a[i]+j)</code>访问<code>a[i][j]</code></p>
 
 <h3 id="行地址" data-numberify>行地址<a class="anchor ms-1" href="#行地址"></a></h3>
+<blockquote>
+<p>+1跨过一整行</p>
+</blockquote>
 <p>如果将行看作一个数列，则可以先通过行进行访问</p>
 <p><strong>思考过程如下：</strong></p>
 <p>假设我们要访问二维数组<code>arr[N][N]</code>中的某个元素<code>arr[i][j]</code></p>
@@ -853,7 +905,16 @@ Falling_MY
 </span></span><span class="line"><span class="cl"><span class="c1">//赋值
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">p</span><span class="o">=</span><span class="n">a</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="n">p</span><span class="o">=&amp;</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="c1">//等价
-</span></span></span></code></pre></div></div>
+</span></span></span></code></pre></div>
+<h2 id="指针与字符数组" data-numberify>指针与字符数组<a class="anchor ms-1" href="#指针与字符数组"></a></h2>
+<p>实现字符串引用有两种办法：</p>
+<ul>
+<li>字符数组</li>
+<li>指向字符串的指针</li>
+</ul>
+<p>其余的感觉和数组差不多…………<br>
+注意一下<code>\0</code>就好了</p>
+</div>
 </div>
 <div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -980,10 +1041,14 @@ Falling_MY
         <li><a href="#数字交换">数字交换</a></li>
       </ul>
     </li>
-    <li><a href="#指针与函数">指针与函数</a></li>
+    <li><a href="#指针与函数">指针与函数</a>
+      <ul>
+        <li><a href="#数组指针作函数参数">数组指针作函数参数</a></li>
+      </ul>
+    </li>
     <li><a href="#指针和数组">指针和数组</a>
       <ul>
-        <li><a href="#指针简介访问数组元素">指针简介访问数组元素</a></li>
+        <li><a href="#指针间接访问数组元素">指针间接访问数组元素</a></li>
         <li><a href="#指针移动注意事项">指针移动注意事项</a></li>
       </ul>
     </li>
@@ -994,6 +1059,7 @@ Falling_MY
         <li><a href="#二维数组的行指针">二维数组的行指针</a></li>
       </ul>
     </li>
+    <li><a href="#指针与字符数组">指针与字符数组</a></li>
   </ul>
 </nav>
     </div>
