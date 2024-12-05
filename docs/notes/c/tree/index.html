@@ -1,10 +1,10 @@
 <!doctype html>
 <html class="position-relative" itemscope itemtype="https://schema.org/WebPage" lang="en"
   data-bs-theme="auto" data-palette="blue-gray">
-  <head><script src="/assets/init/bundle.min.647e8c2258b0a4b0b587a89b58c84e499a68697942dea2178620c90d934a4ee1.js" integrity="sha256-ZH6MIliwpLC1h6ibWMhOSZpoaXlC3qIXhiDJDZNKTuE=" crossorigin="anonymous"></script>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><script src="/assets/init/bundle.min.36ac49f3cd02d1cbd604e48dc113d7a8330eae36eabc23b5e3c7f86a97412616.js" integrity="sha256-NqxJ880C0cvWBOSNwRPXqDMOrjbqvCO148f4apdBJhY=" crossorigin="anonymous"></script>
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>串 - Falling_Studio_Terminal3</title>
+    <title>树与二叉树 - Falling_Studio_Terminal3</title>
     <link rel="icon" href="/favicon_hu4694133314791059470.png" sizes="16x16" type="image/png">
     <link rel="icon" href="/favicon_hu1114292297158002801.png" sizes="32x32" type="image/png">
     <link rel="icon" href="/favicon_hu15156048902608200372.png" sizes="150x150" type="image/png">
@@ -12,144 +12,170 @@
     <link rel="icon" href="/favicon_hu12185621123592544675.png" sizes="192x192" type="image/png">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6f42c1">
 <meta name="keywords" content="Hugo, Bootstrap, Blog Theme" />
-  <meta name="description" content="串，及字符串，是由零个或多个字符组成的有限序列。一般记为：
-$$ S = &lsquo;a_1a_2a_3&hellip;a_n&rsquo; (n&gt;0)$$
-串是一种特殊的线性表，数据元素之间呈线性关系。
-串的数据对象是字符的有限序列。
+  <meta name="description" content="树是一种数据结构。
 
-串的基本操作
+树的概念
 
-StrAssign(&amp;T, chars) 赋值操作，把串T赋值为chars
-StrCopy(&amp;T, S) 复制操作，把串S复制给串T
-StrEmpty(S) 判空操作，若S为空串，则返回true，否则返回false
-StrLength(S) 求串长，返回串S的元素个数
-ClearString(&amp;S) 清空操作，将S清空
-DestroyString(&amp;S) 销毁串，将串S销毁
-Concat(&amp;T, S1, S2) 串联接，用T返回由S1和S2联接而成的新串
-SubString(&amp;Sub, S, pos, len) 求子串，用Sub返回串S的第pos个字符起长度为len的子串
-Index(S, T, pos) 定位操作，若主串S中存在与串T值相同的子串，则返回它在主串S中第pos个字符之后第一次出现的位置，否则函数值为0
-StrCompare(S, T) 比较操作，若S&gt;T，则返回值&gt;0，若S=T，则返回值=0，若S&lt;T，则返回值&lt;0
+树的定义
+树是n个结点的有限集合（记为T）。
+形式化定义（二元组）
+树：$T=(D,R)$。
+$D$ 是包含n个结点的有限集合 $n&gt;0$ 。
+
+当n=0时，称该树为空树。
+当n&gt;0时，这n个结点中存在一个唯一结点作为树的根结点，其余结点可分为m个互不相交的有限集 $T_1,T_2,&hellip;,T_m$ ，其中每个集合本身又是一棵树，称为根的子树。
+
+$R$ 是D上的一个关系，$R\subset D\times D$ 。
+
+树的表示
+
+逻辑表示法
+即我们平时常见的树形图
+
+文氏图表示法
+
+凹入表示法
+
+括号表示法
+例如：
+
+A(B(D,E),C(F,G))
 
 
-串的存储结构
+树的基本术语
 
-串的顺序存储结构
-顺序存储都是一个字符串数组&#43;串长度，分为
+结点的度和树的度
+树中一个结点的子树的个数称为该结点的度。
+树中各个结点的度的最大值称为树的度，通常若树的度为m，称该树为m叉树。
 
-静态数组实现（定长顺序存储）： 栈区，数组长度固定
-动态数组实现（堆分配存储）： 堆区，数组长度可变
+分支结点与叶结点
+度不为0的结点称为非终端结点，也称为分支结点。
+度为0的结点称为终端结点，也称为叶结点。
 
-char[0]一般不使用，从char[1]开始存储。
-因为在C语言中，字符串是以&rsquo;\0&rsquo;结尾的，所以char[0]存储的是字符串的长度。
-//Power by Marscode
-//静态数组实现：按预定义MAXLEN在栈区开辟储存区
-#define MAXSIZE 255
-typedef struct{
-    char ch[MAXSIZE];
-    int length;
-}StringNode;
-//Power by Marscode
-//动态数组实现：按串场在堆区开辟储存区，ch指向串的基地址，用完需要手动删除指针
-typedef struct{
-    char *ch;
-    int length;
-}HString;
-HString S;
-S.ch = new char[MAXSIZE];//在堆区开辟空间, 用完需要手动删除指针
-S.length = 0;
+路径与路径长度
+两个结点$d_i$和$d_j$之间的路径为从$d_i$到$d_j$的结点序列。
+路径的长度为路径上的结点个数减一。
 
-串的链式存储结构
-//Power by Marscode
-//结点结构和串结构：每个节点存多个字符
-typedef struct StringNode{
-    char ch[4];
-    struct StringNode* next;
-}StringNode, *String;
+孩子结点、双亲结点和兄弟结点
+每个结点的后继结点称为该结点的孩子结点。
+该结点被称为孩子结点的双亲结点。
+具有相同双亲结点的结点称为兄弟结点。
 
-串基本操作的实现
-//求子串
-bool SubString(StringNode &amp;Sub, StringNode S, int pos, int len){
-    if(pos &#43; len - 1 &gt; S.length){
-        return false;
-    }//子串范围越界
+深度优先搜索
+从根结点出发，沿着一条路径搜索，直到到达一个叶子结点，然后回溯，继续沿着另一条路径搜索，直到到达另一个叶子结点，以此类推。
+一般采用递归的方式实现。
 
-    for(int i = pos; i &lt; pos &#43; len; i&#43;&#43;){
-        Sub.ch[i - pos &#43; 1] = S.ch[i];
-    }//子串赋值
-    Sub.length = len;
-    return true;
-}
 
-//定位操作
-int Index(StringNode S, StringNode T, int pos){
-    int i = pos;
-    int j = 1;
-    while(i &lt;= S.length &amp;&amp; j &lt;= T.length){
-        if(S.ch[i] == T.ch[j]){
-            &#43;&#43;i;
-            &#43;&#43;j;
-        }else{
-            i = i - j &#43; 2;
-            j = 1;
-        }
-    }
-    if(j &gt; T.length){
-        return i - T.length;
-    }else{
-        return 0;
-    }
-}
+广度优先搜索
+从根结点出发，先访问所有的兄弟结点，再访问所有的孩子结点，以此类推。
+一般采用队列的方式实现。
 
-字符串模式匹配
 
-朴素模式匹配算法
-一旦发现不匹配的字符，就回溯到主串的下一个字符，从模式串的第一个字符重新开始匹配。" />
-    <meta name="robots" content="index, follow" />
+子孙结点和祖先结点
+子孙结点：从根结点到该结点的路径上的所有结点称为该结点的子孙结点。
+祖先结点：从该结点到根结点的路径上的所有结点称为该结点的祖先结点。" />
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="串">
-  <meta name="twitter:description" content="串，及字符串，是由零个或多个字符组成的有限序列。一般记为： $$ S = ‘a_1a_2a_3…a_n’ (n&gt;0)$$
-串是一种特殊的线性表，数据元素之间呈线性关系。 串的数据对象是字符的有限序列。
-串的基本操作 StrAssign(&amp;T, chars) 赋值操作，把串T赋值为chars StrCopy(&amp;T, S) 复制操作，把串S复制给串T StrEmpty(S) 判空操作，若S为空串，则返回true，否则返回false StrLength(S) 求串长，返回串S的元素个数 ClearString(&amp;S) 清空操作，将S清空 DestroyString(&amp;S) 销毁串，将串S销毁 Concat(&amp;T, S1, S2) 串联接，用T返回由S1和S2联接而成的新串 SubString(&amp;Sub, S, pos, len) 求子串，用Sub返回串S的第pos个字符起长度为len的子串 Index(S, T, pos) 定位操作，若主串S中存在与串T值相同的子串，则返回它在主串S中第pos个字符之后第一次出现的位置，否则函数值为0 StrCompare(S, T) 比较操作，若S&gt;T，则返回值&gt;0，若S=T，则返回值=0，若S&lt;T，则返回值&lt;0 串的存储结构 串的顺序存储结构 顺序存储都是一个字符串数组&#43;串长度，分为
-静态数组实现（定长顺序存储）： 栈区，数组长度固定 动态数组实现（堆分配存储）： 堆区，数组长度可变 char[0]一般不使用，从char[1]开始存储。 因为在C语言中，字符串是以’\0’结尾的，所以char[0]存储的是字符串的长度。
-//Power by Marscode //静态数组实现：按预定义MAXLEN在栈区开辟储存区 #define MAXSIZE 255 typedef struct{ char ch[MAXSIZE]; int length; }StringNode; //Power by Marscode //动态数组实现：按串场在堆区开辟储存区，ch指向串的基地址，用完需要手动删除指针 typedef struct{ char *ch; int length; }HString; HString S; S.ch = new char[MAXSIZE];//在堆区开辟空间, 用完需要手动删除指针 S.length = 0; 串的链式存储结构 //Power by Marscode //结点结构和串结构：每个节点存多个字符 typedef struct StringNode{ char ch[4]; struct StringNode* next; }StringNode, *String; 串基本操作的实现 //求子串 bool SubString(StringNode &amp;Sub, StringNode S, int pos, int len){ if(pos &#43; len - 1 &gt; S.length){ return false; }//子串范围越界 for(int i = pos; i &lt; pos &#43; len; i&#43;&#43;){ Sub.ch[i - pos &#43; 1] = S.ch[i]; }//子串赋值 Sub.length = len; return true; } //定位操作 int Index(StringNode S, StringNode T, int pos){ int i = pos; int j = 1; while(i &lt;= S.length &amp;&amp; j &lt;= T.length){ if(S.ch[i] == T.ch[j]){ &#43;&#43;i; &#43;&#43;j; }else{ i = i - j &#43; 2; j = 1; } } if(j &gt; T.length){ return i - T.length; }else{ return 0; } } 字符串模式匹配 朴素模式匹配算法 一旦发现不匹配的字符，就回溯到主串的下一个字符，从模式串的第一个字符重新开始匹配。">
+  <meta name="twitter:title" content="树与二叉树">
+  <meta name="twitter:description" content="树是一种数据结构。
+树的概念 树的定义 树是n个结点的有限集合（记为T）。
+形式化定义（二元组）
+树：$T=(D,R)$。
+$D$ 是包含n个结点的有限集合 $n&gt;0$ 。
+当n=0时，称该树为空树。 当n&gt;0时，这n个结点中存在一个唯一结点作为树的根结点，其余结点可分为m个互不相交的有限集 $T_1,T_2,…,T_m$ ，其中每个集合本身又是一棵树，称为根的子树。
+$R$ 是D上的一个关系，$R\subset D\times D$ 。
+树的表示 逻辑表示法 即我们平时常见的树形图
+文氏图表示法 凹入表示法 括号表示法 例如：
+A(B(D,E),C(F,G))
+树的基本术语 结点的度和树的度 树中一个结点的子树的个数称为该结点的度。
+树中各个结点的度的最大值称为树的度，通常若树的度为m，称该树为m叉树。
+分支结点与叶结点 度不为0的结点称为非终端结点，也称为分支结点。
+度为0的结点称为终端结点，也称为叶结点。
+路径与路径长度 两个结点$d_i$和$d_j$之间的路径为从$d_i$到$d_j$的结点序列。
+路径的长度为路径上的结点个数减一。
+孩子结点、双亲结点和兄弟结点 每个结点的后继结点称为该结点的孩子结点。
+该结点被称为孩子结点的双亲结点。
+具有相同双亲结点的结点称为兄弟结点。
+深度优先搜索 从根结点出发，沿着一条路径搜索，直到到达一个叶子结点，然后回溯，继续沿着另一条路径搜索，直到到达另一个叶子结点，以此类推。
+一般采用递归的方式实现。
+广度优先搜索 从根结点出发，先访问所有的兄弟结点，再访问所有的孩子结点，以此类推。
+一般采用队列的方式实现。
+子孙结点和祖先结点 子孙结点：从根结点到该结点的路径上的所有结点称为该结点的子孙结点。
+祖先结点：从该结点到根结点的路径上的所有结点称为该结点的祖先结点。">
       <meta name="twitter:site" content="@Falling_Studio_">
-<meta property="og:url" content="https://fallingmy.github.io/docs/notes/dsa/string_1/">
+<meta property="og:url" content="http://localhost:1313/docs/notes/c/tree/">
   <meta property="og:site_name" content="Falling_Studio_Terminal3">
-  <meta property="og:title" content="串">
-  <meta property="og:description" content="串，及字符串，是由零个或多个字符组成的有限序列。一般记为： $$ S = ‘a_1a_2a_3…a_n’ (n&gt;0)$$
-串是一种特殊的线性表，数据元素之间呈线性关系。 串的数据对象是字符的有限序列。
-串的基本操作 StrAssign(&amp;T, chars) 赋值操作，把串T赋值为chars StrCopy(&amp;T, S) 复制操作，把串S复制给串T StrEmpty(S) 判空操作，若S为空串，则返回true，否则返回false StrLength(S) 求串长，返回串S的元素个数 ClearString(&amp;S) 清空操作，将S清空 DestroyString(&amp;S) 销毁串，将串S销毁 Concat(&amp;T, S1, S2) 串联接，用T返回由S1和S2联接而成的新串 SubString(&amp;Sub, S, pos, len) 求子串，用Sub返回串S的第pos个字符起长度为len的子串 Index(S, T, pos) 定位操作，若主串S中存在与串T值相同的子串，则返回它在主串S中第pos个字符之后第一次出现的位置，否则函数值为0 StrCompare(S, T) 比较操作，若S&gt;T，则返回值&gt;0，若S=T，则返回值=0，若S&lt;T，则返回值&lt;0 串的存储结构 串的顺序存储结构 顺序存储都是一个字符串数组&#43;串长度，分为
-静态数组实现（定长顺序存储）： 栈区，数组长度固定 动态数组实现（堆分配存储）： 堆区，数组长度可变 char[0]一般不使用，从char[1]开始存储。 因为在C语言中，字符串是以’\0’结尾的，所以char[0]存储的是字符串的长度。
-//Power by Marscode //静态数组实现：按预定义MAXLEN在栈区开辟储存区 #define MAXSIZE 255 typedef struct{ char ch[MAXSIZE]; int length; }StringNode; //Power by Marscode //动态数组实现：按串场在堆区开辟储存区，ch指向串的基地址，用完需要手动删除指针 typedef struct{ char *ch; int length; }HString; HString S; S.ch = new char[MAXSIZE];//在堆区开辟空间, 用完需要手动删除指针 S.length = 0; 串的链式存储结构 //Power by Marscode //结点结构和串结构：每个节点存多个字符 typedef struct StringNode{ char ch[4]; struct StringNode* next; }StringNode, *String; 串基本操作的实现 //求子串 bool SubString(StringNode &amp;Sub, StringNode S, int pos, int len){ if(pos &#43; len - 1 &gt; S.length){ return false; }//子串范围越界 for(int i = pos; i &lt; pos &#43; len; i&#43;&#43;){ Sub.ch[i - pos &#43; 1] = S.ch[i]; }//子串赋值 Sub.length = len; return true; } //定位操作 int Index(StringNode S, StringNode T, int pos){ int i = pos; int j = 1; while(i &lt;= S.length &amp;&amp; j &lt;= T.length){ if(S.ch[i] == T.ch[j]){ &#43;&#43;i; &#43;&#43;j; }else{ i = i - j &#43; 2; j = 1; } } if(j &gt; T.length){ return i - T.length; }else{ return 0; } } 字符串模式匹配 朴素模式匹配算法 一旦发现不匹配的字符，就回溯到主串的下一个字符，从模式串的第一个字符重新开始匹配。">
+  <meta property="og:title" content="树与二叉树">
+  <meta property="og:description" content="树是一种数据结构。
+树的概念 树的定义 树是n个结点的有限集合（记为T）。
+形式化定义（二元组）
+树：$T=(D,R)$。
+$D$ 是包含n个结点的有限集合 $n&gt;0$ 。
+当n=0时，称该树为空树。 当n&gt;0时，这n个结点中存在一个唯一结点作为树的根结点，其余结点可分为m个互不相交的有限集 $T_1,T_2,…,T_m$ ，其中每个集合本身又是一棵树，称为根的子树。
+$R$ 是D上的一个关系，$R\subset D\times D$ 。
+树的表示 逻辑表示法 即我们平时常见的树形图
+文氏图表示法 凹入表示法 括号表示法 例如：
+A(B(D,E),C(F,G))
+树的基本术语 结点的度和树的度 树中一个结点的子树的个数称为该结点的度。
+树中各个结点的度的最大值称为树的度，通常若树的度为m，称该树为m叉树。
+分支结点与叶结点 度不为0的结点称为非终端结点，也称为分支结点。
+度为0的结点称为终端结点，也称为叶结点。
+路径与路径长度 两个结点$d_i$和$d_j$之间的路径为从$d_i$到$d_j$的结点序列。
+路径的长度为路径上的结点个数减一。
+孩子结点、双亲结点和兄弟结点 每个结点的后继结点称为该结点的孩子结点。
+该结点被称为孩子结点的双亲结点。
+具有相同双亲结点的结点称为兄弟结点。
+深度优先搜索 从根结点出发，沿着一条路径搜索，直到到达一个叶子结点，然后回溯，继续沿着另一条路径搜索，直到到达另一个叶子结点，以此类推。
+一般采用递归的方式实现。
+广度优先搜索 从根结点出发，先访问所有的兄弟结点，再访问所有的孩子结点，以此类推。
+一般采用队列的方式实现。
+子孙结点和祖先结点 子孙结点：从根结点到该结点的路径上的所有结点称为该结点的子孙结点。
+祖先结点：从该结点到根结点的路径上的所有结点称为该结点的祖先结点。">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:published_time" content="2024-11-23T11:39:07+08:00">
-    <meta property="article:modified_time" content="2024-11-23T11:39:07+08:00">
-      <meta property="og:see_also" content="https://fallingmy.github.io/docs/notes/dsa/queue/">
-      <meta property="og:see_also" content="https://fallingmy.github.io/docs/notes/dsa/staker_1/">
+    <meta property="article:published_time" content="2024-11-30T08:28:26+08:00">
+    <meta property="article:modified_time" content="2024-11-30T08:28:26+08:00">
 
-  <meta itemprop="name" content="串">
-  <meta itemprop="description" content="串，及字符串，是由零个或多个字符组成的有限序列。一般记为： $$ S = ‘a_1a_2a_3…a_n’ (n&gt;0)$$
-串是一种特殊的线性表，数据元素之间呈线性关系。 串的数据对象是字符的有限序列。
-串的基本操作 StrAssign(&amp;T, chars) 赋值操作，把串T赋值为chars StrCopy(&amp;T, S) 复制操作，把串S复制给串T StrEmpty(S) 判空操作，若S为空串，则返回true，否则返回false StrLength(S) 求串长，返回串S的元素个数 ClearString(&amp;S) 清空操作，将S清空 DestroyString(&amp;S) 销毁串，将串S销毁 Concat(&amp;T, S1, S2) 串联接，用T返回由S1和S2联接而成的新串 SubString(&amp;Sub, S, pos, len) 求子串，用Sub返回串S的第pos个字符起长度为len的子串 Index(S, T, pos) 定位操作，若主串S中存在与串T值相同的子串，则返回它在主串S中第pos个字符之后第一次出现的位置，否则函数值为0 StrCompare(S, T) 比较操作，若S&gt;T，则返回值&gt;0，若S=T，则返回值=0，若S&lt;T，则返回值&lt;0 串的存储结构 串的顺序存储结构 顺序存储都是一个字符串数组&#43;串长度，分为
-静态数组实现（定长顺序存储）： 栈区，数组长度固定 动态数组实现（堆分配存储）： 堆区，数组长度可变 char[0]一般不使用，从char[1]开始存储。 因为在C语言中，字符串是以’\0’结尾的，所以char[0]存储的是字符串的长度。
-//Power by Marscode //静态数组实现：按预定义MAXLEN在栈区开辟储存区 #define MAXSIZE 255 typedef struct{ char ch[MAXSIZE]; int length; }StringNode; //Power by Marscode //动态数组实现：按串场在堆区开辟储存区，ch指向串的基地址，用完需要手动删除指针 typedef struct{ char *ch; int length; }HString; HString S; S.ch = new char[MAXSIZE];//在堆区开辟空间, 用完需要手动删除指针 S.length = 0; 串的链式存储结构 //Power by Marscode //结点结构和串结构：每个节点存多个字符 typedef struct StringNode{ char ch[4]; struct StringNode* next; }StringNode, *String; 串基本操作的实现 //求子串 bool SubString(StringNode &amp;Sub, StringNode S, int pos, int len){ if(pos &#43; len - 1 &gt; S.length){ return false; }//子串范围越界 for(int i = pos; i &lt; pos &#43; len; i&#43;&#43;){ Sub.ch[i - pos &#43; 1] = S.ch[i]; }//子串赋值 Sub.length = len; return true; } //定位操作 int Index(StringNode S, StringNode T, int pos){ int i = pos; int j = 1; while(i &lt;= S.length &amp;&amp; j &lt;= T.length){ if(S.ch[i] == T.ch[j]){ &#43;&#43;i; &#43;&#43;j; }else{ i = i - j &#43; 2; j = 1; } } if(j &gt; T.length){ return i - T.length; }else{ return 0; } } 字符串模式匹配 朴素模式匹配算法 一旦发现不匹配的字符，就回溯到主串的下一个字符，从模式串的第一个字符重新开始匹配。">
-  <meta itemprop="datePublished" content="2024-11-23T11:39:07+08:00">
-  <meta itemprop="dateModified" content="2024-11-23T11:39:07+08:00">
-  <meta itemprop="wordCount" content="207">
-  <meta itemprop="keywords" content="Falling_MY,竞赛培训课笔记">
-  <meta property="og:image" content="https://fallingmy.github.io/images/icon.png"/>
-  <meta name="twitter:image" content="https://fallingmy.github.io/images/icon.png"/>
-  <meta property="og:image:alt" content="串" />
-  <meta name="twitter:image:alt" content="串" />
+  <meta itemprop="name" content="树与二叉树">
+  <meta itemprop="description" content="树是一种数据结构。
+树的概念 树的定义 树是n个结点的有限集合（记为T）。
+形式化定义（二元组）
+树：$T=(D,R)$。
+$D$ 是包含n个结点的有限集合 $n&gt;0$ 。
+当n=0时，称该树为空树。 当n&gt;0时，这n个结点中存在一个唯一结点作为树的根结点，其余结点可分为m个互不相交的有限集 $T_1,T_2,…,T_m$ ，其中每个集合本身又是一棵树，称为根的子树。
+$R$ 是D上的一个关系，$R\subset D\times D$ 。
+树的表示 逻辑表示法 即我们平时常见的树形图
+文氏图表示法 凹入表示法 括号表示法 例如：
+A(B(D,E),C(F,G))
+树的基本术语 结点的度和树的度 树中一个结点的子树的个数称为该结点的度。
+树中各个结点的度的最大值称为树的度，通常若树的度为m，称该树为m叉树。
+分支结点与叶结点 度不为0的结点称为非终端结点，也称为分支结点。
+度为0的结点称为终端结点，也称为叶结点。
+路径与路径长度 两个结点$d_i$和$d_j$之间的路径为从$d_i$到$d_j$的结点序列。
+路径的长度为路径上的结点个数减一。
+孩子结点、双亲结点和兄弟结点 每个结点的后继结点称为该结点的孩子结点。
+该结点被称为孩子结点的双亲结点。
+具有相同双亲结点的结点称为兄弟结点。
+深度优先搜索 从根结点出发，沿着一条路径搜索，直到到达一个叶子结点，然后回溯，继续沿着另一条路径搜索，直到到达另一个叶子结点，以此类推。
+一般采用递归的方式实现。
+广度优先搜索 从根结点出发，先访问所有的兄弟结点，再访问所有的孩子结点，以此类推。
+一般采用队列的方式实现。
+子孙结点和祖先结点 子孙结点：从根结点到该结点的路径上的所有结点称为该结点的子孙结点。
+祖先结点：从该结点到根结点的路径上的所有结点称为该结点的祖先结点。">
+  <meta itemprop="datePublished" content="2024-11-30T08:28:26+08:00">
+  <meta itemprop="dateModified" content="2024-11-30T08:28:26+08:00">
+  <meta itemprop="wordCount" content="65">
+  <meta property="og:image" content="http://localhost:1313/images/icon.png"/>
+  <meta name="twitter:image" content="http://localhost:1313/images/icon.png"/>
+  <meta property="og:image:alt" content="树与二叉树" />
+  <meta name="twitter:image:alt" content="树与二叉树" />
   <link rel="manifest" href="/manifest.json">
 
-<link data-precache rel="stylesheet" href="/assets/main/bundle.min.2dd76753333d9b25dab6c91fca6760d2357c69d50c90ae48ccc84823b7da7500.css" integrity="sha256-LddnUzM9myXatskfymdg0jV8adUMkK5IzMhII7fadQA=" crossorigin="anonymous">
+<link data-precache rel="stylesheet" href="/assets/main/bundle.min.ce02c09e4eca3c51ac7c4c0ab656cbc7a1386804422b4edecbe748b7aab05569.css" integrity="sha256-zgLAnk7KPFGsfEwKtlbLx6E4aARCK07ey&#43;dIt6qwVWk=" crossorigin="anonymous">
 
-<link data-precache rel="stylesheet" href="/assets/katex/bundle.min.506b6798499d2e8621e3d1f1db89099c3aa2639acd8b3b000b14cc6999c5b340.css" integrity="sha256-UGtnmEmdLoYh49Hx24kJnDqiY5rNizsACxTMaZnFs0A=" crossorigin="anonymous">
+<link data-precache rel="stylesheet" href="/assets/katex/bundle.min.95b995465e88deb0152ab2d55893df3735bca23caf1bf7822b4aa791ee66b5b3.css" integrity="sha256-lbmVRl6I3rAVKrLVWJPfNzW8ojyvG/eCK0qnke5mtbM=" crossorigin="anonymous">
 
-    <link data-precache rel="stylesheet" href="/assets/viewer/bundle.min.8c1002839fa22c1350d6ae1eef6593120e108f973c41348be9b5065430566aaf.css" integrity="sha256-jBACg5&#43;iLBNQ1q4e72WTEg4Qj5c8QTSL6bUGVDBWaq8=" crossorigin="anonymous">
+    <link data-precache rel="stylesheet" href="/assets/viewer/bundle.min.81fc6ea2b654c63ccf8e3c859d12072f72f8cbe3f759361479f8b0c00f754e95.css" integrity="sha256-gfxuorZUxjzPjjyFnRIHL3L4y&#43;P3WTYUefiwwA91TpU=" crossorigin="anonymous">
 
 
 </head>
@@ -162,8 +188,8 @@ int Index(StringNode S, StringNode T, int pos){
       <i class="fas fa-bars"></i>
     </button>
 <a class="navbar-brand d-flex align-items-center flex-grow-1 flex-xxl-grow-0 justify-content-xxl-start justify-content-center ms-2 ms-xxl-0 mx-auto me-xxl-2"
-    href="https://fallingmy.github.io/">
-    <picture><img class="logo " alt="Logo" src="https://fallingmy.github.io/images/icon.png?v=b6559881d477ba278b5ed6703ba80301" loading="lazy" width="891" height="891" />
+    href="http://localhost:1313/">
+    <picture><img class="logo " alt="Logo" src="http://localhost:1313/images/icon.png?v=b6559881d477ba278b5ed6703ba80301" loading="lazy" width="891" height="891" />
 </picture>
 Falling_MY
 </a>
@@ -176,11 +202,11 @@ Falling_MY
       <div class="offcanvas-body p-4 pt-0 p-xxl-0">
         <hr class="d-xxl-none">
         <ul class="navbar-nav flex-row flex-wrap align-items-center me-auto"><li class="nav-item col-6 col-xxl-auto">
-            <a class="nav-link py-2 px-0 px-xxl-2" href="https://fallingmy.github.io/docs/">
+            <a class="nav-link py-2 px-0 px-xxl-2" href="http://localhost:1313/docs/">
 <span class="menu-icon me-1"><i class="fas fa-fw fa-file"></i></span>Docs
             </a>
           </li><li class="nav-item col-6 col-xxl-auto">
-            <a class="nav-link py-2 px-0 px-xxl-2" href="https://fallingmy.github.io/news/">
+            <a class="nav-link py-2 px-0 px-xxl-2" href="http://localhost:1313/news/">
 <span class="menu-icon me-1"><i class="fas fa-fw fa-newspaper"></i></span>News
             </a>
           </li>
@@ -194,7 +220,7 @@ Falling_MY
                 <li><h6 class="dropdown-header">Blog Menu Description</h6></li>
               <li>
                 <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
-                  href="https://fallingmy.github.io/archives/">
+                  href="http://localhost:1313/archives/">
                     <span class="dropdown-item-icon me-2 p-2 rounded">
                       <i class="fas fa-fw fa-file-archive text-primary"></i>
                     </span>
@@ -204,7 +230,7 @@ Falling_MY
               </li>
               <li>
                 <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
-                  href="https://fallingmy.github.io/series/">
+                  href="http://localhost:1313/series/">
                     <span class="dropdown-item-icon me-2 p-2 rounded">
                       <i class="fas fa-fw fa-columns"></i>
                     </span>
@@ -215,7 +241,7 @@ Falling_MY
               </li>
               <li>
                 <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
-                  href="https://fallingmy.github.io/categories/">
+                  href="http://localhost:1313/categories/">
                     <span class="dropdown-item-icon me-2 p-2 rounded">
                       <i class="fas fa-fw fa-folder text-success"></i>
                     </span>
@@ -226,7 +252,7 @@ Falling_MY
               </li>
               <li>
                 <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
-                  href="https://fallingmy.github.io/tags/">
+                  href="http://localhost:1313/tags/">
                     <span class="dropdown-item-icon me-2 p-2 rounded">
                       <i class="fas fa-fw fa-tags"></i>
                     </span>
@@ -416,7 +442,7 @@ Falling_MY
 
 </header>
 
-    <main class="container has-sidebar" data-kind="page"><script data-precache src="/js/main-init.d4bf6c63208bd2cc7ca0ed8e294719a6df134d45b27eee3dab505525318661ec.js" integrity="sha256-1L9sYyCL0sx8oO2OKUcZpt8TTUWyfu49q1BVJTGGYew=" crossorigin="anonymous"></script>
+    <main class="container has-sidebar" data-kind="page"><script data-precache src="/js/main-init.22a4a8a4139001adf723a1609f1300530cfb7fad040cc971ca62c6ba2daa90d9.js" integrity="sha256-IqSopBOQAa33I6FgnxMAUwz7f60EDMlxymLGui2qkNk=" crossorigin="anonymous"></script>
 
       <div class="row content"><noscript>
     <div class="alert alert-danger" role="alert">Your browser does not support JavaScript.</div>
@@ -564,33 +590,33 @@ Falling_MY
           <div class="docs-nav-subnavs border-start mt-2 collapse  show" id="nav-3fc5f5a13d5a7ed99b268197524af708">
             <div class="btn-toggle-nav fw-normal ms-2 small">
               <ul class="list-unstyled mb-2 w-100"><li class="mb-2" tabindex="-1">
-          <div class="py-1 d-flex justify-content-between align-items-center">
+          <div class="py-1 d-flex justify-content-between align-items-center text-primary">
             <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/c/"><span class="docs-nav-title">C语言</span></a>
-            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
-              data-bs-target="#nav-a59f17cafa65e8265e3b41e0d42275aa" aria-expanded="false" aria-controls="nav-a59f17cafa65e8265e3b41e0d42275aa">
+            <a class="btn-toggle ms-1" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-a59f17cafa65e8265e3b41e0d42275aa" aria-expanded="true" aria-controls="nav-a59f17cafa65e8265e3b41e0d42275aa">
               <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
             </a>
           </div>
-          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-a59f17cafa65e8265e3b41e0d42275aa">
+          <div class="docs-nav-subnavs border-start mt-2 collapse  show" id="nav-a59f17cafa65e8265e3b41e0d42275aa">
             <div class="btn-toggle-nav fw-normal ms-2 small">
               <ul class="list-unstyled mb-2 w-100">
         <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/c/pointer/"><span class="docs-nav-title">指针</span></a>
         </li>
-        <li class="mb-2 py-1" tabindex="-1">
-          <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/c/tree_1/"><span class="docs-nav-title">树与二叉树</span></a>
+        <li class="mb-2 py-1 text-primary border-2 border-start border-primary ps-2 docs-nav-active-item" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/c/tree/"><span class="docs-nav-title">树与二叉树</span></a>
         </li></ul>
             </div>
           </div>
         </li><li class="mb-2" tabindex="-1">
-          <div class="py-1 d-flex justify-content-between align-items-center text-primary">
+          <div class="py-1 d-flex justify-content-between align-items-center">
             <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/"><span class="docs-nav-title">数据结构与算法</span></a>
-            <a class="btn-toggle ms-1" role="button" data-bs-toggle="collapse"
-              data-bs-target="#nav-adfea214110dfdde1358c99694432487" aria-expanded="true" aria-controls="nav-adfea214110dfdde1358c99694432487">
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-adfea214110dfdde1358c99694432487" aria-expanded="false" aria-controls="nav-adfea214110dfdde1358c99694432487">
               <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
             </a>
           </div>
-          <div class="docs-nav-subnavs border-start mt-2 collapse  show" id="nav-adfea214110dfdde1358c99694432487">
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-adfea214110dfdde1358c99694432487">
             <div class="btn-toggle-nav fw-normal ms-2 small">
               <ul class="list-unstyled mb-2 w-100">
         <li class="mb-2 py-1" tabindex="-1">
@@ -599,7 +625,7 @@ Falling_MY
         <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/2/"><span class="docs-nav-title">2.时间空间复杂度、BigO表示法</span></a>
         </li>
-        <li class="mb-2 py-1 text-primary border-2 border-start border-primary ps-2 docs-nav-active-item" tabindex="-1">
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/string_1/"><span class="docs-nav-title">串</span></a>
         </li>
         <li class="mb-2 py-1" tabindex="-1">
@@ -652,7 +678,7 @@ Falling_MY
 </aside><div class="col ms-auto content-docs">
   <div class="container-fluid"><nav class="row card component" aria-label="breadcrumb">
   <div class="card-body pb-0">
-    <ol class="hbs-breadcrumb breadcrumb flex-nowrap"><li class="breadcrumb-item text-surface"><a href="/">Home</a></li><li class="breadcrumb-item text-surface"><a href="/docs/">Docs</a></li><li class="breadcrumb-item text-surface"><a href="/docs/notes/">Notes</a></li><li class="breadcrumb-item text-surface"><a href="/docs/notes/dsa/">数据结构与算法</a></li><li class="breadcrumb-item active">串</li></ol>
+    <ol class="hbs-breadcrumb breadcrumb flex-nowrap"><li class="breadcrumb-item text-surface"><a href="/">Home</a></li><li class="breadcrumb-item text-surface"><a href="/docs/">Docs</a></li><li class="breadcrumb-item text-surface"><a href="/docs/notes/">Notes</a></li><li class="breadcrumb-item text-surface"><a href="/docs/notes/c/">C语言</a></li><li class="breadcrumb-item active">树与二叉树</li></ol>
   </div>
 </nav><div class="post-panel-wrapper position-relative d-flex justify-content-center">
   <div class="d-flex flex-row justify-content-center rounded-5 border post-panel position-fixed px-3 py-1 surface shadow-1">
@@ -682,12 +708,10 @@ Falling_MY
   </div>
 </div><article class="row card component mb-4 post">
 <div class="card-header ">
-    <h1 class="card-title post-title my-2">串</h1>
+    <h1 class="card-title post-title my-2">树与二叉树</h1>
 </div>
 <div class="card-body"><div class="post-meta mb-3">
-  <span class="post-date me-1 mb-1" title="created on 2024-11-23 11:39:07 &#43;0800 CST.">November 23, 2024</span><span class="post-reading-time me-1 mb-1">1 min read</span><a href="/authors/falling_my/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-author">
-      <i class="fas fa-fw fa-user me-1"></i>Falling_MY</a><a href="/series/%E7%AB%9E%E8%B5%9B%E5%9F%B9%E8%AE%AD%E8%AF%BE%E7%AC%94%E8%AE%B0/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
-      <i class="fas fa-fw fa-columns me-1"></i>竞赛培训课笔记</a>
+  <span class="post-date me-1 mb-1" title="created on 2024-11-30 08:28:26 &#43;0800 CST.">November 30, 2024</span><span class="post-reading-time me-1 mb-1">1 min read</span>
 </div>
 
 <div class="mt-2 mb-3 d-block d-xxl-none">
@@ -696,110 +720,92 @@ Falling_MY
         </div>
     <hr class="text-secondary">
 </div><div class="post-content mb-3" data-bs-spy="scroll" data-bs-target="#TableOfContents" tabindex="0">
-        <div id="post-content-body"><p>串，及字符串，是由零个或多个字符组成的有限序列。一般记为：
-$$ S = &lsquo;a_1a_2a_3&hellip;a_n&rsquo; (n&gt;0)$$</p>
-<p>串是一种特殊的线性表，数据元素之间呈线性关系。
-串的数据对象是<strong>字符</strong>的有限序列。</p>
+        <div id="post-content-body"><p>树是一种数据结构。</p>
 
-<h2 id="串的基本操作" data-numberify>串的基本操作<a class="anchor ms-1" href="#串的基本操作"></a></h2>
+<h1 id="树的概念" data-numberify>树的概念<a class="anchor ms-1" href="#树的概念"></a></h1>
+
+<h2 id="树的定义" data-numberify>树的定义<a class="anchor ms-1" href="#树的定义"></a></h2>
+<p>树是n个结点的有限集合（记为T）。</p>
+<p>形式化定义（二元组）</p>
+<p>树：$T=(D,R)$。<br>
+$D$ 是包含n个结点的有限集合 $n&gt;0$ 。</p>
+<blockquote>
+<p>当n=0时，称该树为空树。
+当n&gt;0时，这n个结点中存在一个唯一结点作为树的根结点，其余结点可分为m个互不相交的有限集 $T_1,T_2,&hellip;,T_m$ ，其中每个集合本身又是一棵树，称为根的子树。</p>
+</blockquote>
+<p>$R$ 是D上的一个关系，$R\subset D\times D$ 。</p>
+
+<h2 id="树的表示" data-numberify>树的表示<a class="anchor ms-1" href="#树的表示"></a></h2>
+
+<h3 id="逻辑表示法" data-numberify>逻辑表示法<a class="anchor ms-1" href="#逻辑表示法"></a></h3>
+<p>即我们平时常见的树形图</p>
+
+<h3 id="文氏图表示法" data-numberify>文氏图表示法<a class="anchor ms-1" href="#文氏图表示法"></a></h3>
+
+<h3 id="凹入表示法" data-numberify>凹入表示法<a class="anchor ms-1" href="#凹入表示法"></a></h3>
+
+<h3 id="括号表示法" data-numberify>括号表示法<a class="anchor ms-1" href="#括号表示法"></a></h3>
+<p>例如：</p>
+<blockquote>
+<p>A(B(D,E),C(F,G))</p>
+</blockquote>
+
+<h2 id="树的基本术语" data-numberify>树的基本术语<a class="anchor ms-1" href="#树的基本术语"></a></h2>
+
+<h3 id="结点的度和树的度" data-numberify>结点的度和树的度<a class="anchor ms-1" href="#结点的度和树的度"></a></h3>
+<p>树中一个<strong>结点的子树的个数</strong>称为该<strong>结点的度</strong>。<br>
+树中各个结点的度的<strong>最大值</strong>称为<strong>树的度</strong>，通常若树的度为m，称该树为<strong>m叉树</strong>。</p>
+
+<h3 id="分支结点与叶结点" data-numberify>分支结点与叶结点<a class="anchor ms-1" href="#分支结点与叶结点"></a></h3>
+<p>度不为0的结点称为非终端结点，也称为<strong>分支结点</strong>。<br>
+度为0的结点称为终端结点，也称为<strong>叶结点</strong>。</p>
+
+<h3 id="路径与路径长度" data-numberify>路径与路径长度<a class="anchor ms-1" href="#路径与路径长度"></a></h3>
+<p>两个结点$d_i$和$d_j$之间的路径为从$d_i$到$d_j$的结点序列。<br>
+路径的长度为路径上的结点个数减一。</p>
+
+<h3 id="孩子结点双亲结点和兄弟结点" data-numberify>孩子结点、双亲结点和兄弟结点<a class="anchor ms-1" href="#孩子结点双亲结点和兄弟结点"></a></h3>
+<p>每个结点的后继结点称为该结点的<strong>孩子结点</strong>。<br>
+该结点被称为孩子结点的<strong>双亲结点</strong>。<br>
+具有相同双亲结点的结点称为<strong>兄弟结点</strong>。</p>
+<blockquote>
+<p><strong>深度优先搜索</strong>
+从根结点出发，沿着一条路径搜索，直到到达一个叶子结点，然后回溯，继续沿着另一条路径搜索，直到到达另一个叶子结点，以此类推。<br>
+一般采用递归的方式实现。</p>
+</blockquote>
+<blockquote>
+<p><strong>广度优先搜索</strong>
+从根结点出发，先访问所有的兄弟结点，再访问所有的孩子结点，以此类推。<br>
+一般采用队列的方式实现。</p>
+</blockquote>
+
+<h3 id="子孙结点和祖先结点" data-numberify>子孙结点和祖先结点<a class="anchor ms-1" href="#子孙结点和祖先结点"></a></h3>
+<p>子孙结点：从根结点到该结点的路径上的所有结点称为该结点的子孙结点。<br>
+祖先结点：从该结点到根结点的路径上的所有结点称为该结点的祖先结点。</p>
+
+<h3 id="结点的层次和高度" data-numberify>结点的层次和高度<a class="anchor ms-1" href="#结点的层次和高度"></a></h3>
 <ul>
-<li>StrAssign(&amp;T, chars) 赋值操作，把串T赋值为chars</li>
-<li>StrCopy(&amp;T, S) 复制操作，把串S复制给串T</li>
-<li>StrEmpty(S) 判空操作，若S为空串，则返回true，否则返回false</li>
-<li>StrLength(S) 求串长，返回串S的元素个数</li>
-<li>ClearString(&amp;S) 清空操作，将S清空</li>
-<li>DestroyString(&amp;S) 销毁串，将串S销毁</li>
-<li>Concat(&amp;T, S1, S2) 串联接，用T返回由S1和S2联接而成的新串</li>
-<li>SubString(&amp;Sub, S, pos, len) 求子串，用Sub返回串S的第pos个字符起长度为len的子串</li>
-<li>Index(S, T, pos) 定位操作，若主串S中存在与串T值相同的子串，则返回它在主串S中第pos个字符之后第一次出现的位置，否则函数值为0</li>
-<li>StrCompare(S, T) 比较操作，若S&gt;T，则返回值&gt;0，若S=T，则返回值=0，若S&lt;T，则返回值&lt;0</li>
+<li><input disabled="" type="checkbox"> 待补充</li>
 </ul>
 
-<h2 id="串的存储结构" data-numberify>串的存储结构<a class="anchor ms-1" href="#串的存储结构"></a></h2>
+<h3 id="有序树和无序树" data-numberify>有序树和无序树<a class="anchor ms-1" href="#有序树和无序树"></a></h3>
+<p>若树中各结点的子树从左到右是有次序的，且相对次序是不能随意变换的，称该树为有序树。否则，称该树为无序树。</p>
 
-<h3 id="串的顺序存储结构" data-numberify>串的顺序存储结构<a class="anchor ms-1" href="#串的顺序存储结构"></a></h3>
-<p>顺序存储都是一个字符串数组+串长度，分为</p>
+<h3 id="森林" data-numberify>森林<a class="anchor ms-1" href="#森林"></a></h3>
+<p>n个互不相交的树的集合称为森林。</p>
+<p>给m棵独立的树加一个根结点，则森林就变成了一棵树。</p>
+
+<h2 id="树的性质" data-numberify>树的性质<a class="anchor ms-1" href="#树的性质"></a></h2>
 <ul>
-<li>静态数组实现（定长顺序存储）： 栈区，数组长度固定</li>
-<li>动态数组实现（堆分配存储）： 堆区，数组长度可变</li>
+<li>树中的结点数等于所有结点的度数加1。（加1是加上根结点）</li>
+<li>度为m的树的其他重要特性：
+<ul>
+<li>结点个数为n，$n=n_0+n_1+n_2+&hellip;+n_m$，其中$n_0$为度数为0的结点数，$n_1$为度数为1的结点数，$n_2$为度数为2的结点数，以此类推。</li>
+<li>所有结点度之和=$n_1+2n_2+3n_3+&hellip;+mn_m=n-1$。</li>
 </ul>
-<p>char[0]一般不使用，从char[1]开始存储。
-因为在C语言中，字符串是以&rsquo;\0&rsquo;结尾的，所以char[0]存储的是字符串的长度。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="c1">//Power by Marscode
-</span></span></span><span class="line"><span class="cl"><span class="c1">//静态数组实现：按预定义MAXLEN在栈区开辟储存区
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define MAXSIZE 255
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">typedef</span> <span class="k">struct</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">ch</span><span class="p">[</span><span class="n">MAXSIZE</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">length</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="n">StringNode</span><span class="p">;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="c1">//Power by Marscode
-</span></span></span><span class="line"><span class="cl"><span class="c1">//动态数组实现：按串场在堆区开辟储存区，ch指向串的基地址，用完需要手动删除指针
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">typedef</span> <span class="k">struct</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">ch</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">length</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="n">HString</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="n">HString</span> <span class="n">S</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="n">S</span><span class="p">.</span><span class="n">ch</span> <span class="o">=</span> <span class="n">new</span> <span class="kt">char</span><span class="p">[</span><span class="n">MAXSIZE</span><span class="p">];</span><span class="c1">//在堆区开辟空间, 用完需要手动删除指针
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">S</span><span class="p">.</span><span class="n">length</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span></code></pre></div>
-<h3 id="串的链式存储结构" data-numberify>串的链式存储结构<a class="anchor ms-1" href="#串的链式存储结构"></a></h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="c1">//Power by Marscode
-</span></span></span><span class="line"><span class="cl"><span class="c1">//结点结构和串结构：每个节点存多个字符
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">typedef</span> <span class="k">struct</span> <span class="n">StringNode</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">ch</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="n">StringNode</span><span class="o">*</span> <span class="n">next</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="n">StringNode</span><span class="p">,</span> <span class="o">*</span><span class="n">String</span><span class="p">;</span>
-</span></span></code></pre></div>
-<h3 id="串基本操作的实现" data-numberify>串基本操作的实现<a class="anchor ms-1" href="#串基本操作的实现"></a></h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="c1">//求子串
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="nf">SubString</span><span class="p">(</span><span class="n">StringNode</span> <span class="o">&amp;</span><span class="n">Sub</span><span class="p">,</span> <span class="n">StringNode</span> <span class="n">S</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pos</span><span class="p">,</span> <span class="kt">int</span> <span class="n">len</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">pos</span> <span class="o">+</span> <span class="n">len</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&gt;</span> <span class="n">S</span><span class="p">.</span><span class="n">length</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="c1">//子串范围越界
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">pos</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">pos</span> <span class="o">+</span> <span class="n">len</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">        <span class="n">Sub</span><span class="p">.</span><span class="n">ch</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">S</span><span class="p">.</span><span class="n">ch</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="c1">//子串赋值
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Sub</span><span class="p">.</span><span class="n">length</span> <span class="o">=</span> <span class="n">len</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">//定位操作
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">Index</span><span class="p">(</span><span class="n">StringNode</span> <span class="n">S</span><span class="p">,</span> <span class="n">StringNode</span> <span class="n">T</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pos</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">pos</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">while</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">S</span><span class="p">.</span><span class="n">length</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">T</span><span class="p">.</span><span class="n">length</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">S</span><span class="p">.</span><span class="n">ch</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">T</span><span class="p">.</span><span class="n">ch</span><span class="p">[</span><span class="n">j</span><span class="p">]){</span>
-</span></span><span class="line"><span class="cl">            <span class="o">++</span><span class="n">i</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="o">++</span><span class="n">j</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">j</span> <span class="o">&gt;</span> <span class="n">T</span><span class="p">.</span><span class="n">length</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">i</span> <span class="o">-</span> <span class="n">T</span><span class="p">.</span><span class="n">length</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div>
-<h2 id="字符串模式匹配" data-numberify>字符串模式匹配<a class="anchor ms-1" href="#字符串模式匹配"></a></h2>
-
-<h3 id="朴素模式匹配算法" data-numberify>朴素模式匹配算法<a class="anchor ms-1" href="#朴素模式匹配算法"></a></h3>
-<p>一旦发现不匹配的字符，就回溯到主串的下一个字符，从模式串的第一个字符重新开始匹配。</p>
-
-<h4 id="优化思路" data-numberify>优化思路<a class="anchor ms-1" href="#优化思路"></a></h4>
-<ul>
-<li>对于模式串<code>T=&quot;abaabc&quot;</code>, 主串<code>S=&quot;ababaabc&quot;</code>，当匹配到<code>S[5]</code>和<code>T[5]</code>不匹配时，我们可以直接将模式串T向右移动3个字符，从<code>T[3]</code>开始匹配。</li>
-<li>……</li>
-</ul>
-
-<h3 id="kmp算法" data-numberify>KMP算法<a class="anchor ms-1" href="#kmp算法"></a></h3>
-<p>思路：KMP算法的核心是利用已经部分匹配的结果，避免主串的指针回溯。详细的说就是，当匹配到<code>S[i]</code>和<code>T[j]</code>不匹配时，我们可以直接将模式串T向右移动<code>j-next[j]</code>个字符，从<code>T[next[j]]</code>开始匹配。<br>
-这样可以有效的减少匹配的次数，降低时间复杂度。最坏时间复杂度：<code>O(m+n)</code></p>
-<ul>
-<li><input disabled="" type="checkbox"> 待完善</li>
+</li>
+<li>度为m的树中第i层上至多有$m^{i-1}$个结点。</li>
+<li>高度为h的m叉树至多有$\frac {m^h-1}{m-1}$个结点。</li>
 </ul>
 </div>
 </div>
@@ -821,9 +827,9 @@ $$ S = &lsquo;a_1a_2a_3&hellip;a_n&rsquo; (n&gt;0)$$</p>
             </a>
           </li></ul>
         <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content text-center show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
-            <img class="img-fluid post-reward-img" src="https://fallingmy.github.io/images/reward/alipay.jpg" loading="lazy" data-viewer-invisible />
+            <img class="img-fluid post-reward-img" src="http://localhost:1313/images/reward/alipay.jpg" loading="lazy" data-viewer-invisible />
           </div><div class="tab-pane fade post-reward-content text-center show" id="reward-wechat" role="tabpanel" aria-labelledby="reward-wechat-tab">
-            <img class="img-fluid post-reward-img" src="https://fallingmy.github.io/images/reward/wechat.jpg" loading="lazy" data-viewer-invisible />
+            <img class="img-fluid post-reward-img" src="http://localhost:1313/images/reward/wechat.jpg" loading="lazy" data-viewer-invisible />
           </div></div>
       </div>
     </div>
@@ -831,10 +837,7 @@ $$ S = &lsquo;a_1a_2a_3&hellip;a_n&rsquo; (n&gt;0)$$</p>
 </div></div><div class="card-footer">
   <div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-prev">
       <i class="fas fa-fw fa-chevron-down post-prev-icon me-1" data-fa-transform="rotate-90"></i>
-      <a href="/docs/notes/dsa/2/">2.时间空间复杂度、BigO表示法</a>
-    </div><div class="post-nav post-next">
-      <a href="/docs/notes/dsa/3/">排序算法</a>
-      <i class="fas fa-fw fa-chevron-down post-next-icon ms-1" data-fa-transform="rotate-270"></i>
+      <a href="/docs/notes/c/pointer/">指针</a>
     </div></div>
 </div></article><div class="post-copyright mb-3 row card component" id="post-copyright">
     <div class="card-header">
@@ -924,20 +927,28 @@ $$ S = &lsquo;a_1a_2a_3&hellip;a_n&rsquo; (n&gt;0)$$</p>
     <div class="card-body collapse accordion-collapse accordion-body d-lg-block" id="post-toc">
       <nav id="TableOfContents">
   <ul>
-    <li><a href="#串的基本操作">串的基本操作</a></li>
-    <li><a href="#串的存储结构">串的存储结构</a>
+    <li><a href="#树的定义">树的定义</a></li>
+    <li><a href="#树的表示">树的表示</a>
       <ul>
-        <li><a href="#串的顺序存储结构">串的顺序存储结构</a></li>
-        <li><a href="#串的链式存储结构">串的链式存储结构</a></li>
-        <li><a href="#串基本操作的实现">串基本操作的实现</a></li>
+        <li><a href="#逻辑表示法">逻辑表示法</a></li>
+        <li><a href="#文氏图表示法">文氏图表示法</a></li>
+        <li><a href="#凹入表示法">凹入表示法</a></li>
+        <li><a href="#括号表示法">括号表示法</a></li>
       </ul>
     </li>
-    <li><a href="#字符串模式匹配">字符串模式匹配</a>
+    <li><a href="#树的基本术语">树的基本术语</a>
       <ul>
-        <li><a href="#朴素模式匹配算法">朴素模式匹配算法</a></li>
-        <li><a href="#kmp算法">KMP算法</a></li>
+        <li><a href="#结点的度和树的度">结点的度和树的度</a></li>
+        <li><a href="#分支结点与叶结点">分支结点与叶结点</a></li>
+        <li><a href="#路径与路径长度">路径与路径长度</a></li>
+        <li><a href="#孩子结点双亲结点和兄弟结点">孩子结点、双亲结点和兄弟结点</a></li>
+        <li><a href="#子孙结点和祖先结点">子孙结点和祖先结点</a></li>
+        <li><a href="#结点的层次和高度">结点的层次和高度</a></li>
+        <li><a href="#有序树和无序树">有序树和无序树</a></li>
+        <li><a href="#森林">森林</a></li>
       </ul>
     </li>
+    <li><a href="#树的性质">树的性质</a></li>
   </ul>
 </nav>
     </div>
@@ -955,12 +966,12 @@ $$ S = &lsquo;a_1a_2a_3&hellip;a_n&rsquo; (n&gt;0)$$</p>
         </div>
         <div class="card-body collapse accordion-collapse accordion-body text-secondary-on-surface d-lg-block show" id="repo" aria-labelledby="repo-header">
             <ul class="list-unstyled"><li class="mb-1">
-                    <a href="https://github.com/FallingMY/myblog/blob/main//content/docs/Notes/DS&amp;A/String_1.md" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/FallingMY/myblog/blob/main//content/docs/Notes/C/tree.md" target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-fw fa-file-archive text-success"></i> View page source
                     </a>
                 </li>
                 <li class="mb-1">
-                    <a href="https://github.com/FallingMY/myblog/edit/main//content/docs/Notes/DS&amp;A/String_1.md" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/FallingMY/myblog/edit/main//content/docs/Notes/C/tree.md" target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-fw fa-edit text-primary"></i> Edit this page
                     </a>
                 </li></ul>
@@ -983,11 +994,11 @@ $$ S = &lsquo;a_1a_2a_3&hellip;a_n&rsquo; (n&gt;0)$$</p>
   </div>
   <div class="offcanvas-body mt-2"><div class="social-share mb-4 d-flex overflow-auto">
       <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Twitter Share Button"
-      target="_blank" href="https://twitter.com/intent/tweet?title=404%20Page%20not%20found&url=https%3a%2f%2ffallingmy.github.io%2f404.html">
+      target="_blank" href="https://twitter.com/intent/tweet?title=%e6%a0%91%e4%b8%8e%e4%ba%8c%e5%8f%89%e6%a0%91&url=http%3a%2f%2flocalhost%3a1313%2fdocs%2fnotes%2fc%2ftree%2f">
         <i class="fab fa-2x fa-fw fa-twitter mb-2"></i> Twitter
       </a>
       <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Facebook Share Button"
-        target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ffallingmy.github.io%2f404.html">
+        target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fdocs%2fnotes%2fc%2ftree%2f">
         <i class="fab fa-2x fa-fw fa-facebook-f mb-2"></i> Facebook
       </a>
     </div>
@@ -1045,9 +1056,9 @@ $$ S = &lsquo;a_1a_2a_3&hellip;a_n&rsquo; (n&gt;0)$$</p>
   <div class="col-12 col-lg-8 offset-0 offset-lg-1"></div>
 </div>
 </footer>
-<script data-precache src="/assets/main/bundle.min.7ea6a1bf778d18257969b177feea489a46a2fa133751de416bd5e105f74e9646.js" integrity="sha256-fqahv3eNGCV5abF3/upImkai&#43;hM3Ud5Ba9XhBfdOlkY=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.e4f49151c93a82337f566f792dd3e3f26aed97c6c9462e15be1df10adf81559d.js" integrity="sha256-5PSRUck6gjN/Vm95LdPj8mrtl8bJRi4Vvh3xCt&#43;BVZ0=" crossorigin="anonymous" defer></script>
-<script data-precache src="/assets/viewer/bundle.min.06371891cfe6d10d36cba465c61c4d7cb17591a3be2fd9af4a38444d2074e709.js" integrity="sha256-BjcYkc/m0Q02y6RlxhxNfLF1kaO&#43;L9mvSjhETSB05wk=" crossorigin="anonymous" defer></script>
-  <script data-precache defer src="/assets/katex/bundle.min.ebacb71ff73d65512126000e4a076fdbd207a155f88a4e69b442c0407e576fe3.js" integrity="sha256-66y3H/c9ZVEhJgAOSgdv29IHoVX4ik5ptELAQH5Xb&#43;M=" crossorigin="anonymous"></script>
+<script data-precache src="/assets/main/bundle.min.43592fb2f3049aa365110140d69b264ba72dfdd3989a413a770d67b8b80f1fc0.js" integrity="sha256-Q1kvsvMEmqNlEQFA1psmS6ct/dOYmkE6dw1nuLgPH8A=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.e54d449fb2f61868599339bf9539fdf870c40f403df48b6bb0b222993514e533.js" integrity="sha256-5U1En7L2GGhZkzm/lTn9&#43;HDED0A99ItrsLIimTUU5TM=" crossorigin="anonymous" defer></script>
+<script data-precache src="/assets/viewer/bundle.min.6b04108bcf5bfd45397e320e83d728b1df778a7e2c2021b8dc97a41d783acae9.js" integrity="sha256-awQQi89b/UU5fjIOg9cosd93in4sICG43JekHXg6yuk=" crossorigin="anonymous" defer></script>
+  <script data-precache defer src="/assets/katex/bundle.min.59e7d586c5d16cbae10fc198286c7abbcba11bfe2a928bc3428ba07862371b2a.js" integrity="sha256-WefVhsXRbLrhD8GYKGx6u8uhG/4qkovDQougeGI3Gyo=" crossorigin="anonymous"></script>
 
 <script src="/js/sw-register.js" defer></script>
 <script src="https://giscus.app/client.js"

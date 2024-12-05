@@ -15,7 +15,7 @@
   <meta name="description" content="
 C语言能处理一类非常特殊的数据——内存地址（常量）
 
-如果觉得这篇文章有用不妨点个赞吧
+如果这篇文章有帮到你的话，不妨点个赞吧
 
     
       👍
@@ -30,14 +30,14 @@ C语言能处理一类非常特殊的数据——内存地址（常量）
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="指针">
   <meta name="twitter:description" content="C语言能处理一类非常特殊的数据——内存地址（常量）
-如果觉得这篇文章有用不妨点个赞吧
+如果这篇文章有帮到你的话，不妨点个赞吧
 👍">
       <meta name="twitter:site" content="@Falling_Studio_">
 <meta property="og:url" content="https://fallingmy.github.io/docs/notes/c/pointer/">
   <meta property="og:site_name" content="Falling_Studio_Terminal3">
   <meta property="og:title" content="指针">
   <meta property="og:description" content="C语言能处理一类非常特殊的数据——内存地址（常量）
-如果觉得这篇文章有用不妨点个赞吧
+如果这篇文章有帮到你的话，不妨点个赞吧
 👍">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
@@ -47,11 +47,11 @@ C语言能处理一类非常特殊的数据——内存地址（常量）
 
   <meta itemprop="name" content="指针">
   <meta itemprop="description" content="C语言能处理一类非常特殊的数据——内存地址（常量）
-如果觉得这篇文章有用不妨点个赞吧
+如果这篇文章有帮到你的话，不妨点个赞吧
 👍">
   <meta itemprop="datePublished" content="2024-11-18T08:08:06+08:00">
   <meta itemprop="dateModified" content="2024-11-18T08:08:06+08:00">
-  <meta itemprop="wordCount" content="190">
+  <meta itemprop="wordCount" content="386">
   <meta property="og:image" content="https://fallingmy.github.io/images/icon.png"/>
   <meta name="twitter:image" content="https://fallingmy.github.io/images/icon.png"/>
   <meta property="og:image:alt" content="指针" />
@@ -489,6 +489,9 @@ Falling_MY
               <ul class="list-unstyled mb-2 w-100">
         <li class="mb-2 py-1 text-primary border-2 border-start border-primary ps-2 docs-nav-active-item" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/c/pointer/"><span class="docs-nav-title">指针</span></a>
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/c/tree_1/"><span class="docs-nav-title">树与二叉树</span></a>
         </li></ul>
             </div>
           </div>
@@ -595,7 +598,7 @@ Falling_MY
     <h1 class="card-title post-title my-2">指针</h1>
 </div>
 <div class="card-body"><div class="post-meta mb-3">
-  <span class="post-date me-1 mb-1" title="created on 2024-11-18 08:08:06 &#43;0800 CST.">November 18, 2024</span><span class="post-reading-time me-1 mb-1">1 min read</span>
+  <span class="post-date me-1 mb-1" title="created on 2024-11-18 08:08:06 &#43;0800 CST.">November 18, 2024</span><span class="post-reading-time me-1 mb-1">2 min read</span>
 </div>
 
 <div class="mt-2 mb-3 d-block d-xxl-none">
@@ -607,7 +610,7 @@ Falling_MY
         <div id="post-content-body"><blockquote>
 <p>C语言能处理一类非常特殊的数据——内存地址（常量）</p>
 </blockquote>
-<p>如果觉得这篇文章有用不妨点个赞吧<br>
+<p>如果这篇文章有帮到你的话，不妨点个赞吧<br>
 <div class="emoji-button-container">
     <button 
       class="emoji-button" 
@@ -914,6 +917,144 @@ Falling_MY
 </ul>
 <p>其余的感觉和数组差不多…………<br>
 注意一下<code>\0</code>就好了</p>
+
+<h3 id="字符数组和字符指针处理字符串的比较" data-numberify>字符数组和字符指针处理字符串的比较<a class="anchor ms-1" href="#字符数组和字符指针处理字符串的比较"></a></h3>
+<ul>
+<li>储存上的区别
+<ul>
+<li>字符数组由若干元素组成，每个元素储存一个字符</li>
+<li>字符指针变量中储存的是字符串的首地址</li>
+</ul>
+</li>
+<li>传递上的区别
+<ul>
+<li>字符数组名作为函数参数时，传递的是整个数组</li>
+<li>字符指针变量作为函数参数时，传递的是字符串的首地址</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="c1">//使用数组形式
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&#34;Hello World!&#34;</span><span class="p">;</span><span class="c1">//不定义数组长度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;Hello World!&#34;</span><span class="p">;</span><span class="c1">//定义数组长度
+</span></span></span><span class="line"><span class="cl"><span class="c1">//使用指针形式
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">char</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="s">&#34;Hello World!&#34;</span><span class="p">;</span>
+</span></span></code></pre></div>
+<h2 id="指针数组" data-numberify>指针数组<a class="anchor ms-1" href="#指针数组"></a></h2>
+<p>数组元素是指针的数组</p>
+
+<h3 id="定义形式" data-numberify>定义形式<a class="anchor ms-1" href="#定义形式"></a></h3>
+<p>类型标识 *数组名[数组长度]</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">char</span> <span class="o">*</span><span class="n">p</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+</span></span></code></pre></div><p>由于[]的优先级高于*，所以先和p结合，形成一个数组形式  再由char*说明这是一个指针数组，它有10个指针类型的数组元素。这里执行<code>p+1</code>时，p要跨过10个<code>char*</code>的长度。</p>
+<p>注意区分：
+<code>char *p[10]</code>表示这是一个指针数组，它有10个指针类型的数组元素，其首元素的地址为<code>p[0]</code>，类型为<code>char *</code>即是一个字符指针。<br>
+<code>char (*p)[10]</code>表示这是一个数组指针，它指向一个一维数组，这个一维数组的长度为10，类型为<code>char *</code>，即一个字符指针。</p>
+<p>指针数组用的最多的是“字符串型指针数组”，利用字符指针数组可以指向多个长度不同的字符串，使字符串的处理更加方便灵活，节省空间。</p>
+<p>使用指针数组排序时不需要移动字符串，只需要移动指针</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="c1">//对已排好序的字符指针数组进行指定字符串的查找
+</span></span></span><span class="line"><span class="cl"><span class="c1">//二分查找
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span><span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">测试数据：
+</span></span></span><span class="line"><span class="cl"><span class="cm">Amanda
+</span></span></span><span class="line"><span class="cl"><span class="cm">Bob
+</span></span></span><span class="line"><span class="cl"><span class="cm">Chris
+</span></span></span><span class="line"><span class="cl"><span class="cm">Follow
+</span></span></span><span class="line"><span class="cl"><span class="cm">Jill
+</span></span></span><span class="line"><span class="cl"><span class="cm">William
+</span></span></span><span class="line"><span class="cl"><span class="cm">
+</span></span></span><span class="line"><span class="cl"><span class="cm">Follow
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">bianrysearch</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">p</span><span class="p">[],</span><span class="kt">char</span> <span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="kt">int</span> <span class="n">n</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//p为字符串指针数组，x为要查找的字符串，n为数组长度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">mid</span><span class="p">,</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span><span class="p">(</span><span class="n">low</span><span class="o">&lt;=</span><span class="n">high</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">low</span><span class="o">+</span><span class="n">high</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="nf">strcmp</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">mid</span><span class="p">],</span><span class="n">x</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">mid</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nf">strcmp</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">mid</span><span class="p">],</span><span class="n">x</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">high</span> <span class="o">=</span> <span class="n">mid</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span>
+</span></span><span class="line"><span class="cl">            <span class="n">low</span> <span class="o">=</span> <span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//char *name[]={&#34;Amanda&#34;,&#34;Bob&#34;,&#34;Chris&#34;,&#34;Follow&#34;,&#34;Jill&#34;,&#34;William&#34;};
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">6</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="nf">malloc</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;请输入6个字符串：</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">6</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">gets</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="n">index</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">findname</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;请输入要查找的内容：</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">gets</span><span class="p">(</span><span class="n">findname</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">index</span> <span class="o">=</span> <span class="nf">bianrysearch</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">findname</span><span class="p">,</span><span class="mi">6</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">index</span><span class="o">==-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;没有找到</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;在第%d个位置</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">6</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">free</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="c1">//释放内存空间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+<h2 id="指针的地址分配" data-numberify>指针的地址分配<a class="anchor ms-1" href="#指针的地址分配"></a></h2>
+<p>当定义指针变量时，系统会自动分配一个地址给指针变量</p>
+<p>在stdlib.h中提供了两个函数malloc()和free()用来分配和释放内存<br>
+函数原型为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">void</span> <span class="o">*</span><span class="nf">malloc</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">free</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">p</span><span class="p">);</span>
+</span></span></code></pre></div><p><code>malloc()</code>用以向操作系统申请size个字节的内存空间，并返回该内存空间的首地址。需要注意的是，size的值应和要指向的变量类型的字节数一致。<br>
+<code>free()</code>用来释放malloc()函数所申请的内存空间。</p>
+<p>例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="c1">//两个字符串的交换
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">p1</span><span class="p">,</span><span class="o">*</span><span class="n">p2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p1</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="nf">malloc</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p2</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="nf">malloc</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">gets</span><span class="p">(</span><span class="n">p1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">gets</span><span class="p">(</span><span class="n">p2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;交换前：</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;p1=%s</span><span class="se">\n</span><span class="s">p2=%s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">temp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">temp</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="nf">malloc</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">strcpy</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="n">p1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">strcpy</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">strcpy</span><span class="p">(</span><span class="n">p2</span><span class="p">,</span><span class="n">temp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;交换后：</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;p1=%s</span><span class="se">\n</span><span class="s">p2=%s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">free</span><span class="p">(</span><span class="n">p1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">free</span><span class="p">(</span><span class="n">p2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">free</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+<h2 id="指向指针的指针变量" data-numberify>指向指针的指针变量<a class="anchor ms-1" href="#指向指针的指针变量"></a></h2>
+<blockquote>
+<p>概念：
+如果一个指针变量存放的又是另一个指针变量的地址，则称这个指针变量为指向指针的指针变量。<br>
+这个指针也被称为二级指针变量。</p>
+</blockquote>
+<p>例如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span><span class="c1">//p存放a的地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="o">**</span><span class="n">pp</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">p</span><span class="p">;</span><span class="c1">//pp存放p的地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="o">**</span><span class="n">pp</span><span class="p">);</span><span class="c1">//输出100
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="o">*</span><span class="n">pp</span><span class="p">);</span><span class="c1">//输出p的地址
+</span></span></span></code></pre></div>
+<h2 id="指向函数的指针变量" data-numberify>指向函数的指针变量<a class="anchor ms-1" href="#指向函数的指针变量"></a></h2>
 </div>
 </div>
 <div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
@@ -941,7 +1082,12 @@ Falling_MY
       </div>
     </div>
   </div>
-</div></div></article><div class="post-copyright mb-3 row card component" id="post-copyright">
+</div></div><div class="card-footer">
+  <div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-next">
+      <a href="/docs/notes/c/tree_1/">树与二叉树</a>
+      <i class="fas fa-fw fa-chevron-down post-next-icon ms-1" data-fa-transform="rotate-270"></i>
+    </div></div>
+</div></article><div class="post-copyright mb-3 row card component" id="post-copyright">
     <div class="card-header">
         <h2 class="card-title fs-4 my-2 text-surface">Copyright</h2>
     </div>
@@ -1059,7 +1205,19 @@ Falling_MY
         <li><a href="#二维数组的行指针">二维数组的行指针</a></li>
       </ul>
     </li>
-    <li><a href="#指针与字符数组">指针与字符数组</a></li>
+    <li><a href="#指针与字符数组">指针与字符数组</a>
+      <ul>
+        <li><a href="#字符数组和字符指针处理字符串的比较">字符数组和字符指针处理字符串的比较</a></li>
+      </ul>
+    </li>
+    <li><a href="#指针数组">指针数组</a>
+      <ul>
+        <li><a href="#定义形式">定义形式</a></li>
+      </ul>
+    </li>
+    <li><a href="#指针的地址分配">指针的地址分配</a></li>
+    <li><a href="#指向指针的指针变量">指向指针的指针变量</a></li>
+    <li><a href="#指向函数的指针变量">指向函数的指针变量</a></li>
   </ul>
 </nav>
     </div>
