@@ -142,6 +142,7 @@ int main(){
     <meta property="article:section" content="docs">
     <meta property="article:published_time" content="2024-12-11T09:54:05+08:00">
     <meta property="article:modified_time" content="2024-12-11T09:54:05+08:00">
+      <meta property="og:see_also" content="https://fallingmy.github.io/docs/notes/c/file_c/">
       <meta property="og:see_also" content="https://fallingmy.github.io/docs/notes/c/pointer/">
 
   <meta itemprop="name" content="结构体与共用体">
@@ -154,7 +155,7 @@ int main(){
 结构体类型的嵌套定义： // birthday是student的成员变量 struct student{ char name[20]; char sex; struct birthday{ int year; int month; int day; }; }; //先声明birthday，再声明student struct birthday{ int year; int month; int day; }; struct student{ char name[20]; char sex; struct birthday birthday; }; //结构体的自引用 struct student{ char name[20]; char sex; struct student *next;//指向下一个结点的指针 }; 结构体变量的赋值 struct student{ char name[20]; char sex; int age; char job[40]; long num; char address[40]; }; //方法1:程序内赋值 int main(){ struct student stu; strcpy(stu.name,&#34;张三&#34;); stu.sex=&#39;男&#39;; stu.age=20; strcpy(stu.job,&#34;学生&#34;); stu.num=123456789; strcpy(stu.address,&#34;北京&#34;); } //方法2:从键盘输入 int main(){ struct student stu; printf(&#34;请输入姓名:&#34;); scanf(&#34;%s&#34;,stu.name); printf(&#34;请输入性别:&#34;); scanf(&#34; %c&#34;,&amp;stu.sex); printf(&#34;请输入年龄:&#34;); scanf(&#34;%d&#34;,&amp;stu.age); printf(&#34;请输入工作:&#34;); scanf(&#34;%s&#34;,stu.job); printf(&#34;请输入学号:&#34;); scanf(&#34;%d&#34;,&amp;stu.num); printf(&#34;请输入家庭住址:&#34;); scanf(&#34;%s&#34;,stu.address); } 同时，stu1=stu2是合法的，其结果是将stu2中所有元素的值赋给stu1">
   <meta itemprop="datePublished" content="2024-12-11T09:54:05+08:00">
   <meta itemprop="dateModified" content="2024-12-11T09:54:05+08:00">
-  <meta itemprop="wordCount" content="192">
+  <meta itemprop="wordCount" content="274">
   <meta itemprop="keywords" content="课堂笔记">
   <meta property="og:image" content="https://fallingmy.github.io/images/icon.png"/>
   <meta name="twitter:image" content="https://fallingmy.github.io/images/icon.png"/>
@@ -595,6 +596,9 @@ Falling_MY
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/c/pointer/"><span class="docs-nav-title">指针</span></a>
         </li>
         <li class="mb-2 py-1" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/c/file_c/"><span class="docs-nav-title">文件</span></a>
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/c/tree_1/"><span class="docs-nav-title">树与二叉树</span></a>
         </li>
         <li class="mb-2 py-1 text-primary border-2 border-start border-primary ps-2 docs-nav-active-item" tabindex="-1">
@@ -693,7 +697,7 @@ Falling_MY
     <h1 class="card-title post-title my-2">结构体与共用体</h1>
 </div>
 <div class="card-body"><div class="post-meta mb-3">
-  <span class="post-date me-1 mb-1" title="created on 2024-12-11 09:54:05 &#43;0800 CST.">December 11, 2024</span><span class="post-reading-time me-1 mb-1">1 min read</span><a href="/series/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
+  <span class="post-date me-1 mb-1" title="created on 2024-12-11 09:54:05 &#43;0800 CST.">December 11, 2024</span><span class="post-reading-time me-1 mb-1">2 min read</span><a href="/series/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
       <i class="fas fa-fw fa-columns me-1"></i>课堂笔记</a>
 </div>
 
@@ -841,7 +845,62 @@ Falling_MY
 <p>将实参结构体变量成员的值赋给形参结构体变量的成员，是单向的值传递。后续对形参的修改，不会影响实参。</p>
 <p>函数的返回值也可以是结构体类型</p>
 <p>指向结构体的指针变量作为函数参数，是将实参结构体数组或结构体变量的起始地址传递给形参指针变量，这样可以提高函数的效率。</p>
-</div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">func_1</span><span class="p">(</span><span class="k">struct</span> <span class="n">student</span> <span class="n">stu</span><span class="p">){</span><span class="c1">//形参是结构体变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">func_2</span><span class="p">(</span><span class="k">struct</span> <span class="n">student</span> <span class="o">*</span><span class="n">p</span><span class="p">){</span><span class="c1">//形参是结构体指针变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">func_3</span><span class="p">(</span><span class="k">struct</span> <span class="n">student</span> <span class="n">stu</span><span class="p">[]){</span><span class="c1">//形参是结构体数组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+<h3 id="结构体类型和普通类型的相似性" data-numberify>结构体类型和普通类型的相似性<a class="anchor ms-1" href="#结构体类型和普通类型的相似性"></a></h3>
+<p>结构体变量的声明和定义与普通类型声明和定义相似</p>
+<p>例如：</p>
+<p>对整形类型变量的声明和定义：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">b</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="o">*</span><span class="n">c</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="o">*</span><span class="n">d</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+</span></span></code></pre></div><p>相似的，对结构体类型变量的声明和定义：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">student</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">sex</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">job</span><span class="p">[</span><span class="mi">40</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">address</span><span class="p">[</span><span class="mi">40</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">student</span> <span class="n">stu1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">student</span> <span class="n">stu2</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">student</span> <span class="o">*</span><span class="n">p1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">student</span> <span class="o">*</span><span class="n">p2</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span><span class="c1">//数组指针
+</span></span></span></code></pre></div>
+<h3 id="应用例链表" data-numberify>应用例：链表<a class="anchor ms-1" href="#应用例链表"></a></h3>
+<p>链表是一种特殊的线性表，它不是连续存储的，而是由一系列的结点组成，每个结点包含一个数据元素和指向下一个结点的指针。</p>
+
+<h4 id="创建链表" data-numberify>创建链表<a class="anchor ms-1" href="#创建链表"></a></h4>
+<p>一般步骤：</p>
+<blockquote>
+<p>定义链表的数据结构<br>
+定义头节点，置指针域为空，表示创建了一个空表<br>
+申请一个结点储存单元<br>
+将新结点的指针成员设为空。若是空表将新结点接到表头，若是非空表，将新结点接到表尾<br>
+循环，直到无新结点需要接入</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">student</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="n">student</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">student</span> <span class="o">*</span><span class="nf">create</span><span class="p">(</span><span class="k">struct</span> <span class="n">student</span> <span class="o">*</span><span class="n">head</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></div>
 </div>
 <div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -968,6 +1027,8 @@ Falling_MY
         <li><a href="#结构体数组">结构体数组</a></li>
         <li><a href="#指向结构体变量的指针">指向结构体变量的指针</a></li>
         <li><a href="#结构体与函数">结构体与函数</a></li>
+        <li><a href="#结构体类型和普通类型的相似性">结构体类型和普通类型的相似性</a></li>
+        <li><a href="#应用例链表">应用例：链表</a></li>
       </ul>
     </li>
   </ul>

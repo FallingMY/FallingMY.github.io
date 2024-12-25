@@ -27,8 +27,8 @@
 
   <meta itemprop="name" content="Docs">
   <meta itemprop="description" content="An extreme fast, responsive and feature-rich blog theme for Hugo">
-  <meta itemprop="datePublished" content="2024-12-11T09:54:05+08:00">
-  <meta itemprop="dateModified" content="2024-12-11T09:54:05+08:00">
+  <meta itemprop="datePublished" content="2024-12-23T08:55:34+08:00">
+  <meta itemprop="dateModified" content="2024-12-23T08:55:34+08:00">
   <meta property="og:image" content="https://fallingmy.github.io/images/icon.png"/>
   <meta name="twitter:image" content="https://fallingmy.github.io/images/icon.png"/>
   <meta property="og:image:alt" content="Docs" />
@@ -468,6 +468,9 @@ Falling_MY
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/c/pointer/"><span class="docs-nav-title">指针</span></a>
         </li>
         <li class="mb-2 py-1" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/c/file_c/"><span class="docs-nav-title">文件</span></a>
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/c/tree_1/"><span class="docs-nav-title">树与二叉树</span></a>
         </li>
         <li class="mb-2 py-1" tabindex="-1">
@@ -549,11 +552,38 @@ Falling_MY
 </div><div class="posts mb-4"><article class="row card post component">
   <div class="card-header">
     <h2 class="card-title post-title my-2 fs-4">
+      <a href="/docs/notes/c/file_c/">文件</a>
+    </h2>
+  </div>
+  <div class="card-body"><div class="post-meta mb-3">
+  <span class="post-date me-1 mb-1" title="created on 2024-12-23 08:55:34 &#43;0800 CST.">December 23, 2024</span><span class="post-reading-time me-1 mb-1">2 min read</span><a href="/series/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
+      <i class="fas fa-fw fa-columns me-1"></i>课堂笔记</a>
+</div>
+
+    <div class="post-summary"><p>C语言文件有两种储存类型
+文本文件
+储存量大 读写慢 便于对字符操作 存储格式：ASCII
+二进制文件
+储存小 速度快 便于存储中间结果 存储格式：二进制
+文件系统 C语言中使用的磁盘文件系统有两大类
+缓冲文件系统 特点是系统自动将文件的一部分内容读入内存，再由内存对文件进行操作。
+非缓冲文件系统 特点是系统直接对文件进行操作。
+文件的使用 在使用文件前，必须包含头文件&lt;stdio.h&gt;
+ANSI C为正在使用的每个文件分配了一个文件系统，该文件系统包含文件的有关信息。
+类型为FILE的变量称为文件指针变量。
+文件结构体如下：
+typedef struct{ short level;//缓冲区的当前级别 unsigned...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/notes/c/file_c/">Read More</a></div>
+    </div>
+  </div>
+</article>
+<article class="row card post component">
+  <div class="card-header">
+    <h2 class="card-title post-title my-2 fs-4">
       <a href="/docs/notes/c/structure_1/">结构体与共用体</a>
     </h2>
   </div>
   <div class="card-body"><div class="post-meta mb-3">
-  <span class="post-date me-1 mb-1" title="created on 2024-12-11 09:54:05 &#43;0800 CST.">December 11, 2024</span><span class="post-reading-time me-1 mb-1">1 min read</span><a href="/series/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
+  <span class="post-date me-1 mb-1" title="created on 2024-12-11 09:54:05 &#43;0800 CST.">December 11, 2024</span><span class="post-reading-time me-1 mb-1">2 min read</span><a href="/series/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
       <i class="fas fa-fw fa-columns me-1"></i>课堂笔记</a>
 </div>
 
@@ -746,28 +776,6 @@ e.g. 2...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="
 算法 官方定义
 算法是一系列规定的计算步骤，为了实现特定的计算目的
 </p>
-    </div>
-  </div>
-</article>
-<article class="row card post component">
-  <div class="card-header">
-    <h2 class="card-title post-title my-2 fs-4">
-      <a href="/docs/%E5%85%B3%E4%BA%8E%E5%AD%A6%E5%88%86%E7%BB%A9%E7%82%B9%E4%BB%A5%E5%8F%8Agpa/">关于学分、绩点以及GPA</a>
-    </h2>
-  </div>
-  <div class="card-body"><div class="post-meta mb-3">
-  <span class="post-date me-1 mb-1" title="created on 2024-09-02 09:34:47 &#43;0800 CST.">September 2, 2024</span><span class="post-reading-time me-1 mb-1">8 min read</span><a href="/authors/falling_my/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-author">
-      <i class="fas fa-fw fa-user me-1"></i>Falling_MY</a><a href="/tags/university/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">University</a>
-</div>
-
-    <div class="post-summary"><p> 写在前面 本文内容量较大，请结合大纲跳转功能使用
-学分 知乎解释 学分是一种用于计算学生学习量的计量单位，按学期计算，每门课程及实践环节的具体学分数以专业教学计划的规定为准。通过考核，成绩合格方可取得该课程学分。每一门课程都有一定的学分，只有通过这门课的考试，才能获得相应的学分，也只有学分积累到专业要后才能毕业。
-你♥对学分的解释 学分是学生学习量的计量单位，原则上规定:
-理论课16学时为1学分
-体育及实验课32学时为1学分
-集中性实践教学环节1周为1学分
-官方文档 总结一下 完成课程，并在考试/考查中获得60分以上/D评级就可以获得相应的学分，积累到一定学分即可拿到毕业证
-南信大要求学生选课应从个人实际出发，首先保证必修课，再选...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/%E5%85%B3%E4%BA%8E%E5%AD%A6%E5%88%86%E7%BB%A9%E7%82%B9%E4%BB%A5%E5%8F%8Agpa/">Read More</a></div>
     </div>
   </div>
 </article>

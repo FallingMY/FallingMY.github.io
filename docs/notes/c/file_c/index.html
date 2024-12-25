@@ -4,7 +4,7 @@
   <head><script src="/assets/init/bundle.min.647e8c2258b0a4b0b587a89b58c84e499a68697942dea2178620c90d934a4ee1.js" integrity="sha256-ZH6MIliwpLC1h6ibWMhOSZpoaXlC3qIXhiDJDZNKTuE=" crossorigin="anonymous"></script>
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>串 - Falling_Studio_Terminal3</title>
+    <title>文件 - Falling_Studio_Terminal3</title>
     <link rel="icon" href="/favicon_hu4694133314791059470.png" sizes="16x16" type="image/png">
     <link rel="icon" href="/favicon_hu1114292297158002801.png" sizes="32x32" type="image/png">
     <link rel="icon" href="/favicon_hu15156048902608200372.png" sizes="150x150" type="image/png">
@@ -12,137 +12,225 @@
     <link rel="icon" href="/favicon_hu12185621123592544675.png" sizes="192x192" type="image/png">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6f42c1">
 <meta name="keywords" content="Hugo, Bootstrap, Blog Theme" />
-  <meta name="description" content="串，及字符串，是由零个或多个字符组成的有限序列。一般记为：
-$$ S = &lsquo;a_1a_2a_3&hellip;a_n&rsquo; (n&gt;0)$$
-串是一种特殊的线性表，数据元素之间呈线性关系。
-串的数据对象是字符的有限序列。
+  <meta name="description" content="C语言文件有两种储存类型
+文本文件
 
-串的基本操作
+储存量大
+读写慢
+便于对字符操作
+存储格式：ASCII
 
-StrAssign(&amp;T, chars) 赋值操作，把串T赋值为chars
-StrCopy(&amp;T, S) 复制操作，把串S复制给串T
-StrEmpty(S) 判空操作，若S为空串，则返回true，否则返回false
-StrLength(S) 求串长，返回串S的元素个数
-ClearString(&amp;S) 清空操作，将S清空
-DestroyString(&amp;S) 销毁串，将串S销毁
-Concat(&amp;T, S1, S2) 串联接，用T返回由S1和S2联接而成的新串
-SubString(&amp;Sub, S, pos, len) 求子串，用Sub返回串S的第pos个字符起长度为len的子串
-Index(S, T, pos) 定位操作，若主串S中存在与串T值相同的子串，则返回它在主串S中第pos个字符之后第一次出现的位置，否则函数值为0
-StrCompare(S, T) 比较操作，若S&gt;T，则返回值&gt;0，若S=T，则返回值=0，若S&lt;T，则返回值&lt;0
+二进制文件
+
+储存小
+速度快
+便于存储中间结果
+存储格式：二进制
 
 
-串的存储结构
+文件系统
+C语言中使用的磁盘文件系统有两大类
 
-串的顺序存储结构
-顺序存储都是一个字符串数组&#43;串长度，分为
+缓冲文件系统
+特点是系统自动将文件的一部分内容读入内存，再由内存对文件进行操作。
 
-静态数组实现（定长顺序存储）： 栈区，数组长度固定
-动态数组实现（堆分配存储）： 堆区，数组长度可变
+非缓冲文件系统
+特点是系统直接对文件进行操作。
 
-char[0]一般不使用，从char[1]开始存储。
-因为在C语言中，字符串是以&rsquo;\0&rsquo;结尾的，所以char[0]存储的是字符串的长度。
-//Power by Marscode
-//静态数组实现：按预定义MAXLEN在栈区开辟储存区
-#define MAXSIZE 255
+文件的使用
+在使用文件前，必须包含头文件&lt;stdio.h&gt;
+ANSI C为正在使用的每个文件分配了一个文件系统，该文件系统包含文件的有关信息。
+类型为FILE的变量称为文件指针变量。
+文件结构体如下：
 typedef struct{
-    char ch[MAXSIZE];
-    int length;
-}StringNode;
-//Power by Marscode
-//动态数组实现：按串场在堆区开辟储存区，ch指向串的基地址，用完需要手动删除指针
-typedef struct{
-    char *ch;
-    int length;
-}HString;
-HString S;
-S.ch = new char[MAXSIZE];//在堆区开辟空间, 用完需要手动删除指针
-S.length = 0;
-
-串的链式存储结构
-//Power by Marscode
-//结点结构和串结构：每个节点存多个字符
-typedef struct StringNode{
-    char ch[4];
-    struct StringNode* next;
-}StringNode, *String;
-
-串基本操作的实现
-//求子串
-bool SubString(StringNode &amp;Sub, StringNode S, int pos, int len){
-    if(pos &#43; len - 1 &gt; S.length){
-        return false;
-    }//子串范围越界
-
-    for(int i = pos; i &lt; pos &#43; len; i&#43;&#43;){
-        Sub.ch[i - pos &#43; 1] = S.ch[i];
-    }//子串赋值
-    Sub.length = len;
-    return true;
+    short level;//缓冲区的当前级别
+    unsigned flags;//文件状态标志
+    char fd;//文件描述符
+    unsigned char hold;//未使用
+    short bsize;//缓冲区的大小
+    unsigned char *buffer;//数据传输缓冲区的位置
+    unsigned ar;//文件的当前读写位置
+    unsigned istemp;//临时文件指示器
+    short token;//用于有效性检查
+}FILE;
+文件使用示例：
+FILE *fp = fopen(&#34;path\\file.txt&#34;, &#34;w&#34;);
+if (fp == NULL) {
+    printf(&#34;文件打开失败\n&#34;);
+} else {
+    printf(&#34;文件打开成功\n&#34;);
+    fprintf(fp, &#34;Hello, world!\n&#34;);
+    fclose(fp);
 }
+文件打开时使用的路径可以使用相对路径或绝对路径。
+相对路径：从当前工作目录开始的路径。灵活，可移植性好
+绝对路径：从根目录开始的路径。方便，可移植性差
 
-//定位操作
-int Index(StringNode S, StringNode T, int pos){
-    int i = pos;
-    int j = 1;
-    while(i &lt;= S.length &amp;&amp; j &lt;= T.length){
-        if(S.ch[i] == T.ch[j]){
-            &#43;&#43;i;
-            &#43;&#43;j;
-        }else{
-            i = i - j &#43; 2;
-            j = 1;
-        }
-    }
-    if(j &gt; T.length){
-        return i - T.length;
-    }else{
-        return 0;
-    }
-}
+文件打开模式
 
-字符串模式匹配
+  
+      
+          模式
+          功能
+      
+  
+  
+      
+          r
+          打开一个已有的文本文件，允许读取文件
+      
+      
+          w
+          打开一个文本文件，允许写入文件。如果文件不存在，则会创建一个新文件。如果文件已存在，则会截断文件，即删除文件中的所有内容
+      
+      
+          a
+          打开一个文本文件，以追加模式写入文件。如果文件不存在，则会创建一个新文件。如果文件已存在，则会将写入的数据追加到文件的末尾
+      
+      
+          r&#43;
+          打开一个文本文件，允许读写文件
+      
+      
+          w&#43;
+          打开一个文本文件，允许读写文件。如果文件不存在，则会创建一个新文件。如果文件已存在，则会截断文件，即删除文件中的所有内容
+      
+      
+          a&#43;
+          打开一个文本文件，允许读写文件。如果文件不存在，则会创建一个新文件。如果文件已存在，则会将写入的数据追加到文件的末尾
+      
+      
+          rb
+          打开一个二进制文件，允许读取文件
+      
+  
 
-朴素模式匹配算法
-一旦发现不匹配的字符，就回溯到主串的下一个字符，从模式串的第一个字符重新开始匹配。" />
+
+文件操作
+
+  
+      
+          函数
+          功能
+      
+  
+  
+      
+          fopen
+          打开一个文件
+      
+      
+          fclose
+          关闭一个文件
+      
+      
+          fgetc
+          从文件中读取一个字符
+      
+      
+          fputc
+          向文件中写入一个字符
+      
+      
+          fgets
+          从文件中读取一个字符串
+      
+      
+          fputs
+          向文件中写入一个字符串
+      
+      
+          fprintf
+          向文件中格式化写入数据
+      
+      
+          fscanf
+          从文件中格式化读取数据
+      
+      
+          feof
+          检测文件是否到达末尾
+      
+  
+
+
+fgets函数
+fgets函数的原型如下：" />
     <meta name="robots" content="index, follow" />
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="串">
-  <meta name="twitter:description" content="串，及字符串，是由零个或多个字符组成的有限序列。一般记为： $$ S = ‘a_1a_2a_3…a_n’ (n&gt;0)$$
-串是一种特殊的线性表，数据元素之间呈线性关系。 串的数据对象是字符的有限序列。
-串的基本操作 StrAssign(&amp;T, chars) 赋值操作，把串T赋值为chars StrCopy(&amp;T, S) 复制操作，把串S复制给串T StrEmpty(S) 判空操作，若S为空串，则返回true，否则返回false StrLength(S) 求串长，返回串S的元素个数 ClearString(&amp;S) 清空操作，将S清空 DestroyString(&amp;S) 销毁串，将串S销毁 Concat(&amp;T, S1, S2) 串联接，用T返回由S1和S2联接而成的新串 SubString(&amp;Sub, S, pos, len) 求子串，用Sub返回串S的第pos个字符起长度为len的子串 Index(S, T, pos) 定位操作，若主串S中存在与串T值相同的子串，则返回它在主串S中第pos个字符之后第一次出现的位置，否则函数值为0 StrCompare(S, T) 比较操作，若S&gt;T，则返回值&gt;0，若S=T，则返回值=0，若S&lt;T，则返回值&lt;0 串的存储结构 串的顺序存储结构 顺序存储都是一个字符串数组&#43;串长度，分为
-静态数组实现（定长顺序存储）： 栈区，数组长度固定 动态数组实现（堆分配存储）： 堆区，数组长度可变 char[0]一般不使用，从char[1]开始存储。 因为在C语言中，字符串是以’\0’结尾的，所以char[0]存储的是字符串的长度。
-//Power by Marscode //静态数组实现：按预定义MAXLEN在栈区开辟储存区 #define MAXSIZE 255 typedef struct{ char ch[MAXSIZE]; int length; }StringNode; //Power by Marscode //动态数组实现：按串场在堆区开辟储存区，ch指向串的基地址，用完需要手动删除指针 typedef struct{ char *ch; int length; }HString; HString S; S.ch = new char[MAXSIZE];//在堆区开辟空间, 用完需要手动删除指针 S.length = 0; 串的链式存储结构 //Power by Marscode //结点结构和串结构：每个节点存多个字符 typedef struct StringNode{ char ch[4]; struct StringNode* next; }StringNode, *String; 串基本操作的实现 //求子串 bool SubString(StringNode &amp;Sub, StringNode S, int pos, int len){ if(pos &#43; len - 1 &gt; S.length){ return false; }//子串范围越界 for(int i = pos; i &lt; pos &#43; len; i&#43;&#43;){ Sub.ch[i - pos &#43; 1] = S.ch[i]; }//子串赋值 Sub.length = len; return true; } //定位操作 int Index(StringNode S, StringNode T, int pos){ int i = pos; int j = 1; while(i &lt;= S.length &amp;&amp; j &lt;= T.length){ if(S.ch[i] == T.ch[j]){ &#43;&#43;i; &#43;&#43;j; }else{ i = i - j &#43; 2; j = 1; } } if(j &gt; T.length){ return i - T.length; }else{ return 0; } } 字符串模式匹配 朴素模式匹配算法 一旦发现不匹配的字符，就回溯到主串的下一个字符，从模式串的第一个字符重新开始匹配。">
+  <meta name="twitter:title" content="文件">
+  <meta name="twitter:description" content="C语言文件有两种储存类型
+文本文件
+储存量大 读写慢 便于对字符操作 存储格式：ASCII
+二进制文件
+储存小 速度快 便于存储中间结果 存储格式：二进制
+文件系统 C语言中使用的磁盘文件系统有两大类
+缓冲文件系统 特点是系统自动将文件的一部分内容读入内存，再由内存对文件进行操作。
+非缓冲文件系统 特点是系统直接对文件进行操作。
+文件的使用 在使用文件前，必须包含头文件&lt;stdio.h&gt;
+ANSI C为正在使用的每个文件分配了一个文件系统，该文件系统包含文件的有关信息。
+类型为FILE的变量称为文件指针变量。
+文件结构体如下：
+typedef struct{ short level;//缓冲区的当前级别 unsigned flags;//文件状态标志 char fd;//文件描述符 unsigned char hold;//未使用 short bsize;//缓冲区的大小 unsigned char *buffer;//数据传输缓冲区的位置 unsigned ar;//文件的当前读写位置 unsigned istemp;//临时文件指示器 short token;//用于有效性检查 }FILE; 文件使用示例：
+FILE *fp = fopen(&#34;path\\file.txt&#34;, &#34;w&#34;); if (fp == NULL) { printf(&#34;文件打开失败\n&#34;); } else { printf(&#34;文件打开成功\n&#34;); fprintf(fp, &#34;Hello, world!\n&#34;); fclose(fp); } 文件打开时使用的路径可以使用相对路径或绝对路径。
+相对路径：从当前工作目录开始的路径。灵活，可移植性好
+绝对路径：从根目录开始的路径。方便，可移植性差
+文件打开模式 模式 功能 r 打开一个已有的文本文件，允许读取文件 w 打开一个文本文件，允许写入文件。如果文件不存在，则会创建一个新文件。如果文件已存在，则会截断文件，即删除文件中的所有内容 a 打开一个文本文件，以追加模式写入文件。如果文件不存在，则会创建一个新文件。如果文件已存在，则会将写入的数据追加到文件的末尾 r&#43; 打开一个文本文件，允许读写文件 w&#43; 打开一个文本文件，允许读写文件。如果文件不存在，则会创建一个新文件。如果文件已存在，则会截断文件，即删除文件中的所有内容 a&#43; 打开一个文本文件，允许读写文件。如果文件不存在，则会创建一个新文件。如果文件已存在，则会将写入的数据追加到文件的末尾 rb 打开一个二进制文件，允许读取文件 文件操作 函数 功能 fopen 打开一个文件 fclose 关闭一个文件 fgetc 从文件中读取一个字符 fputc 向文件中写入一个字符 fgets 从文件中读取一个字符串 fputs 向文件中写入一个字符串 fprintf 向文件中格式化写入数据 fscanf 从文件中格式化读取数据 feof 检测文件是否到达末尾 fgets函数 fgets函数的原型如下：">
       <meta name="twitter:site" content="@Falling_Studio_">
-<meta property="og:url" content="https://fallingmy.github.io/docs/notes/dsa/string_1/">
+<meta property="og:url" content="https://fallingmy.github.io/docs/notes/c/file_c/">
   <meta property="og:site_name" content="Falling_Studio_Terminal3">
-  <meta property="og:title" content="串">
-  <meta property="og:description" content="串，及字符串，是由零个或多个字符组成的有限序列。一般记为： $$ S = ‘a_1a_2a_3…a_n’ (n&gt;0)$$
-串是一种特殊的线性表，数据元素之间呈线性关系。 串的数据对象是字符的有限序列。
-串的基本操作 StrAssign(&amp;T, chars) 赋值操作，把串T赋值为chars StrCopy(&amp;T, S) 复制操作，把串S复制给串T StrEmpty(S) 判空操作，若S为空串，则返回true，否则返回false StrLength(S) 求串长，返回串S的元素个数 ClearString(&amp;S) 清空操作，将S清空 DestroyString(&amp;S) 销毁串，将串S销毁 Concat(&amp;T, S1, S2) 串联接，用T返回由S1和S2联接而成的新串 SubString(&amp;Sub, S, pos, len) 求子串，用Sub返回串S的第pos个字符起长度为len的子串 Index(S, T, pos) 定位操作，若主串S中存在与串T值相同的子串，则返回它在主串S中第pos个字符之后第一次出现的位置，否则函数值为0 StrCompare(S, T) 比较操作，若S&gt;T，则返回值&gt;0，若S=T，则返回值=0，若S&lt;T，则返回值&lt;0 串的存储结构 串的顺序存储结构 顺序存储都是一个字符串数组&#43;串长度，分为
-静态数组实现（定长顺序存储）： 栈区，数组长度固定 动态数组实现（堆分配存储）： 堆区，数组长度可变 char[0]一般不使用，从char[1]开始存储。 因为在C语言中，字符串是以’\0’结尾的，所以char[0]存储的是字符串的长度。
-//Power by Marscode //静态数组实现：按预定义MAXLEN在栈区开辟储存区 #define MAXSIZE 255 typedef struct{ char ch[MAXSIZE]; int length; }StringNode; //Power by Marscode //动态数组实现：按串场在堆区开辟储存区，ch指向串的基地址，用完需要手动删除指针 typedef struct{ char *ch; int length; }HString; HString S; S.ch = new char[MAXSIZE];//在堆区开辟空间, 用完需要手动删除指针 S.length = 0; 串的链式存储结构 //Power by Marscode //结点结构和串结构：每个节点存多个字符 typedef struct StringNode{ char ch[4]; struct StringNode* next; }StringNode, *String; 串基本操作的实现 //求子串 bool SubString(StringNode &amp;Sub, StringNode S, int pos, int len){ if(pos &#43; len - 1 &gt; S.length){ return false; }//子串范围越界 for(int i = pos; i &lt; pos &#43; len; i&#43;&#43;){ Sub.ch[i - pos &#43; 1] = S.ch[i]; }//子串赋值 Sub.length = len; return true; } //定位操作 int Index(StringNode S, StringNode T, int pos){ int i = pos; int j = 1; while(i &lt;= S.length &amp;&amp; j &lt;= T.length){ if(S.ch[i] == T.ch[j]){ &#43;&#43;i; &#43;&#43;j; }else{ i = i - j &#43; 2; j = 1; } } if(j &gt; T.length){ return i - T.length; }else{ return 0; } } 字符串模式匹配 朴素模式匹配算法 一旦发现不匹配的字符，就回溯到主串的下一个字符，从模式串的第一个字符重新开始匹配。">
+  <meta property="og:title" content="文件">
+  <meta property="og:description" content="C语言文件有两种储存类型
+文本文件
+储存量大 读写慢 便于对字符操作 存储格式：ASCII
+二进制文件
+储存小 速度快 便于存储中间结果 存储格式：二进制
+文件系统 C语言中使用的磁盘文件系统有两大类
+缓冲文件系统 特点是系统自动将文件的一部分内容读入内存，再由内存对文件进行操作。
+非缓冲文件系统 特点是系统直接对文件进行操作。
+文件的使用 在使用文件前，必须包含头文件&lt;stdio.h&gt;
+ANSI C为正在使用的每个文件分配了一个文件系统，该文件系统包含文件的有关信息。
+类型为FILE的变量称为文件指针变量。
+文件结构体如下：
+typedef struct{ short level;//缓冲区的当前级别 unsigned flags;//文件状态标志 char fd;//文件描述符 unsigned char hold;//未使用 short bsize;//缓冲区的大小 unsigned char *buffer;//数据传输缓冲区的位置 unsigned ar;//文件的当前读写位置 unsigned istemp;//临时文件指示器 short token;//用于有效性检查 }FILE; 文件使用示例：
+FILE *fp = fopen(&#34;path\\file.txt&#34;, &#34;w&#34;); if (fp == NULL) { printf(&#34;文件打开失败\n&#34;); } else { printf(&#34;文件打开成功\n&#34;); fprintf(fp, &#34;Hello, world!\n&#34;); fclose(fp); } 文件打开时使用的路径可以使用相对路径或绝对路径。
+相对路径：从当前工作目录开始的路径。灵活，可移植性好
+绝对路径：从根目录开始的路径。方便，可移植性差
+文件打开模式 模式 功能 r 打开一个已有的文本文件，允许读取文件 w 打开一个文本文件，允许写入文件。如果文件不存在，则会创建一个新文件。如果文件已存在，则会截断文件，即删除文件中的所有内容 a 打开一个文本文件，以追加模式写入文件。如果文件不存在，则会创建一个新文件。如果文件已存在，则会将写入的数据追加到文件的末尾 r&#43; 打开一个文本文件，允许读写文件 w&#43; 打开一个文本文件，允许读写文件。如果文件不存在，则会创建一个新文件。如果文件已存在，则会截断文件，即删除文件中的所有内容 a&#43; 打开一个文本文件，允许读写文件。如果文件不存在，则会创建一个新文件。如果文件已存在，则会将写入的数据追加到文件的末尾 rb 打开一个二进制文件，允许读取文件 文件操作 函数 功能 fopen 打开一个文件 fclose 关闭一个文件 fgetc 从文件中读取一个字符 fputc 向文件中写入一个字符 fgets 从文件中读取一个字符串 fputs 向文件中写入一个字符串 fprintf 向文件中格式化写入数据 fscanf 从文件中格式化读取数据 feof 检测文件是否到达末尾 fgets函数 fgets函数的原型如下：">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:published_time" content="2024-11-23T11:39:07+08:00">
-    <meta property="article:modified_time" content="2024-11-23T11:39:07+08:00">
-      <meta property="og:see_also" content="https://fallingmy.github.io/docs/notes/dsa/queue/">
-      <meta property="og:see_also" content="https://fallingmy.github.io/docs/notes/dsa/staker_1/">
+    <meta property="article:published_time" content="2024-12-23T08:55:34+08:00">
+    <meta property="article:modified_time" content="2024-12-23T08:55:34+08:00">
+      <meta property="og:see_also" content="https://fallingmy.github.io/docs/notes/c/structure_1/">
+      <meta property="og:see_also" content="https://fallingmy.github.io/docs/notes/c/pointer/">
 
-  <meta itemprop="name" content="串">
-  <meta itemprop="description" content="串，及字符串，是由零个或多个字符组成的有限序列。一般记为： $$ S = ‘a_1a_2a_3…a_n’ (n&gt;0)$$
-串是一种特殊的线性表，数据元素之间呈线性关系。 串的数据对象是字符的有限序列。
-串的基本操作 StrAssign(&amp;T, chars) 赋值操作，把串T赋值为chars StrCopy(&amp;T, S) 复制操作，把串S复制给串T StrEmpty(S) 判空操作，若S为空串，则返回true，否则返回false StrLength(S) 求串长，返回串S的元素个数 ClearString(&amp;S) 清空操作，将S清空 DestroyString(&amp;S) 销毁串，将串S销毁 Concat(&amp;T, S1, S2) 串联接，用T返回由S1和S2联接而成的新串 SubString(&amp;Sub, S, pos, len) 求子串，用Sub返回串S的第pos个字符起长度为len的子串 Index(S, T, pos) 定位操作，若主串S中存在与串T值相同的子串，则返回它在主串S中第pos个字符之后第一次出现的位置，否则函数值为0 StrCompare(S, T) 比较操作，若S&gt;T，则返回值&gt;0，若S=T，则返回值=0，若S&lt;T，则返回值&lt;0 串的存储结构 串的顺序存储结构 顺序存储都是一个字符串数组&#43;串长度，分为
-静态数组实现（定长顺序存储）： 栈区，数组长度固定 动态数组实现（堆分配存储）： 堆区，数组长度可变 char[0]一般不使用，从char[1]开始存储。 因为在C语言中，字符串是以’\0’结尾的，所以char[0]存储的是字符串的长度。
-//Power by Marscode //静态数组实现：按预定义MAXLEN在栈区开辟储存区 #define MAXSIZE 255 typedef struct{ char ch[MAXSIZE]; int length; }StringNode; //Power by Marscode //动态数组实现：按串场在堆区开辟储存区，ch指向串的基地址，用完需要手动删除指针 typedef struct{ char *ch; int length; }HString; HString S; S.ch = new char[MAXSIZE];//在堆区开辟空间, 用完需要手动删除指针 S.length = 0; 串的链式存储结构 //Power by Marscode //结点结构和串结构：每个节点存多个字符 typedef struct StringNode{ char ch[4]; struct StringNode* next; }StringNode, *String; 串基本操作的实现 //求子串 bool SubString(StringNode &amp;Sub, StringNode S, int pos, int len){ if(pos &#43; len - 1 &gt; S.length){ return false; }//子串范围越界 for(int i = pos; i &lt; pos &#43; len; i&#43;&#43;){ Sub.ch[i - pos &#43; 1] = S.ch[i]; }//子串赋值 Sub.length = len; return true; } //定位操作 int Index(StringNode S, StringNode T, int pos){ int i = pos; int j = 1; while(i &lt;= S.length &amp;&amp; j &lt;= T.length){ if(S.ch[i] == T.ch[j]){ &#43;&#43;i; &#43;&#43;j; }else{ i = i - j &#43; 2; j = 1; } } if(j &gt; T.length){ return i - T.length; }else{ return 0; } } 字符串模式匹配 朴素模式匹配算法 一旦发现不匹配的字符，就回溯到主串的下一个字符，从模式串的第一个字符重新开始匹配。">
-  <meta itemprop="datePublished" content="2024-11-23T11:39:07+08:00">
-  <meta itemprop="dateModified" content="2024-11-23T11:39:07+08:00">
-  <meta itemprop="wordCount" content="207">
-  <meta itemprop="keywords" content="Falling_MY,竞赛培训课笔记">
+  <meta itemprop="name" content="文件">
+  <meta itemprop="description" content="C语言文件有两种储存类型
+文本文件
+储存量大 读写慢 便于对字符操作 存储格式：ASCII
+二进制文件
+储存小 速度快 便于存储中间结果 存储格式：二进制
+文件系统 C语言中使用的磁盘文件系统有两大类
+缓冲文件系统 特点是系统自动将文件的一部分内容读入内存，再由内存对文件进行操作。
+非缓冲文件系统 特点是系统直接对文件进行操作。
+文件的使用 在使用文件前，必须包含头文件&lt;stdio.h&gt;
+ANSI C为正在使用的每个文件分配了一个文件系统，该文件系统包含文件的有关信息。
+类型为FILE的变量称为文件指针变量。
+文件结构体如下：
+typedef struct{ short level;//缓冲区的当前级别 unsigned flags;//文件状态标志 char fd;//文件描述符 unsigned char hold;//未使用 short bsize;//缓冲区的大小 unsigned char *buffer;//数据传输缓冲区的位置 unsigned ar;//文件的当前读写位置 unsigned istemp;//临时文件指示器 short token;//用于有效性检查 }FILE; 文件使用示例：
+FILE *fp = fopen(&#34;path\\file.txt&#34;, &#34;w&#34;); if (fp == NULL) { printf(&#34;文件打开失败\n&#34;); } else { printf(&#34;文件打开成功\n&#34;); fprintf(fp, &#34;Hello, world!\n&#34;); fclose(fp); } 文件打开时使用的路径可以使用相对路径或绝对路径。
+相对路径：从当前工作目录开始的路径。灵活，可移植性好
+绝对路径：从根目录开始的路径。方便，可移植性差
+文件打开模式 模式 功能 r 打开一个已有的文本文件，允许读取文件 w 打开一个文本文件，允许写入文件。如果文件不存在，则会创建一个新文件。如果文件已存在，则会截断文件，即删除文件中的所有内容 a 打开一个文本文件，以追加模式写入文件。如果文件不存在，则会创建一个新文件。如果文件已存在，则会将写入的数据追加到文件的末尾 r&#43; 打开一个文本文件，允许读写文件 w&#43; 打开一个文本文件，允许读写文件。如果文件不存在，则会创建一个新文件。如果文件已存在，则会截断文件，即删除文件中的所有内容 a&#43; 打开一个文本文件，允许读写文件。如果文件不存在，则会创建一个新文件。如果文件已存在，则会将写入的数据追加到文件的末尾 rb 打开一个二进制文件，允许读取文件 文件操作 函数 功能 fopen 打开一个文件 fclose 关闭一个文件 fgetc 从文件中读取一个字符 fputc 向文件中写入一个字符 fgets 从文件中读取一个字符串 fputs 向文件中写入一个字符串 fprintf 向文件中格式化写入数据 fscanf 从文件中格式化读取数据 feof 检测文件是否到达末尾 fgets函数 fgets函数的原型如下：">
+  <meta itemprop="datePublished" content="2024-12-23T08:55:34+08:00">
+  <meta itemprop="dateModified" content="2024-12-23T08:55:34+08:00">
+  <meta itemprop="wordCount" content="218">
+  <meta itemprop="keywords" content="课堂笔记">
   <meta property="og:image" content="https://fallingmy.github.io/images/icon.png"/>
   <meta name="twitter:image" content="https://fallingmy.github.io/images/icon.png"/>
-  <meta property="og:image:alt" content="串" />
-  <meta name="twitter:image:alt" content="串" />
+  <meta property="og:image:alt" content="文件" />
+  <meta name="twitter:image:alt" content="文件" />
   <link rel="manifest" href="/manifest.json">
 
 <link data-precache rel="stylesheet" href="/assets/main/bundle.min.2dd76753333d9b25dab6c91fca6760d2357c69d50c90ae48ccc84823b7da7500.css" integrity="sha256-LddnUzM9myXatskfymdg0jV8adUMkK5IzMhII7fadQA=" crossorigin="anonymous">
@@ -564,20 +652,20 @@ Falling_MY
           <div class="docs-nav-subnavs border-start mt-2 collapse  show" id="nav-3fc5f5a13d5a7ed99b268197524af708">
             <div class="btn-toggle-nav fw-normal ms-2 small">
               <ul class="list-unstyled mb-2 w-100"><li class="mb-2" tabindex="-1">
-          <div class="py-1 d-flex justify-content-between align-items-center">
+          <div class="py-1 d-flex justify-content-between align-items-center text-primary">
             <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/c/"><span class="docs-nav-title">C语言</span></a>
-            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
-              data-bs-target="#nav-a59f17cafa65e8265e3b41e0d42275aa" aria-expanded="false" aria-controls="nav-a59f17cafa65e8265e3b41e0d42275aa">
+            <a class="btn-toggle ms-1" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-a59f17cafa65e8265e3b41e0d42275aa" aria-expanded="true" aria-controls="nav-a59f17cafa65e8265e3b41e0d42275aa">
               <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
             </a>
           </div>
-          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-a59f17cafa65e8265e3b41e0d42275aa">
+          <div class="docs-nav-subnavs border-start mt-2 collapse  show" id="nav-a59f17cafa65e8265e3b41e0d42275aa">
             <div class="btn-toggle-nav fw-normal ms-2 small">
               <ul class="list-unstyled mb-2 w-100">
         <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/c/pointer/"><span class="docs-nav-title">指针</span></a>
         </li>
-        <li class="mb-2 py-1" tabindex="-1">
+        <li class="mb-2 py-1 text-primary border-2 border-start border-primary ps-2 docs-nav-active-item" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/c/file_c/"><span class="docs-nav-title">文件</span></a>
         </li>
         <li class="mb-2 py-1" tabindex="-1">
@@ -589,14 +677,14 @@ Falling_MY
             </div>
           </div>
         </li><li class="mb-2" tabindex="-1">
-          <div class="py-1 d-flex justify-content-between align-items-center text-primary">
+          <div class="py-1 d-flex justify-content-between align-items-center">
             <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/"><span class="docs-nav-title">数据结构与算法</span></a>
-            <a class="btn-toggle ms-1" role="button" data-bs-toggle="collapse"
-              data-bs-target="#nav-adfea214110dfdde1358c99694432487" aria-expanded="true" aria-controls="nav-adfea214110dfdde1358c99694432487">
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-adfea214110dfdde1358c99694432487" aria-expanded="false" aria-controls="nav-adfea214110dfdde1358c99694432487">
               <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
             </a>
           </div>
-          <div class="docs-nav-subnavs border-start mt-2 collapse  show" id="nav-adfea214110dfdde1358c99694432487">
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-adfea214110dfdde1358c99694432487">
             <div class="btn-toggle-nav fw-normal ms-2 small">
               <ul class="list-unstyled mb-2 w-100">
         <li class="mb-2 py-1" tabindex="-1">
@@ -605,7 +693,7 @@ Falling_MY
         <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/2/"><span class="docs-nav-title">2.时间空间复杂度、BigO表示法</span></a>
         </li>
-        <li class="mb-2 py-1 text-primary border-2 border-start border-primary ps-2 docs-nav-active-item" tabindex="-1">
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/string_1/"><span class="docs-nav-title">串</span></a>
         </li>
         <li class="mb-2 py-1" tabindex="-1">
@@ -646,7 +734,7 @@ Falling_MY
 </aside><div class="col ms-auto content-docs">
   <div class="container-fluid"><nav class="row card component" aria-label="breadcrumb">
   <div class="card-body pb-0">
-    <ol class="hbs-breadcrumb breadcrumb flex-nowrap"><li class="breadcrumb-item text-surface"><a href="/">Home</a></li><li class="breadcrumb-item text-surface"><a href="/docs/">Docs</a></li><li class="breadcrumb-item text-surface"><a href="/docs/notes/">Notes</a></li><li class="breadcrumb-item text-surface"><a href="/docs/notes/dsa/">数据结构与算法</a></li><li class="breadcrumb-item active">串</li></ol>
+    <ol class="hbs-breadcrumb breadcrumb flex-nowrap"><li class="breadcrumb-item text-surface"><a href="/">Home</a></li><li class="breadcrumb-item text-surface"><a href="/docs/">Docs</a></li><li class="breadcrumb-item text-surface"><a href="/docs/notes/">Notes</a></li><li class="breadcrumb-item text-surface"><a href="/docs/notes/c/">C语言</a></li><li class="breadcrumb-item active">文件</li></ol>
   </div>
 </nav><div class="post-panel-wrapper position-relative d-flex justify-content-center">
   <div class="d-flex flex-row justify-content-center rounded-5 border post-panel position-fixed px-3 py-1 surface shadow-1">
@@ -676,12 +764,11 @@ Falling_MY
   </div>
 </div><article class="row card component mb-4 post">
 <div class="card-header ">
-    <h1 class="card-title post-title my-2">串</h1>
+    <h1 class="card-title post-title my-2">文件</h1>
 </div>
 <div class="card-body"><div class="post-meta mb-3">
-  <span class="post-date me-1 mb-1" title="created on 2024-11-23 11:39:07 &#43;0800 CST.">November 23, 2024</span><span class="post-reading-time me-1 mb-1">1 min read</span><a href="/authors/falling_my/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-author">
-      <i class="fas fa-fw fa-user me-1"></i>Falling_MY</a><a href="/series/%E7%AB%9E%E8%B5%9B%E5%9F%B9%E8%AE%AD%E8%AF%BE%E7%AC%94%E8%AE%B0/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
-      <i class="fas fa-fw fa-columns me-1"></i>竞赛培训课笔记</a>
+  <span class="post-date me-1 mb-1" title="created on 2024-12-23 08:55:34 &#43;0800 CST.">December 23, 2024</span><span class="post-reading-time me-1 mb-1">2 min read</span><a href="/series/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
+      <i class="fas fa-fw fa-columns me-1"></i>课堂笔记</a>
 </div>
 
 <div class="mt-2 mb-3 d-block d-xxl-none">
@@ -690,110 +777,231 @@ Falling_MY
         </div>
     <hr class="text-secondary">
 </div><div class="post-content mb-3" data-bs-spy="scroll" data-bs-target="#TableOfContents" tabindex="0">
-        <div id="post-content-body"><p>串，及字符串，是由零个或多个字符组成的有限序列。一般记为：
-$$ S = &lsquo;a_1a_2a_3&hellip;a_n&rsquo; (n&gt;0)$$</p>
-<p>串是一种特殊的线性表，数据元素之间呈线性关系。
-串的数据对象是<strong>字符</strong>的有限序列。</p>
+        <div id="post-content-body"><p>C语言文件有两种储存类型</p>
+<p>文本文件</p>
+<blockquote>
+<p>储存量大
+读写慢
+便于对字符操作
+存储格式：ASCII</p>
+</blockquote>
+<p>二进制文件</p>
+<blockquote>
+<p>储存小
+速度快
+便于存储中间结果
+存储格式：二进制</p>
+</blockquote>
 
-<h2 id="串的基本操作" data-numberify>串的基本操作<a class="anchor ms-1" href="#串的基本操作"></a></h2>
-<ul>
-<li>StrAssign(&amp;T, chars) 赋值操作，把串T赋值为chars</li>
-<li>StrCopy(&amp;T, S) 复制操作，把串S复制给串T</li>
-<li>StrEmpty(S) 判空操作，若S为空串，则返回true，否则返回false</li>
-<li>StrLength(S) 求串长，返回串S的元素个数</li>
-<li>ClearString(&amp;S) 清空操作，将S清空</li>
-<li>DestroyString(&amp;S) 销毁串，将串S销毁</li>
-<li>Concat(&amp;T, S1, S2) 串联接，用T返回由S1和S2联接而成的新串</li>
-<li>SubString(&amp;Sub, S, pos, len) 求子串，用Sub返回串S的第pos个字符起长度为len的子串</li>
-<li>Index(S, T, pos) 定位操作，若主串S中存在与串T值相同的子串，则返回它在主串S中第pos个字符之后第一次出现的位置，否则函数值为0</li>
-<li>StrCompare(S, T) 比较操作，若S&gt;T，则返回值&gt;0，若S=T，则返回值=0，若S&lt;T，则返回值&lt;0</li>
-</ul>
+<h2 id="文件系统" data-numberify>文件系统<a class="anchor ms-1" href="#文件系统"></a></h2>
+<p>C语言中使用的磁盘文件系统有两大类</p>
 
-<h2 id="串的存储结构" data-numberify>串的存储结构<a class="anchor ms-1" href="#串的存储结构"></a></h2>
+<h3 id="缓冲文件系统" data-numberify>缓冲文件系统<a class="anchor ms-1" href="#缓冲文件系统"></a></h3>
+<p>特点是系统自动将文件的一部分内容读入内存，再由内存对文件进行操作。</p>
 
-<h3 id="串的顺序存储结构" data-numberify>串的顺序存储结构<a class="anchor ms-1" href="#串的顺序存储结构"></a></h3>
-<p>顺序存储都是一个字符串数组+串长度，分为</p>
-<ul>
-<li>静态数组实现（定长顺序存储）： 栈区，数组长度固定</li>
-<li>动态数组实现（堆分配存储）： 堆区，数组长度可变</li>
-</ul>
-<p>char[0]一般不使用，从char[1]开始存储。
-因为在C语言中，字符串是以&rsquo;\0&rsquo;结尾的，所以char[0]存储的是字符串的长度。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="c1">//Power by Marscode
-</span></span></span><span class="line"><span class="cl"><span class="c1">//静态数组实现：按预定义MAXLEN在栈区开辟储存区
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define MAXSIZE 255
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">typedef</span> <span class="k">struct</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">ch</span><span class="p">[</span><span class="n">MAXSIZE</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">length</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="n">StringNode</span><span class="p">;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="c1">//Power by Marscode
-</span></span></span><span class="line"><span class="cl"><span class="c1">//动态数组实现：按串场在堆区开辟储存区，ch指向串的基地址，用完需要手动删除指针
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">typedef</span> <span class="k">struct</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">ch</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">length</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="n">HString</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="n">HString</span> <span class="n">S</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="n">S</span><span class="p">.</span><span class="n">ch</span> <span class="o">=</span> <span class="n">new</span> <span class="kt">char</span><span class="p">[</span><span class="n">MAXSIZE</span><span class="p">];</span><span class="c1">//在堆区开辟空间, 用完需要手动删除指针
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">S</span><span class="p">.</span><span class="n">length</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span></code></pre></div>
-<h3 id="串的链式存储结构" data-numberify>串的链式存储结构<a class="anchor ms-1" href="#串的链式存储结构"></a></h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="c1">//Power by Marscode
-</span></span></span><span class="line"><span class="cl"><span class="c1">//结点结构和串结构：每个节点存多个字符
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">typedef</span> <span class="k">struct</span> <span class="n">StringNode</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">ch</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="n">StringNode</span><span class="o">*</span> <span class="n">next</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="n">StringNode</span><span class="p">,</span> <span class="o">*</span><span class="n">String</span><span class="p">;</span>
-</span></span></code></pre></div>
-<h3 id="串基本操作的实现" data-numberify>串基本操作的实现<a class="anchor ms-1" href="#串基本操作的实现"></a></h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="c1">//求子串
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="nf">SubString</span><span class="p">(</span><span class="n">StringNode</span> <span class="o">&amp;</span><span class="n">Sub</span><span class="p">,</span> <span class="n">StringNode</span> <span class="n">S</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pos</span><span class="p">,</span> <span class="kt">int</span> <span class="n">len</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">pos</span> <span class="o">+</span> <span class="n">len</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&gt;</span> <span class="n">S</span><span class="p">.</span><span class="n">length</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="c1">//子串范围越界
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">pos</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">pos</span> <span class="o">+</span> <span class="n">len</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">        <span class="n">Sub</span><span class="p">.</span><span class="n">ch</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">S</span><span class="p">.</span><span class="n">ch</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="c1">//子串赋值
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Sub</span><span class="p">.</span><span class="n">length</span> <span class="o">=</span> <span class="n">len</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<h3 id="非缓冲文件系统" data-numberify>非缓冲文件系统<a class="anchor ms-1" href="#非缓冲文件系统"></a></h3>
+<p>特点是系统直接对文件进行操作。</p>
+
+<h2 id="文件的使用" data-numberify>文件的使用<a class="anchor ms-1" href="#文件的使用"></a></h2>
+<p>在使用文件前，必须包含头文件<code>&lt;stdio.h&gt;</code></p>
+<p>ANSI C为正在使用的每个文件分配了一个文件系统，该文件系统包含文件的有关信息。</p>
+<p>类型为<code>FILE</code>的变量称为文件指针变量。</p>
+<p>文件结构体如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">typedef</span> <span class="k">struct</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">short</span> <span class="n">level</span><span class="p">;</span><span class="c1">//缓冲区的当前级别
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">unsigned</span> <span class="n">flags</span><span class="p">;</span><span class="c1">//文件状态标志
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">char</span> <span class="n">fd</span><span class="p">;</span><span class="c1">//文件描述符
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">hold</span><span class="p">;</span><span class="c1">//未使用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">short</span> <span class="n">bsize</span><span class="p">;</span><span class="c1">//缓冲区的大小
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="o">*</span><span class="n">buffer</span><span class="p">;</span><span class="c1">//数据传输缓冲区的位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">unsigned</span> <span class="n">ar</span><span class="p">;</span><span class="c1">//文件的当前读写位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">unsigned</span> <span class="n">istemp</span><span class="p">;</span><span class="c1">//临时文件指示器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">short</span> <span class="n">token</span><span class="p">;</span><span class="c1">//用于有效性检查
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span><span class="n">FILE</span><span class="p">;</span>
+</span></span></code></pre></div><p>文件使用示例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">FILE</span> <span class="o">*</span><span class="n">fp</span> <span class="o">=</span> <span class="nf">fopen</span><span class="p">(</span><span class="s">&#34;path</span><span class="se">\\</span><span class="s">file.txt&#34;</span><span class="p">,</span> <span class="s">&#34;w&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">fp</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;文件打开失败</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;文件打开成功</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">fprintf</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="s">&#34;Hello, world!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">//定位操作
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">Index</span><span class="p">(</span><span class="n">StringNode</span> <span class="n">S</span><span class="p">,</span> <span class="n">StringNode</span> <span class="n">T</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pos</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">pos</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">while</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">S</span><span class="p">.</span><span class="n">length</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">T</span><span class="p">.</span><span class="n">length</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">S</span><span class="p">.</span><span class="n">ch</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">T</span><span class="p">.</span><span class="n">ch</span><span class="p">[</span><span class="n">j</span><span class="p">]){</span>
-</span></span><span class="line"><span class="cl">            <span class="o">++</span><span class="n">i</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="o">++</span><span class="n">j</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">j</span> <span class="o">&gt;</span> <span class="n">T</span><span class="p">.</span><span class="n">length</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">i</span> <span class="o">-</span> <span class="n">T</span><span class="p">.</span><span class="n">length</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span></code></pre></div><p>文件打开时使用的路径可以使用相对路径或绝对路径。<br>
+相对路径：从当前工作目录开始的路径。灵活，可移植性好<br>
+绝对路径：从根目录开始的路径。方便，可移植性差</p>
+
+<h3 id="文件打开模式" data-numberify>文件打开模式<a class="anchor ms-1" href="#文件打开模式"></a></h3>
+<table>
+  <thead>
+      <tr>
+          <th>模式</th>
+          <th>功能</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>r</td>
+          <td>打开一个已有的文本文件，允许读取文件</td>
+      </tr>
+      <tr>
+          <td>w</td>
+          <td>打开一个文本文件，允许写入文件。如果文件不存在，则会创建一个新文件。如果文件已存在，则会截断文件，即删除文件中的所有内容</td>
+      </tr>
+      <tr>
+          <td>a</td>
+          <td>打开一个文本文件，以追加模式写入文件。如果文件不存在，则会创建一个新文件。如果文件已存在，则会将写入的数据追加到文件的末尾</td>
+      </tr>
+      <tr>
+          <td>r+</td>
+          <td>打开一个文本文件，允许读写文件</td>
+      </tr>
+      <tr>
+          <td>w+</td>
+          <td>打开一个文本文件，允许读写文件。如果文件不存在，则会创建一个新文件。如果文件已存在，则会截断文件，即删除文件中的所有内容</td>
+      </tr>
+      <tr>
+          <td>a+</td>
+          <td>打开一个文本文件，允许读写文件。如果文件不存在，则会创建一个新文件。如果文件已存在，则会将写入的数据追加到文件的末尾</td>
+      </tr>
+      <tr>
+          <td>rb</td>
+          <td>打开一个二进制文件，允许读取文件</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 id="文件操作" data-numberify>文件操作<a class="anchor ms-1" href="#文件操作"></a></h3>
+<table>
+  <thead>
+      <tr>
+          <th>函数</th>
+          <th>功能</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>fopen</td>
+          <td>打开一个文件</td>
+      </tr>
+      <tr>
+          <td>fclose</td>
+          <td>关闭一个文件</td>
+      </tr>
+      <tr>
+          <td>fgetc</td>
+          <td>从文件中读取一个字符</td>
+      </tr>
+      <tr>
+          <td>fputc</td>
+          <td>向文件中写入一个字符</td>
+      </tr>
+      <tr>
+          <td>fgets</td>
+          <td>从文件中读取一个字符串</td>
+      </tr>
+      <tr>
+          <td>fputs</td>
+          <td>向文件中写入一个字符串</td>
+      </tr>
+      <tr>
+          <td>fprintf</td>
+          <td>向文件中格式化写入数据</td>
+      </tr>
+      <tr>
+          <td>fscanf</td>
+          <td>从文件中格式化读取数据</td>
+      </tr>
+      <tr>
+          <td>feof</td>
+          <td>检测文件是否到达末尾</td>
+      </tr>
+  </tbody>
+</table>
+
+<h4 id="fgets函数" data-numberify>fgets函数<a class="anchor ms-1" href="#fgets函数"></a></h4>
+<p><code>fgets</code>函数的原型如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">char</span> <span class="o">*</span><span class="nf">fgets</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">str</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">FILE</span> <span class="o">*</span><span class="n">stream</span><span class="p">);</span>
+</span></span></code></pre></div><p><code>fgets</code>函数的作用是从指定的文件中读取至多n-1个字符，并将其存储在指定的字符数组中。读取字符直到遇见回车符或者EOF为止。</p>
+
+<h4 id="fputs函数" data-numberify>fputs函数<a class="anchor ms-1" href="#fputs函数"></a></h4>
+<p><code>fputs</code>函数的原型如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">fputs</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">str</span><span class="p">,</span> <span class="n">FILE</span> <span class="o">*</span><span class="n">stream</span><span class="p">);</span>
+</span></span></code></pre></div><p><code>fputs</code>函数的作用是将指定的字符串写入指定的文件中。</p>
+
+<h4 id="fread函数" data-numberify>fread函数<a class="anchor ms-1" href="#fread函数"></a></h4>
+<p><code>fread</code>函数的原型如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">size_t</span> <span class="nf">fread</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">ptr</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">count</span><span class="p">,</span> <span class="n">FILE</span> <span class="o">*</span><span class="n">stream</span><span class="p">);</span>
+</span></span></code></pre></div><p><code>fread</code>函数的作用是从指定的文件中读取指定数量的数据块，并将其存储在指定的内存地址中。</p>
+
+<h4 id="fwrite函数" data-numberify>fwrite函数<a class="anchor ms-1" href="#fwrite函数"></a></h4>
+<p><code>fwrite</code>函数的原型如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">size_t</span> <span class="nf">fwrite</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">ptr</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">count</span><span class="p">,</span> <span class="n">FILE</span> <span class="o">*</span><span class="n">stream</span><span class="p">);</span>
+</span></span></code></pre></div><p><code>fwrite</code>函数的作用是将指定的数据块写入指定的文件中。</p>
+
+<h4 id="fgetsfputs和freadfwrite的区别" data-numberify>fgets,fputs和fread,fwrite的区别<a class="anchor ms-1" href="#fgetsfputs和freadfwrite的区别"></a></h4>
+<p><code>fgets</code>和<code>fputs</code>函数用于处理文本文件，而<code>fread</code>和<code>fwrite</code>函数用于处理二进制文件。</p>
+<p><code>fgets</code>和<code>fputs</code>函数每次处理一个字符，而<code>fread</code>和<code>fwrite</code>函数每次处理一个数据块。</p>
+<ul>
+<li>数据块：数据块是指一组连续的内存单元，它们的大小由<code>size</code>参数指定。</li>
+</ul>
+<p><code>fgets</code>和<code>fputs</code>函数每次处理一个字符时，需要手动添加换行符，而<code>fread</code>和<code>fwrite</code>函数每次处理一个数据块时，不需要手动添加换行符。</p>
+<hr>
+<p>现在我们可以来解释一些程序中main函数的参数设计了</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 程序代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><code>argc</code>是一个整数，它表示命令行参数的数量。<code>argv</code>是一个指向字符串的指针数组，它包含了命令行参数的值。</p>
+<p>例如，假设我们在命令行中输入了以下命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./program arg1 -i arg2 --v arg3
+</span></span></code></pre></div><p>那么，<code>argc</code>的值将为4，<code>argv</code>的值将为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;program&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;arg1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;-i&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;arg2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;--v&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;arg3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">NULL</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div>
-<h2 id="字符串模式匹配" data-numberify>字符串模式匹配<a class="anchor ms-1" href="#字符串模式匹配"></a></h2>
+<h3 id="文件指针的定位" data-numberify>文件指针的定位<a class="anchor ms-1" href="#文件指针的定位"></a></h3>
+<p>stdio.h库中提供了用于文件指针定位的函数，它们的作用是将文件指针移动到指定的位置。函数如下：</p>
+<table>
+  <thead>
+      <tr>
+          <th>函数</th>
+          <th>功能</th>
+          <th>函数原型</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>fseek</td>
+          <td>将文件指针移动到指定的位置</td>
+          <td>int fseek(FILE *stream, long offset, int whence);</td>
+      </tr>
+      <tr>
+          <td>ftell</td>
+          <td>获取文件指针当前的位置</td>
+          <td>long ftell(FILE *stream);</td>
+      </tr>
+      <tr>
+          <td>rewind</td>
+          <td>将文件指针移动到文件的开头</td>
+          <td>void rewind(FILE *stream);</td>
+      </tr>
+  </tbody>
+</table>
 
-<h3 id="朴素模式匹配算法" data-numberify>朴素模式匹配算法<a class="anchor ms-1" href="#朴素模式匹配算法"></a></h3>
-<p>一旦发现不匹配的字符，就回溯到主串的下一个字符，从模式串的第一个字符重新开始匹配。</p>
-
-<h4 id="优化思路" data-numberify>优化思路<a class="anchor ms-1" href="#优化思路"></a></h4>
+<h4 id="fseek函数" data-numberify>fseek函数<a class="anchor ms-1" href="#fseek函数"></a></h4>
+<p><code>fseek</code>函数的作用是将文件指针移动到指定的位置。</p>
+<p><code>fseek</code>函数的whence参数有以下取值：</p>
 <ul>
-<li>对于模式串<code>T=&quot;abaabc&quot;</code>, 主串<code>S=&quot;ababaabc&quot;</code>，当匹配到<code>S[5]</code>和<code>T[5]</code>不匹配时，我们可以直接将模式串T向右移动3个字符，从<code>T[3]</code>开始匹配。</li>
-<li>……</li>
-</ul>
-
-<h3 id="kmp算法" data-numberify>KMP算法<a class="anchor ms-1" href="#kmp算法"></a></h3>
-<p>思路：KMP算法的核心是利用已经部分匹配的结果，避免主串的指针回溯。详细的说就是，当匹配到<code>S[i]</code>和<code>T[j]</code>不匹配时，我们可以直接将模式串T向右移动<code>j-next[j]</code>个字符，从<code>T[next[j]]</code>开始匹配。<br>
-这样可以有效的减少匹配的次数，降低时间复杂度。最坏时间复杂度：<code>O(m+n)</code></p>
-<ul>
-<li><input disabled="" type="checkbox"> 待完善</li>
+<li>0 SEEK_SET：将文件指针移动到文件的开头，然后向文件的末尾移动offset个字节</li>
+<li>1 SEEK_CUR：将文件指针移动到当前位置，然后向文件的末尾移动offset个字节</li>
+<li>2 SEEK_END：将文件指针移动到文件的末尾，然后向文件的开头移动offset个字节</li>
 </ul>
 </div>
 </div>
@@ -825,9 +1033,9 @@ $$ S = &lsquo;a_1a_2a_3&hellip;a_n&rsquo; (n&gt;0)$$</p>
 </div></div><div class="card-footer">
   <div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-prev">
       <i class="fas fa-fw fa-chevron-down post-prev-icon me-1" data-fa-transform="rotate-90"></i>
-      <a href="/docs/notes/dsa/2/">2.时间空间复杂度、BigO表示法</a>
+      <a href="/docs/notes/c/pointer/">指针</a>
     </div><div class="post-nav post-next">
-      <a href="/docs/notes/dsa/3/">排序算法</a>
+      <a href="/docs/notes/c/tree_1/">树与二叉树</a>
       <i class="fas fa-fw fa-chevron-down post-next-icon ms-1" data-fa-transform="rotate-270"></i>
     </div></div>
 </div></article><div class="post-copyright mb-3 row card component" id="post-copyright">
@@ -918,18 +1126,17 @@ $$ S = &lsquo;a_1a_2a_3&hellip;a_n&rsquo; (n&gt;0)$$</p>
     <div class="card-body collapse accordion-collapse accordion-body d-lg-block" id="post-toc">
       <nav id="TableOfContents">
   <ul>
-    <li><a href="#串的基本操作">串的基本操作</a></li>
-    <li><a href="#串的存储结构">串的存储结构</a>
+    <li><a href="#文件系统">文件系统</a>
       <ul>
-        <li><a href="#串的顺序存储结构">串的顺序存储结构</a></li>
-        <li><a href="#串的链式存储结构">串的链式存储结构</a></li>
-        <li><a href="#串基本操作的实现">串基本操作的实现</a></li>
+        <li><a href="#缓冲文件系统">缓冲文件系统</a></li>
+        <li><a href="#非缓冲文件系统">非缓冲文件系统</a></li>
       </ul>
     </li>
-    <li><a href="#字符串模式匹配">字符串模式匹配</a>
+    <li><a href="#文件的使用">文件的使用</a>
       <ul>
-        <li><a href="#朴素模式匹配算法">朴素模式匹配算法</a></li>
-        <li><a href="#kmp算法">KMP算法</a></li>
+        <li><a href="#文件打开模式">文件打开模式</a></li>
+        <li><a href="#文件操作">文件操作</a></li>
+        <li><a href="#文件指针的定位">文件指针的定位</a></li>
       </ul>
     </li>
   </ul>
@@ -949,12 +1156,12 @@ $$ S = &lsquo;a_1a_2a_3&hellip;a_n&rsquo; (n&gt;0)$$</p>
         </div>
         <div class="card-body collapse accordion-collapse accordion-body text-secondary-on-surface d-lg-block show" id="repo" aria-labelledby="repo-header">
             <ul class="list-unstyled"><li class="mb-1">
-                    <a href="https://github.com/FallingMY/myblog/blob/main//content/docs/Notes/DS&amp;A/String_1.md" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/FallingMY/myblog/blob/main//content/docs/Notes/C/file_c.md" target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-fw fa-file-archive text-success"></i> View page source
                     </a>
                 </li>
                 <li class="mb-1">
-                    <a href="https://github.com/FallingMY/myblog/edit/main//content/docs/Notes/DS&amp;A/String_1.md" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/FallingMY/myblog/edit/main//content/docs/Notes/C/file_c.md" target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-fw fa-edit text-primary"></i> Edit this page
                     </a>
                 </li></ul>
