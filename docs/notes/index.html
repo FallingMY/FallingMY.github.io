@@ -27,8 +27,8 @@
 
   <meta itemprop="name" content="Notes">
   <meta itemprop="description" content="学习笔记存放处">
-  <meta itemprop="datePublished" content="2024-12-23T08:55:34+08:00">
-  <meta itemprop="dateModified" content="2024-12-23T08:55:34+08:00">
+  <meta itemprop="datePublished" content="2025-03-09T13:37:27+08:00">
+  <meta itemprop="dateModified" content="2025-03-09T13:37:27+08:00">
   <meta itemprop="wordCount" content="1">
   <meta property="og:image" content="https://fallingmy.github.io/images/icon.png"/>
   <meta name="twitter:image" content="https://fallingmy.github.io/images/icon.png"/>
@@ -500,6 +500,9 @@ Falling_MY
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/string_1/"><span class="docs-nav-title">串</span></a>
         </li>
         <li class="mb-2 py-1" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/graph/"><span class="docs-nav-title">图的搜索算法、知识点以及例题</span></a>
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/3/"><span class="docs-nav-title">排序算法</span></a>
         </li>
         <li class="mb-2 py-1" tabindex="-1">
@@ -568,6 +571,27 @@ Falling_MY
         </li></ul>
   </div>
 </div><div class="posts mb-4"><article class="row card post component">
+  <div class="card-header">
+    <h2 class="card-title post-title my-2 fs-4">
+      <a href="/docs/notes/dsa/graph/">图的搜索算法、知识点以及例题</a>
+    </h2>
+  </div>
+  <div class="card-body"><div class="post-meta mb-3">
+  <span class="post-date me-1 mb-1" title="created on 2025-03-09 13:37:27 &#43;0800 CST.">March 9, 2025</span><span class="post-reading-time me-1 mb-1">3 min read</span>
+</div>
+
+    <div class="post-summary"><p> 图 图的结构定义 图是由一个顶点集V和一个边集S组成的数据结构。 其中，V是顶点的集合，S是边的集合。
+图的边有两种：
+有向边：有向边是指从一个顶点指向另一个顶点的边。 有向图：有向图是指图中的边都是有向边的图。 无向边：无向边是指两个顶点之间没有方向的边。 无向图：无向图是指图中的边都是无向边的图。 Graph = (V, S) 而 R={VR}
+度：和顶点v相关联的边的数目。
+对于有向图来说，由于弧是有方向的，所以有入度和出度的概念：
+入度：以顶点v为终点的边的数目。
+出度：以顶点v为起点的边的数目。
+路径 在图论中，路径是指连接图中两个或多个顶点的一系列边的序列。 更正式地说，从顶点 u 到顶点 v 的路径是一个顶点序列：...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/notes/dsa/graph/">Read More</a></div>
+    </div>
+  </div>
+</article>
+<article class="row card post component">
   <div class="card-header">
     <h2 class="card-title post-title my-2 fs-4">
       <a href="/docs/notes/c/file_c/">文件</a>
@@ -773,31 +797,27 @@ e.g. 2...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="
     </div>
   </div>
 </article>
-<article class="row card post component">
-  <div class="card-header">
-    <h2 class="card-title post-title my-2 fs-4">
-      <a href="/docs/notes/dsa/1/">1.数据结构和算法简介, 二分查找</a>
-    </h2>
-  </div>
-  <div class="card-body"><div class="post-meta mb-3">
-  <span class="post-date me-1 mb-1" title="created on 2024-09-03 17:22:39 &#43;0800 CST.">September 3, 2024</span><span class="post-reading-time me-1 mb-1">1 min read</span><a href="/authors/falling_my/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-author">
-      <i class="fas fa-fw fa-user me-1"></i>Falling_MY</a>
-</div>
-
-    <div class="post-summary"><p> 数据结构与算法 数据结构是程序储存信息的基本单位，数组就是常见的数据结构。而算法则是实现特定任务的计算步骤，比如排序算法和搜索算法的目的顾名思义就是排序和搜索。
-但数据结构和算法不一定像数组和二分查找这个例子这样是完全分开的单独内容。数组是最简单的数据结构，而很多其他复杂的数据结构往往又集成了很多的算法在其中。
-所以可以这样理解
-程序 = 数据结构 + 算法
-数据结构 官方定义
-数据结构是计算机存储、组织数据的方式
-但是在很多情况中，数据结构不仅包含数据本身，还会包含一些算法
-算法 官方定义
-算法是一系列规定的计算步骤，为了实现特定的计算目的
-</p>
-    </div>
-  </div>
-</article>
-</div><div class="row table-responsive mb-3"></div>
+</div><div class="row table-responsive mb-3">
+    <ul class="pagination pagination-default">
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="First" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="Previous" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 1" class="page-link" role="button">1</a>
+      </li>
+      <li class="page-item">
+        <a href="/docs/notes/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
+      </li>
+      <li class="page-item">
+        <a href="/docs/notes/page/2/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/docs/notes/page/2/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul></div>
 </div>
 
 </div>
@@ -869,7 +889,7 @@ e.g. 2...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="
   <div class="col-12 mt-2">
     <p class="mb-2">Falling_Studio_Terminal3</p>
     <p class="text-secondary mb-2"><small>An extreme fast, responsive and feature-rich blog theme for Hugo</small></p><div class="copyright mb-2 text-secondary">
-  <small>Copyright © 2016-2024 Razon Yang. All Rights Reserved.
+  <small>Copyright © 2016-2025 Razon Yang. All Rights Reserved.
 </small>
 </div>
 <div class="powered-by mb-2 text-secondary">
