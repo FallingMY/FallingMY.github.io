@@ -27,8 +27,8 @@
 
   <meta itemprop="name" content="C语言">
   <meta itemprop="description" content="C Language notes">
-  <meta itemprop="datePublished" content="2024-12-23T08:55:34+08:00">
-  <meta itemprop="dateModified" content="2024-12-23T08:55:34+08:00">
+  <meta itemprop="datePublished" content="2025-03-15T13:54:17+08:00">
+  <meta itemprop="dateModified" content="2025-03-15T13:54:17+08:00">
   <meta itemprop="wordCount" content="3">
   <meta property="og:image" content="https://fallingmy.github.io/images/icon.png"/>
   <meta name="twitter:image" content="https://fallingmy.github.io/images/icon.png"/>
@@ -466,6 +466,9 @@ Falling_MY
             <div class="btn-toggle-nav fw-normal ms-2 small">
               <ul class="list-unstyled mb-2 w-100">
         <li class="mb-2 py-1" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/c/divide/"><span class="docs-nav-title">分治策略</span></a>
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/c/pointer/"><span class="docs-nav-title">指针</span></a>
         </li>
         <li class="mb-2 py-1" tabindex="-1">
@@ -560,6 +563,24 @@ Falling_MY
 
       </div>
     </article><div class="posts mb-4"><article class="row card post component">
+  <div class="card-header">
+    <h2 class="card-title post-title my-2 fs-4">
+      <a href="/docs/notes/c/divide/">分治策略</a>
+    </h2>
+  </div>
+  <div class="card-body"><div class="post-meta mb-3">
+  <span class="post-date me-1 mb-1" title="created on 2025-03-15 13:54:17 &#43;0800 CST.">March 15, 2025</span><span class="post-reading-time me-1 mb-1">1 min read</span>
+</div>
+
+    <div class="post-summary"><p>在学习排序算法的过程中，我们接触到了快速排序。
+而快速排序的核心思想就是分治法。
+分治法概述 设计思想 对于一个规模为n的问题，若该问题可以容易地解决（比如说规模n较小）则直接解决，否则将其分解为k个规模较小的子问题，这些子问题互相独立且与原问题形式相同，递归地解这些子问题，然后将各子问题的解合并得到原问题的解。这种算法设计策略叫做分治法。
+分治法能解决的问题的主要特征：
+该问题的规模缩小到一定的程度就可以容易地解决。 该问题可以分解为若干个规模较小的相同问题，即该问题具有最优子结构性质。 利用该问题分解出的子问题的解可以合并为该问题的解。 该问题所分解出的各个子问题是相互独立的，即子问题之间不包含公共的子问题。 基本步骤 分治法通...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/notes/c/divide/">Read More</a></div>
+    </div>
+  </div>
+</article>
+<article class="row card post component">
   <div class="card-header">
     <h2 class="card-title post-title my-2 fs-4">
       <a href="/docs/notes/c/file_c/">文件</a>

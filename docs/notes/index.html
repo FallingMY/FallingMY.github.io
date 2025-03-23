@@ -27,8 +27,8 @@
 
   <meta itemprop="name" content="Notes">
   <meta itemprop="description" content="学习笔记存放处">
-  <meta itemprop="datePublished" content="2025-03-09T13:37:27+08:00">
-  <meta itemprop="dateModified" content="2025-03-09T13:37:27+08:00">
+  <meta itemprop="datePublished" content="2025-03-23T13:50:16+08:00">
+  <meta itemprop="dateModified" content="2025-03-23T13:50:16+08:00">
   <meta itemprop="wordCount" content="1">
   <meta property="og:image" content="https://fallingmy.github.io/images/icon.png"/>
   <meta name="twitter:image" content="https://fallingmy.github.io/images/icon.png"/>
@@ -466,6 +466,9 @@ Falling_MY
             <div class="btn-toggle-nav fw-normal ms-2 small">
               <ul class="list-unstyled mb-2 w-100">
         <li class="mb-2 py-1" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/c/divide/"><span class="docs-nav-title">分治策略</span></a>
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/c/pointer/"><span class="docs-nav-title">指针</span></a>
         </li>
         <li class="mb-2 py-1" tabindex="-1">
@@ -571,6 +574,24 @@ Falling_MY
         </li></ul>
   </div>
 </div><div class="posts mb-4"><article class="row card post component">
+  <div class="card-header">
+    <h2 class="card-title post-title my-2 fs-4">
+      <a href="/docs/notes/c/divide/">分治策略</a>
+    </h2>
+  </div>
+  <div class="card-body"><div class="post-meta mb-3">
+  <span class="post-date me-1 mb-1" title="created on 2025-03-15 13:54:17 &#43;0800 CST.">March 15, 2025</span><span class="post-reading-time me-1 mb-1">1 min read</span>
+</div>
+
+    <div class="post-summary"><p>在学习排序算法的过程中，我们接触到了快速排序。
+而快速排序的核心思想就是分治法。
+分治法概述 设计思想 对于一个规模为n的问题，若该问题可以容易地解决（比如说规模n较小）则直接解决，否则将其分解为k个规模较小的子问题，这些子问题互相独立且与原问题形式相同，递归地解这些子问题，然后将各子问题的解合并得到原问题的解。这种算法设计策略叫做分治法。
+分治法能解决的问题的主要特征：
+该问题的规模缩小到一定的程度就可以容易地解决。 该问题可以分解为若干个规模较小的相同问题，即该问题具有最优子结构性质。 利用该问题分解出的子问题的解可以合并为该问题的解。 该问题所分解出的各个子问题是相互独立的，即子问题之间不包含公共的子问题。 基本步骤 分治法通...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/notes/c/divide/">Read More</a></div>
+    </div>
+  </div>
+</article>
+<article class="row card post component">
   <div class="card-header">
     <h2 class="card-title post-title my-2 fs-4">
       <a href="/docs/notes/dsa/graph/">图的搜索算法、知识点以及例题</a>
@@ -769,31 +790,6 @@ char *p,x; x = &#34;A&#34;; p = &amp;x; *为取目标运算
 则将新元素插入扫描到的元素前
 代码实现
 #include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; int main(void) { int arr[8] = {5,6,1,7,5,3,1,4}; for (int i = 1; i &lt; 8;i++) {//从第二位开始遍历数组 int j = i -1; int cur = arr[i];//储存当前数字 while (j &gt;= 0 &amp;&amp; arr[j] &gt;= cur) {//向前遍历 arr[j+1] = arr[j];//将前面的数字向后移动一位 j--;...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/notes/dsa/3/">Read More</a></div>
-    </div>
-  </div>
-</article>
-<article class="row card post component">
-  <div class="card-header">
-    <h2 class="card-title post-title my-2 fs-4">
-      <a href="/docs/notes/dsa/2/">2.时间空间复杂度、BigO表示法</a>
-    </h2>
-  </div>
-  <div class="card-body"><div class="post-meta mb-3">
-  <span class="post-date me-1 mb-1" title="created on 2024-09-03 17:33:05 &#43;0800 CST.">September 3, 2024</span><span class="post-reading-time me-1 mb-1">1 min read</span><a href="/authors/falling_my/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-author">
-      <i class="fas fa-fw fa-user me-1"></i>Falling_MY</a>
-</div>
-
-    <div class="post-summary"><p> 时间空间复杂度 如何判断一个算法的好坏？
-我们需要一种复杂度计算方式，不受计算机性能和程序数据的影响
-时间复杂度 BigO BigO计算表示一个算法的渐进时间复杂度
-T(n) = O(f(n)) f(n) 表示代码执行次数之和，O表示正比例关系
-复杂度越低代码效率越高
-e.g. 1 for (int i = 1; i &lt;= n; i++) { x++; } 首先int i = 1为一次运算
-其次，每次循环中会分别执行i &lt;= n、i++、x++三次运算
-则n次循环下会执行3n次
-总共运算1+3n次，那么这个算法复杂度则为O(n)
-因为BigO用于表示计算的增长变化趋势，所以当n无限大时，常数1和系数3可忽略不计
-e.g. 2...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/notes/dsa/2/">Read More</a></div>
     </div>
   </div>
 </article>

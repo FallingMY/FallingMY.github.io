@@ -27,8 +27,8 @@
 
   <meta itemprop="name" content="Docs">
   <meta itemprop="description" content="An extreme fast, responsive and feature-rich blog theme for Hugo">
-  <meta itemprop="datePublished" content="2025-03-09T13:37:27+08:00">
-  <meta itemprop="dateModified" content="2025-03-09T13:37:27+08:00">
+  <meta itemprop="datePublished" content="2025-03-23T13:50:16+08:00">
+  <meta itemprop="dateModified" content="2025-03-23T13:50:16+08:00">
   <meta property="og:image" content="https://fallingmy.github.io/images/icon.png"/>
   <meta name="twitter:image" content="https://fallingmy.github.io/images/icon.png"/>
   <meta property="og:image:alt" content="Docs" />
@@ -465,6 +465,9 @@ Falling_MY
             <div class="btn-toggle-nav fw-normal ms-2 small">
               <ul class="list-unstyled mb-2 w-100">
         <li class="mb-2 py-1" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/c/divide/"><span class="docs-nav-title">分治策略</span></a>
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/c/pointer/"><span class="docs-nav-title">指针</span></a>
         </li>
         <li class="mb-2 py-1" tabindex="-1">
@@ -567,6 +570,31 @@ Falling_MY
         </li></ul>
   </div>
 </div><div class="posts mb-4"><article class="row card post component">
+  <div class="card-header">
+    <h2 class="card-title post-title my-2 fs-4">
+      <a href="/docs/notes/dsa/2/">2.时间空间复杂度、BigO表示法</a>
+    </h2>
+  </div>
+  <div class="card-body"><div class="post-meta mb-3">
+  <span class="post-date me-1 mb-1" title="created on 2024-09-03 17:33:05 &#43;0800 CST.">September 3, 2024</span><span class="post-reading-time me-1 mb-1">1 min read</span><a href="/authors/falling_my/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-author">
+      <i class="fas fa-fw fa-user me-1"></i>Falling_MY</a>
+</div>
+
+    <div class="post-summary"><p> 时间空间复杂度 如何判断一个算法的好坏？
+我们需要一种复杂度计算方式，不受计算机性能和程序数据的影响
+时间复杂度 BigO BigO计算表示一个算法的渐进时间复杂度
+T(n) = O(f(n)) f(n) 表示代码执行次数之和，O表示正比例关系
+复杂度越低代码效率越高
+e.g. 1 for (int i = 1; i &lt;= n; i++) { x++; } 首先int i = 1为一次运算
+其次，每次循环中会分别执行i &lt;= n、i++、x++三次运算
+则n次循环下会执行3n次
+总共运算1+3n次，那么这个算法复杂度则为O(n)
+因为BigO用于表示计算的增长变化趋势，所以当n无限大时，常数1和系数3可忽略不计
+e.g. 2...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/notes/dsa/2/">Read More</a></div>
+    </div>
+  </div>
+</article>
+<article class="row card post component">
   <div class="card-header">
     <h2 class="card-title post-title my-2 fs-4">
       <a href="/docs/notes/dsa/1/">1.数据结构和算法简介, 二分查找</a>
@@ -776,27 +804,6 @@ git安装尽量避免中文路径，一般会因路径含中文出现以下问�
 官网速度较慢，腾讯软件中心就有，而且版本更新及时。
 https://pc.qq.com/detail/13/detail_22693.html
 三、...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%B8%80%E5%85%A5%E9%97%A8%E5%8F%8A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%9F%BA%E6%9C%AC%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C/">Read More</a></div>
-    </div>
-  </div>
-</article>
-<article class="row card post component">
-  <div class="card-header">
-    <h2 class="card-title post-title my-2 fs-4">
-      <a href="/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%BA%8C%E8%8E%B7%E5%8F%96%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9B%B4%E6%96%B0/">Git基本使用教程（二）：获取更新与推送更新</a>
-    </h2>
-  </div>
-  <div class="card-body"><div class="post-meta mb-3">
-  <span class="post-date me-1 mb-1" title="created on 2024-07-05 11:34:47 &#43;0800 CST.">July 5, 2024</span><span class="post-reading-time me-1 mb-1">1 min read</span><a href="/authors/csdn_user/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-author">
-      <i class="fas fa-fw fa-user me-1"></i>CSDN_user</a><a href="/series/helpdocs/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
-      <i class="fas fa-fw fa-columns me-1"></i>HelpDocs</a><a href="/tags/git/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Git</a><a href="/tags/helpdocs/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">HelpDocs</a>
-</div>
-
-    <div class="post-summary"><p>传送门：Git基本使用教程（一）:入门及第一次基本完整操作
-官方文档：Git基础
-提示：直接使用Ctrl+F全文检索关键字，更容易找到相应命令
-①查看远程仓库:切换至某一目录，执行命令 git remote show origin 如图所示，我在Git目录下（包含两个仓库，dywhml，bysj）执行命令，将显示config文件中配置的仓库地址。
-切换目录至bysj，再看下效果
-②修改工作区文件，进行add,status,diff,commit,push 工作目录内容track了才能用git diff git diff 是工作区(work dict)和暂存区(stage)的比较 git diff –-cached 是暂存...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%BA%8C%E8%8E%B7%E5%8F%96%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9B%B4%E6%96%B0/">Read More</a></div>
     </div>
   </div>
 </article>

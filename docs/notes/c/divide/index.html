@@ -1,10 +1,10 @@
 <!doctype html>
 <html class="position-relative" itemscope itemtype="https://schema.org/WebPage" lang="en"
   data-bs-theme="auto" data-palette="blue-gray">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><script src="/assets/init/bundle.min.36ac49f3cd02d1cbd604e48dc113d7a8330eae36eabc23b5e3c7f86a97412616.js" integrity="sha256-NqxJ880C0cvWBOSNwRPXqDMOrjbqvCO148f4apdBJhY=" crossorigin="anonymous"></script>
+  <head><script src="/assets/init/bundle.min.647e8c2258b0a4b0b587a89b58c84e499a68697942dea2178620c90d934a4ee1.js" integrity="sha256-ZH6MIliwpLC1h6ibWMhOSZpoaXlC3qIXhiDJDZNKTuE=" crossorigin="anonymous"></script>
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>树与二叉树 - Falling_Studio_Terminal3</title>
+    <title>分治策略 - Falling_Studio_Terminal3</title>
     <link rel="icon" href="/favicon_hu4694133314791059470.png" sizes="16x16" type="image/png">
     <link rel="icon" href="/favicon_hu1114292297158002801.png" sizes="32x32" type="image/png">
     <link rel="icon" href="/favicon_hu15156048902608200372.png" sizes="150x150" type="image/png">
@@ -12,170 +12,144 @@
     <link rel="icon" href="/favicon_hu12185621123592544675.png" sizes="192x192" type="image/png">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6f42c1">
 <meta name="keywords" content="Hugo, Bootstrap, Blog Theme" />
-  <meta name="description" content="树是一种数据结构。
+  <meta name="description" content="在学习排序算法的过程中，我们接触到了快速排序。
+而快速排序的核心思想就是分治法。
 
-树的概念
+分治法概述
 
-树的定义
-树是n个结点的有限集合（记为T）。
-形式化定义（二元组）
-树：$T=(D,R)$。
-$D$ 是包含n个结点的有限集合 $n&gt;0$ 。
+设计思想
+对于一个规模为n的问题，若该问题可以容易地解决（比如说规模n较小）则直接解决，否则将其分解为k个规模较小的子问题，这些子问题互相独立且与原问题形式相同，递归地解这些子问题，然后将各子问题的解合并得到原问题的解。这种算法设计策略叫做分治法。
+分治法能解决的问题的主要特征：
 
-当n=0时，称该树为空树。
-当n&gt;0时，这n个结点中存在一个唯一结点作为树的根结点，其余结点可分为m个互不相交的有限集 $T_1,T_2,&hellip;,T_m$ ，其中每个集合本身又是一棵树，称为根的子树。
-
-$R$ 是D上的一个关系，$R\subset D\times D$ 。
-
-树的表示
-
-逻辑表示法
-即我们平时常见的树形图
-
-文氏图表示法
-
-凹入表示法
-
-括号表示法
-例如：
-
-A(B(D,E),C(F,G))
+该问题的规模缩小到一定的程度就可以容易地解决。
+该问题可以分解为若干个规模较小的相同问题，即该问题具有最优子结构性质。
+利用该问题分解出的子问题的解可以合并为该问题的解。
+该问题所分解出的各个子问题是相互独立的，即子问题之间不包含公共的子问题。
 
 
-树的基本术语
+基本步骤
+分治法通常采用递归算法设计技术，在每一层递归上都有三个步骤：
 
-结点的度和树的度
-树中一个结点的子树的个数称为该结点的度。
-树中各个结点的度的最大值称为树的度，通常若树的度为m，称该树为m叉树。
-
-分支结点与叶结点
-度不为0的结点称为非终端结点，也称为分支结点。
-度为0的结点称为终端结点，也称为叶结点。
-
-路径与路径长度
-两个结点$d_i$和$d_j$之间的路径为从$d_i$到$d_j$的结点序列。
-路径的长度为路径上的结点个数减一。
-
-孩子结点、双亲结点和兄弟结点
-每个结点的后继结点称为该结点的孩子结点。
-该结点被称为孩子结点的双亲结点。
-具有相同双亲结点的结点称为兄弟结点。
-
-深度优先搜索
-从根结点出发，沿着一条路径搜索，直到到达一个叶子结点，然后回溯，继续沿着另一条路径搜索，直到到达另一个叶子结点，以此类推。
-一般采用递归的方式实现。
+分解：将原问题分解为若干个规模较小，相互独立，与原问题形式相同的子问题。
+求解子问题：若子问题规模较小而容易被解决则直接解，否则递归地解各个子问题。
+合并：将各个子问题的解合并为原问题的解。
 
 
-广度优先搜索
-从根结点出发，先访问所有的兄弟结点，再访问所有的孩子结点，以此类推。
-一般采用队列的方式实现。
+算法框架
+// 函数：解决问题
+ResultType solve(ProblemType problem) {
+    // 基本情况：问题足够小，直接解决
+    if (is_small(problem)) {
+        return direct_solution(problem);
+    }
 
+    // 分解：将问题分解为子问题
+    SubproblemType subproblems[MAX_SUBPROBLEMS];
+    int num_subproblems = divide(problem, subproblems);
 
-子孙结点和祖先结点
-子孙结点：从根结点到该结点的路径上的所有结点称为该结点的子孙结点。
-祖先结点：从该结点到根结点的路径上的所有结点称为该结点的祖先结点。" />
+    // 解决：递归地解决子问题
+    ResultType subsolutions[MAX_SUBPROBLEMS];
+    for (int i = 0; i &lt; num_subproblems; i&#43;&#43;) {
+        subsolutions[i] = solve(subproblems[i]);
+    }
+
+    // 合并：将子问题的解合并成原问题的解
+    return combine(subsolutions, num_subproblems);
+}
+
+在实际的应用中人们发现，把问题分解成若干个规模较小的问题时，每个子问题的规模相同时，分治法的效率是最高的。
+
+求解排序问题
+
+快速排序
+
+基本思想
+在待排序的n个记录中任取一个记录，以该记录的关键字为标准，将所有关键字小于该记录的记录排列在前，所有关键字大于该记录的记录排列在后，然后分别对前后两个子序列重复上述过程，直到所有记录都排好序为止。
+
+算法
+int Partition(int a[], int low, int high) {
+    int pivot = a[low];// 枢轴记录
+    while (low &lt; high) {
+        while (low &lt; high &amp;&amp; a[high] &gt;= pivot) {
+            high--;
+        }
+        a[low] = a[high];// 比枢轴小的元素移动到左端
+        while (low &lt; high &amp;&amp; a[low] &lt;= pivot) {
+            low&#43;&#43;;
+        }
+        a[high] = a[low];// 比枢轴大的元素移动到右端
+    } 
+    a[low] = pivot;// 枢轴元素放到最终位置
+    return low;// 返回枢轴所在位置;实际上此时不论返回low还是high都是一样的
+}
+void QuickSort(int a[], int low, int high) {
+    if (low &lt; high) {
+        int pivotpos = Partition(a, low, high);// 划分
+        QuickSort(a, low, pivotpos - 1);// 递归求解
+        QuickSort(a, pivotpos &#43; 1, high);// 递归求解
+    } 
+}
+int main() {
+    int a[10] = {5, 2, 4, 6, 1, 3, 9, 8, 7, 0};
+    QuickSort(a, 0, 9);
+    for (int i = 0; i &lt; 10; i&#43;&#43;) {
+        printf(&#34;%d &#34;, a[i]);
+    }
+    return 0;
+}
+" />
+    <meta name="robots" content="index, follow" />
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="树与二叉树">
-  <meta name="twitter:description" content="树是一种数据结构。
-树的概念 树的定义 树是n个结点的有限集合（记为T）。
-形式化定义（二元组）
-树：$T=(D,R)$。
-$D$ 是包含n个结点的有限集合 $n&gt;0$ 。
-当n=0时，称该树为空树。 当n&gt;0时，这n个结点中存在一个唯一结点作为树的根结点，其余结点可分为m个互不相交的有限集 $T_1,T_2,…,T_m$ ，其中每个集合本身又是一棵树，称为根的子树。
-$R$ 是D上的一个关系，$R\subset D\times D$ 。
-树的表示 逻辑表示法 即我们平时常见的树形图
-文氏图表示法 凹入表示法 括号表示法 例如：
-A(B(D,E),C(F,G))
-树的基本术语 结点的度和树的度 树中一个结点的子树的个数称为该结点的度。
-树中各个结点的度的最大值称为树的度，通常若树的度为m，称该树为m叉树。
-分支结点与叶结点 度不为0的结点称为非终端结点，也称为分支结点。
-度为0的结点称为终端结点，也称为叶结点。
-路径与路径长度 两个结点$d_i$和$d_j$之间的路径为从$d_i$到$d_j$的结点序列。
-路径的长度为路径上的结点个数减一。
-孩子结点、双亲结点和兄弟结点 每个结点的后继结点称为该结点的孩子结点。
-该结点被称为孩子结点的双亲结点。
-具有相同双亲结点的结点称为兄弟结点。
-深度优先搜索 从根结点出发，沿着一条路径搜索，直到到达一个叶子结点，然后回溯，继续沿着另一条路径搜索，直到到达另一个叶子结点，以此类推。
-一般采用递归的方式实现。
-广度优先搜索 从根结点出发，先访问所有的兄弟结点，再访问所有的孩子结点，以此类推。
-一般采用队列的方式实现。
-子孙结点和祖先结点 子孙结点：从根结点到该结点的路径上的所有结点称为该结点的子孙结点。
-祖先结点：从该结点到根结点的路径上的所有结点称为该结点的祖先结点。">
+  <meta name="twitter:title" content="分治策略">
+  <meta name="twitter:description" content="在学习排序算法的过程中，我们接触到了快速排序。
+而快速排序的核心思想就是分治法。
+分治法概述 设计思想 对于一个规模为n的问题，若该问题可以容易地解决（比如说规模n较小）则直接解决，否则将其分解为k个规模较小的子问题，这些子问题互相独立且与原问题形式相同，递归地解这些子问题，然后将各子问题的解合并得到原问题的解。这种算法设计策略叫做分治法。
+分治法能解决的问题的主要特征：
+该问题的规模缩小到一定的程度就可以容易地解决。 该问题可以分解为若干个规模较小的相同问题，即该问题具有最优子结构性质。 利用该问题分解出的子问题的解可以合并为该问题的解。 该问题所分解出的各个子问题是相互独立的，即子问题之间不包含公共的子问题。 基本步骤 分治法通常采用递归算法设计技术，在每一层递归上都有三个步骤：
+分解：将原问题分解为若干个规模较小，相互独立，与原问题形式相同的子问题。 求解子问题：若子问题规模较小而容易被解决则直接解，否则递归地解各个子问题。 合并：将各个子问题的解合并为原问题的解。 算法框架 // 函数：解决问题 ResultType solve(ProblemType problem) { // 基本情况：问题足够小，直接解决 if (is_small(problem)) { return direct_solution(problem); } // 分解：将问题分解为子问题 SubproblemType subproblems[MAX_SUBPROBLEMS]; int num_subproblems = divide(problem, subproblems); // 解决：递归地解决子问题 ResultType subsolutions[MAX_SUBPROBLEMS]; for (int i = 0; i &lt; num_subproblems; i&#43;&#43;) { subsolutions[i] = solve(subproblems[i]); } // 合并：将子问题的解合并成原问题的解 return combine(subsolutions, num_subproblems); } 在实际的应用中人们发现，把问题分解成若干个规模较小的问题时，每个子问题的规模相同时，分治法的效率是最高的。
+求解排序问题 快速排序 基本思想 在待排序的n个记录中任取一个记录，以该记录的关键字为标准，将所有关键字小于该记录的记录排列在前，所有关键字大于该记录的记录排列在后，然后分别对前后两个子序列重复上述过程，直到所有记录都排好序为止。
+算法 int Partition(int a[], int low, int high) { int pivot = a[low];// 枢轴记录 while (low &lt; high) { while (low &lt; high &amp;&amp; a[high] &gt;= pivot) { high--; } a[low] = a[high];// 比枢轴小的元素移动到左端 while (low &lt; high &amp;&amp; a[low] &lt;= pivot) { low&#43;&#43;; } a[high] = a[low];// 比枢轴大的元素移动到右端 } a[low] = pivot;// 枢轴元素放到最终位置 return low;// 返回枢轴所在位置;实际上此时不论返回low还是high都是一样的 } void QuickSort(int a[], int low, int high) { if (low &lt; high) { int pivotpos = Partition(a, low, high);// 划分 QuickSort(a, low, pivotpos - 1);// 递归求解 QuickSort(a, pivotpos &#43; 1, high);// 递归求解 } } int main() { int a[10] = {5, 2, 4, 6, 1, 3, 9, 8, 7, 0}; QuickSort(a, 0, 9); for (int i = 0; i &lt; 10; i&#43;&#43;) { printf(&#34;%d &#34;, a[i]); } return 0; }">
       <meta name="twitter:site" content="@Falling_Studio_">
-<meta property="og:url" content="http://localhost:1313/docs/notes/c/tree/">
+<meta property="og:url" content="https://fallingmy.github.io/docs/notes/c/divide/">
   <meta property="og:site_name" content="Falling_Studio_Terminal3">
-  <meta property="og:title" content="树与二叉树">
-  <meta property="og:description" content="树是一种数据结构。
-树的概念 树的定义 树是n个结点的有限集合（记为T）。
-形式化定义（二元组）
-树：$T=(D,R)$。
-$D$ 是包含n个结点的有限集合 $n&gt;0$ 。
-当n=0时，称该树为空树。 当n&gt;0时，这n个结点中存在一个唯一结点作为树的根结点，其余结点可分为m个互不相交的有限集 $T_1,T_2,…,T_m$ ，其中每个集合本身又是一棵树，称为根的子树。
-$R$ 是D上的一个关系，$R\subset D\times D$ 。
-树的表示 逻辑表示法 即我们平时常见的树形图
-文氏图表示法 凹入表示法 括号表示法 例如：
-A(B(D,E),C(F,G))
-树的基本术语 结点的度和树的度 树中一个结点的子树的个数称为该结点的度。
-树中各个结点的度的最大值称为树的度，通常若树的度为m，称该树为m叉树。
-分支结点与叶结点 度不为0的结点称为非终端结点，也称为分支结点。
-度为0的结点称为终端结点，也称为叶结点。
-路径与路径长度 两个结点$d_i$和$d_j$之间的路径为从$d_i$到$d_j$的结点序列。
-路径的长度为路径上的结点个数减一。
-孩子结点、双亲结点和兄弟结点 每个结点的后继结点称为该结点的孩子结点。
-该结点被称为孩子结点的双亲结点。
-具有相同双亲结点的结点称为兄弟结点。
-深度优先搜索 从根结点出发，沿着一条路径搜索，直到到达一个叶子结点，然后回溯，继续沿着另一条路径搜索，直到到达另一个叶子结点，以此类推。
-一般采用递归的方式实现。
-广度优先搜索 从根结点出发，先访问所有的兄弟结点，再访问所有的孩子结点，以此类推。
-一般采用队列的方式实现。
-子孙结点和祖先结点 子孙结点：从根结点到该结点的路径上的所有结点称为该结点的子孙结点。
-祖先结点：从该结点到根结点的路径上的所有结点称为该结点的祖先结点。">
+  <meta property="og:title" content="分治策略">
+  <meta property="og:description" content="在学习排序算法的过程中，我们接触到了快速排序。
+而快速排序的核心思想就是分治法。
+分治法概述 设计思想 对于一个规模为n的问题，若该问题可以容易地解决（比如说规模n较小）则直接解决，否则将其分解为k个规模较小的子问题，这些子问题互相独立且与原问题形式相同，递归地解这些子问题，然后将各子问题的解合并得到原问题的解。这种算法设计策略叫做分治法。
+分治法能解决的问题的主要特征：
+该问题的规模缩小到一定的程度就可以容易地解决。 该问题可以分解为若干个规模较小的相同问题，即该问题具有最优子结构性质。 利用该问题分解出的子问题的解可以合并为该问题的解。 该问题所分解出的各个子问题是相互独立的，即子问题之间不包含公共的子问题。 基本步骤 分治法通常采用递归算法设计技术，在每一层递归上都有三个步骤：
+分解：将原问题分解为若干个规模较小，相互独立，与原问题形式相同的子问题。 求解子问题：若子问题规模较小而容易被解决则直接解，否则递归地解各个子问题。 合并：将各个子问题的解合并为原问题的解。 算法框架 // 函数：解决问题 ResultType solve(ProblemType problem) { // 基本情况：问题足够小，直接解决 if (is_small(problem)) { return direct_solution(problem); } // 分解：将问题分解为子问题 SubproblemType subproblems[MAX_SUBPROBLEMS]; int num_subproblems = divide(problem, subproblems); // 解决：递归地解决子问题 ResultType subsolutions[MAX_SUBPROBLEMS]; for (int i = 0; i &lt; num_subproblems; i&#43;&#43;) { subsolutions[i] = solve(subproblems[i]); } // 合并：将子问题的解合并成原问题的解 return combine(subsolutions, num_subproblems); } 在实际的应用中人们发现，把问题分解成若干个规模较小的问题时，每个子问题的规模相同时，分治法的效率是最高的。
+求解排序问题 快速排序 基本思想 在待排序的n个记录中任取一个记录，以该记录的关键字为标准，将所有关键字小于该记录的记录排列在前，所有关键字大于该记录的记录排列在后，然后分别对前后两个子序列重复上述过程，直到所有记录都排好序为止。
+算法 int Partition(int a[], int low, int high) { int pivot = a[low];// 枢轴记录 while (low &lt; high) { while (low &lt; high &amp;&amp; a[high] &gt;= pivot) { high--; } a[low] = a[high];// 比枢轴小的元素移动到左端 while (low &lt; high &amp;&amp; a[low] &lt;= pivot) { low&#43;&#43;; } a[high] = a[low];// 比枢轴大的元素移动到右端 } a[low] = pivot;// 枢轴元素放到最终位置 return low;// 返回枢轴所在位置;实际上此时不论返回low还是high都是一样的 } void QuickSort(int a[], int low, int high) { if (low &lt; high) { int pivotpos = Partition(a, low, high);// 划分 QuickSort(a, low, pivotpos - 1);// 递归求解 QuickSort(a, pivotpos &#43; 1, high);// 递归求解 } } int main() { int a[10] = {5, 2, 4, 6, 1, 3, 9, 8, 7, 0}; QuickSort(a, 0, 9); for (int i = 0; i &lt; 10; i&#43;&#43;) { printf(&#34;%d &#34;, a[i]); } return 0; }">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:published_time" content="2024-11-30T08:28:26+08:00">
-    <meta property="article:modified_time" content="2024-11-30T08:28:26+08:00">
+    <meta property="article:published_time" content="2025-03-15T13:54:17+08:00">
+    <meta property="article:modified_time" content="2025-03-15T13:54:17+08:00">
 
-  <meta itemprop="name" content="树与二叉树">
-  <meta itemprop="description" content="树是一种数据结构。
-树的概念 树的定义 树是n个结点的有限集合（记为T）。
-形式化定义（二元组）
-树：$T=(D,R)$。
-$D$ 是包含n个结点的有限集合 $n&gt;0$ 。
-当n=0时，称该树为空树。 当n&gt;0时，这n个结点中存在一个唯一结点作为树的根结点，其余结点可分为m个互不相交的有限集 $T_1,T_2,…,T_m$ ，其中每个集合本身又是一棵树，称为根的子树。
-$R$ 是D上的一个关系，$R\subset D\times D$ 。
-树的表示 逻辑表示法 即我们平时常见的树形图
-文氏图表示法 凹入表示法 括号表示法 例如：
-A(B(D,E),C(F,G))
-树的基本术语 结点的度和树的度 树中一个结点的子树的个数称为该结点的度。
-树中各个结点的度的最大值称为树的度，通常若树的度为m，称该树为m叉树。
-分支结点与叶结点 度不为0的结点称为非终端结点，也称为分支结点。
-度为0的结点称为终端结点，也称为叶结点。
-路径与路径长度 两个结点$d_i$和$d_j$之间的路径为从$d_i$到$d_j$的结点序列。
-路径的长度为路径上的结点个数减一。
-孩子结点、双亲结点和兄弟结点 每个结点的后继结点称为该结点的孩子结点。
-该结点被称为孩子结点的双亲结点。
-具有相同双亲结点的结点称为兄弟结点。
-深度优先搜索 从根结点出发，沿着一条路径搜索，直到到达一个叶子结点，然后回溯，继续沿着另一条路径搜索，直到到达另一个叶子结点，以此类推。
-一般采用递归的方式实现。
-广度优先搜索 从根结点出发，先访问所有的兄弟结点，再访问所有的孩子结点，以此类推。
-一般采用队列的方式实现。
-子孙结点和祖先结点 子孙结点：从根结点到该结点的路径上的所有结点称为该结点的子孙结点。
-祖先结点：从该结点到根结点的路径上的所有结点称为该结点的祖先结点。">
-  <meta itemprop="datePublished" content="2024-11-30T08:28:26+08:00">
-  <meta itemprop="dateModified" content="2024-11-30T08:28:26+08:00">
-  <meta itemprop="wordCount" content="65">
-  <meta property="og:image" content="http://localhost:1313/images/icon.png"/>
-  <meta name="twitter:image" content="http://localhost:1313/images/icon.png"/>
-  <meta property="og:image:alt" content="树与二叉树" />
-  <meta name="twitter:image:alt" content="树与二叉树" />
+  <meta itemprop="name" content="分治策略">
+  <meta itemprop="description" content="在学习排序算法的过程中，我们接触到了快速排序。
+而快速排序的核心思想就是分治法。
+分治法概述 设计思想 对于一个规模为n的问题，若该问题可以容易地解决（比如说规模n较小）则直接解决，否则将其分解为k个规模较小的子问题，这些子问题互相独立且与原问题形式相同，递归地解这些子问题，然后将各子问题的解合并得到原问题的解。这种算法设计策略叫做分治法。
+分治法能解决的问题的主要特征：
+该问题的规模缩小到一定的程度就可以容易地解决。 该问题可以分解为若干个规模较小的相同问题，即该问题具有最优子结构性质。 利用该问题分解出的子问题的解可以合并为该问题的解。 该问题所分解出的各个子问题是相互独立的，即子问题之间不包含公共的子问题。 基本步骤 分治法通常采用递归算法设计技术，在每一层递归上都有三个步骤：
+分解：将原问题分解为若干个规模较小，相互独立，与原问题形式相同的子问题。 求解子问题：若子问题规模较小而容易被解决则直接解，否则递归地解各个子问题。 合并：将各个子问题的解合并为原问题的解。 算法框架 // 函数：解决问题 ResultType solve(ProblemType problem) { // 基本情况：问题足够小，直接解决 if (is_small(problem)) { return direct_solution(problem); } // 分解：将问题分解为子问题 SubproblemType subproblems[MAX_SUBPROBLEMS]; int num_subproblems = divide(problem, subproblems); // 解决：递归地解决子问题 ResultType subsolutions[MAX_SUBPROBLEMS]; for (int i = 0; i &lt; num_subproblems; i&#43;&#43;) { subsolutions[i] = solve(subproblems[i]); } // 合并：将子问题的解合并成原问题的解 return combine(subsolutions, num_subproblems); } 在实际的应用中人们发现，把问题分解成若干个规模较小的问题时，每个子问题的规模相同时，分治法的效率是最高的。
+求解排序问题 快速排序 基本思想 在待排序的n个记录中任取一个记录，以该记录的关键字为标准，将所有关键字小于该记录的记录排列在前，所有关键字大于该记录的记录排列在后，然后分别对前后两个子序列重复上述过程，直到所有记录都排好序为止。
+算法 int Partition(int a[], int low, int high) { int pivot = a[low];// 枢轴记录 while (low &lt; high) { while (low &lt; high &amp;&amp; a[high] &gt;= pivot) { high--; } a[low] = a[high];// 比枢轴小的元素移动到左端 while (low &lt; high &amp;&amp; a[low] &lt;= pivot) { low&#43;&#43;; } a[high] = a[low];// 比枢轴大的元素移动到右端 } a[low] = pivot;// 枢轴元素放到最终位置 return low;// 返回枢轴所在位置;实际上此时不论返回low还是high都是一样的 } void QuickSort(int a[], int low, int high) { if (low &lt; high) { int pivotpos = Partition(a, low, high);// 划分 QuickSort(a, low, pivotpos - 1);// 递归求解 QuickSort(a, pivotpos &#43; 1, high);// 递归求解 } } int main() { int a[10] = {5, 2, 4, 6, 1, 3, 9, 8, 7, 0}; QuickSort(a, 0, 9); for (int i = 0; i &lt; 10; i&#43;&#43;) { printf(&#34;%d &#34;, a[i]); } return 0; }">
+  <meta itemprop="datePublished" content="2025-03-15T13:54:17+08:00">
+  <meta itemprop="dateModified" content="2025-03-15T13:54:17+08:00">
+  <meta itemprop="wordCount" content="196">
+  <meta property="og:image" content="https://fallingmy.github.io/images/icon.png"/>
+  <meta name="twitter:image" content="https://fallingmy.github.io/images/icon.png"/>
+  <meta property="og:image:alt" content="分治策略" />
+  <meta name="twitter:image:alt" content="分治策略" />
   <link rel="manifest" href="/manifest.json">
 
-<link data-precache rel="stylesheet" href="/assets/main/bundle.min.ce02c09e4eca3c51ac7c4c0ab656cbc7a1386804422b4edecbe748b7aab05569.css" integrity="sha256-zgLAnk7KPFGsfEwKtlbLx6E4aARCK07ey&#43;dIt6qwVWk=" crossorigin="anonymous">
+<link data-precache rel="stylesheet" href="/assets/main/bundle.min.2dd76753333d9b25dab6c91fca6760d2357c69d50c90ae48ccc84823b7da7500.css" integrity="sha256-LddnUzM9myXatskfymdg0jV8adUMkK5IzMhII7fadQA=" crossorigin="anonymous">
 
-<link data-precache rel="stylesheet" href="/assets/katex/bundle.min.95b995465e88deb0152ab2d55893df3735bca23caf1bf7822b4aa791ee66b5b3.css" integrity="sha256-lbmVRl6I3rAVKrLVWJPfNzW8ojyvG/eCK0qnke5mtbM=" crossorigin="anonymous">
+<link data-precache rel="stylesheet" href="/assets/katex/bundle.min.506b6798499d2e8621e3d1f1db89099c3aa2639acd8b3b000b14cc6999c5b340.css" integrity="sha256-UGtnmEmdLoYh49Hx24kJnDqiY5rNizsACxTMaZnFs0A=" crossorigin="anonymous">
 
-    <link data-precache rel="stylesheet" href="/assets/viewer/bundle.min.81fc6ea2b654c63ccf8e3c859d12072f72f8cbe3f759361479f8b0c00f754e95.css" integrity="sha256-gfxuorZUxjzPjjyFnRIHL3L4y&#43;P3WTYUefiwwA91TpU=" crossorigin="anonymous">
+    <link data-precache rel="stylesheet" href="/assets/viewer/bundle.min.8c1002839fa22c1350d6ae1eef6593120e108f973c41348be9b5065430566aaf.css" integrity="sha256-jBACg5&#43;iLBNQ1q4e72WTEg4Qj5c8QTSL6bUGVDBWaq8=" crossorigin="anonymous">
 
 
 </head>
@@ -188,8 +162,8 @@ A(B(D,E),C(F,G))
       <i class="fas fa-bars"></i>
     </button>
 <a class="navbar-brand d-flex align-items-center flex-grow-1 flex-xxl-grow-0 justify-content-xxl-start justify-content-center ms-2 ms-xxl-0 mx-auto me-xxl-2"
-    href="http://localhost:1313/">
-    <picture><img class="logo " alt="Logo" src="http://localhost:1313/images/icon.png?v=b6559881d477ba278b5ed6703ba80301" loading="lazy" width="891" height="891" />
+    href="https://fallingmy.github.io/">
+    <picture><img class="logo " alt="Logo" src="https://fallingmy.github.io/images/icon.png?v=b6559881d477ba278b5ed6703ba80301" loading="lazy" width="891" height="891" />
 </picture>
 Falling_MY
 </a>
@@ -202,11 +176,11 @@ Falling_MY
       <div class="offcanvas-body p-4 pt-0 p-xxl-0">
         <hr class="d-xxl-none">
         <ul class="navbar-nav flex-row flex-wrap align-items-center me-auto"><li class="nav-item col-6 col-xxl-auto">
-            <a class="nav-link py-2 px-0 px-xxl-2" href="http://localhost:1313/docs/">
+            <a class="nav-link py-2 px-0 px-xxl-2" href="https://fallingmy.github.io/docs/">
 <span class="menu-icon me-1"><i class="fas fa-fw fa-file"></i></span>Docs
             </a>
           </li><li class="nav-item col-6 col-xxl-auto">
-            <a class="nav-link py-2 px-0 px-xxl-2" href="http://localhost:1313/news/">
+            <a class="nav-link py-2 px-0 px-xxl-2" href="https://fallingmy.github.io/news/">
 <span class="menu-icon me-1"><i class="fas fa-fw fa-newspaper"></i></span>News
             </a>
           </li>
@@ -220,7 +194,7 @@ Falling_MY
                 <li><h6 class="dropdown-header">Blog Menu Description</h6></li>
               <li>
                 <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
-                  href="http://localhost:1313/archives/">
+                  href="https://fallingmy.github.io/archives/">
                     <span class="dropdown-item-icon me-2 p-2 rounded">
                       <i class="fas fa-fw fa-file-archive text-primary"></i>
                     </span>
@@ -230,7 +204,7 @@ Falling_MY
               </li>
               <li>
                 <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
-                  href="http://localhost:1313/series/">
+                  href="https://fallingmy.github.io/series/">
                     <span class="dropdown-item-icon me-2 p-2 rounded">
                       <i class="fas fa-fw fa-columns"></i>
                     </span>
@@ -241,7 +215,7 @@ Falling_MY
               </li>
               <li>
                 <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
-                  href="http://localhost:1313/categories/">
+                  href="https://fallingmy.github.io/categories/">
                     <span class="dropdown-item-icon me-2 p-2 rounded">
                       <i class="fas fa-fw fa-folder text-success"></i>
                     </span>
@@ -252,7 +226,7 @@ Falling_MY
               </li>
               <li>
                 <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
-                  href="http://localhost:1313/tags/">
+                  href="https://fallingmy.github.io/tags/">
                     <span class="dropdown-item-icon me-2 p-2 rounded">
                       <i class="fas fa-fw fa-tags"></i>
                     </span>
@@ -442,7 +416,7 @@ Falling_MY
 
 </header>
 
-    <main class="container has-sidebar" data-kind="page"><script data-precache src="/js/main-init.22a4a8a4139001adf723a1609f1300530cfb7fad040cc971ca62c6ba2daa90d9.js" integrity="sha256-IqSopBOQAa33I6FgnxMAUwz7f60EDMlxymLGui2qkNk=" crossorigin="anonymous"></script>
+    <main class="container has-sidebar" data-kind="page"><script data-precache src="/js/main-init.d4bf6c63208bd2cc7ca0ed8e294719a6df134d45b27eee3dab505525318661ec.js" integrity="sha256-1L9sYyCL0sx8oO2OKUcZpt8TTUWyfu49q1BVJTGGYew=" crossorigin="anonymous"></script>
 
       <div class="row content"><noscript>
     <div class="alert alert-danger" role="alert">Your browser does not support JavaScript.</div>
@@ -600,11 +574,20 @@ Falling_MY
           <div class="docs-nav-subnavs border-start mt-2 collapse  show" id="nav-a59f17cafa65e8265e3b41e0d42275aa">
             <div class="btn-toggle-nav fw-normal ms-2 small">
               <ul class="list-unstyled mb-2 w-100">
+        <li class="mb-2 py-1 text-primary border-2 border-start border-primary ps-2 docs-nav-active-item" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/c/divide/"><span class="docs-nav-title">分治策略</span></a>
+        </li>
         <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/c/pointer/"><span class="docs-nav-title">指针</span></a>
         </li>
-        <li class="mb-2 py-1 text-primary border-2 border-start border-primary ps-2 docs-nav-active-item" tabindex="-1">
-          <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/c/tree/"><span class="docs-nav-title">树与二叉树</span></a>
+        <li class="mb-2 py-1" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/c/file_c/"><span class="docs-nav-title">文件</span></a>
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/c/tree_1/"><span class="docs-nav-title">树与二叉树</span></a>
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/c/structure_1/"><span class="docs-nav-title">结构体与共用体</span></a>
         </li></ul>
             </div>
           </div>
@@ -627,6 +610,9 @@ Falling_MY
         </li>
         <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/string_1/"><span class="docs-nav-title">串</span></a>
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/graph/"><span class="docs-nav-title">图的搜索算法、知识点以及例题</span></a>
         </li>
         <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/3/"><span class="docs-nav-title">排序算法</span></a>
@@ -678,7 +664,7 @@ Falling_MY
 </aside><div class="col ms-auto content-docs">
   <div class="container-fluid"><nav class="row card component" aria-label="breadcrumb">
   <div class="card-body pb-0">
-    <ol class="hbs-breadcrumb breadcrumb flex-nowrap"><li class="breadcrumb-item text-surface"><a href="/">Home</a></li><li class="breadcrumb-item text-surface"><a href="/docs/">Docs</a></li><li class="breadcrumb-item text-surface"><a href="/docs/notes/">Notes</a></li><li class="breadcrumb-item text-surface"><a href="/docs/notes/c/">C语言</a></li><li class="breadcrumb-item active">树与二叉树</li></ol>
+    <ol class="hbs-breadcrumb breadcrumb flex-nowrap"><li class="breadcrumb-item text-surface"><a href="/">Home</a></li><li class="breadcrumb-item text-surface"><a href="/docs/">Docs</a></li><li class="breadcrumb-item text-surface"><a href="/docs/notes/">Notes</a></li><li class="breadcrumb-item text-surface"><a href="/docs/notes/c/">C语言</a></li><li class="breadcrumb-item active">分治策略</li></ol>
   </div>
 </nav><div class="post-panel-wrapper position-relative d-flex justify-content-center">
   <div class="d-flex flex-row justify-content-center rounded-5 border post-panel position-fixed px-3 py-1 surface shadow-1">
@@ -708,10 +694,10 @@ Falling_MY
   </div>
 </div><article class="row card component mb-4 post">
 <div class="card-header ">
-    <h1 class="card-title post-title my-2">树与二叉树</h1>
+    <h1 class="card-title post-title my-2">分治策略</h1>
 </div>
 <div class="card-body"><div class="post-meta mb-3">
-  <span class="post-date me-1 mb-1" title="created on 2024-11-30 08:28:26 &#43;0800 CST.">November 30, 2024</span><span class="post-reading-time me-1 mb-1">1 min read</span>
+  <span class="post-date me-1 mb-1" title="created on 2025-03-15 13:54:17 &#43;0800 CST.">March 15, 2025</span><span class="post-reading-time me-1 mb-1">1 min read</span>
 </div>
 
 <div class="mt-2 mb-3 d-block d-xxl-none">
@@ -720,94 +706,92 @@ Falling_MY
         </div>
     <hr class="text-secondary">
 </div><div class="post-content mb-3" data-bs-spy="scroll" data-bs-target="#TableOfContents" tabindex="0">
-        <div id="post-content-body"><p>树是一种数据结构。</p>
+        <div id="post-content-body"><p>在学习排序算法的过程中，我们接触到了快速排序。</p>
+<p>而快速排序的核心思想就是分治法。</p>
 
-<h1 id="树的概念" data-numberify>树的概念<a class="anchor ms-1" href="#树的概念"></a></h1>
+<h1 id="分治法概述" data-numberify>分治法概述<a class="anchor ms-1" href="#分治法概述"></a></h1>
 
-<h2 id="树的定义" data-numberify>树的定义<a class="anchor ms-1" href="#树的定义"></a></h2>
-<p>树是n个结点的有限集合（记为T）。</p>
-<p>形式化定义（二元组）</p>
-<p>树：$T=(D,R)$。<br>
-$D$ 是包含n个结点的有限集合 $n&gt;0$ 。</p>
-<blockquote>
-<p>当n=0时，称该树为空树。
-当n&gt;0时，这n个结点中存在一个唯一结点作为树的根结点，其余结点可分为m个互不相交的有限集 $T_1,T_2,&hellip;,T_m$ ，其中每个集合本身又是一棵树，称为根的子树。</p>
-</blockquote>
-<p>$R$ 是D上的一个关系，$R\subset D\times D$ 。</p>
+<h2 id="设计思想" data-numberify>设计思想<a class="anchor ms-1" href="#设计思想"></a></h2>
+<p>对于一个规模为n的问题，若该问题可以容易地解决（比如说规模n较小）则直接解决，否则将其分解为k个规模较小的子问题，这些子问题互相独立且与原问题形式相同，<strong>递归地解</strong>这些子问题，然后将各子问题的解合并得到原问题的解。这种算法设计策略叫做分治法。</p>
+<p>分治法能解决的问题的主要特征：</p>
+<ol>
+<li>该问题的规模缩小到一定的程度就可以容易地解决。</li>
+<li>该问题可以分解为若干个规模较小的相同问题，即该问题具有最优子结构性质。</li>
+<li>利用该问题分解出的子问题的解可以合并为该问题的解。</li>
+<li>该问题所分解出的<strong>各个子问题是相互独立</strong>的，即子问题之间不包含公共的子问题。</li>
+</ol>
 
-<h2 id="树的表示" data-numberify>树的表示<a class="anchor ms-1" href="#树的表示"></a></h2>
+<h2 id="基本步骤" data-numberify>基本步骤<a class="anchor ms-1" href="#基本步骤"></a></h2>
+<p>分治法通常采用递归算法设计技术，在每一层递归上都有三个步骤：</p>
+<ol>
+<li>分解：将原问题分解为若干个规模较小，相互独立，与原问题形式相同的子问题。</li>
+<li>求解子问题：若子问题规模较小而容易被解决则直接解，否则递归地解各个子问题。</li>
+<li>合并：将各个子问题的解合并为原问题的解。</li>
+</ol>
 
-<h3 id="逻辑表示法" data-numberify>逻辑表示法<a class="anchor ms-1" href="#逻辑表示法"></a></h3>
-<p>即我们平时常见的树形图</p>
+<h2 id="算法框架" data-numberify>算法框架<a class="anchor ms-1" href="#算法框架"></a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">// 函数：解决问题
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">ResultType</span> <span class="nf">solve</span><span class="p">(</span><span class="n">ProblemType</span> <span class="n">problem</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 基本情况：问题足够小，直接解决
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="nf">is_small</span><span class="p">(</span><span class="n">problem</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nf">direct_solution</span><span class="p">(</span><span class="n">problem</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 分解：将问题分解为子问题
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">SubproblemType</span> <span class="n">subproblems</span><span class="p">[</span><span class="n">MAX_SUBPROBLEMS</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">num_subproblems</span> <span class="o">=</span> <span class="nf">divide</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">subproblems</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 解决：递归地解决子问题
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ResultType</span> <span class="n">subsolutions</span><span class="p">[</span><span class="n">MAX_SUBPROBLEMS</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">num_subproblems</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">subsolutions</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">solve</span><span class="p">(</span><span class="n">subproblems</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 合并：将子问题的解合并成原问题的解
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="nf">combine</span><span class="p">(</span><span class="n">subsolutions</span><span class="p">,</span> <span class="n">num_subproblems</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><hr>
+<p>在实际的应用中人们发现，把问题分解成若干个规模较小的问题时，每个子问题的规模相同时，分治法的效率是最高的。</p>
 
-<h3 id="文氏图表示法" data-numberify>文氏图表示法<a class="anchor ms-1" href="#文氏图表示法"></a></h3>
+<h1 id="求解排序问题" data-numberify>求解排序问题<a class="anchor ms-1" href="#求解排序问题"></a></h1>
 
-<h3 id="凹入表示法" data-numberify>凹入表示法<a class="anchor ms-1" href="#凹入表示法"></a></h3>
+<h2 id="快速排序" data-numberify>快速排序<a class="anchor ms-1" href="#快速排序"></a></h2>
 
-<h3 id="括号表示法" data-numberify>括号表示法<a class="anchor ms-1" href="#括号表示法"></a></h3>
-<p>例如：</p>
-<blockquote>
-<p>A(B(D,E),C(F,G))</p>
-</blockquote>
+<h3 id="基本思想" data-numberify>基本思想<a class="anchor ms-1" href="#基本思想"></a></h3>
+<p>在待排序的n个记录中任取一个记录，以该记录的关键字为标准，将所有关键字小于该记录的记录排列在前，所有关键字大于该记录的记录排列在后，然后分别对前后两个子序列重复上述过程，直到所有记录都排好序为止。</p>
 
-<h2 id="树的基本术语" data-numberify>树的基本术语<a class="anchor ms-1" href="#树的基本术语"></a></h2>
-
-<h3 id="结点的度和树的度" data-numberify>结点的度和树的度<a class="anchor ms-1" href="#结点的度和树的度"></a></h3>
-<p>树中一个<strong>结点的子树的个数</strong>称为该<strong>结点的度</strong>。<br>
-树中各个结点的度的<strong>最大值</strong>称为<strong>树的度</strong>，通常若树的度为m，称该树为<strong>m叉树</strong>。</p>
-
-<h3 id="分支结点与叶结点" data-numberify>分支结点与叶结点<a class="anchor ms-1" href="#分支结点与叶结点"></a></h3>
-<p>度不为0的结点称为非终端结点，也称为<strong>分支结点</strong>。<br>
-度为0的结点称为终端结点，也称为<strong>叶结点</strong>。</p>
-
-<h3 id="路径与路径长度" data-numberify>路径与路径长度<a class="anchor ms-1" href="#路径与路径长度"></a></h3>
-<p>两个结点$d_i$和$d_j$之间的路径为从$d_i$到$d_j$的结点序列。<br>
-路径的长度为路径上的结点个数减一。</p>
-
-<h3 id="孩子结点双亲结点和兄弟结点" data-numberify>孩子结点、双亲结点和兄弟结点<a class="anchor ms-1" href="#孩子结点双亲结点和兄弟结点"></a></h3>
-<p>每个结点的后继结点称为该结点的<strong>孩子结点</strong>。<br>
-该结点被称为孩子结点的<strong>双亲结点</strong>。<br>
-具有相同双亲结点的结点称为<strong>兄弟结点</strong>。</p>
-<blockquote>
-<p><strong>深度优先搜索</strong>
-从根结点出发，沿着一条路径搜索，直到到达一个叶子结点，然后回溯，继续沿着另一条路径搜索，直到到达另一个叶子结点，以此类推。<br>
-一般采用递归的方式实现。</p>
-</blockquote>
-<blockquote>
-<p><strong>广度优先搜索</strong>
-从根结点出发，先访问所有的兄弟结点，再访问所有的孩子结点，以此类推。<br>
-一般采用队列的方式实现。</p>
-</blockquote>
-
-<h3 id="子孙结点和祖先结点" data-numberify>子孙结点和祖先结点<a class="anchor ms-1" href="#子孙结点和祖先结点"></a></h3>
-<p>子孙结点：从根结点到该结点的路径上的所有结点称为该结点的子孙结点。<br>
-祖先结点：从该结点到根结点的路径上的所有结点称为该结点的祖先结点。</p>
-
-<h3 id="结点的层次和高度" data-numberify>结点的层次和高度<a class="anchor ms-1" href="#结点的层次和高度"></a></h3>
-<ul>
-<li><input disabled="" type="checkbox"> 待补充</li>
-</ul>
-
-<h3 id="有序树和无序树" data-numberify>有序树和无序树<a class="anchor ms-1" href="#有序树和无序树"></a></h3>
-<p>若树中各结点的子树从左到右是有次序的，且相对次序是不能随意变换的，称该树为有序树。否则，称该树为无序树。</p>
-
-<h3 id="森林" data-numberify>森林<a class="anchor ms-1" href="#森林"></a></h3>
-<p>n个互不相交的树的集合称为森林。</p>
-<p>给m棵独立的树加一个根结点，则森林就变成了一棵树。</p>
-
-<h2 id="树的性质" data-numberify>树的性质<a class="anchor ms-1" href="#树的性质"></a></h2>
-<ul>
-<li>树中的结点数等于所有结点的度数加1。（加1是加上根结点）</li>
-<li>度为m的树的其他重要特性：
-<ul>
-<li>结点个数为n，$n=n_0+n_1+n_2+&hellip;+n_m$，其中$n_0$为度数为0的结点数，$n_1$为度数为1的结点数，$n_2$为度数为2的结点数，以此类推。</li>
-<li>所有结点度之和=$n_1+2n_2+3n_3+&hellip;+mn_m=n-1$。</li>
-</ul>
-</li>
-<li>度为m的树中第i层上至多有$m^{i-1}$个结点。</li>
-<li>高度为h的m叉树至多有$\frac {m^h-1}{m-1}$个结点。</li>
-</ul>
-</div>
+<h3 id="算法" data-numberify>算法<a class="anchor ms-1" href="#算法"></a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">Partition</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">low</span><span class="p">,</span> <span class="kt">int</span> <span class="n">high</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">pivot</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">low</span><span class="p">];</span><span class="c1">// 枢轴记录
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">while</span> <span class="p">(</span><span class="n">low</span> <span class="o">&lt;</span> <span class="n">high</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="n">low</span> <span class="o">&lt;</span> <span class="n">high</span> <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="p">[</span><span class="n">high</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">pivot</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">high</span><span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">a</span><span class="p">[</span><span class="n">low</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">high</span><span class="p">];</span><span class="c1">// 比枢轴小的元素移动到左端
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">while</span> <span class="p">(</span><span class="n">low</span> <span class="o">&lt;</span> <span class="n">high</span> <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="p">[</span><span class="n">low</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">pivot</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">low</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">a</span><span class="p">[</span><span class="n">high</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">low</span><span class="p">];</span><span class="c1">// 比枢轴大的元素移动到右端
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">a</span><span class="p">[</span><span class="n">low</span><span class="p">]</span> <span class="o">=</span> <span class="n">pivot</span><span class="p">;</span><span class="c1">// 枢轴元素放到最终位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="n">low</span><span class="p">;</span><span class="c1">// 返回枢轴所在位置;实际上此时不论返回low还是high都是一样的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">QuickSort</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">low</span><span class="p">,</span> <span class="kt">int</span> <span class="n">high</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">low</span> <span class="o">&lt;</span> <span class="n">high</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">pivotpos</span> <span class="o">=</span> <span class="nf">Partition</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">);</span><span class="c1">// 划分
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nf">QuickSort</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">pivotpos</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span><span class="c1">// 递归求解
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nf">QuickSort</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">pivotpos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="p">);</span><span class="c1">// 递归求解
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">QuickSort</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d &#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></div>
 </div>
 <div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -827,17 +811,17 @@ $D$ 是包含n个结点的有限集合 $n&gt;0$ 。</p>
             </a>
           </li></ul>
         <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content text-center show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
-            <img class="img-fluid post-reward-img" src="http://localhost:1313/images/reward/alipay.jpg" loading="lazy" data-viewer-invisible />
+            <img class="img-fluid post-reward-img" src="https://fallingmy.github.io/images/reward/alipay.jpg" loading="lazy" data-viewer-invisible />
           </div><div class="tab-pane fade post-reward-content text-center show" id="reward-wechat" role="tabpanel" aria-labelledby="reward-wechat-tab">
-            <img class="img-fluid post-reward-img" src="http://localhost:1313/images/reward/wechat.jpg" loading="lazy" data-viewer-invisible />
+            <img class="img-fluid post-reward-img" src="https://fallingmy.github.io/images/reward/wechat.jpg" loading="lazy" data-viewer-invisible />
           </div></div>
       </div>
     </div>
   </div>
 </div></div><div class="card-footer">
-  <div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-prev">
-      <i class="fas fa-fw fa-chevron-down post-prev-icon me-1" data-fa-transform="rotate-90"></i>
+  <div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-next">
       <a href="/docs/notes/c/pointer/">指针</a>
+      <i class="fas fa-fw fa-chevron-down post-next-icon ms-1" data-fa-transform="rotate-270"></i>
     </div></div>
 </div></article><div class="post-copyright mb-3 row card component" id="post-copyright">
     <div class="card-header">
@@ -927,28 +911,18 @@ $D$ 是包含n个结点的有限集合 $n&gt;0$ 。</p>
     <div class="card-body collapse accordion-collapse accordion-body d-lg-block" id="post-toc">
       <nav id="TableOfContents">
   <ul>
-    <li><a href="#树的定义">树的定义</a></li>
-    <li><a href="#树的表示">树的表示</a>
+    <li><a href="#设计思想">设计思想</a></li>
+    <li><a href="#基本步骤">基本步骤</a></li>
+    <li><a href="#算法框架">算法框架</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#快速排序">快速排序</a>
       <ul>
-        <li><a href="#逻辑表示法">逻辑表示法</a></li>
-        <li><a href="#文氏图表示法">文氏图表示法</a></li>
-        <li><a href="#凹入表示法">凹入表示法</a></li>
-        <li><a href="#括号表示法">括号表示法</a></li>
+        <li><a href="#基本思想">基本思想</a></li>
+        <li><a href="#算法">算法</a></li>
       </ul>
     </li>
-    <li><a href="#树的基本术语">树的基本术语</a>
-      <ul>
-        <li><a href="#结点的度和树的度">结点的度和树的度</a></li>
-        <li><a href="#分支结点与叶结点">分支结点与叶结点</a></li>
-        <li><a href="#路径与路径长度">路径与路径长度</a></li>
-        <li><a href="#孩子结点双亲结点和兄弟结点">孩子结点、双亲结点和兄弟结点</a></li>
-        <li><a href="#子孙结点和祖先结点">子孙结点和祖先结点</a></li>
-        <li><a href="#结点的层次和高度">结点的层次和高度</a></li>
-        <li><a href="#有序树和无序树">有序树和无序树</a></li>
-        <li><a href="#森林">森林</a></li>
-      </ul>
-    </li>
-    <li><a href="#树的性质">树的性质</a></li>
   </ul>
 </nav>
     </div>
@@ -966,12 +940,12 @@ $D$ 是包含n个结点的有限集合 $n&gt;0$ 。</p>
         </div>
         <div class="card-body collapse accordion-collapse accordion-body text-secondary-on-surface d-lg-block show" id="repo" aria-labelledby="repo-header">
             <ul class="list-unstyled"><li class="mb-1">
-                    <a href="https://github.com/FallingMY/myblog/blob/main//content/docs/Notes/C/tree.md" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/FallingMY/myblog/blob/main//content/docs/Notes/C/divide.md" target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-fw fa-file-archive text-success"></i> View page source
                     </a>
                 </li>
                 <li class="mb-1">
-                    <a href="https://github.com/FallingMY/myblog/edit/main//content/docs/Notes/C/tree.md" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/FallingMY/myblog/edit/main//content/docs/Notes/C/divide.md" target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-fw fa-edit text-primary"></i> Edit this page
                     </a>
                 </li></ul>
@@ -994,11 +968,11 @@ $D$ 是包含n个结点的有限集合 $n&gt;0$ 。</p>
   </div>
   <div class="offcanvas-body mt-2"><div class="social-share mb-4 d-flex overflow-auto">
       <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Twitter Share Button"
-      target="_blank" href="https://twitter.com/intent/tweet?title=%e6%a0%91%e4%b8%8e%e4%ba%8c%e5%8f%89%e6%a0%91&url=http%3a%2f%2flocalhost%3a1313%2fdocs%2fnotes%2fc%2ftree%2f">
+      target="_blank" href="https://twitter.com/intent/tweet?title=404%20Page%20not%20found&url=https%3a%2f%2ffallingmy.github.io%2f404.html">
         <i class="fab fa-2x fa-fw fa-twitter mb-2"></i> Twitter
       </a>
       <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Facebook Share Button"
-        target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fdocs%2fnotes%2fc%2ftree%2f">
+        target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ffallingmy.github.io%2f404.html">
         <i class="fab fa-2x fa-fw fa-facebook-f mb-2"></i> Facebook
       </a>
     </div>
@@ -1018,7 +992,7 @@ $D$ 是包含n个结点的有限集合 $n&gt;0$ 。</p>
   <div class="col-12 mt-2">
     <p class="mb-2">Falling_Studio_Terminal3</p>
     <p class="text-secondary mb-2"><small>An extreme fast, responsive and feature-rich blog theme for Hugo</small></p><div class="copyright mb-2 text-secondary">
-  <small>Copyright © 2016-2024 Razon Yang. All Rights Reserved.
+  <small>Copyright © 2016-2025 Razon Yang. All Rights Reserved.
 </small>
 </div>
 <div class="powered-by mb-2 text-secondary">
@@ -1056,9 +1030,9 @@ $D$ 是包含n个结点的有限集合 $n&gt;0$ 。</p>
   <div class="col-12 col-lg-8 offset-0 offset-lg-1"></div>
 </div>
 </footer>
-<script data-precache src="/assets/main/bundle.min.43592fb2f3049aa365110140d69b264ba72dfdd3989a413a770d67b8b80f1fc0.js" integrity="sha256-Q1kvsvMEmqNlEQFA1psmS6ct/dOYmkE6dw1nuLgPH8A=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.e54d449fb2f61868599339bf9539fdf870c40f403df48b6bb0b222993514e533.js" integrity="sha256-5U1En7L2GGhZkzm/lTn9&#43;HDED0A99ItrsLIimTUU5TM=" crossorigin="anonymous" defer></script>
-<script data-precache src="/assets/viewer/bundle.min.6b04108bcf5bfd45397e320e83d728b1df778a7e2c2021b8dc97a41d783acae9.js" integrity="sha256-awQQi89b/UU5fjIOg9cosd93in4sICG43JekHXg6yuk=" crossorigin="anonymous" defer></script>
-  <script data-precache defer src="/assets/katex/bundle.min.59e7d586c5d16cbae10fc198286c7abbcba11bfe2a928bc3428ba07862371b2a.js" integrity="sha256-WefVhsXRbLrhD8GYKGx6u8uhG/4qkovDQougeGI3Gyo=" crossorigin="anonymous"></script>
+<script data-precache src="/assets/main/bundle.min.7ea6a1bf778d18257969b177feea489a46a2fa133751de416bd5e105f74e9646.js" integrity="sha256-fqahv3eNGCV5abF3/upImkai&#43;hM3Ud5Ba9XhBfdOlkY=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.e4f49151c93a82337f566f792dd3e3f26aed97c6c9462e15be1df10adf81559d.js" integrity="sha256-5PSRUck6gjN/Vm95LdPj8mrtl8bJRi4Vvh3xCt&#43;BVZ0=" crossorigin="anonymous" defer></script>
+<script data-precache src="/assets/viewer/bundle.min.06371891cfe6d10d36cba465c61c4d7cb17591a3be2fd9af4a38444d2074e709.js" integrity="sha256-BjcYkc/m0Q02y6RlxhxNfLF1kaO&#43;L9mvSjhETSB05wk=" crossorigin="anonymous" defer></script>
+  <script data-precache defer src="/assets/katex/bundle.min.ebacb71ff73d65512126000e4a076fdbd207a155f88a4e69b442c0407e576fe3.js" integrity="sha256-66y3H/c9ZVEhJgAOSgdv29IHoVX4ik5ptELAQH5Xb&#43;M=" crossorigin="anonymous"></script>
 
 <script src="/js/sw-register.js" defer></script>
 <script src="https://giscus.app/client.js"
