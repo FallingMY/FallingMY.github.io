@@ -1,4 +1,26 @@
-.container h1{
-    font-size: 40px;
-    color: #ff7777;
+body {
+    background-color:rgb(59, 59, 59);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+}
+
+.puzzle_1_a {
+    color:rgb(184, 217, 255);
+    text-decoration: none;
+}
+
+.puzzle_1_p {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    transition: all 0.5s;
+}
+
+.puzzle_1_a:hover .puzzle_1_p {
+    color:rgb(64, 134, 232);
+    transform: scale(1.2);
 }
