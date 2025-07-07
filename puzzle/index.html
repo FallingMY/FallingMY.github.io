@@ -1,50 +1,53 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Puzzle</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sixtyfour|Press+Start+2P">
-        <script src="script.js"></script>
-    </head>
-    <body>
-        <div id="bg_logo">
-            <!-- <img src="logo.png" alt="logo"> -->
-            <p id="logo_p">Falling_Studio</p>
-        </div>
-        <div id="puzzle">
-            <a href="RE/log001.html" class="puzzle_1_a" id="log1">
-                <p class="puzzle_1_p">Log001</p>
-            </a>
-        </div>
-    </body>
+<head>
+    <title>Puzzle</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sixtyfour|Press+Start+2P">
+</head>
+<body>
+    <div id="bg_logo">
+        <p id="logo_p">Falling_Studio</p>
+    </div>
+    <div id="puzzle">
+        <a href="RE/log001.html" class="puzzle_1_a" id="log1">
+            <p class="puzzle_1_p">Log001</p>
+        </a>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script>
-        gsap.from(".puzzle_1_a", {
-            duration: 0.8,
-            y: 50,
-            opacity: 0,
-            ease: "power2.out",
-            delay: 0.4,
-        });
-        gsap.from("#puzzle", {
-            duration: 0.8,
-            opacity: 0,
-            delay: 0.2,
-        });
-        let bg = document.getElementById("puzzle");
-        let log1 = document.getElementById("log1");
-        log1.addEventListener("mouseover", function() {
-            console.log("mouseover");
-            gsap.to(bg, {
-                duration: 0.5,
-                backgroundColor: "#0A0C16",
+        window.onload = function() {
+            gsap.from(".puzzle_1_a", {
+                duration: 0.8,
+                y: 50,
+                opacity: 0,
+                ease: "power2.out",
+                delay: 0.4,
             });
-        });
-        log1.addEventListener("mouseout", function() {
-            gsap.to(bg, {
-                duration: 0.5,
-                backgroundColor: "rgb(59, 59, 59)",
+            gsap.from("#puzzle", {
+                duration: 0.8,
+                opacity: 0,
+                delay: 0.2,
             });
-        });
+
+            let bg = document.getElementById("puzzle");
+            let log1 = document.getElementById("log1");
+
+            log1.addEventListener("mouseover", function() {
+                gsap.to(bg, {
+                    duration: 0.5,
+                    backgroundColor: "#0A0C16",
+                });
+            });
+
+            log1.addEventListener("mouseout", function() {
+                gsap.to(bg, {
+                    duration: 0.5,
+                    backgroundColor: "rgb(59, 59, 59)",
+                });
+            });
+        };
     </script>
+</body>
 </html>
