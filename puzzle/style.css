@@ -28,7 +28,7 @@ body {
     text-decoration: none;
 }
 
-.puzzle_1_p {
+.puzzle_1_p_hidden {
     font-size: 24px;
     font-weight: bold;
     color: rgb(230, 244, 255);
@@ -36,7 +36,7 @@ body {
     font-family: "Sixtyfour";
 }
 
-.puzzle_1_a:hover .puzzle_1_p {
+.puzzle_1_a:hover .puzzle_1_p_hidden {
     color:rgb(234, 244, 255);
     text-shadow:
         0 0 10px rgb(226, 239, 255),
