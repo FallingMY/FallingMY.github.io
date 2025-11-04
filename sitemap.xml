@@ -2,10 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://fallingmy.github.io/docs/</loc>
-    <lastmod>2025-06-15T17:10:00+08:00</lastmod>
+    <loc>https://fallingmy.github.io/authors/</loc>
+    <lastmod>2025-11-03T17:26:37+08:00</lastmod>
   </url><url>
     <loc>https://fallingmy.github.io/</loc>
+    <lastmod>2025-11-03T17:26:37+08:00</lastmod>
+  </url><url>
+    <loc>https://fallingmy.github.io/authors/mu/</loc>
+    <lastmod>2025-11-03T17:26:37+08:00</lastmod>
+  </url><url>
+    <loc>https://fallingmy.github.io/tags/news/</loc>
+    <lastmod>2025-11-03T17:26:37+08:00</lastmod>
+  </url><url>
+    <loc>https://fallingmy.github.io/series/news/</loc>
+    <lastmod>2025-11-03T17:26:37+08:00</lastmod>
+  </url><url>
+    <loc>https://fallingmy.github.io/news/</loc>
+    <lastmod>2025-11-03T17:26:37+08:00</lastmod>
+  </url><url>
+    <loc>https://fallingmy.github.io/series/</loc>
+    <lastmod>2025-11-03T17:26:37+08:00</lastmod>
+  </url><url>
+    <loc>https://fallingmy.github.io/tags/</loc>
+    <lastmod>2025-11-03T17:26:37+08:00</lastmod>
+  </url><url>
+    <loc>https://fallingmy.github.io/news/2025/11/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%BD%91%E7%AB%99%E6%9B%B4%E6%96%B0/</loc>
+    <lastmod>2025-11-03T17:26:37+08:00</lastmod>
+  </url><url>
+    <loc>https://fallingmy.github.io/docs/</loc>
     <lastmod>2025-06-15T17:10:00+08:00</lastmod>
   </url><url>
     <loc>https://fallingmy.github.io/docs/notes/</loc>
@@ -29,9 +53,6 @@
     <loc>https://fallingmy.github.io/docs/notes/dsa/</loc>
     <lastmod>2025-03-09T13:37:27+08:00</lastmod>
   </url><url>
-    <loc>https://fallingmy.github.io/series/</loc>
-    <lastmod>2024-12-23T08:55:34+08:00</lastmod>
-  </url><url>
     <loc>https://fallingmy.github.io/docs/notes/c/file_c/</loc>
     <lastmod>2024-12-23T08:55:34+08:00</lastmod>
   </url><url>
@@ -43,9 +64,6 @@
   </url><url>
     <loc>https://fallingmy.github.io/docs/notes/c/tree_1/</loc>
     <lastmod>2024-11-30T08:28:26+08:00</lastmod>
-  </url><url>
-    <loc>https://fallingmy.github.io/authors/</loc>
-    <lastmod>2024-11-23T11:39:07+08:00</lastmod>
   </url><url>
     <loc>https://fallingmy.github.io/authors/falling_my/</loc>
     <lastmod>2024-11-23T11:39:07+08:00</lastmod>
@@ -74,9 +92,6 @@
     <loc>https://fallingmy.github.io/docs/notes/dsa/1/</loc>
     <lastmod>2024-09-03T17:22:39+08:00</lastmod>
   </url><url>
-    <loc>https://fallingmy.github.io/tags/</loc>
-    <lastmod>2024-09-02T09:34:47+08:00</lastmod>
-  </url><url>
     <loc>https://fallingmy.github.io/tags/university/</loc>
     <lastmod>2024-09-02T09:34:47+08:00</lastmod>
   </url><url>
@@ -86,23 +101,11 @@
     <loc>https://fallingmy.github.io/authors/internet-users/</loc>
     <lastmod>2024-07-06T09:34:47+08:00</lastmod>
   </url><url>
-    <loc>https://fallingmy.github.io/tags/latex/</loc>
-    <lastmod>2024-07-06T09:34:47+08:00</lastmod>
-  </url><url>
     <loc>https://fallingmy.github.io/tags/tool/</loc>
     <lastmod>2024-07-06T09:34:47+08:00</lastmod>
   </url><url>
     <loc>https://fallingmy.github.io/docs/%E5%B8%B8%E7%94%A8%E5%8F%82%E8%80%83%E7%BD%91%E7%AB%99%E5%90%88%E9%9B%86/</loc>
     <lastmod>2024-07-06T09:34:47+08:00</lastmod>
-  </url><url>
-    <loc>https://fallingmy.github.io/tags/news/</loc>
-    <lastmod>2024-07-05T15:39:20+08:00</lastmod>
-  </url><url>
-    <loc>https://fallingmy.github.io/series/news/</loc>
-    <lastmod>2024-07-05T15:39:20+08:00</lastmod>
-  </url><url>
-    <loc>https://fallingmy.github.io/news/</loc>
-    <lastmod>2024-07-05T15:39:20+08:00</lastmod>
   </url><url>
     <loc>https://fallingmy.github.io/news/2024/07/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2024-07-05T15:39:20+08:00</lastmod>
