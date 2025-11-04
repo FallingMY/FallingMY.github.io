@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Log001</title>
+        <style type="text/css">
+            body {
+                background-color: #0c0d1a;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                /* 确保 body 占满视口高度 */
+                min-height: 100vh;
+                margin: 0;
+            }
+            img {
+                /* 修改为相对定位或移除 position 属性 */
+                /* position 属性移除，因为 flex 布局下不需要额外定位 */
+                /* 宽度设置为最大 100%，避免图片超出视口 */
+                max-width: 100%;
+                height: auto;
+                animation: onLoadFlash 0.5s cubic-bezier(0.5, 0, 0.5, 1) forwards;
+            }
+            /* 定义页面载入时的闪烁关键帧 */
+            @keyframes onLoadFlash {
+                0%   { opacity: 0; } /* 开始时显示 */
+                10%  { opacity: 0; } /* 隐藏 */
+                20%  { opacity: 1;} /* 显示 (第1次闪烁完成) */
+                30%  { opacity: 0.5; } /* 隐藏 */
+                40%  { opacity: 1; } /* 显示 (第2次闪烁完成) */
+                50%  { opacity: 1; } /* 隐藏 */
+                60%  { opacity: 1; } /* 显示 (第3次闪烁完成) */
+                100% { opacity: 1; } /* 动画结束后保持显示 */
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 为图片添加 onclick 事件，点击时调用 history.back() 方法 -->
+        <img src="https://cdn.jsdelivr.net/gh/FallingMY/blog-img/blog/38c91659287d1f263618dcfb45ef80f0.png" alt="log001" onclick="history.back()">
+    </body>
+</html>
