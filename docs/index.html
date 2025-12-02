@@ -27,15 +27,15 @@
 
   <meta itemprop="name" content="Docs">
   <meta itemprop="description" content="An extreme fast, responsive and feature-rich blog theme for Hugo">
-  <meta itemprop="datePublished" content="2025-06-15T17:10:00+08:00">
-  <meta itemprop="dateModified" content="2025-06-15T17:10:00+08:00">
+  <meta itemprop="datePublished" content="2025-12-02T10:19:28+08:00">
+  <meta itemprop="dateModified" content="2025-12-02T10:19:28+08:00">
   <meta property="og:image" content="https://fallingmy.github.io/images/icon.png"/>
   <meta name="twitter:image" content="https://fallingmy.github.io/images/icon.png"/>
   <meta property="og:image:alt" content="Docs" />
   <meta name="twitter:image:alt" content="Docs" />
   <link rel="manifest" href="/manifest.json">
 <link rel="alternate" type="application/rss+xml" href="/docs/index.xml" title="Falling_Studio_Terminal3" />
-<link data-precache rel="stylesheet" href="/assets/main/bundle.min.693b5aac9d91746f9bb8cabb7fd25724e4f1c9a7746d34d9e5a2ba80502361bd.css" integrity="sha256-aTtarJ2RdG+buMq7f9JXJOTxyad0bTTZ5aK6gFAjYb0=" crossorigin="anonymous">
+<link data-precache rel="stylesheet" href="/assets/main/bundle.min.b4b720f173ade7a422f70af0e98917181ad810549b1d4e78bf94dcc0c506840f.css" integrity="sha256-tLcg8XOt56Qi9wrw6YkXGBrYEFSbHU54v5TcwMUGhA8=" crossorigin="anonymous">
 
 <link data-precache rel="stylesheet" href="/assets/katex/bundle.min.506b6798499d2e8621e3d1f1db89099c3aa2639acd8b3b000b14cc6999c5b340.css" integrity="sha256-UGtnmEmdLoYh49Hx24kJnDqiY5rNizsACxTMaZnFs0A=" crossorigin="anonymous">
 
@@ -524,10 +524,32 @@ Falling_MY
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/3/"><span class="docs-nav-title">排序算法</span></a>
         </li>
         <li class="mb-2 py-1" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/visialize/"><span class="docs-nav-title">数据结构可视化</span></a>
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/staker_1/"><span class="docs-nav-title">栈</span></a>
         </li>
         <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/queue/"><span class="docs-nav-title">队列</span></a>
+        </li></ul>
+            </div>
+          </div>
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/geometric_calculation/"><span class="docs-nav-title">计算几何</span></a>
+        </li><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/se/"><span class="docs-nav-title">软件工程</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-f220489e34c444a53ca49c2e463d8fe9" aria-expanded="false" aria-controls="nav-f220489e34c444a53ca49c2e463d8fe9">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-f220489e34c444a53ca49c2e463d8fe9">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100">
+        <li class="mb-2 py-1" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/se/petri/"><span class="docs-nav-title">Petri图</span></a>
         </li></ul>
             </div>
           </div>
@@ -561,6 +583,43 @@ Falling_MY
 </div><div class="posts mb-4"><article class="row card post component">
   <div class="card-header">
     <h2 class="card-title post-title my-2 fs-4">
+      <a href="/docs/notes/dsa/visialize/">数据结构可视化</a>
+    </h2>
+  </div>
+  <div class="card-body"><div class="post-meta mb-3">
+  <span class="post-date me-1 mb-1" title="created on 2025-12-02 10:19:28 &#43;0800 CST.">December 2, 2025</span><span class="post-reading-time me-1 mb-1">1 min read</span>
+</div>
+
+    <div class="post-summary"><p>这里收集了一些数据结构的可视化交互动画以帮助理解那些抽象难懂的知识。
+每个动画的右下角都有一个全屏按钮
+稀疏矩阵转置：有序双下标法可视化 1. 初始化 2. 统计列频数 (num) 3. 计算起始位置 (cpot) 4. 搬运数据 5. 完成 上一步 下一步 重置 点击“下一步”开始演示... 源矩阵 M (三元组表) 行数: 6, 列数: 6, 非零元: 8
+索引 行 (i) 列 (j) 值 (v) 辅助数组 num[]: 统计每列元素个数 cpot[]: 该列在目标表中的起始位置 目标矩阵 T (转置后) 行数: 6, 列数: 6, 非零元: 8
+索引 行 (j) 列 (i) 值 (v) </p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/notes/dsa/visialize/">Read More</a></div>
+    </div>
+  </div>
+</article>
+<article class="row card post component">
+  <div class="card-header">
+    <h2 class="card-title post-title my-2 fs-4">
+      <a href="/docs/notes/se/petri/">Petri图</a>
+    </h2>
+  </div>
+  <div class="card-body"><div class="post-meta mb-3">
+  <span class="post-date me-1 mb-1" title="created on 2025-11-21 14:06:11 &#43;0800 CST.">November 21, 2025</span><span class="post-reading-time me-1 mb-1">1 min read</span>
+</div>
+
+    <div class="post-summary"><p> 基础概念 摘自Wikipedia：
+佩特里网（英语：Petri net），又译为裴氏网、派翠网络，是对离散并行系统的数学表示。
+佩特里网属于离散事件动态系统，是1960年代由卡尔·亚当·佩特里发明的[1]，适合于描述异步的、并发的计算机系统模型。
+佩特里网既有严格的数学表述方式，也有直观的图形表达方式。
+构成元素 一个佩特里网由以下几种基本元素构成：
+Place (库所)：表示系统的状态，通常用圆圈表示。 Transition (变迁)：表示系统中事件的发生，通常用矩形表示。 Token (标识)：表示系统中的资源或信息，通常用实心圆点表示，放置在库所中。 Arc (弧)：连接库所和变迁，表示它们之间的关系，通常用有向箭头表示。 ...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/notes/se/petri/">Read More</a></div>
+    </div>
+  </div>
+</article>
+<article class="row card post component">
+  <div class="card-header">
+    <h2 class="card-title post-title my-2 fs-4">
       <a href="/docs/notes/math/examreview_1_1/">期末复习纲要1</a>
     </h2>
   </div>
@@ -574,6 +633,20 @@ Generated by Gemini.
 23《高等数学Ⅰ(2)》(理工)期末试卷一》知识点复习纲要 总览与复习策略建议：
 这份试卷体现了对学生数学基础知识的全面掌握、概念理解的深度、计算能力的准确性以及解决实际（数学）问题的能力的综合考查。复习时，建议采取“点-线-面”结合的方式：
 点： 掌握每一个核心定义、定理、公式。 线： 理解不同知识点之间的联系和推导，形成逻辑链条。 面： 将知识点放入整体框架中，理解其在数学体系中的地位和应用。 训练： 大量练习，提高计算熟练度和解题速度，并养成严谨的解题习惯。 一、向量代数与空间解析几何 （对应试卷：填...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/notes/math/examreview_1_1/">Read More</a></div>
+    </div>
+  </div>
+</article>
+<article class="row card post component">
+  <div class="card-header">
+    <h2 class="card-title post-title my-2 fs-4">
+      <a href="/docs/notes/geometric_calculation/">计算几何</a>
+    </h2>
+  </div>
+  <div class="card-body"><div class="post-meta mb-3">
+  <span class="post-date me-1 mb-1" title="created on 2025-03-22 13:47:27 &#43;0800 CST.">March 22, 2025</span><span class="post-reading-time me-1 mb-1">1 min read</span>
+</div>
+
+    <div class="post-summary"><p> 计算几何基础 1.1 向量基本运算 向量的表示：$\vec v = (x, y)$ 向量的加法：$\vec v + \vec w = (x + x’, y + y’)$ 向量的减法：$\vec v - \vec w = (x - x’, y - y’)$ 向量的数乘：$k \vec v = (kx, ky)$ 向量的模：$|\vec v| = \sqrt{x^2 + y^2}$ 1.2 向量的点积 向量的点积：$\vec v \cdot \vec w = x \cdot x’ + y \cdot y&#39;$ 向量的点积的几何意义：$\vec v \cdot \vec w = |\vec v| \cdot |\vec w| \cdot...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/notes/geometric_calculation/">Read More</a></div>
     </div>
   </div>
 </article>
@@ -701,81 +774,6 @@ A(B(D,E),C(F,G))
     <div class="post-summary"><p>串，及字符串，是由零个或多个字符组成的有限序列。一般记为： $$ S = ‘a_1a_2a_3…a_n’ (n&gt;0)$$
 串是一种特殊的线性表，数据元素之间呈线性关系。 串的数据对象是字符的有限序列。
 串的基本操作 StrAssign(&amp;T, chars) 赋值操作，把串T赋值为chars StrCopy(&amp;T, S) 复制操作，把串S复制给串T StrEmpty(S) 判空操作，若S为空串，则返回true，否则返回false StrLength(S) 求串长，返回串S的元素个数 ClearString(&amp;S) 清空操作，将S清空 DestroyString(&amp;S) 销毁串，将串S销毁 Concat(&amp;T, S1, S2) 串联接，...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/notes/dsa/string_1/">Read More</a></div>
-    </div>
-  </div>
-</article>
-<article class="row card post component">
-  <div class="card-header">
-    <h2 class="card-title post-title my-2 fs-4">
-      <a href="/docs/notes/dsa/queue/">队列</a>
-    </h2>
-  </div>
-  <div class="card-body"><div class="post-meta mb-3">
-  <span class="post-date me-1 mb-1" title="created on 2024-11-23 09:56:09 &#43;0800 CST.">November 23, 2024</span><span class="post-reading-time me-1 mb-1">2 min read</span><a href="/authors/falling_my/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-author">
-      <i class="fas fa-fw fa-user me-1"></i>Falling_MY</a><a href="/series/%E7%AB%9E%E8%B5%9B%E5%9F%B9%E8%AE%AD%E8%AF%BE%E7%AC%94%E8%AE%B0/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
-      <i class="fas fa-fw fa-columns me-1"></i>竞赛培训课笔记</a>
-</div>
-
-    <div class="post-summary"><p> 定义 与栈不同，队列的两端都允许插入和删除操作。
-队列(Queue) 是只允许一端进行插入操作，而另一端进行删除操作的线性表。
-相关术语
-队头：允许删除的一端
-队尾：允许插入的一端
-空队列：无元素
-特点：先进先出
-基本操作 InitQueue(&amp;Q) 初始化队列, 构造一个空队列Q DestroyQueue(&amp;Q) 销毁队列, 释放Q占用的内存空间 EnQueue(&amp;Q, x) 入队, 若队列Q未满, 则将x加入, 使之成为新的队尾 DeQueue(&amp;Q, &amp;x) 出队, 若队列Q非空, 则删除Q的队头元素, 并用x返回 GetHead(Q, &amp;x) 读队头元素, 若队列Q非空, 则将队头元素赋值给x QueueEmpty(Q) ...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/notes/dsa/queue/">Read More</a></div>
-    </div>
-  </div>
-</article>
-<article class="row card post component">
-  <div class="card-header">
-    <h2 class="card-title post-title my-2 fs-4">
-      <a href="/docs/notes/dsa/staker_1/">栈</a>
-    </h2>
-  </div>
-  <div class="card-body"><div class="post-meta mb-3">
-  <span class="post-date me-1 mb-1" title="created on 2024-11-23 08:27:33 &#43;0800 CST.">November 23, 2024</span><span class="post-reading-time me-1 mb-1">3 min read</span><a href="/authors/falling_my/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-author">
-      <i class="fas fa-fw fa-user me-1"></i>Falling_MY</a><a href="/series/%E7%AB%9E%E8%B5%9B%E5%9F%B9%E8%AE%AD%E8%AF%BE%E7%AC%94%E8%AE%B0/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
-      <i class="fas fa-fw fa-columns me-1"></i>竞赛培训课笔记</a>
-</div>
-
-    <div class="post-summary"><p>2024.11.23 这里是大一的我。 自己目前还不是很能理解栈和队列的相关知识，只是简单的做一下竞赛课程的笔记。
-不是很了解，所以我就先把我目前学到的东西记录下来，以后再慢慢补充。
-我们在以后的数据结构再见吧！
-由于老师上课的速度很快，所以难免笔记会有疏漏，并且代码大部分由Marscode生成。 如果你发现有什么问题或者有什么建议，欢迎在评论区留言。
-Btw，如果你觉的这篇文章对你有帮助，不妨点个赞吧⬇️ 👍 栈(stack) 定义 线性表是具有相同数据结构的n个元素的有限序列
-栈是只允许一段进行插入或删除操作的线性表
-相关术语 栈顶：允许插入和删除的一段 栈底：不允许操作的一段 空栈：无元素
-特点：先进后出
-基本操作 线性表 初...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/notes/dsa/staker_1/">Read More</a></div>
-    </div>
-  </div>
-</article>
-<article class="row card post component">
-  <div class="card-header">
-    <h2 class="card-title post-title my-2 fs-4">
-      <a href="/docs/notes/c/pointer/">指针</a>
-    </h2>
-  </div>
-  <div class="card-body"><div class="post-meta mb-3">
-  <span class="post-date me-1 mb-1" title="created on 2024-11-18 08:08:06 &#43;0800 CST.">November 18, 2024</span><span class="post-reading-time me-1 mb-1">2 min read</span><a href="/series/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
-      <i class="fas fa-fw fa-columns me-1"></i>课堂笔记</a>
-</div>
-
-    <div class="post-summary"><p> C语言能处理一类非常特殊的数据——内存地址（常量）
-如果这篇文章有帮到你的话，不妨点个赞吧
-👍 引入 计算机内部有很多储存单元，每个储存单位都用唯一的地址编号（表示为一个整数加以区别），简称为地址
-或者说
-内存中每个字节都有一个编号——地址
-指针使程序的不同部分能共享数据（地址唯一性）
-指针 指针自身的是一个变量，内容为地址变量。指针自身被称为指针变量（也作指针）。
-指针变量指向目标变量。
-char *p,x; x = &#34;A&#34;; p = &amp;x; *为取目标运算
-&amp;为取地址运算
-空指针 int *p = 0; int p = null; 定义了一个空指针
-指向的目标变量为null
-作用 任何变量一旦定义就有值
-在不知道指针的指向时，...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/notes/c/pointer/">Read More</a></div>
     </div>
   </div>
 </article>

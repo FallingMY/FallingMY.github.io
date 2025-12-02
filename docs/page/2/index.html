@@ -27,15 +27,15 @@
 
   <meta itemprop="name" content="Docs">
   <meta itemprop="description" content="An extreme fast, responsive and feature-rich blog theme for Hugo">
-  <meta itemprop="datePublished" content="2025-06-15T17:10:00+08:00">
-  <meta itemprop="dateModified" content="2025-06-15T17:10:00+08:00">
+  <meta itemprop="datePublished" content="2025-12-02T10:19:28+08:00">
+  <meta itemprop="dateModified" content="2025-12-02T10:19:28+08:00">
   <meta property="og:image" content="https://fallingmy.github.io/images/icon.png"/>
   <meta name="twitter:image" content="https://fallingmy.github.io/images/icon.png"/>
   <meta property="og:image:alt" content="Docs" />
   <meta name="twitter:image:alt" content="Docs" />
   <link rel="manifest" href="/manifest.json">
 <link rel="alternate" type="application/rss+xml" href="/docs/index.xml" title="Falling_Studio_Terminal3" />
-<link data-precache rel="stylesheet" href="/assets/main/bundle.min.693b5aac9d91746f9bb8cabb7fd25724e4f1c9a7746d34d9e5a2ba80502361bd.css" integrity="sha256-aTtarJ2RdG+buMq7f9JXJOTxyad0bTTZ5aK6gFAjYb0=" crossorigin="anonymous">
+<link data-precache rel="stylesheet" href="/assets/main/bundle.min.b4b720f173ade7a422f70af0e98917181ad810549b1d4e78bf94dcc0c506840f.css" integrity="sha256-tLcg8XOt56Qi9wrw6YkXGBrYEFSbHU54v5TcwMUGhA8=" crossorigin="anonymous">
 
 <link data-precache rel="stylesheet" href="/assets/katex/bundle.min.506b6798499d2e8621e3d1f1db89099c3aa2639acd8b3b000b14cc6999c5b340.css" integrity="sha256-UGtnmEmdLoYh49Hx24kJnDqiY5rNizsACxTMaZnFs0A=" crossorigin="anonymous">
 
@@ -524,10 +524,32 @@ Falling_MY
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/3/"><span class="docs-nav-title">排序算法</span></a>
         </li>
         <li class="mb-2 py-1" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/visialize/"><span class="docs-nav-title">数据结构可视化</span></a>
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/staker_1/"><span class="docs-nav-title">栈</span></a>
         </li>
         <li class="mb-2 py-1" tabindex="-1">
           <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/dsa/queue/"><span class="docs-nav-title">队列</span></a>
+        </li></ul>
+            </div>
+          </div>
+        </li>
+        <li class="mb-2 py-1" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/geometric_calculation/"><span class="docs-nav-title">计算几何</span></a>
+        </li><li class="mb-2" tabindex="-1">
+          <div class="py-1 d-flex justify-content-between align-items-center">
+            <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/se/"><span class="docs-nav-title">软件工程</span></a>
+            <a class="btn-toggle ms-1 collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#nav-f220489e34c444a53ca49c2e463d8fe9" aria-expanded="false" aria-controls="nav-f220489e34c444a53ca49c2e463d8fe9">
+              <i class="btn-toggle-icon fas fa-chevron-down ms-auto" data-fa-transform="rotate-270"></i>
+            </a>
+          </div>
+          <div class="docs-nav-subnavs border-start mt-2 collapse " id="nav-f220489e34c444a53ca49c2e463d8fe9">
+            <div class="btn-toggle-nav fw-normal ms-2 small">
+              <ul class="list-unstyled mb-2 w-100">
+        <li class="mb-2 py-1" tabindex="-1">
+          <a class="docs-nav-link d-flex align-items-center" href="/docs/notes/se/petri/"><span class="docs-nav-title">Petri图</span></a>
         </li></ul>
             </div>
           </div>
@@ -559,6 +581,81 @@ Falling_MY
         </li></ul>
   </div>
 </div><div class="posts mb-4"><article class="row card post component">
+  <div class="card-header">
+    <h2 class="card-title post-title my-2 fs-4">
+      <a href="/docs/notes/dsa/queue/">队列</a>
+    </h2>
+  </div>
+  <div class="card-body"><div class="post-meta mb-3">
+  <span class="post-date me-1 mb-1" title="created on 2024-11-23 09:56:09 &#43;0800 CST.">November 23, 2024</span><span class="post-reading-time me-1 mb-1">2 min read</span><a href="/authors/falling_my/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-author">
+      <i class="fas fa-fw fa-user me-1"></i>Falling_MY</a><a href="/series/%E7%AB%9E%E8%B5%9B%E5%9F%B9%E8%AE%AD%E8%AF%BE%E7%AC%94%E8%AE%B0/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
+      <i class="fas fa-fw fa-columns me-1"></i>竞赛培训课笔记</a>
+</div>
+
+    <div class="post-summary"><p> 定义 与栈不同，队列的两端都允许插入和删除操作。
+队列(Queue) 是只允许一端进行插入操作，而另一端进行删除操作的线性表。
+相关术语
+队头：允许删除的一端
+队尾：允许插入的一端
+空队列：无元素
+特点：先进先出
+基本操作 InitQueue(&amp;Q) 初始化队列, 构造一个空队列Q DestroyQueue(&amp;Q) 销毁队列, 释放Q占用的内存空间 EnQueue(&amp;Q, x) 入队, 若队列Q未满, 则将x加入, 使之成为新的队尾 DeQueue(&amp;Q, &amp;x) 出队, 若队列Q非空, 则删除Q的队头元素, 并用x返回 GetHead(Q, &amp;x) 读队头元素, 若队列Q非空, 则将队头元素赋值给x QueueEmpty(Q) ...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/notes/dsa/queue/">Read More</a></div>
+    </div>
+  </div>
+</article>
+<article class="row card post component">
+  <div class="card-header">
+    <h2 class="card-title post-title my-2 fs-4">
+      <a href="/docs/notes/dsa/staker_1/">栈</a>
+    </h2>
+  </div>
+  <div class="card-body"><div class="post-meta mb-3">
+  <span class="post-date me-1 mb-1" title="created on 2024-11-23 08:27:33 &#43;0800 CST.">November 23, 2024</span><span class="post-reading-time me-1 mb-1">3 min read</span><a href="/authors/falling_my/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-author">
+      <i class="fas fa-fw fa-user me-1"></i>Falling_MY</a><a href="/series/%E7%AB%9E%E8%B5%9B%E5%9F%B9%E8%AE%AD%E8%AF%BE%E7%AC%94%E8%AE%B0/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
+      <i class="fas fa-fw fa-columns me-1"></i>竞赛培训课笔记</a>
+</div>
+
+    <div class="post-summary"><p>2024.11.23 这里是大一的我。 自己目前还不是很能理解栈和队列的相关知识，只是简单的做一下竞赛课程的笔记。
+不是很了解，所以我就先把我目前学到的东西记录下来，以后再慢慢补充。
+我们在以后的数据结构再见吧！
+由于老师上课的速度很快，所以难免笔记会有疏漏，并且代码大部分由Marscode生成。 如果你发现有什么问题或者有什么建议，欢迎在评论区留言。
+Btw，如果你觉的这篇文章对你有帮助，不妨点个赞吧⬇️ 👍 栈(stack) 定义 线性表是具有相同数据结构的n个元素的有限序列
+栈是只允许一段进行插入或删除操作的线性表
+相关术语 栈顶：允许插入和删除的一段 栈底：不允许操作的一段 空栈：无元素
+特点：先进后出
+基本操作 线性表 初...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/notes/dsa/staker_1/">Read More</a></div>
+    </div>
+  </div>
+</article>
+<article class="row card post component">
+  <div class="card-header">
+    <h2 class="card-title post-title my-2 fs-4">
+      <a href="/docs/notes/c/pointer/">指针</a>
+    </h2>
+  </div>
+  <div class="card-body"><div class="post-meta mb-3">
+  <span class="post-date me-1 mb-1" title="created on 2024-11-18 08:08:06 &#43;0800 CST.">November 18, 2024</span><span class="post-reading-time me-1 mb-1">2 min read</span><a href="/series/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
+      <i class="fas fa-fw fa-columns me-1"></i>课堂笔记</a>
+</div>
+
+    <div class="post-summary"><p> C语言能处理一类非常特殊的数据——内存地址（常量）
+如果这篇文章有帮到你的话，不妨点个赞吧
+👍 引入 计算机内部有很多储存单元，每个储存单位都用唯一的地址编号（表示为一个整数加以区别），简称为地址
+或者说
+内存中每个字节都有一个编号——地址
+指针使程序的不同部分能共享数据（地址唯一性）
+指针 指针自身的是一个变量，内容为地址变量。指针自身被称为指针变量（也作指针）。
+指针变量指向目标变量。
+char *p,x; x = &#34;A&#34;; p = &amp;x; *为取目标运算
+&amp;为取地址运算
+空指针 int *p = 0; int p = null; 定义了一个空指针
+指向的目标变量为null
+作用 任何变量一旦定义就有值
+在不知道指针的指向时，...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/notes/c/pointer/">Read More</a></div>
+    </div>
+  </div>
+</article>
+<article class="row card post component">
   <div class="card-header">
     <h2 class="card-title post-title my-2 fs-4">
       <a href="/docs/notes/dsa/3/">排序算法</a>
@@ -705,86 +802,6 @@ git安装尽量避免中文路径，一般会因路径含中文出现以下问�
 官网速度较慢，腾讯软件中心就有，而且版本更新及时。
 https://pc.qq.com/detail/13/detail_22693.html
 三、...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%B8%80%E5%85%A5%E9%97%A8%E5%8F%8A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%9F%BA%E6%9C%AC%E5%AE%8C%E6%95%B4%E6%93%8D%E4%BD%9C/">Read More</a></div>
-    </div>
-  </div>
-</article>
-<article class="row card post component">
-  <div class="card-header">
-    <h2 class="card-title post-title my-2 fs-4">
-      <a href="/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%BA%8C%E8%8E%B7%E5%8F%96%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9B%B4%E6%96%B0/">Git基本使用教程（二）：获取更新与推送更新</a>
-    </h2>
-  </div>
-  <div class="card-body"><div class="post-meta mb-3">
-  <span class="post-date me-1 mb-1" title="created on 2024-07-05 11:34:47 &#43;0800 CST.">July 5, 2024</span><span class="post-reading-time me-1 mb-1">1 min read</span><a href="/authors/csdn_user/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-author">
-      <i class="fas fa-fw fa-user me-1"></i>CSDN_user</a><a href="/series/helpdocs/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
-      <i class="fas fa-fw fa-columns me-1"></i>HelpDocs</a><a href="/tags/git/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Git</a><a href="/tags/helpdocs/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">HelpDocs</a>
-</div>
-
-    <div class="post-summary"><p>传送门：Git基本使用教程（一）:入门及第一次基本完整操作
-官方文档：Git基础
-提示：直接使用Ctrl+F全文检索关键字，更容易找到相应命令
-①查看远程仓库:切换至某一目录，执行命令 git remote show origin 如图所示，我在Git目录下（包含两个仓库，dywhml，bysj）执行命令，将显示config文件中配置的仓库地址。
-切换目录至bysj，再看下效果
-②修改工作区文件，进行add,status,diff,commit,push 工作目录内容track了才能用git diff git diff 是工作区(work dict)和暂存区(stage)的比较 git diff –-cached 是暂存...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/helpdocs/git/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E4%BA%8C%E8%8E%B7%E5%8F%96%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9B%B4%E6%96%B0/">Read More</a></div>
-    </div>
-  </div>
-</article>
-<article class="row card post component">
-  <div class="card-header">
-    <h2 class="card-title post-title my-2 fs-4">
-      <a href="/docs/helpdocs/git/git%E7%9A%84%E4%BD%BF%E7%94%A8%E6%98%93%E6%87%82&#43;%E5%B7%A8%E6%97%A0%E6%AF%94%E8%AF%A6%E7%BB%86&#43;%E6%96%B0%E6%89%8B%E5%BF%85%E7%9C%8B/">Git的使用（易懂&#43;巨无比详细&#43;新手必看）</a>
-    </h2>
-  </div>
-  <div class="card-body"><div class="post-meta mb-3">
-  <span class="post-date me-1 mb-1" title="created on 2024-07-05 11:34:47 &#43;0800 CST.">July 5, 2024</span><span class="post-reading-time me-1 mb-1">2 min read</span><a href="/authors/csdn_user/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-author">
-      <i class="fas fa-fw fa-user me-1"></i>CSDN_user</a><a href="/series/helpdocs/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
-      <i class="fas fa-fw fa-columns me-1"></i>HelpDocs</a><a href="/tags/git/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Git</a><a href="/tags/helpdocs/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">HelpDocs</a>
-</div>
-
-    <div class="post-summary"><p>Git是用来干什么的呢？
-是用来管理代码文件的，具体是啥自行百度就行，其实你点进来你多少会对他有点了解，知道他是干嘛的~
-提示：照着本文，敲一下指令就能掌握，底层原理了解即可，主要是会用！
-01 | 下载软件 软件官网
-Git官网进口
-下载好了可以输入
-git --version
-这里可以看到git的版本，这就说明git安装成功了！
-02 | Git的命令–开发需要 首先需要熟悉linux常用基本命令！
-而常用的Git也就无非这么几个
-只要把linux命令，配合git命令（红色的记住），就能实现大部分开发需求了！
-git init:初始化
-git status：查看状态
-git add &lt;文件名&gt;：追踪文件，添加到暂存区
-git...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/helpdocs/git/git%E7%9A%84%E4%BD%BF%E7%94%A8%E6%98%93%E6%87%82+%E5%B7%A8%E6%97%A0%E6%AF%94%E8%AF%A6%E7%BB%86+%E6%96%B0%E6%89%8B%E5%BF%85%E7%9C%8B/">Read More</a></div>
-    </div>
-  </div>
-</article>
-<article class="row card post component">
-  <div class="card-header">
-    <h2 class="card-title post-title my-2 fs-4">
-      <a href="/docs/helpdocs/java/javase%E5%9F%BA%E7%A1%80%E7%AF%87%E8%B6%85%E8%AF%A6%E7%BB%86java%E5%85%A5%E9%97%A8%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/">JavaSE基础篇——超详细，Java入门，这一篇就够了-CSDN博客</a>
-    </h2>
-  </div>
-  <div class="card-body"><div class="post-meta mb-3">
-  <span class="post-date me-1 mb-1" title="created on 2024-07-05 11:34:47 &#43;0800 CST.">July 5, 2024</span><span class="post-reading-time me-1 mb-1">6 min read</span><a href="/authors/csdn_user/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-author">
-      <i class="fas fa-fw fa-user me-1"></i>CSDN_user</a><a href="/series/helpdocs/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-series">
-      <i class="fas fa-fw fa-columns me-1"></i>HelpDocs</a><a href="/tags/helpdocs/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">HelpDocs</a><a href="/tags/java/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Java</a>
-</div>
-
-    <div class="post-summary"><p> 第一节：Java语言概述 一、java背景知识 1、Java是美国sun公司（Stanford University Network）在1995年推出的一门计算机高级编程语言。
-2、Java早期被称为Oak（橡树），后期改名为Java。
-3、Java之父：詹姆斯·高斯林（James Gosling）
-4、2009年sun公司被Oracle（甲骨文）公司收购
-二、为什么用Java 1、世界上最流行的编程语言之一，在国内使用最为广泛的编程语言
-2、可移植性、安全可靠、性能较好
-3、开发社区最完善，功能最丰富
-三、JAVA能干什么 1、桌面应用开发
-2、企业级应用开发
-3、移动应用开发
-4、服务器系统
-5、大数据开发
-6、游戏开发
-...</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/docs/helpdocs/java/javase%E5%9F%BA%E7%A1%80%E7%AF%87%E8%B6%85%E8%AF%A6%E7%BB%86java%E5%85%A5%E9%97%A8%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86-csdn%E5%8D%9A%E5%AE%A2/">Read More</a></div>
     </div>
   </div>
 </article>
