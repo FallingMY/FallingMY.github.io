@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="amie,amie card,felica,accessCode,IDM code,convert">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FeliCa Code 转换器</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 520px;
+            width: 100%;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1a1a2e;
+            margin-bottom: 30px;
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        /* 标签页切换 */
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 25px;
+            background: #f1f3f4;
+            padding: 6px;
+            border-radius: 12px;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 12px 16px;
+            border: none;
+            background: transparent;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #5f6368;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .tab:hover {
+            color: #1a1a2e;
+        }
+
+        .tab.active {
+            background: #fff;
+            color: #228be6;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 转换面板 */
+        .panel {
+            display: none;
+        }
+
+        .panel.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px 16px;
+            padding-right: 60px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 18px;
+            font-family: "Consolas", "Monaco", monospace;
+            letter-spacing: 1px;
+            transition: all 0.25s ease;
+            background: #fff;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #4dabf7;
+            box-shadow: 0 0 0 4px rgba(77, 171, 247, 0.15);
+        }
+
+        input.error {
+            border-color: #ff6b6b;
+            animation: shake 0.4s ease;
+        }
+
+        input.success {
+            border-color: #51cf66;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            20%,
+            60% {
+                transform: translateX(-6px);
+            }
+
+            40%,
+            80% {
+                transform: translateX(6px);
+            }
+        }
+
+        .char-count {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 12px;
+            color: #adb5bd;
+            font-family: "Consolas", monospace;
+            pointer-events: none;
+            transition: color 0.2s;
+        }
+
+        .char-count.complete {
+            color: #51cf66;
+        }
+
+        .hint {
+            font-size: 12px;
+            color: #868e96;
+            margin-top: 6px;
+            transition: all 0.2s;
+        }
+
+        .hint.error-hint {
+            color: #ff6b6b;
+        }
+
+        .convert-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #4dabf7 0%, #228be6 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .convert-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(34, 139, 230, 0.4);
+        }
+
+        .convert-btn:active:not(:disabled) {
+            transform: translateY(0);
+        }
+
+        .convert-btn:disabled {
+            background: #adb5bd;
+            cursor: not-allowed;
+        }
+
+        .convert-btn .btn-text {
+            transition: opacity 0.2s;
+        }
+
+        .convert-btn.loading .btn-text {
+            opacity: 0;
+        }
+
+        .convert-btn .spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .convert-btn.loading .spinner {
+            opacity: 1;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        .result-section {
+            margin-top: 25px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            display: none;
+        }
+
+        .result-section.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .result-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #868e96;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .result-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+        }
+
+        .result-item:not(:last-child) {
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .result-item .result-info {
+            flex: 1;
+        }
+
+        .result-code {
+            font-family: "Consolas", "Monaco", monospace;
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a2e;
+            letter-spacing: 1.5px;
+            word-break: break-all;
+        }
+
+        .result-note {
+            font-size: 12px;
+            color: #868e96;
+            margin-top: 4px;
+        }
+
+        .result-note.primary {
+            color: #40c057;
+        }
+
+        .copy-btn {
+            padding: 8px 14px;
+            background: #228be6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            flex-shrink: 0;
+        }
+
+        .copy-btn:hover {
+            background: #1c7ed6;
+            transform: scale(1.02);
+        }
+
+        .copy-btn.copied {
+            background: #40c057;
+        }
+
+        .copy-btn svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .ambiguity-warning {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 12px 14px;
+            background: #fff3cd;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            color: #856404;
+        }
+
+        .ambiguity-warning svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #1a1a2e;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .toast.success {
+            background: linear-gradient(135deg, #40c057 0%, #2f9e44 100%);
+        }
+
+        .toast.error {
+            background: linear-gradient(135deg, #ff6b6b 0%, #e03131 100%);
+        }
+
+        .toast svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .info {
+            text-align: center;
+            color: #adb5bd;
+            font-size: 12px;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .info a {
+            text-decoration: none;
+            color: #228be6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>FeliCa Code 转换器</h1>
+
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('idm2ac')">
+                IDM → Access Code
+            </button>
+            <button class="tab" onclick="switchTab('ac2idm')">
+                Access Code → IDM
+            </button>
+        </div>
+
+        <!-- IDM → Access Code -->
+        <div class="panel active" id="panel-idm2ac">
+            <div class="input-group">
+                <label for="idmInput">IDM (十六进制)</label>
+                <div class="input-wrapper">
+                    <input type="text" id="idmInput" placeholder="输入 IDM 值" maxlength="16" autocomplete="off"
+                        spellcheck="false" />
+                    <span class="char-count" id="idmCharCount">0/16</span>
+                </div>
+                <p class="hint" id="idmHint">支持 1-16 位十六进制字符 (0-9, A-F)</p>
+            </div>
+            <button class="convert-btn" id="idmConvertBtn" onclick="convertIdmToAc()">
+                <span class="btn-text">转换</span>
+                <div class="spinner"></div>
+            </button>
+            <div class="result-section" id="idmResultSection">
+                <div class="result-label">Access Code</div>
+                <div class="result-item">
+                    <div class="result-info">
+                        <div class="result-code" id="idmResultCode"></div>
+                    </div>
+                    <button class="copy-btn" onclick="copyText(this, 'idmResultCode')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        <span>复制</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Access Code → IDM -->
+        <div class="panel" id="panel-ac2idm">
+            <div class="input-group">
+                <label for="acInput">Access Code (数字)</label>
+                <div class="input-wrapper">
+                    <input type="text" id="acInput" placeholder="输入 Access Code" maxlength="20" autocomplete="off"
+                        spellcheck="false" />
+                    <span class="char-count" id="acCharCount">0/20</span>
+                </div>
+                <p class="hint" id="acHint">支持 1-20 位数字</p>
+            </div>
+            <button class="convert-btn" id="acConvertBtn" onclick="convertAcToIdm()">
+                <span class="btn-text">转换</span>
+                <div class="spinner"></div>
+            </button>
+            <div class="result-section" id="acResultSection">
+                <div id="acResultContent"></div>
+            </div>
+        </div>
+
+        <div class="info">
+            <span>基于
+                <a
+                    href="https://dev.s-ul.net/NeumPhis/aqua/-/blob/master/src/main/java/icu/samnyan/aqua/sega/aimedb/handler/impl/FeliCaLookupHandler.java#L44">FeliCaLookupHandler</a>
+                转换逻辑</span>
+
+            <span><br>Coded By Cluade | </span>
+            <span><a href="https://github.com/FallingMY">My Github</a></span>
+            <span> | </span>
+            <span><a href="https://fallingmy.github.io/">My Blog</a></span>
+        </div>
+    </div>
+
+    <div class="toast" id="toast">
+        <svg id="toastIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"></svg>
+        <span id="toastText"></span>
+    </div>
+
+    <script>
+        // 常量
+        const MAX_POSITIVE = BigInt("9223372036854775807"); // 0x7FFFFFFFFFFFFFFF
+        const TWO_POW_64 = BigInt("18446744073709551616"); // 2^64
+
+        // ========== 标签页切换 ==========
+        function switchTab(tabId) {
+            document.querySelectorAll(".tab").forEach((t, i) => {
+                t.classList.toggle(
+                    "active",
+                    (tabId === "idm2ac" && i === 0) || (tabId === "ac2idm" && i === 1)
+                );
+            });
+            document
+                .querySelectorAll(".panel")
+                .forEach((p) => p.classList.remove("active"));
+            document.getElementById("panel-" + tabId).classList.add("active");
+
+            // 聚焦对应输入框
+            if (tabId === "idm2ac") {
+                document.getElementById("idmInput").focus();
+            } else {
+                document.getElementById("acInput").focus();
+            }
+        }
+
+        // ========== IDM → Access Code ==========
+        const idmInput = document.getElementById("idmInput");
+        const idmCharCount = document.getElementById("idmCharCount");
+        const idmHint = document.getElementById("idmHint");
+        const idmConvertBtn = document.getElementById("idmConvertBtn");
+        const idmResultSection = document.getElementById("idmResultSection");
+        const idmResultCode = document.getElementById("idmResultCode");
+
+        idmInput.addEventListener("input", function () {
+            let value = this.value.toUpperCase().replace(/[^0-9A-F]/g, "");
+            this.value = value;
+            idmCharCount.textContent = `${value.length}/16`;
+            idmCharCount.classList.toggle("complete", value.length === 16);
+            this.classList.remove("error", "success");
+            idmHint.classList.remove("error-hint");
+            idmHint.textContent = "支持 1-16 位十六进制字符 (0-9, A-F)";
+            idmConvertBtn.disabled = value.length === 0;
+        });
+
+        idmInput.addEventListener("keypress", function (e) {
+            if (e.key === "Enter" && this.value.length > 0) convertIdmToAc();
+        });
+
+        function convertIdmToAc() {
+            const value = idmInput.value.trim();
+            if (!value) {
+                showInputError(idmInput, idmHint, "请输入 IDM 值");
+                return;
+            }
+            if (!/^[0-9A-F]+$/i.test(value)) {
+                showInputError(idmInput, idmHint, "请输入有效的十六进制字符");
+                return;
+            }
+
+            idmConvertBtn.classList.add("loading");
+            idmConvertBtn.disabled = true;
+
+            setTimeout(() => {
+                try {
+                    const idm = value.padStart(16, "0");
+                    let longValue = BigInt("0x" + idm);
+
+                    // 处理有符号 long
+                    if (longValue > MAX_POSITIVE) {
+                        longValue = longValue - TWO_POW_64;
+                    }
+
+                    let accessCode = longValue.toString().replace("-", "");
+                    accessCode = accessCode.padStart(20, "0");
+
+                    idmResultCode.textContent = accessCode;
+                    idmResultSection.classList.add("show");
+                    idmInput.classList.add("success");
+                    showToast("转换成功", "success");
+                } catch (err) {
+                    showInputError(idmInput, idmHint, "转换失败");
+                }
+
+                idmConvertBtn.classList.remove("loading");
+                idmConvertBtn.disabled = false;
+            }, 200);
+        }
+
+        // ========== Access Code → IDM ==========
+        const acInput = document.getElementById("acInput");
+        const acCharCount = document.getElementById("acCharCount");
+        const acHint = document.getElementById("acHint");
+        const acConvertBtn = document.getElementById("acConvertBtn");
+        const acResultSection = document.getElementById("acResultSection");
+        const acResultContent = document.getElementById("acResultContent");
+
+        acInput.addEventListener("input", function () {
+            let value = this.value.replace(/[^0-9]/g, "");
+            this.value = value;
+            acCharCount.textContent = `${value.length}/20`;
+            acCharCount.classList.toggle("complete", value.length === 20);
+            this.classList.remove("error", "success");
+            acHint.classList.remove("error-hint");
+            acHint.textContent = "支持 1-20 位数字";
+            acConvertBtn.disabled = value.length === 0;
+        });
+
+        acInput.addEventListener("keypress", function (e) {
+            if (e.key === "Enter" && this.value.length > 0) convertAcToIdm();
+        });
+
+        function convertAcToIdm() {
+            const value = acInput.value.trim();
+            if (!value) {
+                showInputError(acInput, acHint, "请输入 Access Code");
+                return;
+            }
+            if (!/^\d+$/.test(value)) {
+                showInputError(acInput, acHint, "请输入有效的数字");
+                return;
+            }
+
+            acConvertBtn.classList.add("loading");
+            acConvertBtn.disabled = true;
+
+            setTimeout(() => {
+                try {
+                    const results = accessCodeToIdm(value);
+                    renderAcResults(results);
+                    acResultSection.classList.add("show");
+                    acInput.classList.add("success");
+                    showToast("转换成功", "success");
+                } catch (err) {
+                    showInputError(acInput, acHint, "转换失败");
+                }
+
+                acConvertBtn.classList.remove("loading");
+                acConvertBtn.disabled = false;
+            }, 200);
+        }
+
+        function accessCodeToIdm(accessCode) {
+            // 去掉前导零
+            accessCode = accessCode.replace(/^0+/, "") || "0";
+            const value = BigInt(accessCode);
+            const results = [];
+
+            if (value > MAX_POSITIVE) {
+                // 数值超过 long 最大正值，必定是负数的绝对值
+                // 原始 long = -value，转换为无符号表示
+                const unsigned = TWO_POW_64 - value;
+                results.push({
+                    idm: unsigned.toString(16).toUpperCase().padStart(16, "0"),
+                    note: "唯一结果",
+                    primary: true,
+                });
+            } else {
+                // 可能是正数或负数
+                // 正数情况：直接转换
+                results.push({
+                    idm: value.toString(16).toUpperCase().padStart(16, "0"),
+                    note: "假设原值为正数（更常见）",
+                    primary: true,
+                });
+
+                // 负数情况（仅当 value > 0 时有意义）
+                if (value > 0n) {
+                    const unsigned = TWO_POW_64 - value;
+                    results.push({
+                        idm: unsigned.toString(16).toUpperCase().padStart(16, "0"),
+                        note: "假设原值为负数",
+                        primary: false,
+                    });
+                }
+            }
+
+            return results;
+        }
+
+        function renderAcResults(results) {
+            let html = "";
+
+            // 如果有多个结果，显示提示
+            if (results.length > 1) {
+                html += `
+                    <div class="ambiguity-warning">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                        <span>由于转换过程中负号丢失，存在两种可能的结果。通常 FeliCa 卡使用正数范围的 IDM。</span>
+                    </div>
+                `;
+            }
+
+            html += '<div class="result-label">可能的 IDM</div>';
+
+            results.forEach((result, index) => {
+                html += `
+                    <div class="result-item">
+                        <div class="result-info">
+                            <div class="result-code" id="acResult${index}">${result.idm
+                    }</div>
+                            <div class="result-note ${result.primary ? "primary" : ""
+                    }">${result.note}</div>
+                        </div>
+                        <button class="copy-btn" onclick="copyText(this, 'acResult${index}')">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                            <span>复制</span>
+                        </button>
+                    </div>
+                `;
+            });
+
+            acResultContent.innerHTML = html;
+        }
+
+        // ========== 通用函数 ==========
+        function showInputError(input, hint, message) {
+            input.classList.add("error");
+            hint.classList.add("error-hint");
+            hint.textContent = message;
+            showToast(message, "error");
+        }
+
+        async function copyText(btn, elementId) {
+            const text = document.getElementById(elementId).textContent;
+            if (!text) return;
+
+            try {
+                await navigator.clipboard.writeText(text);
+                btn.classList.add("copied");
+                btn.querySelector("span").textContent = "已复制";
+                btn.querySelector("svg").innerHTML =
+                    '<polyline points="20 6 9 17 4 12"></polyline>';
+                showToast("已复制到剪贴板", "success");
+
+                setTimeout(() => {
+                    btn.classList.remove("copied");
+                    btn.querySelector("span").textContent = "复制";
+                    btn.querySelector("svg").innerHTML =
+                        '<rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>';
+                }, 2000);
+            } catch (err) {
+                showToast("复制失败", "error");
+            }
+        }
+
+        function showToast(message, type = "success") {
+            const toast = document.getElementById("toast");
+            const toastIcon = document.getElementById("toastIcon");
+            const toastText = document.getElementById("toastText");
+
+            toast.className = "toast " + type;
+            toastText.textContent = message;
+
+            if (type === "success") {
+                toastIcon.innerHTML = '<polyline points="20 6 9 17 4 12"></polyline>';
+            } else {
+                toastIcon.innerHTML =
+                    '<circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line>';
+            }
+
+            toast.classList.add("show");
+            setTimeout(() => toast.classList.remove("show"), 2500);
+        }
+
+        // 页面加载时聚焦
+        window.onload = () => idmInput.focus();
+    </script>
+</body>
+
+</html>
